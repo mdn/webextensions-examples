@@ -1,0 +1,23 @@
+html, body {
+  height: 100px;
+  width: 100px;
+  margin: 0;
+}
+
+.color-choice {
+  height: 30%;
+  width: 90%;
+  margin: 2% auto;
+}
+
+#red {
+  background-color: red;
+}
+
+#green {
+  background-color: green;
+}
+
+#blue {
+  background-color: blue;
+}

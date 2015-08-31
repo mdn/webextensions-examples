@@ -1,0 +1,17 @@
+{
+
+  "manifest_version": 2,
+  "name": "Borderify",
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab", "tabs"
+  ],  
+
+  "browser_action": {
+    "default_icon": "images/borders.png",
+    "default_title": "Borderify",
+    "default_popup": "popup/choose_color.html"
+  }
+
+}
