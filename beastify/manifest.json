@@ -11,7 +11,7 @@
   "browser_action": {
     "default_icon": "button/beasts.png",
     "default_title": "Beastify",
-    "default_popup": "button/popup/choose_beast.html"
+    "default_popup": "popup/choose_beast.html"
   },
   
   "web_accessible_resources": [

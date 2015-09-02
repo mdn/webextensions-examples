@@ -1,4 +1,4 @@
-
+// Assign beastify() as a listener for messages from the extension.
 chrome.runtime.onMessage.addListener(beastify);
   
 function beastify(request, sender, sendResponse) {
@@ -8,7 +8,7 @@ function beastify(request, sender, sendResponse) {
     images[i].setAttribute("src", beastURL);
   }
   
-  document.body.style.backgroundImage = "url(" + beastURL + ")";
+  chrome.runtime.onMessage.removeListener(beastify);
 }
 
 function beastNameToURL(beastName) {
