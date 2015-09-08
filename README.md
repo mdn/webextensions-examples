@@ -5,7 +5,7 @@ This repository contains 2 examples: beastify and borderify.
 
 ## beastify ##
 
-An example to accompany a [https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Walkthrough](walkthrough tutorial on MDN).
+An example to accompany a [walkthrough tutorial on MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Walkthrough).
 
 Please note that at the moment, this example doesn't work in Firefox due to some bugs, so the manifest.json does not include the "applications" key. When the relevant Firefox bugs are fixed, I'll add the "applications" key so it installs in Firefox.
 
