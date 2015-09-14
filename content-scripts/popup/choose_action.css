@@ -1,0 +1,20 @@
+html, body {
+  height: 100px;
+  width: 300px;
+  margin: 0;
+}
+
+.action {
+  height: 30%;
+  width: 90%;
+  margin: 3% auto;
+  padding-top: 6%;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #E5F2F2;
+  cursor: pointer;
+}
+
+.action:hover {
+  background-color: #CFF2F2;
+}

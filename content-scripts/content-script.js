@@ -4,25 +4,25 @@ function handleMessage(request, sender, sendResponse) {
   switch(request.name) {
     case "highlight-para":
       highlightPara();
+      break;
     case "show-foo":
       showFoo();
-    case "show-confirm":
-      showConfirm();
+      break;
+    case "call-confirm":
+      callConfirm();
     }
   }
 
 function highlightPara() {
-
+  var pageScriptPara = document.getElementById("page-script-para");
+  pageScriptPara.style.backgroundColor = "blue";
 }
 
+function showFoo() {
+  var output = document.getElementById("output");
+  output.textContent = "window.foo=" + window.foo;
+}
 
-function beastNameToURL(beastName) {
-  switch (beastName) {
-    case "Frog":
-      return chrome.extension.getURL("beasts/frog.jpg");
-    case "Snake":
-      return chrome.extension.getURL("beasts/snake.jpg");
-    case "Turtle":
-      return chrome.extension.getURL("beasts/turtle.jpg");
-  }
+function callConfirm() {
+  window.confirm("Are you sure?");
 }
