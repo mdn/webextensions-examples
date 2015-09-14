@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Content scripting",
+  "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "content-scripts@mozilla.org"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://mdn.github.io/webextensions-examples/"],
+      "js": ["content-script.js"]
+    }
+  ]
+
+}
