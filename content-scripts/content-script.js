@@ -19,9 +19,13 @@ var callConfirmButton = makeButton(
   callConfirm);
   
 contentScriptControls.appendChild(title);
+contentScriptControls.appendChild(document.createElement("br"));
 contentScriptControls.appendChild(highlightParaButton);
+contentScriptControls.appendChild(document.createElement("br"));
 contentScriptControls.appendChild(showFooButton);
+contentScriptControls.appendChild(document.createElement("br"));
 contentScriptControls.appendChild(callConfirmButton);
+contentScriptControls.appendChild(document.createElement("br"));
 
 function makeButton(buttonId, buttonValue, buttonCommand) {
   var button = document.createElement("input");
