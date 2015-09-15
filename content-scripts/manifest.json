@@ -15,11 +15,5 @@
       "matches": ["https://mdn.github.io/webextensions-examples/"],
       "js": ["content-script.js"]
     }
-  ],
-  
-  "browser_action": {
-    "default_icon": "button/action.png",
-    "default_popup": "popup/choose_action.html"
-  }
-
+  ]
 }
