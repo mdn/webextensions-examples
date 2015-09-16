@@ -4,6 +4,12 @@
   "name": "Beastify",
   "version": "1.0",
 
+  "applications": {
+    "gecko": {
+      "id": "beastify@mozilla.org"
+    }
+  },
+
   "permissions": [
     "activeTab" 
   ],  

@@ -1,0 +1,24 @@
+{
+
+  "manifest_version": 2,
+  "name": "Content scripting",
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "notify-link-clicks@mozilla.org"
+    }
+  },
+  
+  "permissions": ["notifications"],
+
+  "background": {
+    "scripts": ["background-script.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["content-script.js"]
+    }
+  ]
+}
