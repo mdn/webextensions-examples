@@ -1,0 +1,25 @@
+{
+
+  "manifest_version": 2,
+  "name": "open-my-page",
+  "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "open-my-page-button@mozilla.org"
+    }
+  },
+
+  "permissions": [
+    "tabs" 
+  ],
+  
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "button/beasts.png"
+  }
+
+}
