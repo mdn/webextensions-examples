@@ -66,5 +66,5 @@ All it does is: when the user clicks the button, open "my-page.html" in a new ta
 
 ### What it shows ###
 
-    how to listen for browser action clicks in a background script
-    how to open a page packaged with your extension
+* how to listen for browser action clicks in a background script
+* how to open a page packaged with your extension
