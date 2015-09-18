@@ -77,8 +77,8 @@ This extension includes:
 
 The content script listens for messages from the same window posted using window.postMessage. When the content script receives such a message, it displays an alert.
 
-To test it out, visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html and press the button.
+To test it out, visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html and press the buttons. One button sends a message from the page script to the content script, the other button sends a message in the other direction.
 
 ### What it shows ###
 
-* how to send a message from a page script to a content script
+* how to send a message between page scripts and content scripts
