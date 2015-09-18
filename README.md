@@ -17,7 +17,7 @@ When they choose, the extension injects the content script into the current page
 
 When the content script receives this message, it replaces all <IMG> elements in the current page with the packaged image that corresponds to the chosen beast.
 
-### What it shows ###
+**What it shows**
 
 * how to write a browser action with a popup
 * how to give the popup style and behavior using CSS and JS
@@ -33,7 +33,7 @@ This extension just includes:
 
 The content script draws a border around the document.body.
 
-### What it shows ###
+**What it shows**
 
 * how to inject content scripts declaratively using manifest.json
 
@@ -48,7 +48,7 @@ The content script listens for clicks in the page it's attached to. If a click i
 
 The background script listens for this message. When it receives one, it displays a notification containing the href.
 
-### What it shows ###
+**What it shows**
 
 * how to inject content scripts declaratively using manifest.json
 * how to send messages from a content script to a background script
@@ -64,7 +64,7 @@ This extension includes:
 
 All it does is: when the user clicks the button, open "my-page.html" in a new tab.
 
-### What it shows ###
+**What it shows**
 
 * how to listen for browser action clicks in a background script
 * how to open a page packaged with your extension
@@ -79,6 +79,6 @@ The content script listens for messages from the same window posted using window
 
 To test it out, visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html and press the buttons. One button sends a message from the page script to the content script, the other button sends a message in the other direction.
 
-### What it shows ###
+**What it shows**
 
-* how to send a message between page scripts and content scripts
+* how to send messages between page scripts and content scripts
