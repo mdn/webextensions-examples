@@ -68,3 +68,17 @@ All it does is: when the user clicks the button, open "my-page.html" in a new ta
 
 * how to listen for browser action clicks in a background script
 * how to open a page packaged with your extension
+
+## page-to-extension-messaging ##
+
+This extension includes:
+
+* a content script, which is injected only into: "https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html"
+
+The content script listens for messages from the same window posted using window.postMessage. When the content script receives such a message, it displays an alert.
+
+To test it out, visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html and press the button.
+
+### What it shows ###
+
+* how to send a message from a page script to a content script

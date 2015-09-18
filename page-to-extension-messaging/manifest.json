@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Page to extension messaging",
+  "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "page-to-extension-messaging@mozilla.org"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html"],
+      "js": ["content-script.js"]
+    }
+  ]
+
+}
