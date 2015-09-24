@@ -1,5 +1,5 @@
 # webextensions-examples
-Example Firefox add-ons created using the WebExtensions API.
+Example Firefox add-ons created using the [WebExtensions](https://wiki.mozilla.org/WebExtensions) API.
 
 ## beastify ##
 
