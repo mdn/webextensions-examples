@@ -11,7 +11,8 @@
   },
 
   "permissions": [
-    "activeTab" 
+    "http://*/*",
+    "https://*/*"
   ],  
 
   "browser_action": {
