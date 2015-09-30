@@ -1,7 +1,13 @@
 # webextensions-examples
-Example Firefox add-ons created using the [WebExtensions](https://wiki.mozilla.org/WebExtensions) API.
+Example Firefox add-ons created using the [WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) API.
+
+Before you try out these extensions, read about [prerequisites](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Prerequisites).
+
+To test out an extension in Firefox, see [Packaging and Installation](/en-US/Add-ons/WebExtensions/Packaging_and_installation).
 
 ## beastify ##
+
+**Note that this example does not currently work in Firefox.**
 
 An example to accompany a [walkthrough tutorial on MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Walkthrough).
 
