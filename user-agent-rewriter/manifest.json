@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "user-agent-rewriter",
+  "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "user-agent-rewriter@mozilla.org"
+    }
+  },
+
+  "permissions": [
+    "webRequest", "webRequestBlocking", "http://useragentstring.com/*" 
+  ],
+  
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "browser_action": {
+    "default_icon": "button/choose_ua.png",
+    "default_title": "Choose a user agent",
+    "default_popup": "popup/choose_ua.html"
+  }
+
+}
