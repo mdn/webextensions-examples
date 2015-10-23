@@ -22,7 +22,9 @@
   },
   
   "web_accessible_resources": [
-    "beasts/*.jpg"
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
   ]
 
 }
