@@ -19,7 +19,7 @@ document.addEventListener("click", function(e) {
 
   var chosenBeast = e.target.textContent;
   
-  chrome.tabs.executeScript({
+  chrome.tabs.executeScript(null, {
     file: "content_scripts/beastify.js" 
   }, setBeast);
 
