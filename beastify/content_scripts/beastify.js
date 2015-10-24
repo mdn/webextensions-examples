@@ -1,14 +1,23 @@
 // Assign beastify() as a listener for messages from the extension.
 chrome.runtime.onMessage.addListener(beastify);
-  
+
 function beastify(request, sender, sendResponse) {
-  var beastURL = beastNameToURL(request.beast);
-  var images = document.querySelectorAll("img");
-  for (var i = 0; i < images.length; ++i) {
-    images[i].setAttribute("src", beastURL);
+  removeEverything();
+  insertBeast(beastNameToURL(request.beast));
+}
+
+function removeEverything() {
+  while (document.body.firstChild) {
+    document.body.firstChild.remove();
   }
-  
-  chrome.runtime.onMessage.removeListener(beastify);
+}
+
+function insertBeast(beastURL) {
+  var beastImage = document.createElement("img");
+  beastImage.setAttribute("src", beastURL);
+  beastImage.setAttribute("style", "width: 100vw");
+  beastImage.setAttribute("style", "height: 100vh");
+  document.body.appendChild(beastImage);
 }
 
 function beastNameToURL(beastName) {
