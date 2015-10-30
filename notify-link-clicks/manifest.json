@@ -17,7 +17,7 @@
   
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
+      "matches": ["<all_urls>"],
       "js": ["content-script.js"]
     }
   ]
