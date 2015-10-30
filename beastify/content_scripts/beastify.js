@@ -4,6 +4,7 @@ chrome.runtime.onMessage.addListener(beastify);
 function beastify(request, sender, sendResponse) {
   removeEverything();
   insertBeast(beastNameToURL(request.beast));
+  chrome.runtime.onMessage.removeListener(beastify);
 }
 
 function removeEverything() {
