@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang=en-us>
+  <head>
+    <meta charset=utf-8>
+    <title>Whimsy DevTools  ☕️ ✨ 🚲</title>
+  </head>
+  <body>
+  </body>
+  <script>
+  console.log('DevTools!', chrome.extension.getURL('images/whimsycorn-128.png'));
+  chrome.devtools.panels.create('Whimsy  ☕️ ✨ 🚲',
+    chrome.extension.getURL('images/whimsycorn-128.png'),
+    'http://chilloutandwatchsomecatgifs.com/',
+    function(panel) {
+      console.log("BW", panel);
+    });
+</script>
+</html>

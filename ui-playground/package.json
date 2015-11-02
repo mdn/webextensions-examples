@@ -1,0 +1,29 @@
+{
+  "name": "ui-playground",
+  "license": "MPL-2.0",
+  "version": "0.0.1",
+  "shortName": "UI Playground ☕️ ✨ 🚲",
+  "description": "Test various WebExtension features. ☕️ ✨ 🚲",
+  "author": "Blake Winton <bwinton@latte.ca>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bwinton/whimsy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bwinton/whimsy/issues"
+  },
+  "keywords": [
+    "ui",
+    "playground",
+    "webextension",
+    "addon"
+  ],
+  "homepage": "https://github.com/bwinton/whimsy",
+  "devDependencies": {
+    "gulp-babel": "^5.2.1",
+    "gulp-config-sync": "^1.0.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-zip": "3.0.2",
+    "merge-stream": "^1.0.0"
+  }
+}

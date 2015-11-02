@@ -1,0 +1,74 @@
+{
+  "manifest_version": 2,
+
+  "icons": {
+      "19": "images/whimsycorn-48.png",
+      "38": "images/whimsycorn-128.png",
+
+      "16": "images/whimsycorn-18.png",
+      "48": "images/whimsycorn-48.png",
+      "128": "images/whimsycorn-128.png",
+
+      "32": "images/whimsycorn-32.png",
+      "64": "images/whimsycorn-64.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "ui-playground@mozilla",
+      "strict_min_version": "40.0.0"
+    }
+  },
+
+  "permissions": [
+    "tabs",
+    "alarms",
+    "notifications",
+    "bookmarks"
+  ],
+
+  "content_scripts": [{
+      "matches": ["*://*.mozilla.org/*", "*://*.chilloutandwatchsomecatgifs.com/*"],
+      "js": ["notify.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "19": "images/whimsycorn-48.png",
+      "38": "images/whimsycorn-128.png",
+
+      "16": "images/whimsycorn-18.png",
+      "48": "images/whimsycorn-48.png",
+      "128": "images/whimsycorn-128.png",
+
+      "32": "images/whimsycorn-32.png",
+      "64": "images/whimsycorn-64.png"
+    },
+    "default_title": "Whimsy!  ☕️ ✨ 🚲",
+    "default_popup": "catgifs.html"
+  },
+
+  "page_action": {
+    "default_icon": {
+      "19": "images/whimsycorn-48.png",
+      "38": "images/whimsycorn-128.png",
+
+      "16": "images/whimsycorn-18.png",
+      "48": "images/whimsycorn-48.png",
+      "128": "images/whimsycorn-128.png",
+
+      "32": "images/whimsycorn-32.png",
+      "64": "images/whimsycorn-64.png"
+    },
+    "default_title": "Whimsy!  ☕️ ✨ 🚲",
+    "default_popup": "catgifs.html"
+  },
+
+  "devtools_page": "devtools.html"
+}
