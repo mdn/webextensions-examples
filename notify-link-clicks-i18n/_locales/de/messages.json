@@ -1,0 +1,10 @@
+{
+  "notify-title": {
+    "message": "My hovercraft is full of eels",
+    "description": "Title of the click notification"
+  },
+  "notify-content": {
+    "message": "$1 was the link you clicked",
+    "description": "Tells the user which link they clicked: the placeholder is the url"
+  }
+}

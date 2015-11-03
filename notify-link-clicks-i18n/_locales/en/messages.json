@@ -1,0 +1,10 @@
+{
+  "notify-title": {
+    "message": "Click notification",
+    "description": "Title of the click notification"
+  },
+  "notify-content": {
+    "message": "You clicked $1",
+    "description": "Tells the user which link they clicked: the placeholder is the url"
+  }
+}

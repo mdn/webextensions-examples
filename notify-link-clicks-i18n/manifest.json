@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "Notify link clicks",
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "notify-link-clicks@mozilla.org"
+    }
+  },
+  
+  "permissions": ["notifications"],
+
+  "background": {
+    "scripts": ["background-script.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ],
+  
+  "default_locale": "en"
+}
