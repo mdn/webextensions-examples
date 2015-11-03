@@ -1,14 +1,15 @@
 {
 
   "manifest_version": 2,
-  "name": "Notify link clicks",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "applications": {
     "gecko": {
       "id": "notify-link-clicks@mozilla.org"
     }
   },
-  
+
   "permissions": ["notifications"],
 
   "background": {

@@ -1,9 +1,20 @@
 {
-  "notify-title": {
+  "extensionName": {
+    "message": "Notify link clicks",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Shows a notification when the user clicks on links, on mozilla.org pages.",
+    "description": "Description of the extension."
+  },
+
+  "notificationTitle": {
     "message": "Click notification",
     "description": "Title of the click notification"
   },
-  "notify-content": {
+
+  "notificationContent": {
     "message": "You clicked $1",
     "description": "Tells the user which link they clicked: the placeholder is the url"
   }
