@@ -8,10 +8,10 @@
   },
 
   "notificationTitle": {
-    "message": "My hovercraft is full of eels",
+    "message": "Click notification, in German",
   },
 
   "notificationContent": {
-    "message": "$1 was the link you clicked",
+    "message": "You clicked $1, in German",
   }
 }
