@@ -5,17 +5,17 @@
   },
 
   "extensionDescription": {
-    "message": "Shows a notification when the user clicks on links, on mozilla.org pages.",
+    "message": "Shows a notification when the user clicks on links.",
     "description": "Description of the extension."
   },
 
   "notificationTitle": {
     "message": "Click notification",
-    "description": "Title of the click notification"
+    "description": "Title of the click notification."
   },
 
   "notificationContent": {
     "message": "You clicked $1",
-    "description": "Tells the user which link they clicked: the placeholder is the url"
+    "description": "Tells the user which link they clicked: the $1 placeholder is the url."
   }
 }

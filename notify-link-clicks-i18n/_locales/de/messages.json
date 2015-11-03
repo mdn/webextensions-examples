@@ -1,21 +1,17 @@
 {
   "extensionName": {
-    "message": "My German-language example extension",
-    "description": "Name of the extension."
+    "message": "My German-language example extension"
   },
 
   "extensionDescription": {
     "message": "Notifies the user of link clicks, in German",
-    "description": "Description of the extension."
   },
 
   "notificationTitle": {
     "message": "My hovercraft is full of eels",
-    "description": "Title of the click notification."
   },
 
   "notificationContent": {
     "message": "$1 was the link you clicked",
-    "description": "Tells the user which link they clicked: the placeholder is the url."
   }
 }
