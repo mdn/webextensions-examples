@@ -1,17 +1,17 @@
 {
   "extensionName": {
-    "message": "Meine deutschsprachige Beispielerweiterung"
+    "message": "Meine Beispielerweiterung"
   },
 
   "extensionDescription": {
-    "message": "Benachrichtigt den Benutzer über Linkklicks, auf deutsch",
+    "message": "Benachrichtigt den Benutzer über Linkklicks",
   },
 
   "notificationTitle": {
-    "message": "Klickbenachrichtigung, auf deutsch",
+    "message": "Klickbenachrichtigung",
   },
 
   "notificationContent": {
-    "message": "Du hast $1 angeklickt, auf deutsch",
+    "message": "Du hast $1 angeklickt",
   }
 }
