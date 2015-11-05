@@ -1,21 +1,21 @@
 {
   "extensionName": {
-    "message": "Notify link clicks",
+    "message": "Meld klikken op hyperlinks",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "Shows a notification when the user clicks on links.",
+    "message": "Toon een melding wanneer een gebruiker op hyperlinks klikt.",
     "description": "Description of the extension."
   },
 
   "notificationTitle": {
-    "message": "Click notification",
+    "message": "Klikmelding",
     "description": "Title of the click notification."
   },
 
   "notificationContent": {
-    "message": "You clicked $1.",
+    "message": "U klikte op $1",
     "description": "Tells the user which link they clicked: the $1 placeholder is the url."
   }
 }
