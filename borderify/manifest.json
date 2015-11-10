@@ -4,6 +4,7 @@
   "manifest_version": 2,
   "name": "Borderify",
   "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
 
   "applications": {
     "gecko": {
