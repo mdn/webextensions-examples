@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Page to extension messaging",
-  "description": "Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo.",
+  "description": "Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#page-to-extension-messaging",
   "version": "1.0",
 
   "applications": {

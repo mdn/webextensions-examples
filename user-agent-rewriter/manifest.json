@@ -1,5 +1,6 @@
 {
 
+  "description": "Adds browser action icon to toolbar to choose user agent string from popup menu. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#user-agent-rewriter",
   "manifest_version": 2,
   "name": "user-agent-rewriter",
   "version": "1.0",
