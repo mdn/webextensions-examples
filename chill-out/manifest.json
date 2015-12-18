@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "chillout-page-action",
+  "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "chillout-page-action@mozilla.org"
+    }
+  },
+
+  "permissions": [
+    "tabs"
+  ],  
+
+  "page_action": {
+    "default_icon": "button/chillout.png",
+    "default_title": "Chill out"
+  },
+  
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}
