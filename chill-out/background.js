@@ -2,14 +2,14 @@ var DELAY = 0.1;
 var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 
 /*
-Start-stop for the currently active tab, whenever this script is run.
+Restart alarm for the currently active tab, whenever this script is run.
 */
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  startStopAlarm(tabs[0].id);
+  restartAlarm(tabs[0].id);
 });
 
 /*
-Start-stop for the currently active tab, whenever the user navigates.
+Restart alarm for the currently active tab, whenever the user navigates.
 */
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (!changeInfo.url) {
@@ -17,23 +17,23 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   }
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     if (tabId == tabs[0].id) {
-      startStopAlarm(tabId);
+      restartAlarm(tabId);
     }
   });
 });
 
 /*
-Start-stop for the currently active tab, whenever a new tab becomes active.
+Restart alarm for the currently active tab, whenever a new tab becomes active.
 */
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-  startStopAlarm(activeInfo.tabId);
+  restartAlarm(activeInfo.tabId);
 });
 
 /*
-Start-stop: clear all alarms,
+restartAlarm: clear all alarms,
 then set a new alarm for the given tab.
 */
-function startStopAlarm(tabId) {
+function restartAlarm(tabId) {
   chrome.pageAction.hide(tabId);
   chrome.alarms.clearAll();
   chrome.tabs.get(tabId, function(tab) {
