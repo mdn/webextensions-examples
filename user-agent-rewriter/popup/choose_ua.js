@@ -4,9 +4,6 @@ document.addEventListener("click", function(e) {
   }
 
   var chosenUa = e.target.textContent;
-  
-  chrome.runtime.sendMessage({
-    "command": "set-user-agent",
-    "uaString": chosenUa
-  });
+  var backgroundPage = chrome.extension.getBackgroundPage();
+  backgroundPage.setUaString(chosenUa);
 });
