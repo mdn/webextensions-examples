@@ -13,7 +13,8 @@
 
   "permissions": [
     "http://*/*",
-    "https://*/*"
+    "https://*/*",
+    "file://*/*"
   ],  
 
   "browser_action": {
