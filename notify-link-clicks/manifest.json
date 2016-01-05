@@ -1,5 +1,6 @@
 {
 
+  "description": "Displays notifications when the user clicks links. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#notify-link-clicks",
   "manifest_version": 2,
   "name": "Notify link clicks",
   "version": "1.0",

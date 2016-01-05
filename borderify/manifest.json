@@ -1,5 +1,6 @@
 {
 
+  "description": "Adds a solid red border to all webpages matching mozilla.org. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#borderify",
   "manifest_version": 2,
   "name": "Borderify",
   "version": "1.0",
