@@ -14,5 +14,5 @@ function messagePageScript() {
   window.postMessage({
     direction: "from-content-script",
     message: "Message from the content script"
-  }, "*");
+  }, "https://mdn.github.io");
 }
