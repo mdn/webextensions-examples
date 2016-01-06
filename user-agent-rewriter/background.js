@@ -23,8 +23,6 @@ function rewriteUserAgentHeader(e) {
   return {requestHeaders: e.requestHeaders};
 }
 
-chrome.runtime.onMessage.addListener(setUaString);
-
-function setUaString(message) {
-  ua = uaStrings[message.uaString];
+function setUaString(uaString) {
+  ua = uaStrings[uaString];
 }
