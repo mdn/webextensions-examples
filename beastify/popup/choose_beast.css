@@ -1,14 +1,10 @@
 html, body {
-  height: 100px;
   width: 100px;
-  margin: 0;
 }
 
 .beast {
-  height: 30%;
-  width: 90%;
   margin: 3% auto;
-  padding-top: 6%;
+  padding: 4px;
   text-align: center;
   font-size: 1.5em;
   background-color: #E5F2F2;
