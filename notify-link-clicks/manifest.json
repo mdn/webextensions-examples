@@ -4,6 +4,8 @@
   "manifest_version": 2,
   "name": "Notify link clicks",
   "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks",
+
   "applications": {
     "gecko": {
       "id": "notify-link-clicks@mozilla.org"
