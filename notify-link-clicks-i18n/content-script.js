@@ -1,9 +1,13 @@
 window.addEventListener("click", notifyExtension);
 
 function notifyExtension(e) {
-  console.log("content script sending message");
-  if (e.target.tagName != "A") {
-    return;
+  var target = e.target;
+  while ((target.tagName != "A" || !target.href) && target.parentNode) {
+    target = target.parentNode;
   }
-  chrome.runtime.sendMessage({"url": e.target.href});
+  if (target.tagName != "A")
+    return;
+
+  console.log("content script sending message");
+  chrome.runtime.sendMessage({"url": target.href});
 }
