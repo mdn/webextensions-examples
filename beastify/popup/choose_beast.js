@@ -18,9 +18,9 @@ document.addEventListener("click", function(e) {
   }
 
   var chosenBeast = e.target.textContent;
-  
+
   chrome.tabs.executeScript(null, {
-    file: "../content_scripts/beastify.js"
+    file: "/content_scripts/beastify.js"
   });
 
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
