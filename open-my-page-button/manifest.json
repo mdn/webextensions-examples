@@ -11,10 +11,6 @@
     }
   },
 
-  "permissions": [
-    "tabs" 
-  ],
-  
   "background": {
     "scripts": ["background.js"]
   },
