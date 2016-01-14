@@ -6,7 +6,7 @@ function notify(message) {
   var content = chrome.i18n.getMessage("notificationContent", message.url);
   chrome.notifications.create({
     "type": "basic",
-    "iconUrl": chrome.extension.getURL("link.png"),
+    "iconUrl": chrome.extension.getURL("icons/link-48.png"),
     "title": title,
     "message": content
   });

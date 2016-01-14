@@ -5,6 +5,10 @@
   "name": "Borderify",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
+  "icons": {
+    "32": "icons/border-32.png",
+    "64": "icons/border-64.png"
+  },
 
   "applications": {
     "gecko": {

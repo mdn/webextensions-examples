@@ -5,6 +5,10 @@
   "name": "user-agent-rewriter",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/user-agent-rewriter",
+  "icons": {
+    "32": "icons/person-32.png",
+    "64": "icons/person-64.png"
+  },
 
   "applications": {
     "gecko": {
@@ -19,9 +23,9 @@
   "background": {
     "scripts": ["background.js"]
   },
-  
+
   "browser_action": {
-    "default_icon": "button/choose_ua.png",
+    "default_icon": "icons/person-32.png",
     "default_title": "Choose a user agent",
     "default_popup": "popup/choose_ua.html"
   }

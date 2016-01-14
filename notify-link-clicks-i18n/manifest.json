@@ -5,6 +5,10 @@
   "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks-i18n",
+  "icons": {
+    "48": "icons/link-48.png",
+    "64": "icons/link-64.png"
+  },
 
   "applications": {
     "gecko": {

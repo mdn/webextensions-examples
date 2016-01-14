@@ -5,6 +5,10 @@
   "name": "Beastify",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "icons": {
+    "32": "icons/beasts-32.png",
+    "64": "icons/beasts-64.png"
+  },
 
   "applications": {
     "gecko": {
@@ -17,7 +21,7 @@
   ],  
 
   "browser_action": {
-    "default_icon": "button/beasts.png",
+    "default_icon": "icons/beasts-32.png",
     "default_title": "Beastify",
     "default_popup": "popup/choose_beast.html"
   },
