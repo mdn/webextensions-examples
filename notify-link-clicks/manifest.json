@@ -11,7 +11,8 @@
 
   "applications": {
     "gecko": {
-      "id": "notify-link-clicks@mozilla.org"
+      "id": "notify-link-clicks@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
   

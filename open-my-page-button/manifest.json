@@ -11,7 +11,8 @@
 
   "applications": {
     "gecko": {
-      "id": "open-my-page-button@mozilla.org"
+      "id": "open-my-page-button@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 

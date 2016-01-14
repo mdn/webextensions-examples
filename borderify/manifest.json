@@ -11,7 +11,8 @@
 
   "applications": {
     "gecko": {
-      "id": "borderify@mozilla.org"
+      "id": "borderify@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 

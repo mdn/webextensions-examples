@@ -11,7 +11,8 @@
 
   "applications": {
     "gecko": {
-      "id": "page-to-extension-messaging@mozilla.org"
+      "id": "page-to-extension-messaging@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 
