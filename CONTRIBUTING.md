@@ -21,7 +21,11 @@ So examples should:
 complex logic that's extraneous to the WebExtension technology itself
 * demonstrate good-practice use of the technology, even at the expense of extra
 complexity
-* include useful optional manifest.json keys: `description`, `icons`, and `homepage_url`
+* include useful optional manifest.json keys:
+    * [`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description)
+    * [`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons)
+    * `homepage_url`
+    * [`strict_min_version` in the `applications` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications)
 
 Finally, note that the examples are all made available under the
 [Mozilla Public License 2.0](https://github.com/mdn/webextensions-examples/blob/master/LICENSE),
