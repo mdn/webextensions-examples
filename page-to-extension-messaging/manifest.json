@@ -6,8 +6,7 @@
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/page-to-extension-messaging",
   "icons": {
-    "32": "icons/message-32.png",
-    "64": "icons/message-64.png"
+    "48": "icons/message-48.png"
   },
 
   "applications": {
