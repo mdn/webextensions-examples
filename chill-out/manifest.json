@@ -11,6 +11,7 @@
   },
 
   "permissions": [
+    "alarms",
     "tabs"
   ],  
 

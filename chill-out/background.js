@@ -2,7 +2,7 @@ var DELAY = 0.1;
 var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 
 /*
-Restart alarm for the currently active tab, whenever this script is run.
+Restart alarm for the currently active tab, whenever background.js is run.
 */
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   restartAlarm(tabs[0].id);
