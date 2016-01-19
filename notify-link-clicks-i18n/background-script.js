@@ -1,9 +1,4 @@
 /*
-Assign `notify()` as a listener to messages from the content script.
-*/
-chrome.runtime.onMessage.addListener(notify);
-
-/*
 Log that we received the message.
 Then display a notification. The notification contains the URL,
 which we read from the message.
@@ -19,3 +14,8 @@ function notify(message) {
     "message": content
   });
 }
+
+/*
+Assign `notify()` as a listener to messages from the content script.
+*/
+chrome.runtime.onMessage.addListener(notify);
