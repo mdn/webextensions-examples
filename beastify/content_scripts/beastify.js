@@ -1,9 +1,4 @@
 /*
-Assign beastify() as a listener for messages from the extension.
-*/
-chrome.runtime.onMessage.addListener(beastify);
-
-/*
 beastify():
 * removes every node in the document.body,
 * then inserts the chosen beast
@@ -11,7 +6,7 @@ beastify():
 */
 function beastify(request, sender, sendResponse) {
   removeEverything();
-  insertBeast(beastNameToURL(request.beast));
+  insertBeast(request.beastURL);
   chrome.runtime.onMessage.removeListener(beastify);
 }
 
@@ -35,6 +30,12 @@ function insertBeast(beastURL) {
   beastImage.setAttribute("style", "height: 100vh");
   document.body.appendChild(beastImage);
 }
+
+/*
+Assign beastify() as a listener for messages from the extension.
+*/
+chrome.runtime.onMessage.addListener(beastify);
+
 
 /*
 Given the name of a beast, get the URL to the corresponding image.
