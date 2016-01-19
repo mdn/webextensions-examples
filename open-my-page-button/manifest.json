@@ -4,23 +4,24 @@
   "manifest_version": 2,
   "name": "open-my-page",
   "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/open-my-page-button",
+  "icons": {
+    "48": "icons/page-48.png"
+  },
 
   "applications": {
     "gecko": {
-      "id": "open-my-page-button@mozilla.org"
+      "id": "open-my-page-button@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 
-  "permissions": [
-    "tabs" 
-  ],
-  
   "background": {
     "scripts": ["background.js"]
   },
 
   "browser_action": {
-    "default_icon": "button/beasts.png"
+    "default_icon": "icons/page-32.png"
   }
 
 }

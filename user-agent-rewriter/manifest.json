@@ -4,10 +4,15 @@
   "manifest_version": 2,
   "name": "user-agent-rewriter",
   "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/user-agent-rewriter",
+  "icons": {
+    "48": "icons/person-48.png"
+  },
 
   "applications": {
     "gecko": {
-      "id": "user-agent-rewriter@mozilla.org"
+      "id": "user-agent-rewriter@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 
@@ -18,9 +23,9 @@
   "background": {
     "scripts": ["background.js"]
   },
-  
+
   "browser_action": {
-    "default_icon": "button/choose_ua.png",
+    "default_icon": "icons/person-32.png",
     "default_title": "Choose a user agent",
     "default_popup": "popup/choose_ua.html"
   }

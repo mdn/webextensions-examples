@@ -1,3 +1,7 @@
+/*
+Listen for messages from the page.
+If the message was from the page script, show an alert.
+*/
 window.addEventListener("message", function(event) {
   if (event.source == window &&
       event.data.direction &&
@@ -6,13 +10,19 @@ window.addEventListener("message", function(event) {
   }
 });
 
+/*
+Add messagePageScript() as a listener to click events on
+the "from-content-script" element.
+*/
 var fromContentScript = document.getElementById("from-content-script");
-
 fromContentScript.addEventListener("click", messagePageScript);
 
+/*
+Send a message to the page script.
+*/
 function messagePageScript() {
   window.postMessage({
     direction: "from-content-script",
     message: "Message from the content script"
-  }, "*");
+  }, "https://mdn.github.io");
 }

@@ -4,20 +4,24 @@
   "manifest_version": 2,
   "name": "Beastify",
   "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "icons": {
+    "48": "icons/beasts-48.png"
+  },
 
   "applications": {
     "gecko": {
-      "id": "beastify@mozilla.org"
+      "id": "beastify@mozilla.org",
+      "strict_min_version": "45.0.0"
     }
   },
 
   "permissions": [
-    "http://*/*",
-    "https://*/*"
+    "activeTab"
   ],  
 
   "browser_action": {
-    "default_icon": "button/beasts.png",
+    "default_icon": "icons/beasts-32.png",
     "default_title": "Beastify",
     "default_popup": "popup/choose_beast.html"
   },
