@@ -1,3 +1,13 @@
+/*
+DELAY is set to 6 seconds in this example. Such a short period is chosen to make
+the extension's behavior more obvious, but this is not recommended in real life.
+Note that in Chrome, alarms cannot be set for less than a minute. In Chrome:
+
+* if you install this extension "unpacked", you'll see a warning
+in the console, but the alarm will still go off after 6 seconds
+* if you package the extension and install it, then the alarm will go off after
+a minute.
+*/
 var DELAY = 0.1;
 var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 
@@ -38,7 +48,7 @@ function restartAlarm(tabId) {
   chrome.alarms.clearAll();
   chrome.tabs.get(tabId, function(tab) {
     if (tab.url != CATGIFS) {
-      chrome.alarms.create(tabId, {delayInMinutes: DELAY});
+      chrome.alarms.create("", {delayInMinutes: DELAY});
     }
   });
 }
@@ -48,7 +58,7 @@ On alarm, show the page action.
 */
 chrome.alarms.onAlarm.addListener(function(alarm) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.pageAction.show(alarm.name);
+    chrome.pageAction.show(tabs[0].id);
   });
 });
 
