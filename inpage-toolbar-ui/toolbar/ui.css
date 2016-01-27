@@ -1,7 +1,16 @@
 body {
   overflow: hidden;
   color: black;
+  background: rgba(255,255,255,0.9);
+}
+
+#rainbow {
   background: linear-gradient(0deg, rgba(217,26,18,0.70) 15%, rgba(225,51,0,0.70) 15%, rgba(255, 127, 20, 0.70) 16%, rgba(242, 171, 3, 0.70) 32%, rgba(235, 192, 0, 0.70) 32%, rgba(250, 222, 0, 0.70) 33%, rgba(239, 255, 3, 0.70) 48%, rgba(86, 252, 2, 0.70) 49%, rgba(82, 255, 1, 0.70) 66%, rgba(74, 222, 126, 0.70) 67%, rgba(59, 170, 242, 0.70) 67%, rgba(59, 170, 242, 0.70) 84%, rgba(115, 55, 247, 0.70) 84%, rgba(107, 64, 242, 0.70) 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
 }
 
 #title {
@@ -17,7 +26,7 @@ body {
 /* Toggle Button. */
 
 #toggle {
-  top: 4px;
+  top: 8px;
   right: 4px;
   position: absolute;
   margin: 0 1em;
