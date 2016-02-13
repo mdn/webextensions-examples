@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Tabs, tabs, tabs",
+  "version": "0.1",
+  "applications": {
+    "gecko": {
+      "id": "tabs-tabs-tabs@mozilla.org"
+    }
+  },
+  "browser_action": {
+      "default_title": "Tabs, tabs, tabs",
+      "default_popup": "tabs.html"
+  },
+  "permissions": [
+      "tabs"
+  ]
+}
