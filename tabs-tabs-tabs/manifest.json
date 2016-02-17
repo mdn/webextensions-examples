@@ -2,7 +2,7 @@
   "applications": {
     "gecko": {
       "id": "tabs-tabs-tabs@mozilla.org",
-      "strict_min_version": "47.0.0"
+      "strict_min_version": "47.0a1"
     }
   },
   "browser_action": {
