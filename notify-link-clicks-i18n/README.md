@@ -15,7 +15,7 @@ The background script listens for this message. When the background script
 receives the message, it displays a notification containing the href.
 
 The notification's content, as well as the extension's name and description, are
-localized into German and Dutch, as well as en-US.
+localized into German, Dutch, and Japanese, as well as the default en-US.
 
 # What it shows
 
