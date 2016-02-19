@@ -11,13 +11,6 @@ window.addEventListener("message", function(event) {
 });
 
 /*
-Add messagePageScript() as a listener to click events on
-the "from-content-script" element.
-*/
-var fromContentScript = document.getElementById("from-content-script");
-fromContentScript.addEventListener("click", messagePageScript);
-
-/*
 Send a message to the page script.
 */
 function messagePageScript() {
@@ -26,3 +19,10 @@ function messagePageScript() {
     message: "Message from the content script"
   }, "https://mdn.github.io");
 }
+
+/*
+Add messagePageScript() as a listener to click events on
+the "from-content-script" element.
+*/
+var fromContentScript = document.getElementById("from-content-script");
+fromContentScript.addEventListener("click", messagePageScript);

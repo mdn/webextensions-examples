@@ -20,16 +20,6 @@ Initialize the UA to Firefox 41.
 var ua = uaStrings["Firefox 41"];
 
 /*
-Add rewriteUserAgentHeader as a listener to onBeforeSendHeaders,
-only for the target page.
-
-Make it "blocking" so we can modify the headers.
-*/
-chrome.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
-                                          {urls: [targetPage]},
-                                          ["blocking", "requestHeaders"]);
-
-/*
 Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeader(e) {
@@ -40,6 +30,16 @@ function rewriteUserAgentHeader(e) {
   }
   return {requestHeaders: e.requestHeaders};
 }
+
+/*
+Add rewriteUserAgentHeader as a listener to onBeforeSendHeaders,
+only for the target page.
+
+Make it "blocking" so we can modify the headers.
+*/
+chrome.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
+                                          {urls: [targetPage]},
+                                          ["blocking", "requestHeaders"]);
 
 /*
 Update ua to a new value, mapped from the uaString parameter.
