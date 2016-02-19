@@ -12,7 +12,7 @@
   "applications": {
     "gecko": {
       "id": "notify-link-clicks-i18n@mozilla.org",
-      "strict_min_version": "45.0.0"
+      "strict_min_version": "46.0a1"
     }
   },
 
