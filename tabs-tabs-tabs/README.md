@@ -1,8 +1,11 @@
 # tabs, tabs, tabs
 
-This extension includes:
+## What it does
 
-* a browser action
-* a page "tabs.html" with a script "tabs.js"
+This extension includes a browser action with a popup specified as "tabs.html".
 
-It shows a list of tab methods that you can perform on the active tab.
+The popup lets the user perform various simple operations using the tabs API.
+
+# What it shows
+
+Demonstration of various tabs API functions.
