@@ -1,0 +1,274 @@
+
+[
+  {
+    "name": "beastify",
+    "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+    "manifest_keys": [
+      "permissions",
+      "browser_action",
+      "web_accessible_resources"
+    ],
+    "javascript_modules": [
+      {
+        "name": "tabs",
+        "apis": [
+          "executeScript",
+          "sendMessage",
+          "query"
+        ]
+      },
+      {
+        "name": "extension",
+        "apis": [
+          "getURL"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "onMessage"
+        ]
+      }
+    ]
+  },  
+  {
+    "name": "Bookmark it!",
+    "description": "A simple bookmark button",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/bookmark-it",
+    "manifest_keys": [
+      "permissions",
+      "browser_action",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "bookmarks",
+        "apis": [
+          "remove",
+          "create",
+          "search"
+        ]
+      },
+      {
+        "name": "browserAction",
+        "apis": [
+          "setIcon",
+          "onClicked"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "query",
+          "onUpdated",
+          "onActivated"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "borderify",
+    "description": "Adds a solid red border to all webpages matching mozilla.org.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
+    "manifest_keys": [
+      "content_scripts"
+    ],
+    "javascript_modules": []
+  },
+  {
+    "name": "chill-out",
+    "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/chill-out",
+    "manifest_keys": [
+      "permissions",
+      "page_action",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "alarms",
+        "apis": [
+          "onAlarm",
+          "clearAll",
+          "create"
+        ]
+      },
+      {
+        "name": "pageAction",
+        "apis": [
+          "show",
+          "hide",
+          "onClicked"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "update",
+          "query",
+          "onUpdated",
+          "onActivated",
+          "get"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "inpage-toolbar-ui",
+    "description": "Adds a browser action icon to the toolbar. Click the button to inject an in-page toolbar UI into the current webpage.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/inpage-toolbar-ui",
+    "manifest_keys": [
+      "permissions",
+      "browser_action",
+      "content_scripts",
+      "web_accessible_resources",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "runtime",
+        "apis": [
+          "getURL",
+          "onConnect",
+          "onMessage"
+        ]
+      },
+      {
+        "name": "browserAction",
+        "apis": [
+          "onClicked"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "sendMessage",
+          "query"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "notify-link-clicks-i18n",
+    "description": "Shows a notification when the user clicks on links.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks-i18n",
+    "manifest_keys": [
+      "permissions",
+      "content_scripts",
+      "default_locale",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "i18n",
+        "apis": [
+          "getMessage",
+          "onConnect",
+          "onMessage"
+        ]
+      },
+      {
+        "name": "notifications",
+        "apis": [
+          "create"
+        ]
+      },
+      {
+        "name": "extension",
+        "apis": [
+          "getURL"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "onMessage",
+          "sendMessage"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "open-my-page-button",
+    "description": "Adds browser action icon to toolbar to open packaged web page.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/open-my-page-button",
+    "manifest_keys": [
+      "browser_action",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "browserAction",
+        "apis": [
+          "onClicked"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "create"
+        ]
+      },
+      {
+        "name": "extension",
+        "apis": [
+          "getURL"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "page-to-extension-messaging",
+    "description": "Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/page-to-extension-messaging",
+    "manifest_keys": [
+      "content_scripts"
+    ],
+    "javascript_modules": []
+  },
+  {
+    "name": "tabs-tabs-tabs",
+    "description": "A list of methods you can perform on a tab.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs",
+    "manifest_keys": [
+      "browser_action"
+    ],
+    "javascript_modules": [
+      {
+        "name": "tabs",
+        "apis": [
+          "query",
+          "move",
+          "duplicate",
+          "reload",
+          "remove"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "user-agent-rewriter",
+    "description": "Adds browser action icon to toolbar to choose user agent string from popup menu.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/user-agent-rewriter",
+    "manifest_keys": [
+      "browser_action",
+      "background",
+      "permissions"
+    ],
+    "javascript_modules": [
+      {
+        "name": "webRequest",
+        "apis": [
+          "onBeforeSendHeaders"
+        ]
+      },
+      {
+        "name": "extension",
+        "apis": [
+          "getBackgroundPage"
+        ]
+      }
+    ]
+  }
+]
