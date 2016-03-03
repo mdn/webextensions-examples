@@ -6,7 +6,7 @@ var currentBookmark;
  * is already bookmarked.
  */
 function updateIcon() {
-  chrome.browserAction.setIcon({
+  browser.browserAction.setIcon({
     path: currentBookmark ? {
       19: "icons/star-filled-19.png",
       38: "icons/star-filled-38.png"
@@ -23,28 +23,28 @@ function updateIcon() {
  */
 function toggleBookmark() {
   if (currentBookmark) {
-    chrome.bookmarks.remove(currentBookmark.id);
+    browser.bookmarks.remove(currentBookmark.id);
     currentBookmark = null;
     updateIcon();
   } else {
-    chrome.bookmarks.create({title: currentTab.title, url: currentTab.url}, function(bookmark) {
+    browser.bookmarks.create({title: currentTab.title, url: currentTab.url}, function(bookmark) {
       currentBookmark = bookmark;
       updateIcon();
     });
   }
 }
 
-chrome.browserAction.onClicked.addListener(toggleBookmark);
+browser.browserAction.onClicked.addListener(toggleBookmark);
 
 /*
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
 function updateTab() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
 
-      chrome.bookmarks.search({url: currentTab.url}, (bookmarks) => {
+      browser.bookmarks.search({url: currentTab.url}, (bookmarks) => {
         currentBookmark = bookmarks[0];
         updateIcon();
       });
@@ -55,10 +55,10 @@ function updateTab() {
 // TODO listen for bookmarks.onCreated and bookmarks.onRemoved once Bug 1221764 lands
 
 // listen to tab URL changes
-chrome.tabs.onUpdated.addListener(updateTab);
+browser.tabs.onUpdated.addListener(updateTab);
 
 // listen to tab switching
-chrome.tabs.onActivated.addListener(updateTab);
+browser.tabs.onActivated.addListener(updateTab);
 
 // update when the extension loads initially
 updateTab();

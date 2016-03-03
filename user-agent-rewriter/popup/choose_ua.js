@@ -10,6 +10,6 @@ document.addEventListener("click", function(e) {
   }
 
   var chosenUa = e.target.textContent;
-  var backgroundPage = chrome.extension.getBackgroundPage();
+  var backgroundPage = browser.extension.getBackgroundPage();
   backgroundPage.setUaString(chosenUa);
 });
