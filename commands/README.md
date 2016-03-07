@@ -1,4 +1,4 @@
-# open-my-page
+# commands
 
 This extension includes:
 
@@ -8,4 +8,4 @@ All it does is: registers a shortcut (Ctrl+Shift+Y) to send an onCommand event (
 
 It shows:
 
-* how to use chrome.commands to register a keyboard shortcut for your extension.
+* how to use chrome.commands to register keyboard shortcuts for your extension.
