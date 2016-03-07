@@ -4,7 +4,9 @@ This extension includes:
 
 * a background script, "background.js"
 
-All it does is: registers a shortcut (Ctrl+Shift+Y) to send an onCommand event (Command+Shift+Y on a Mac).",
+All it does is:
+
+* register a shortcut (Ctrl+Shift+Y) to send a command to the extension (Command+Shift+Y on a Mac).",
 
 It shows:
 
