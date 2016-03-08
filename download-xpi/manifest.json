@@ -1,0 +1,29 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "download-xpi@mozilla.org",
+      "strict_min_version": "47.0a1"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://addons.mozilla.org/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "page_action": {
+    "default_title": "Download XPI"
+  },
+  "permissions": [
+    "downloads",
+    "tabs"
+  ],
+  "description": "Downloads an XPI instead of trying to install it",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/download-xpi",
+  "manifest_version": 2,
+  "name": "Download XPI",
+  "version": "1.0"
+}
