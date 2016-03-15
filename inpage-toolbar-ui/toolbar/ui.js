@@ -1,5 +1,5 @@
 // Connect to the background page.
-var port = chrome.runtime.connect();
+var port = browser.runtime.connect();
 
 // Handle click events on the toolbar button.
 document.querySelector("#toggle").addEventListener("click", function() {

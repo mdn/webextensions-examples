@@ -7,7 +7,7 @@ beastify():
 function beastify(request, sender, sendResponse) {
   removeEverything();
   insertBeast(request.beastURL);
-  chrome.runtime.onMessage.removeListener(beastify);
+  browser.runtime.onMessage.removeListener(beastify);
 }
 
 /*
@@ -34,7 +34,7 @@ function insertBeast(beastURL) {
 /*
 Assign beastify() as a listener for messages from the extension.
 */
-chrome.runtime.onMessage.addListener(beastify);
+browser.runtime.onMessage.addListener(beastify);
 
 
 /*
@@ -43,10 +43,10 @@ Given the name of a beast, get the URL to the corresponding image.
 function beastNameToURL(beastName) {
   switch (beastName) {
     case "Frog":
-      return chrome.extension.getURL("beasts/frog.jpg");
+      return browser.extension.getURL("beasts/frog.jpg");
     case "Snake":
-      return chrome.extension.getURL("beasts/snake.jpg");
+      return browser.extension.getURL("beasts/snake.jpg");
     case "Turtle":
-      return chrome.extension.getURL("beasts/turtle.jpg");
+      return browser.extension.getURL("beasts/turtle.jpg");
   }
 }

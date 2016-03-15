@@ -14,18 +14,18 @@ var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 /*
 Restart alarm for the currently active tab, whenever background.js is run.
 */
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
   restartAlarm(tabs[0].id);
 });
 
 /*
 Restart alarm for the currently active tab, whenever the user navigates.
 */
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (!changeInfo.url) {
     return;
   }
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
     if (tabId == tabs[0].id) {
       restartAlarm(tabId);
     }
@@ -35,7 +35,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 /*
 Restart alarm for the currently active tab, whenever a new tab becomes active.
 */
-chrome.tabs.onActivated.addListener(function (activeInfo) {
+browser.tabs.onActivated.addListener(function (activeInfo) {
   restartAlarm(activeInfo.tabId);
 });
 
@@ -44,11 +44,11 @@ restartAlarm: clear all alarms,
 then set a new alarm for the given tab.
 */
 function restartAlarm(tabId) {
-  chrome.pageAction.hide(tabId);
-  chrome.alarms.clearAll();
-  chrome.tabs.get(tabId, function(tab) {
+  browser.pageAction.hide(tabId);
+  browser.alarms.clearAll();
+  browser.tabs.get(tabId, function(tab) {
     if (tab.url != CATGIFS) {
-      chrome.alarms.create("", {delayInMinutes: DELAY});
+      browser.alarms.create("", {delayInMinutes: DELAY});
     }
   });
 }
@@ -56,15 +56,15 @@ function restartAlarm(tabId) {
 /*
 On alarm, show the page action.
 */
-chrome.alarms.onAlarm.addListener(function(alarm) {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.pageAction.show(tabs[0].id);
+browser.alarms.onAlarm.addListener(function(alarm) {
+  browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    browser.pageAction.show(tabs[0].id);
   });
 });
 
 /*
 On page action click, navigate the corresponding tab to the cat gifs.
 */
-chrome.pageAction.onClicked.addListener(function () {
-  chrome.tabs.update({url: CATGIFS});
+browser.pageAction.onClicked.addListener(function () {
+  browser.tabs.update({url: CATGIFS});
 });

@@ -23,6 +23,7 @@ var ua = uaStrings["Firefox 41"];
 Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeader(e) {
+console.log('BEFOREE');
   for (var header of e.requestHeaders) {
     if (header.name == "User-Agent") {
       header.value = ua;
@@ -37,7 +38,7 @@ only for the target page.
 
 Make it "blocking" so we can modify the headers.
 */
-chrome.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
+browser.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
                                           {urls: [targetPage]},
                                           ["blocking", "requestHeaders"]);
 
