@@ -8,7 +8,7 @@ function firstUnpinnedTab(tabs) {
 
 document.addEventListener("click", function(e) {
   function callOnActiveTab(callback) {
-    chrome.tabs.query({}, function(tabs) {
+    chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tabs) {
       for (var tab of tabs) {
         if (tab.active) {
           callback(tab, tabs);
@@ -19,21 +19,22 @@ document.addEventListener("click", function(e) {
 
   if (e.target.id === "tabs-move-beginning") {
     callOnActiveTab((tab, tabs) => {
-      var destination = 0;
+      var index = 0;
       if (!tab.pinned) {
-        destination = firstUnpinnedTab(tabs);
+        index = firstUnpinnedTab(tabs);
       }
-      chrome.tabs.move([tab.id], {index: destination});
+      chrome.tabs.move([tab.id], {index});
     });
   }
 
   if (e.target.id === "tabs-move-end") {
     callOnActiveTab((tab, tabs) => {
-      var destination = -1;
+      var index = -1;
       if (tab.pinned) {
-        destination = firstUnpinnedTab(tabs);
+        var lastPinnedTab = Math.max(0, firstUnpinnedTab(tabs) - 1);
+        index = lastPinnedTab;
       }
-      chrome.tabs.move([tab.id], {index: destination});
+      chrome.tabs.move([tab.id], {index});
     });
   }
 
