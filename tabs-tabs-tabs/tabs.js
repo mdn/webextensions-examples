@@ -8,7 +8,7 @@ function firstUnpinnedTab(tabs) {
 
 document.addEventListener("click", function(e) {
   function callOnActiveTab(callback) {
-    chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tabs) {
+    chrome.tabs.query({currentWindow: true}, function(tabs) {
       for (var tab of tabs) {
         if (tab.active) {
           callback(tab, tabs);
