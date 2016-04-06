@@ -34,7 +34,7 @@
   "applications": {
     "gecko": {
       "id": "inpage-toolbar-ui@mozilla.org",
-      "strict_min_version": "46.0.0"
+      "strict_min_version": "46.0"
     }
   }
 }
