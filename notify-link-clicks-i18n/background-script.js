@@ -7,7 +7,7 @@ function notify(message) {
   console.log("background script received message");
   var title = chrome.i18n.getMessage("notificationTitle");
   var content = chrome.i18n.getMessage("notificationContent", message.url);
-  chrome.notifications.create({
+  chrome.notifications.create("", {
     "type": "basic",
     "iconUrl": chrome.extension.getURL("icons/link-48.png"),
     "title": title,
