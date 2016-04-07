@@ -25,7 +25,9 @@
   ], 
 
   "browser_action": {
-    "default_icon": "icons/quicknote-32.png",
+    "default_icon": {
+     "32" : "icons/quicknote-32.png"
+    },
     "default_title": "Quicknote",
     "default_popup": "popup/quicknote.html"
   }
