@@ -75,12 +75,12 @@ p, input, textarea {
   padding: 2px;
 }
 
-.new-note input {
+input {
   width: 100%;
   margin-bottom: 2px;
 }
 
-.new-note textarea {
+textarea {
   width: 100%;
   margin-bottom: 4px;
   resize: none;
@@ -106,4 +106,12 @@ p, input, textarea {
 
 p {
   margin: 0;
+}
+
+.cancel {
+  float: left;
+}
+
+.update {
+  float: right;
 }

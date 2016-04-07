@@ -16,6 +16,10 @@
     }
   }, 
 
+  "permissions": [
+    "storage"
+  ], 
+
   "browser_action": {
     "default_icon": "icons/quicknote-32.png",
     "default_title": "Quicknote",
