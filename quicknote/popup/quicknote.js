@@ -19,11 +19,14 @@ clearBtn.addEventListener('click', clearAll);
 initialize();
 
 function initialize() {
-  var length = localStorage.length;
-  for(i = 0; i < length; i++) {
-    var item = localStorage.getItem(localStorage.key(i));
-    displayNote(localStorage.key(i),item);
-  }
+  chrome.storage.local.get(null,function(results) {
+    var noteKeys = Object.keys(results)
+    for(i = 0; i < noteKeys.length; i++) {
+      var curKey = noteKeys[i];
+      var curValue = results[curKey];
+      displayNote(curKey,curValue);
+    }
+  });
 }
 
 /* Add a note to the display, and storage */
@@ -32,7 +35,7 @@ function addNote() {
   var noteTitle = inputTitle.value;
   var noteBody = inputBody.value;
   
-  if(!localStorage.getItem(noteTitle) && noteTitle !== '' && noteBody !== '') {
+  if(!chrome.storage.local.get(noteTitle) && noteTitle !== '' && noteBody !== '') {
     inputTitle.value = '';
     inputBody.value = '';
     displayNote(noteTitle,noteBody);
@@ -70,7 +73,7 @@ function displayNote(title, body) {
   deleteBtn.addEventListener('click',function(e){
     evtTgt = e.target;
     evtTgt.parentNode.parentNode.parentNode.removeChild(evtTgt.parentNode.parentNode);
-    localStorage.removeItem(title);
+    chrome.storage.local.remove(title);
   })
 
   /* create note edit box */
@@ -134,13 +137,15 @@ function displayNote(title, body) {
 
 
 function updateNote(delNote,newTitle,newBody) {
-  storeNote(newTitle, newBody);
-  localStorage.removeItem(delNote);
-  displayNote(newTitle, newBody);
+  chrome.storage.local.set({ newTitle : newBody }, function() {
+    chrome.storage.local.remove(delNote);
+    displayNote(newTitle, newBody);
+  });
 }
 
 function storeNote(title, body) {
-  localStorage.setItem(title, body);
+  chrome.storage.local.set({ title : body }, function() {
+  });
 }
 
 /* Clear all notes from the display/storage */
@@ -149,5 +154,5 @@ function clearAll() {
   while (noteContainer.firstChild) {
       noteContainer.removeChild(noteContainer.firstChild);
   }
-  localStorage.clear();
+  chrome.storage.local.clear();
 }
