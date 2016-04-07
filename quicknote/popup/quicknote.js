@@ -129,10 +129,14 @@ function displayNote(title, body) {
   });
 }
 
+
+/* functions to update and store notes */
+
+
 function updateNote(delNote,newTitle,newBody) {
   storeNote(newTitle, newBody);
-  displayNote(newTitle, newBody);
   localStorage.removeItem(delNote);
+  displayNote(newTitle, newBody);
 }
 
 function storeNote(title, body) {
