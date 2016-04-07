@@ -4,7 +4,7 @@
   "manifest_version": 1,
   "name": "Quicknote",
   "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/quicknote",
+  "homepage_url": "https://github.com/chrisdavidmills/webextensions-examples/tree/master/quicknote",
   "icons": {
     "48": "icons/quicknote-48.png"
   },
