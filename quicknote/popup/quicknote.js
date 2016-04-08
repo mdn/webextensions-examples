@@ -20,7 +20,7 @@ initialize();
 
 function initialize() {
   chrome.storage.local.get(null,function(results) {
-    var noteKeys = Object.keys(results)
+    var noteKeys = Object.keys(results);
     for(i = 0; i < noteKeys.length; i++) {
       var curKey = noteKeys[i];
       var curValue = results[curKey];
@@ -34,14 +34,25 @@ function initialize() {
 function addNote() {
   var noteTitle = inputTitle.value;
   var noteBody = inputBody.value;
-  
-  if(!chrome.storage.local.get(noteTitle) && noteTitle !== '' && noteBody !== '') {
-    inputTitle.value = '';
-    inputBody.value = '';
-    displayNote(noteTitle,noteBody);
-    storeNote(noteTitle,noteBody);
-  }
+  chrome.storage.local.get(noteTitle, function(result) {
+    var objTest = Object.keys(result);
+    if(objTest.length < 1 && noteTitle !== '' && noteBody !== '') {
+      inputTitle.value = '';
+      inputBody.value = '';
+      displayNote(noteTitle,noteBody);
+      storeNote(noteTitle,noteBody);
+    }
+  })
 }
+
+/* function to store a new note in storage */
+
+function storeNote(title, body) {
+  chrome.storage.local.set({ [title] : body }, function() {
+  });
+}
+
+/* function to display a note in the note box */
 
 function displayNote(title, body) {
 
@@ -133,18 +144,17 @@ function displayNote(title, body) {
 }
 
 
-/* functions to update and store notes */
-
+/* function to update notes */
 
 function updateNote(delNote,newTitle,newBody) {
-  chrome.storage.local.set({ newTitle : newBody }, function() {
-    chrome.storage.local.remove(delNote);
-    displayNote(newTitle, newBody);
-  });
-}
-
-function storeNote(title, body) {
-  chrome.storage.local.set({ title : body }, function() {
+  chrome.storage.local.set({ [newTitle] : newBody }, function() {
+    if(delNote !== newTitle) {
+      chrome.storage.local.remove(delNote, function() {
+        displayNote(newTitle, newBody);
+      });
+    } else {
+      displayNote(newTitle, newBody);
+    }
   });
 }
 
