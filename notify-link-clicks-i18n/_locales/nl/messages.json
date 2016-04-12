@@ -15,7 +15,13 @@
   },
 
   "notificationContent": {
-    "message": "U klikte op $1",
-    "description": "Tells the user which link they clicked: the $1 placeholder is the url."
+    "message": "U klikte op $URL$",
+    "description": "Tells the user which link they clicked.",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
   }
 }

@@ -9,7 +9,7 @@ function notify(message) {
   var content = chrome.i18n.getMessage("notificationContent", message.url);
   chrome.notifications.create({
     "type": "basic",
-    "iconUrl": chrome.extension.getURL("icons/__MSG_@@ui_locale__/link-48-__MSG_@@ui_locale__.png"),
+    "iconUrl": chrome.extension.getURL("icons/link-48.png"),
     "title": title,
     "message": content
   });
