@@ -1,18 +1,23 @@
 {
   "applications": {
     "gecko": {
-      "id": "some-options@mozilla.org",
+      "id": "favourite-colour@mozilla.org",
       "strict_min_version": "47.0a1"
     }
   },
+  "background": {
+      "scripts": ["background.js"]
+  },
+  "browser_action": {
+      "default_title": "Favourite colour option"
+  },
+  "description": "An example options ui",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/favourite-colour",
+  "manifest_version": 2,
+  "name": "Favourite colour",
   "options_ui": {
       "page": "options.html",
-      "chrome_style": true
   },
   "permissions": ["storage"],
-  "description": "An example options ui",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/some-options",
-  "manifest_version": 2,
-  "name": "Some options",
   "version": "1.0"
 }
