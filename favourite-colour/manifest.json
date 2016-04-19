@@ -1,7 +1,7 @@
 {
   "applications": {
     "gecko": {
-      "id": "favourite-colour@mozilla.org",
+      "id": "some-options@mozilla.org",
       "strict_min_version": "47.0a1"
     }
   },
@@ -16,7 +16,7 @@
   "manifest_version": 2,
   "name": "Favourite colour",
   "options_ui": {
-      "page": "options.html",
+      "page": "options.html"
   },
   "permissions": ["storage"],
   "version": "1.0"
