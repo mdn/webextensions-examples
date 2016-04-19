@@ -9,6 +9,7 @@
       "page": "options.html",
       "chrome_style": true
   },
+  "permissions": ["storage"],
   "description": "An example options ui",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs",
   "manifest_version": 2,
