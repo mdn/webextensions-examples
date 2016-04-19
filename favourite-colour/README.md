@@ -1,7 +1,7 @@
 # Favourite Colour
 
-Shows and stores your favourite color, in storage.local
-in the about:addons page for the addon.
+Shows and stores your favourite colour, in storage.local
+in the about:addons page for the add-on.
 
 Demonstrates: storing data with storage.local, runtime.openOptionsPage and
 creating an options page.
