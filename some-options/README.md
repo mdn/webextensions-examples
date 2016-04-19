@@ -1,11 +1,5 @@
-# tabs, tabs, tabs
+# Some options
 
-## What it does
+Shows and stores some options in the about:addons page for the addon.
 
-This extension includes a browser action with a popup specified as "tabs.html".
-
-The popup lets the user perform various simple operations using the tabs API.
-
-# What it shows
-
-Demonstration of various tabs API functions.
+Work in progress.

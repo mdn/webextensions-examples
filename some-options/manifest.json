@@ -11,7 +11,7 @@
   },
   "permissions": ["storage"],
   "description": "An example options ui",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/some-options",
   "manifest_version": 2,
   "name": "Some options",
   "version": "1.0"
