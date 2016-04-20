@@ -20,11 +20,15 @@ initialize();
 
 function initialize() {
   chrome.storage.local.get(null,function(results) {
-    var noteKeys = Object.keys(results);
-    for(i = 0; i < noteKeys.length; i++) {
-      var curKey = noteKeys[i];
-      var curValue = results[curKey];
-      displayNote(curKey,curValue);
+    if(chrome.runtime.lastError) {
+      console.log(chrome.runtime.lastError);
+    } else {
+      var noteKeys = Object.keys(results);
+      for(i = 0; i < noteKeys.length; i++) {
+        var curKey = noteKeys[i];
+        var curValue = results[curKey];
+        displayNote(curKey,curValue);
+      }
     }
   });
 }
@@ -39,7 +43,6 @@ function addNote() {
     if(objTest.length < 1 && noteTitle !== '' && noteBody !== '') {
       inputTitle.value = '';
       inputBody.value = '';
-      displayNote(noteTitle,noteBody);
       storeNote(noteTitle,noteBody);
     }
   })
@@ -49,6 +52,11 @@ function addNote() {
 
 function storeNote(title, body) {
   chrome.storage.local.set({ [title] : body }, function() {
+    if(chrome.runtime.lastError) {
+      console.log(chrome.runtime.lastError);
+    } else {
+      displayNote(title,body);
+    }
   });
 }
 
