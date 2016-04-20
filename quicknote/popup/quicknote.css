@@ -4,15 +4,12 @@
   box-sizing: border-box;
 }
 
-html,body {
-  margin: 0;
-}
-
 html {
   font-family: sans-serif;
   font-size: 10px;
   background: rgb(240,240,240);
   height: 300px;
+  margin: 0;
 }
 
 body {
