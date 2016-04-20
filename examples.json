@@ -119,7 +119,8 @@
     "description": "Press Ctrl+Shift+Y to send an event (Command+Shift+Y on a Mac).",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/commands",
     "manifest_keys": [
-      "commands"
+      "commands",
+      "background"
     ],
     "javascript_modules": [
       {
@@ -127,6 +128,38 @@
         "apis": [
           "getAll",
           "onCommand"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "favourite-colour",
+    "description": "An example options ui",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/favourite-colour",
+    "manifest_keys": [
+      "permissions",
+      "browser_action",
+      "options_ui",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "browserAction",
+        "apis": [
+          "onClicked"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "openOptionsPage"
+        ]
+      },
+      {
+        "name": "storage",
+        "apis": [
+          "storageArea/get",
+          "storageArea/set"
         ]
       }
     ]
