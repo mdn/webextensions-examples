@@ -115,6 +115,23 @@
     ]
   },
   {
+    "name": "commands",
+    "description": "Press Ctrl+Shift+Y to send an event (Command+Shift+Y on a Mac).",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/commands",
+    "manifest_keys": [
+      "commands"
+    ],
+    "javascript_modules": [
+      {
+        "name": "commands",
+        "apis": [
+          "getAll",
+          "onCommand"
+        ]
+      }
+    ]
+  },
+  {
     "name": "inpage-toolbar-ui",
     "description": "Adds a browser action icon to the toolbar. Click the button to inject an in-page toolbar UI into the current webpage.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/inpage-toolbar-ui",
