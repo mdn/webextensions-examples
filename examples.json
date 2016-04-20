@@ -140,7 +140,8 @@
       "permissions",
       "browser_action",
       "options_ui",
-      "background"
+      "background",
+      "storage"
     ],
     "javascript_modules": [
       {
@@ -276,6 +277,26 @@
       "content_scripts"
     ],
     "javascript_modules": []
+  },
+  {
+    "name": "quicknote",
+    "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/quicknote",
+    "manifest_keys": [
+      "storage",
+      "browser_action"
+    ],
+    "javascript_modules": [
+      {
+        "name": "storage",
+        "apis": [
+          "StorageArea/get",
+          "StorageArea/set",
+          "StorageArea/remove",
+          "StorageArea/clear"
+        ]
+      }
+    ]
   },
   {
     "name": "tabs-tabs-tabs",
