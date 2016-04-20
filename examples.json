@@ -158,8 +158,8 @@
       {
         "name": "storage",
         "apis": [
-          "storageArea/get",
-          "storageArea/set"
+          "StorageArea/get",
+          "StorageArea/set"
         ]
       }
     ]
