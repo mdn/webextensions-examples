@@ -15,7 +15,13 @@
   },
 
   "notificationContent": {
-    "message": "$1がクリックされました。",
-    "description": "リンクをクリックした時通知を表示します。:変数$1にはurlが代入されます。"
+    "message": "$URL$がクリックされました。",
+    "description": "リンクをクリックした時通知を表示します。:変数$1にはurlが代入されます。",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
   }
 }
