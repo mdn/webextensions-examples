@@ -10,7 +10,7 @@
  *       shortcut: "Ctrl+Shift+Y"
  *    }]
  */
-chrome.commands.getAll(function(commandsArray) {
+chrome.commands.getAll(function(commands) {
   commands.forEach(function(command) {
     console.log(command);
   });
