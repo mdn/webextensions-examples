@@ -6,7 +6,7 @@ This extension includes:
 
 All it does is:
 
-* register a shortcut (Ctrl+Shift+Y) to send a command to the extension (Command+Shift+Y on a Mac).",
+* register a shortcut (Ctrl+Shift+U) to send a command to the extension (Command+Shift+U on a Mac).",
 
 It shows:
 

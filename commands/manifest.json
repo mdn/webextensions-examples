@@ -1,6 +1,6 @@
 {
   "name": "Sample Commands Extension",
-  "description": "Press Ctrl+Shift+Y to send an event (Command+Shift+Y on a Mac).",
+  "description": "Press Ctrl+Shift+U to send an event (Command+Shift+U on a Mac).",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/commands",
   "manifest_version": 2,
   "version": "1.0",
@@ -15,7 +15,7 @@
   },
   "commands": {
     "toggle-feature": {
-      "suggested_key": { "default": "Ctrl+Shift+Y" },
+      "suggested_key": { "default": "Ctrl+Shift+U" },
       "description": "Send a 'toggle-feature' event to the extension"
     }
   }
