@@ -4,13 +4,13 @@
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/commands",
   "manifest_version": 2,
   "version": "1.0",
-  "strict_min_version": "48.0a1",
   "background": {
     "scripts": ["background.js"]
   },
   "applications": {
     "gecko": {
-      "id": "commands@mozilla.org"
+      "id": "commands@mozilla.org",
+      "strict_min_version": "48.0a1"
     }
   },
   "commands": {
