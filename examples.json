@@ -201,6 +201,33 @@
     ]
   },
   {
+    "name": "latest-download",
+    "description": "Shows the last downloaded item, and lets you open or delete it.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/latest-download",
+    "manifest_keys": [
+      "permissions",
+      "browser_action"
+    ],
+    "javascript_modules": [
+      {
+        "name": "downloads",
+        "apis": [
+          "getFileIcon",
+          "search",
+          "open",
+          "removeFile",
+          "erase"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "lastError"
+        ]
+      }
+    ]
+  },
+  {
     "name": "notify-link-clicks-i18n",
     "description": "Shows a notification when the user clicks on links.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks-i18n",
@@ -214,9 +241,7 @@
       {
         "name": "i18n",
         "apis": [
-          "getMessage",
-          "onConnect",
-          "onMessage"
+          "getMessage"
         ]
       },
       {
