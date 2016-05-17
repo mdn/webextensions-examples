@@ -12,7 +12,7 @@
   "applications": {
     "gecko": {
       "id": "latest-download@mozilla.org",
-      "strict_min_version": "48.0"
+      "strict_min_version": "48.0a1"
     }
   },
 
