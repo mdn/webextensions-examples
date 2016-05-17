@@ -6,6 +6,11 @@ Callback from getFileIcon.
 Log an error, or initialize the displayed icon.
 */
 function updateIconUrl(iconUrl) {
+  /*
+  If there was an error getting the icon URL,
+  then lastError will be set. So check lastError
+  and handle it.
+  */
   if (chrome.runtime.lastError) {
     console.error(chrome.runtime.lastError);
     iconUrl = "";
@@ -22,12 +27,13 @@ If there was a download item,
 If there wasn't a download item, disable the "open" and "remove" buttons.
 */
 function initializeLatestDownload(downloadItems) {
+  var downloadUrl = document.querySelector("#url");
   if (downloadItems.length > 0) {
     latestDownloadId = downloadItems[0].id;
     chrome.downloads.getFileIcon(latestDownloadId, updateIconUrl);
-    var downloadUrl = document.querySelector("#url");
     downloadUrl.textContent = downloadItems[0].url;
   } else {
+    downloadUrl.textContent = "No downloaded items found."
     document.querySelector("#open").disabled = true;
     document.querySelector("#remove").disabled = true;
   }
@@ -46,7 +52,6 @@ Open the item using the associated application.
 */
 function openItem() {
   chrome.downloads.open(latestDownloadId);
-  window.close();
 }
 
 /*
@@ -58,8 +63,5 @@ function removeItem() {
   window.close();
 }
 
-var openItemButton = document.querySelector("#open");
-openItemButton.addEventListener("click", openItem);
-
-var removeItemButton = document.querySelector("#remove");
-removeItemButton.addEventListener("click", removeItem);
+document.querySelector("#open").addEventListener("click", openItem);
+document.querySelector("#remove").addEventListener("click", removeItem);
