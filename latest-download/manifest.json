@@ -19,9 +19,10 @@
   "permissions": [
     "downloads",
     "downloads.open"
-  ],  
+  ],
 
   "browser_action": {
+    "browser_style": true,
     "default_icon": "icons/page-32.png",
     "default_title": "Latest download",
     "default_popup": "popup/latest_download.html"
