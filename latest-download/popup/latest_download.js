@@ -32,10 +32,12 @@ function initializeLatestDownload(downloadItems) {
     latestDownloadId = downloadItems[0].id;
     chrome.downloads.getFileIcon(latestDownloadId, updateIconUrl);
     downloadUrl.textContent = downloadItems[0].url;
+    document.querySelector("#open").classList.remove("disabled");
+    document.querySelector("#remove").classList.remove("disabled");
   } else {
     downloadUrl.textContent = "No downloaded items found."
-    document.querySelector("#open").disabled = true;
-    document.querySelector("#remove").disabled = true;
+    document.querySelector("#open").classList.add("disabled");
+    document.querySelector("#remove").classList.add("disabled");
   }
 }
 
@@ -51,16 +53,20 @@ chrome.downloads.search({
 Open the item using the associated application.
 */
 function openItem() {
-  chrome.downloads.open(latestDownloadId);
+  if (!document.querySelector("#open").classList.contains("disabled")) {
+    chrome.downloads.open(latestDownloadId);
+  }
 }
 
 /*
 Remove item from disk (removeFile) and from the download history (erase)
 */
 function removeItem() {
-  chrome.downloads.removeFile(latestDownloadId);
-  chrome.downloads.erase({id: latestDownloadId});
-  window.close();
+  if (!document.querySelector("#remove").classList.contains("disabled")) {
+    chrome.downloads.removeFile(latestDownloadId);
+    chrome.downloads.erase({id: latestDownloadId});
+    window.close();
+  }
 }
 
 document.querySelector("#open").addEventListener("click", openItem);
