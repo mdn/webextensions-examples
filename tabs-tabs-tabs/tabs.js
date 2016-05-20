@@ -56,5 +56,9 @@ document.addEventListener("click", function(e) {
     });
   }
 
+  else if (e.target.id === "tabs-create") {
+    chrome.tabs.create({url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"});
+  }
+
   e.preventDefault();
 });
