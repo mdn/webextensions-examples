@@ -40,6 +40,7 @@ chrome.contextMenus.create({
 chrome.contextMenus.create({
   id: "separator-1",
   type: "separator",
+  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"]
 }, onCreated);
 
@@ -64,6 +65,7 @@ chrome.contextMenus.create({
 chrome.contextMenus.create({
   id: "separator-2",
   type: "separator",
+  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"]
 }, onCreated);
 
