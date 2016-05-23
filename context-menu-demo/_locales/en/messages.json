@@ -1,0 +1,42 @@
+{
+  "extensionName": {
+    "message": "Context menu demo",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Demonstrates the contextMenus API.",
+    "description": "Description of the add-on."
+  },
+
+  "contextMenuItemSelectionLogger": {
+    "message": "Log '%s' to the console",
+    "description": "Title of context menu item that logs the selected text when clicked."
+  },
+
+  "contextMenuItemRemoveMe": {
+    "message": "Remove me!",
+    "description": "Title of context menu item that removes itself when clicked."
+  },
+
+  "contextMenuItemGreenify": {
+    "message": "Greenify",
+    "description": "Title of context menu item that adds a green border when clicked."
+  },
+
+  "contextMenuItemBluify": {
+    "message": "Bluify",
+    "description": "Title of context menu item that adds a green border when clicked."
+  },
+
+  "contextMenuItemCheckMe": {
+    "message": "Check me",
+    "description": "Title of context menu item when the item is checked."
+  },
+
+  "contextMenuItemUncheckMe": {
+    "message": "Uncheck me",
+    "description": "Title of context menu item when the item is unchecked."
+  }
+
+}
