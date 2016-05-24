@@ -24,6 +24,9 @@ function onRemoved() {
 
 /*
 Create all the context menu items.
+
+Note that the "documentUrlPatterns" option is not
+currently supported in Firefox.
 */
 chrome.contextMenus.create({
   id: "log-selection",

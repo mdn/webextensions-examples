@@ -15,6 +15,9 @@ One radio item adds a blue border to the page, the other adds a green border.
 * one "checkbox" item, shown in all contexts, whose title is updated when the
 item is clicked.
 
+Note that the "documentUrlPatterns" option is not
+currently supported in Firefox.
+
 ## What it shows
 
 * How to create various types of context menu item:
