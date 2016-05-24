@@ -23,6 +23,5 @@ item is clicked.
   * separator
   * checkbox
 * How to use contexts to control when an item appears.
-* How to display an item only for certain pages.
 * How to update an item's properties.
 * How to remove an item.
