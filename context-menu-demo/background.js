@@ -24,9 +24,6 @@ function onRemoved() {
 
 /*
 Create all the context menu items.
-
-Note that the "documentUrlPatterns" option is not
-currently supported in Firefox.
 */
 chrome.contextMenus.create({
   id: "log-selection",
@@ -43,7 +40,6 @@ chrome.contextMenus.create({
 chrome.contextMenus.create({
   id: "separator-1",
   type: "separator",
-  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"]
 }, onCreated);
 
@@ -51,7 +47,6 @@ chrome.contextMenus.create({
   id: "greenify",
   type: "radio",
   title: chrome.i18n.getMessage("contextMenuItemGreenify"),
-  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"],
   checked: true
 }, onCreated);
@@ -60,7 +55,6 @@ chrome.contextMenus.create({
   id: "bluify",
   type: "radio",
   title: chrome.i18n.getMessage("contextMenuItemBluify"),
-  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"],
   checked: false
 }, onCreated);
@@ -68,7 +62,6 @@ chrome.contextMenus.create({
 chrome.contextMenus.create({
   id: "separator-2",
   type: "separator",
-  documentUrlPatterns: ["*://developer.mozilla.org/*"],
   contexts: ["all"]
 }, onCreated);
 
