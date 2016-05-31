@@ -4,9 +4,12 @@
 
 Maintained by the [MDN team at Mozilla](https://wiki.mozilla.org/MDN).
 
-WebExtensions are a way to write browser extensions. They use a set of
-cross-browser APIs: WebExtensions written for Google Chrome or Opera will
-in most cases run in Firefox or Edge too.
+WebExtensions are a way to write browser extensions: that is, programs
+installed inside a web browser that modify the behaviour of the browser or
+of web pages loaded by the browser.
+
+WebExtensions are built on a set of cross-browser APIs: WebExtensions written
+for Google Chrome or Opera will in most cases run in Firefox or Edge too.
 
 The "webextensions-examples" repository is a collection of simple but complete
 and installable WebExtensions. You can use the examples to see how to use the
