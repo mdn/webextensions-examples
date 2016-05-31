@@ -1,20 +1,30 @@
-This repository contains example Firefox [WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
+
+The "webextensions-examples" repository is a collection of simple but complete
+and installable
+[WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 We're really happy to accept contributions, either as new examples or as
 improvements to the existing examples. This file lists some general guidelines
 to help contributors write useful examples.
 
-The examples are intended to demonstrate how to use the WebExtensions technology,
-particularly [APIs](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API),
-but also [manifest.json keys](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json)
-and more general techniques such as internationalization or message passing.
+## Types of contribution
 
-More specifically, they're intended to be referenced from the MDN documentation
-for WebExtensions. So, for example, we'll expect the reference page for
-`tabs.executeScript()` to link to some examples that demonstrate how to use this
-API.
+There are many ways you can help improve this repository! For example:
 
-So examples should:
+* **write a brand-new example:** for example, you might notice that there are no
+examples highlighting the [cookies API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies).
+* **extend an existing example:** for example,
+you might notice that the [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs) example
+uses a lot of tab manipulation APIs, but does not cover
+[tabs.setZoom()](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/setZoom).
+* **fix a bug:** we have a list of [issues](https://github.com/mdn/webextensions-examples/issues),
+or maybe you found your own.
+* **contribute a translation:** find an example with a `_locales` directory in
+it, and create a translation of the example's localizable strings into a new language. 
+
+## Guidelines for examples
+
+Examples should:
 
 * have a clear function, that's easy to explain and understand
 * focus on demonstrating how to use the WebExtension technology, minimizing any
@@ -31,3 +41,9 @@ Finally, note that the examples are all made available under the
 [Mozilla Public License 2.0](https://github.com/mdn/webextensions-examples/blob/master/LICENSE),
 so any contributions must be
 [compatible with that license](https://www.mozilla.org/en-US/MPL/license-policy/).
+If you're not sure about that, just ask.
+
+## Getting help
+
+If you need help with writing a WebExtension, email the [dev-addons mailing list](https://mail.mozilla.org/listinfo/dev-addons) or contact the
+WebExtensions team in the #webextensions IRC channel on irc.mozilla.org.
