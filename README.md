@@ -20,10 +20,16 @@ The examples are made available under the
 
 ## How to use "webextensions-examples"
 
-To use the repository, clone it, install the examples in your favourite
-browser (see [installation instructions for Firefox](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Packaging_and_installation)),
-and see how they work. Each example has its own short README explaining what
+To use the repository, first clone it.
+
+Each example is in its own top-level directory. Install an example in your
+favourite web browser (see [installation instructions for Firefox](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Packaging_and_installation)),
+and see how it works. Each example has its own short README explaining what
 it does.
+
+To find your way around a WebExtension's internal structure, have a look at the
+[Anatomy of a WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
+page on MDN.
 
 To use these examples in Firefox, you need at least Firefox 45. Some examples
 rely on APIs that were added in more recent versions of Firefox.
