@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Varsling ved trykk på lenke i18n",
+    "description": "Navn på utvidelsen."
+  },
+
+  "extensionDescription": {
+    "message": "Viser en varsel når brukern trykker på en lenke",
+    "description": "Beskrivelse av utvidelsen."
+  },
+
+  "notificationTitle": {
+    "message": "Varseltrykk",
+    "description": "Tittel på varselet."
+  },
+
+  "notificationContent": {
+    "message": "Du trykket $URL$.",
+    "description": "Forteller brukeren hvilken lenke som ble trykket.",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
+  }
+}
