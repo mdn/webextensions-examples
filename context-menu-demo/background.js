@@ -77,6 +77,9 @@ chrome.contextMenus.create({
 
 /*
 Set a colored border on the document in the given tab.
+
+Note that this only work on normal web pages, not special pages
+like about:debugging.
 */
 var blue = 'document.body.style.border = "5px solid blue"';
 var green = 'document.body.style.border = "5px solid green"';
