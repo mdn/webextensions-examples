@@ -133,6 +133,44 @@
     ]
   },
   {
+    "name": "context-menu-demo",
+    "description": "Demonstrates various features of the contextMenus API.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/context-menu-demo",
+    "manifest_keys": [
+      "permissions",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "contextMenus",
+        "apis": [
+          "create",
+          "onClicked",
+          "update",
+          "remove"
+        ]
+      },
+      {
+        "name": "i18n",
+        "apis": [
+          "getMessage"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "lastError"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "executeScript"
+        ]
+      }
+    ]
+  },
+  {
     "name": "favourite-colour",
     "description": "An example options ui",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/favourite-colour",
