@@ -60,5 +60,15 @@ document.addEventListener("click", function(e) {
     chrome.tabs.create({url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"});
   }
 
+  else if (e.target.id === "tabs-alertinfo") {
+    callOnActiveTab((tab) => {
+      let props = "";
+      for (let item in tab) {
+        props += `${ item } = ${ tab[item] } \n`;
+      }
+      alert(props);
+    });
+  }
+
   e.preventDefault();
 });
