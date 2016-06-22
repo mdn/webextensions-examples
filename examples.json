@@ -204,6 +204,38 @@
     ]
   },
   {
+    "name": "history-deleter",
+    "description": "History API demo: deletes history items for a given domain",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/history-deleter",
+    "manifest_keys": [
+      "permissions",
+      "page_action",
+      "background"
+    ],
+    "javascript_modules": [
+      {
+        "name": "history",
+        "apis": [
+          "deleteUrl",
+          "search"
+        ]
+      },
+      {
+        "name": "pageAction",
+        "apis": [
+          "show"
+        ]
+      },
+      {
+        "name": "tabs",
+        "apis": [
+          "onUpdated",
+          "query"
+        ]
+      }
+    ]
+  },
+  {
     "name": "inpage-toolbar-ui",
     "description": "Adds a browser action icon to the toolbar. Click the button to inject an in-page toolbar UI into the current webpage.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/inpage-toolbar-ui",
