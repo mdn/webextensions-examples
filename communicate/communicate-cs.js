@@ -57,7 +57,9 @@ if (document.readyState === "complete") {
 	var pre = document.createElement("pre");
 	sel.addEventListener('change', function (event) {
 		chrome.runtime.sendMessage({
-			"type": event.target.value}, function(response) {
+			"selection": window.getSelection().toString(),
+			"type": event.target.value
+		}, function(response) {
 			console.log((new Error).stack.split(/\n/)[0] + " got response from bg");
 			if ("manifest" in response) {
 				name.textContent = response.manifest.name;
