@@ -1,0 +1,39 @@
+/* General styling */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 10px;
+  background: rgb(150,150,150);
+  height: 88px;
+  margin: 0;
+}
+
+body {
+  width: 208px;
+  margin: 0 auto;
+  height: inherit;
+}
+
+.bg-container button {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  margin: 1px;
+}
+
+.color-reset {
+  width: 208px;
+  height: 20px;
+}
+
+input, .color-reset button {
+  display: block;
+  width: 48%;
+  height: 110%;
+  float: left;
+  margin: 0 1% 1% 1%;
+}

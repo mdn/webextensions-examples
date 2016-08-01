@@ -133,6 +133,42 @@
     ]
   },
   {
+    "name": "cookie-bg-picker",
+    "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
+    "url": "https://github.com/mdn/webextensions-examples/tree/master/cookie-bg-picker",
+    "manifest_keys": [
+      "permissions",
+      "browser_action",
+      "background",
+      "web_accessible_resources"
+    ],
+    "javascript_modules": [
+      {
+        "name": "tabs",
+        "apis": [
+          "executeScript",
+          "sendMessage",
+          "query"
+        ]
+      },
+      {
+        "name": "cookies",
+        "apis": [
+          "Cookies",
+          "get",
+          "set",
+          "remove"
+        ]
+      },
+      {
+        "name": "runtime",
+        "apis": [
+          "onMessage"
+        ]
+      }
+    ]
+  },  
+  {
     "name": "context-menu-demo",
     "description": "Demonstrates various features of the contextMenus API.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/context-menu-demo",
