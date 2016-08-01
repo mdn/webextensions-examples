@@ -24,11 +24,3 @@ function cookieUpdate(tabId, changeInfo, tab) {
     });
   }); 
 }
-
-/* Retrieve information on the browser's cookies stores */
-
-browser.cookies.getAllCookieStores(function(cookieStores) {
-  for(var i = 0; i < cookieStores.length; i++) {
-    console.log('Cookie store: ' + cookieStores[i].id + '\n Tab IDs: ' + cookieStores[i].tabIds);
-  }
-})

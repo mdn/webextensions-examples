@@ -66,3 +66,11 @@ reset.onclick = function() {
 chrome.cookies.onChanged.addListener(function(changeInfo) {
   console.log('Cookie changed:\n* Cookie: ' + JSON.stringify(changeInfo.cookie) + '\n* Cause: ' + changeInfo.cause + '\n* Removed: ' + changeInfo.removed);
 })
+
+/* Retrieve information on the browser's cookie stores */
+
+browser.cookies.getAllCookieStores(function(cookieStores) {
+  for(var i = 0; i < cookieStores.length; i++) {
+    console.log('Cookie store: ' + cookieStores[i].id + '\n Tab IDs: ' + cookieStores[i].tabIds);
+  }
+})
