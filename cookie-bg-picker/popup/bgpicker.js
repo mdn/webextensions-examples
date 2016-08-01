@@ -64,5 +64,5 @@ reset.onclick = function() {
 /* Report cookie changes to the console */
 
 chrome.cookies.onChanged.addListener(function(changeInfo) {
-  console.log('Cookie changed:\n* Cookie: ' + JSON.stringify(changeInfo.cookie) + '\n* Cause: ' + changeInfo.cause + '\n* Removed: ' + changeInfo.removed)
+  console.log('Cookie changed:\n* Cookie: ' + JSON.stringify(changeInfo.cookie) + '\n* Cause: ' + changeInfo.cause + '\n* Removed: ' + changeInfo.removed);
 })
