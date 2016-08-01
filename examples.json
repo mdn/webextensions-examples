@@ -154,7 +154,7 @@
       {
         "name": "cookies",
         "apis": [
-          "Cookies",
+          "Cookie",
           "get",
           "set",
           "remove"
