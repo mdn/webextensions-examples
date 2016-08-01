@@ -157,7 +157,8 @@
           "Cookie",
           "get",
           "set",
-          "remove"
+          "remove",
+          "onChanged"
         ]
       },
       {
