@@ -17,13 +17,13 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
   chrome.history.search(
     // Search for all history entries for the current windows domain.
+    // Because this could be a lot of entries, lets limit it to 5.
     {text: hostname, maxResults: 5},
     function(results) {
       // What to show if there are no results.
       if (results.length < 1) {
         no_history(hostname);
       } else {
-        // Because this could be a lot of entries, lets limit it to 5.
         for (var k in results) {
           var history = results[k];
           var li = document.createElement('p');
