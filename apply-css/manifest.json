@@ -18,11 +18,13 @@
   },
 
   "page_action": {
-    "default_icon": "icons/off.svg"
+    "default_icon": "icons/off.svg",
+    "browser_style": true
   },
   
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs"
   ]
 
 }
