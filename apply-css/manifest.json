@@ -1,0 +1,28 @@
+{
+
+  "description": "Adds a page action to toggle applying CSS to pages.",
+  "manifest_version": 2,
+  "name": "apply-css",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/apply-css",
+
+  "applications": {
+    "gecko": {
+      "id": "apply-css@mozilla.org",
+      "strict_min_version": "49.0"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "page_action": {
+    "default_icon": "icons/off.svg"
+  },
+  
+  "permissions": [
+    "activeTab"
+  ]
+
+}
