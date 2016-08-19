@@ -22,15 +22,13 @@ function toggleToolbar(toolbarUI) {
   }
 }
 
-// Handle messages from the add-on background page (only in top level iframes)
-if (window.parent == window) {
-  chrome.runtime.onMessage.addListener(function(msg) {
-    if (msg == "toggle-in-page-toolbar") {
-      if (toolbarUI) {
-        toggleToolbar(toolbarUI);
-      } else {
-        toolbarUI = initToolbar();
-      }
+// Handle messages from the add-on background page
+chrome.runtime.onMessage.addListener(function(msg) {
+  if (msg == "toggle-in-page-toolbar") {
+    if (toolbarUI) {
+      toggleToolbar(toolbarUI);
+    } else {
+      toolbarUI = initToolbar();
     }
-  });
-}
+  }
+});
