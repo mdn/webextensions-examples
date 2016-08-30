@@ -10,16 +10,15 @@ To get this working, there's a little setup to do.
 
 ### Mac OS/Linux setup ###
 
-* Check that the [file permissions](https://en.wikipedia.org/wiki/File_system_permissions) for "ping_pong.py" include the `execute` permission.
-* Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong.py" on your computer.
-* copy "ping_pong.json" to the correct location on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find the correct location for your OS.
+1. Check that the [file permissions](https://en.wikipedia.org/wiki/File_system_permissions) for "ping_pong.py" include the `execute` permission.
+2. Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong.py" on your computer.
+3. copy "ping_pong.json" to the correct location on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find the correct location for your OS.
 
 ### Windows setup ###
 
-* Check you have Python installed.
-* Edit "ping_pong_win.bat" so it contains the path to "ping_pong.py" on your computer.
-* Edit the "path" property of "ping_pong_win.json" to point to the location of "ping_pong_win.bat" on your computer.
-* Add a registry key containing the path to "ping_pong_win.json" on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find details of the registry key to add.
+1. Check you have Python installed, and that your system's PATH environment variable includes the path to Python.  See [Using Python on Windows](https://docs.python.org/2/using/windows.html). You'll need to restart the web browser after making this change, or the browser won't pick up the new environment variable.
+2. Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong.py" on your computer. Note that you'll need to escape the Windows directory separator, like this: `"path": "C:\\Users\\Mozilla\\Desktop\\native-messaging\\app\\ping_pong.py"`.
+3. Add a registry key containing the path to "ping_pong.json" on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find details of the registry key to add.
 
 ## Testing the example ##
 

@@ -1,7 +1,0 @@
-{
-  "name": "ping_pong",
-  "description": "Example host for native messaging",
-  "path": "ping_pong_win.bat",
-  "type": "stdio",
-  "allowed_extensions": [ "ping_pong@example.org" ]
-}
