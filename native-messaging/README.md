@@ -17,8 +17,9 @@ To get this working, there's a little setup to do.
 ### Windows setup ###
 
 1. Check you have Python installed, and that your system's PATH environment variable includes the path to Python.  See [Using Python on Windows](https://docs.python.org/2/using/windows.html). You'll need to restart the web browser after making this change, or the browser won't pick up the new environment variable.
-2. Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong.py" on your computer. Note that you'll need to escape the Windows directory separator, like this: `"path": "C:\\Users\\Mozilla\\Desktop\\native-messaging\\app\\ping_pong.py"`.
-3. Add a registry key containing the path to "ping_pong.json" on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find details of the registry key to add.
+2. Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong_win.bat" on your computer. Note that you'll need to escape the Windows directory separator, like this: `"path": "C:\\Users\\MDN\\native-messaging\\app\\ping_pong_win.bat"`.
+3. Edit "ping_pong_win.bat" to refer to the location of "ping_pong.py" on your computer.
+4. Add a registry key containing the path to "ping_pong.json" on your computer. See [Host Manifests ](https://wiki.mozilla.org/WebExtensions/Native_Messaging#Host_Manifests) to find details of the registry key to add.
 
 ## Testing the example ##
 
