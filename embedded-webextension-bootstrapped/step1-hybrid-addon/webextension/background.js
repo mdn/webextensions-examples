@@ -9,7 +9,7 @@ browser.storage.local.get("super-important-user-setting")
       browser.runtime.sendMessage("import-legacy-data").then(reply => {
         if (reply) {
           // Where it can be saved using the WebExtensions storage API.
-          chrome.storage.local.set(reply);
+          browser.storage.local.set(reply);
         }
       });
     }
