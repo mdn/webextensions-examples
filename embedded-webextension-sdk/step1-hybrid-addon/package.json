@@ -17,5 +17,5 @@
     "firefox": ">= 51.0a1",
     "fennec": ">= 51.0a1"
   },
-  "hasEmbeddedWebExtension": true,
+  "hasEmbeddedWebExtension": true
 }
