@@ -1,17 +1,14 @@
-This is a very simple example of how to use a [WebExtension embedded in a Legacy Add-on](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Embedded_WebExtensions) to be able to gradually port a legacy addon written as a [Add-on SDK extension](https://developer.mozilla.org/en-US/Add-ons/SDK) into a pure [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) and migrate the legacy addon data into the [WebExtensions `storage.local`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/storage).
+This is an example of how to use [embedded WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Embedded_WebExtensions) to convert a legacy [SDK add-on](https://developer.mozilla.org/en-US/Add-ons/SDK) to a  [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) in stages, and migrate the legacy add-on's data so it's accessible by the WebExtension.
 
-The simple example legacy addon provides:
+The legacy add-on contains:
 
-- a button in the toolbar
-- a content script
-- some user data stored in the Firefox preferences using the simple-prefs SDK module
-  (and keep in sync the data storage in the webextension with the preferences updated
-  from the simple-prefs Add-on preferences UI)
-- some user data stored using the simple-storage SDK moduel
-- when the button is pressed, it shows a panel which renders the above data from the Firefox preferences
+- A content script that is attached to any pages under "mozilla.org" or any of its subdomains. The content script sends a message to the main add-on, which then displays a [notification](https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs/notifications).
+- Some user data stored using the SDK's  [`simple-prefs`](https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs/simple-prefs) API.
+- Some user data stored using the SDK's [`simple-storage`](https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs/simple-storage) API.
+- A button in the toolbar: when the button is pressed, the add-on shows a panel containing the stored data.
 
-The transition example is composed of 3 steps:
+This directory contains three versions of the add-on.
 
-- Step 0: original legacy addon, everything is written using the legacy Addon SDK implementation strategies
-- Step 1: hybrid addon (an SDK legacy container addon with a simple webextension embedded into it), the legacy code provides access to the preferences and handle (with the background page) the transition of this data into the WebExtensions `storage.local` StorageArea, the webextension provides the UI and the new data storage, the Addon Preferences UI is still the one provided by the SDK simple-prefs module, kept in sync with the one storage in the WebExtension storage.local API
-- Step 2: a pure WebExtensions addon is extracted from the Step 1 (once the old users have been already able to transition their data using the step 1 version), with the options rewritten into a WebExtensions option_ui page.
+- **step0-legacy-addon**: the initial add-on, written entirely using the Add-on SDK.
+- **step1-hybrid-addon**: a hybrid consisting of an Add-on SDK add-on containing an embedded WebExtension. The Add-on SDK part sends the stored data to the embedded WebExtension. It also listens for any changes to the [`simple-prefs`](https://developer.mozilla.org/en-US/Add-ons/SDK/High-Level_APIs/simple-prefs) data, and updates the WebExtension whenever that data is changed (for example, if the user changes the data in the add-on's preferences UI under about:addons). The embedded WebExtension stores the data using the [`storage`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/storage) API and implements everything else, including the button/panel and the content script.
+- **step2-pure-webextension**: the final version, written entirely using the WebExtensions method. This version can be deployed after the hybrid version has migrated the stored data to the `storage` API. In this version the add-on uses an [options page](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#Options_pages) to provide a UI for the preferences data.
