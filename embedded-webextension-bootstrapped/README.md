@@ -1,13 +1,14 @@
-This is a very simple example of how to use a [WebExtension embedded in a Legacy Add-on](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Embedded_WebExtensions) to be able to gradually port a legacy addon written as a [Bootstrapped extension](https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions) into a pure [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) and migrate the legacy addon data into the [WebExtensions `storage.local`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/storage).
+This is an example of how to use [embedded WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Embedded_WebExtensions) to convert a legacy [Bootstrapped extension](https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions) to a  [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) in stages, and migrate the legacy add-on's data so it's accessible by the WebExtension.
 
-The simple example legacy addon provides:
+The legacy add-on contains:
 
-- a button in the toolbar
 - some user data stored in the Firefox preferences
-- when the button is pressed, it shows a panel which renders the above data from the Firefox preferences
+- a button in the toolbar
 
-The transition example is composed of 3 steps:
+When the button is pressed, the add-on displays a panel containing the stored data. 
 
-- Step 0: original legacy addon, everything is written using the legacy Addon implementation strategies
-- Step 1: hybrid addon (a Boostrapped legacy container addon with a simple webextension embedded into it), the legacy code provides access to the preferences and handle (with the background page) the transition of this data into the WebExtensions `storage.local` StorageArea, the webextension provides the UI and the new data storage.
-- Step 2: a pure WebExtensions addon is extracted from the Step 1 (once the old users have been already able to transition their data using the step 1 version)
+This directory contains three versions of the add-on.
+
+- **step0-legacy-addon**: the initial add-on, written entirely using the bootstrapped extension method.
+- **step1-hybrid-addon**: a hybrid consisting of a bootstrapped extension containing an embedded WebExtension. The bootstrapped extension reads the stored data and sends it to the embedded WebExtension. The embedded WebExtension stores the data using the [`storage`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/storage) API, and also implements the UI.
+- **step2-pure-webextension**: the final version, written entirely using the WebExtensions method. This version can be deployed after the hybrid version has migrated the stored data to the `storage` API. 
