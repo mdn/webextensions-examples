@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form id="leftpad-form">
+            <label for="text">Text:</label><input type="text" id="text" required><br>
+            <label for="amount">Result length:</label><input type="number" id="amount" min="0" step="1" required><br>
+            <label for="with">Pad with:</label><input type="text" required value="_" id="with"><br>
+            <label for="result">Result:</label><output id="result"></output><br>
+            <button type="submit">Pad!</button>
+            <button id="pad-bg">Pad in background script</button>
+        </form>
+        <script src="index.js"></script>
+    </body>
+</html>
