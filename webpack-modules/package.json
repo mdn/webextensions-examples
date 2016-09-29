@@ -2,12 +2,10 @@
   "name": "webpack-webextension",
   "version": "1.0.0",
   "description": "A minimal example of how to use npm modules from within a WebExtension.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "Martin Giger (https://humanoids.be)",
   "license": "MPL-2.0",
   "devDependencies": {
     "webpack": "^1.13.1"

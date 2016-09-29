@@ -4,7 +4,7 @@ module.exports = {
         popup: "./popup/left-pad.js"
     },
     output: {
-        path: "dist",
+        path: "addon",
         filename: "[name]/index.js"
     }
 };
