@@ -1,4 +1,12 @@
 html, body {
     margin: 0.2em;
     width: 350px;
+    padding: 0 0.2em;
+}
+#history {
+    width: 100%;
+}
+.link {
+    width: 100%;
+    display:block;
 }
