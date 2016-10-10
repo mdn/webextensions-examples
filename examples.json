@@ -273,41 +273,6 @@
     ]
   },
   {
-    "name": "inpage-toolbar-ui",
-    "description": "Adds a browser action icon to the toolbar. Click the button to inject an in-page toolbar UI into the current webpage.",
-    "url": "https://github.com/mdn/webextensions-examples/tree/master/inpage-toolbar-ui",
-    "manifest_keys": [
-      "permissions",
-      "browser_action",
-      "content_scripts",
-      "web_accessible_resources",
-      "background"
-    ],
-    "javascript_modules": [
-      {
-        "name": "runtime",
-        "apis": [
-          "getURL",
-          "onConnect",
-          "onMessage"
-        ]
-      },
-      {
-        "name": "browserAction",
-        "apis": [
-          "onClicked"
-        ]
-      },
-      {
-        "name": "tabs",
-        "apis": [
-          "sendMessage",
-          "query"
-        ]
-      }
-    ]
-  },
-  {
     "name": "latest-download",
     "description": "Shows the last downloaded item, and lets you open or delete it.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/latest-download",

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Navigation Stats",
+  "version": "0.1.0",
+  "browser_action": {
+    "default_icon": {
+      "32": "icons/icon-32.png"
+    },
+    "default_title": "Navigation Stats",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["webNavigation", "storage"],
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "icons": {
+    "32": "icons/icon-32.png"
+  },
+  "applications": {
+    "gecko": {
+      "strict_min_version": "50.0"
+    }
+  }
+}
