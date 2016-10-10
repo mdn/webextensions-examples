@@ -2,6 +2,8 @@
 function get_hostname(url) {
   var a = document.createElement('a');
   a.href = url;
+  document.getElementById('domain1').innerHTML = a.hostname;
+  document.getElementById('domain2').innerHTML = a.hostname;
   return a.hostname;
 }
 
@@ -27,8 +29,12 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         for (var k in results) {
           var history = results[k];
           var li = document.createElement('p');
+          var a = document.createElement('a');
           var url = document.createTextNode(history.url);
-          li.appendChild(url);
+          a.href = history.url;
+          a.target = '_blank';
+          a.appendChild(url);
+          li.appendChild(a);
           list.appendChild(li);
         }
       }
