@@ -2,9 +2,15 @@
 function get_hostname(url) {
   var a = document.createElement('a');
   a.href = url;
-  document.getElementById('domain1').innerHTML = a.hostname;
-  document.getElementById('domain2').innerHTML = a.hostname;
+  set_domain(a.hostname);
   return a.hostname;
+}
+
+function set_domain(domain) {
+  spans = document.getElementsByClassName('domain');
+  [].slice.call(spans).forEach(function(span) {
+    span.innerHTML = domain;
+  });
 }
 
 function no_history(hostname) {
