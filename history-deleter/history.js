@@ -26,10 +26,11 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       } else {
         for (var k in results) {
           var history = results[k];
-          var li = document.createElement('p');
-          var url = document.createTextNode(history.url);
-          li.appendChild(url);
-          list.appendChild(li);
+          var url = document.createElement('a');
+          url.innerHTML = "Link " + k;
+          url.href = history.url;
+          url.setAttribute("class", "link");
+          list.appendChild(url);
         }
       }
     }
