@@ -2,8 +2,10 @@
 
 ## What it does
 
-After N seconds of inactivity (defined as, the user not having navigated
-or switched the active tab) display show a page action for that tab.
+After N seconds of inactivity (defined as the user not having navigated
+or switched away from the active tab) display a
+[page action](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/pageAction)
+for that tab.
 
 When the user clicks the page action,
 navigate to http://chilloutandwatchsomecatgifs.com/.
