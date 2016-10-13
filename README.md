@@ -22,7 +22,7 @@ The examples are made available under the
 To use the repository, first clone it.
 
 Each example is in its own top-level directory. Install an example in your
-favourite web browser (see [installation instructions for Firefox](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Packaging_and_installation)),
+favourite web browser ([installation instructions](#installing-an-example) are below),
 and see how it works. Each example has its own short README explaining what
 it does.
 
@@ -35,6 +35,24 @@ rely on APIs that were added in more recent versions of Firefox.
 To check the minimum version of Firefox needed for a given example,
 see the `strict_min_version` part of the [applications key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications)
 in the example's manifest.json file.
+
+## Installing an example
+
+There are a couple ways to try out the example extensions in this repository.
+
+1. Open Firefox and load `about:debugging` in the URL bar. Click the
+   [Load Temporary Add-on](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Temporary_Installation_in_Firefox)
+   button and select the `manifest.json` file within the
+   directory of an example extension you'd like to install.
+   Here is a [video](https://www.youtube.com/watch?v=cer9EUKegG4)
+   that demonstrates how to do this.
+2. Install the
+   [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext)
+   tool, change into the directory of the example extension
+   you'd like to install, and type `web-ext run`. This will launch Firefox and
+   install the extension automatically. This tool gives you some
+   additional development features such as
+   [automatic reloading](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext#Automatic_extension_reloading).
 
 ## Learn more
 
@@ -53,4 +71,4 @@ If you need help, email the [dev-addons mailing list](https://mail.mozilla.org/l
 We welcome contributions, whether they are whole new examples, new features,
 bug fixes, or translations of localizable strings into new languages. Please
 see the [CONTRIBUTING.md](https://github.com/mdn/webextensions-examples/blob/master/CONTRIBUTING.md) file for more details.
- 
+
