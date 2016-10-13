@@ -25,3 +25,8 @@ html, body {
 .clear:hover {
   background-color: #C0392B;
 }
+
+.inactive {
+  opacity: 0;
+  pointer-events: none;
+}
