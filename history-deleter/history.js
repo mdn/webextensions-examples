@@ -9,7 +9,7 @@ function get_hostname(url) {
 function set_domain(domain) {
   spans = document.getElementsByClassName('domain');
   [].slice.call(spans).forEach(function(span) {
-    span.innerHTML = domain;
+    span.textContent = domain;
   });
 }
 
