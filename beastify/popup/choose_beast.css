@@ -19,11 +19,11 @@ html, body {
 }
 
 .clear {
-  background-color: #E74C3C;
+  background-color: #FBFBC9;
 }
 
 .clear:hover {
-  background-color: #C0392B;
+  background-color: #EAEA9D;
 }
 
 .inactive {
