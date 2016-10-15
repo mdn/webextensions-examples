@@ -37,11 +37,13 @@ document.addEventListener("click", function(e) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {beastURL: chosenBeastURL});
     });
+    
     return;
   }
   else if (e.target.classList.contains("clear")) {
     chrome.tabs.reload();
-    
+    window.close();
+
     return;
   }
 });
