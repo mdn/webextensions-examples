@@ -10,7 +10,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover {
+.beast:hover {
   background-color: #CFF2F2;
 }
 
@@ -24,9 +24,4 @@ html, body {
 
 .clear:hover {
   background-color: #EAEA9D;
-}
-
-.inactive {
-  opacity: 0;
-  pointer-events: none;
 }

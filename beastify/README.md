@@ -18,6 +18,8 @@ the name of the chosen beast.
 When the content script receives this message, it replaces the current page
 content with an image of the chosen beast.
 
+When the user clicks the reset button, the page reloads, and reverts to its original form.
+
 ## What it shows ##
 
 * write a browser action with a popup
@@ -25,3 +27,4 @@ content with an image of the chosen beast.
 * inject a content script programmatically using `tabs.executeScript()`
 * send a message from the main extension to a content script
 * use web accessible resources to enable web pages to load packaged content
+* reload web pages
