@@ -2,15 +2,26 @@ html, body {
   width: 100px;
 }
 
-.beast {
+.button {
   margin: 3% auto;
   padding: 4px;
   text-align: center;
   font-size: 1.5em;
-  background-color: #E5F2F2;
   cursor: pointer;
 }
 
 .beast:hover {
   background-color: #CFF2F2;
+}
+
+.beast {
+  background-color: #E5F2F2;
+}
+
+.clear {
+  background-color: #FBFBC9;
+}
+
+.clear:hover {
+  background-color: #EAEA9D;
 }

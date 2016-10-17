@@ -12,33 +12,38 @@ function beastNameToURL(beastName) {
   }
 }
 
-
 /*
 Listen for clicks in the popup.
 
-If the click is not on one of the beasts, return early.
+If the click is on one of the beasts:
+  Inject the "beastify.js" content script in the active tab.
 
-Otherwise, the text content of the node is the name of the beast we want.
+  Then get the active tab and send "beastify.js" a message
+  containing the URL to the chosen beast's image.
 
-Inject the "beastify.js" content script in the active tab.
-
-Then get the active tab and send "beastify.js" a message
-containing the URL to the chosen beast's image.
+If it's on a button wich contains class "clear":
+  Reload the page.
+  Close the popup. This is needed, as the content script malfunctions after page reloads.
 */
 document.addEventListener("click", function(e) {
-  if (!e.target.classList.contains("beast")) {
+  if (e.target.classList.contains("beast")) {
+    var chosenBeast = e.target.textContent;
+    var chosenBeastURL = beastNameToURL(chosenBeast);
+
+    chrome.tabs.executeScript(null, {
+      file: "/content_scripts/beastify.js"
+    });
+
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {beastURL: chosenBeastURL});
+    });
+
     return;
   }
+  else if (e.target.classList.contains("clear")) {
+    chrome.tabs.reload();
+    window.close();
 
-  var chosenBeast = e.target.textContent;
-  var chosenBeastURL = beastNameToURL(chosenBeast);
-
-  chrome.tabs.executeScript(null, {
-    file: "/content_scripts/beastify.js"
-  });
-
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {beastURL: chosenBeastURL});
-  });
-
+    return;
+  }
 });
