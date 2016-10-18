@@ -1,0 +1,18 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "list-cookies@mozilla.org",
+      "strict_min_version": "47.0a1"
+    }
+  },
+  "browser_action": {
+      "default_title": "List mozilla developers domain cookies",
+      "default_popup": "cookies.html"
+  },
+  "description": "List mozilla developers domain cookies.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/list-cookies",
+  "manifest_version": 2,
+  "name": "List cookies",
+  "version": "1.0",
+  "permissions": ["cookies","*://developer.mozilla.org/*"]
+}
