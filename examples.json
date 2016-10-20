@@ -208,7 +208,7 @@
     ]
   },
   {
-    "name": "emoji-substitution",
+    "name": "Emoji Substitution",
     "description": "Replaces words with emojis.",
     "url": "https://github.com/mdn/webextensions-examples/tree/master/emoji-substitution",
     "manifest_keys": [

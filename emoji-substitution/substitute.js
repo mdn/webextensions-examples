@@ -1,6 +1,6 @@
 /*
  * This file is responsible for performing the logic of replacing
- * all occurances of each mapped word with its emoji counterpart.
+ * all occurrences of each mapped word with its emoji counterpart.
  */
 
 // emojiMap.js defines the 'dictionary' variable.
@@ -40,7 +40,7 @@ function replaceText (element) {
     // once, at the end.
     let content = element.textContent;
 
-    // Replace every occurance of 'word' in 'content' with its emoji.
+    // Replace every occurrence of 'word' in 'content' with its emoji.
     // Use the emojiMap for replacements.
     for (let [word, emoji] of emojiMap) {
       // Grab the search regex for this word.
