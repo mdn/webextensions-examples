@@ -17,7 +17,7 @@ function no_history(hostname) {
   var history_text = document.getElementById('history');
   while(history_text.firstChild )
 	history_text.removeChild(history_text.firstChild);
-  history_text.appendChild(document.createTextNode(`No history for ${hostname}.`) );
+  history_text.appendChild(document.createTextNode("No history for " + hostname + ".") );
 }
 
 // When the page is loaded find the current tab and then use that to query
