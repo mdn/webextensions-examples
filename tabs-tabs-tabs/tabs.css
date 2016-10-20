@@ -1,3 +1,16 @@
 html, body {
   width: 350px;
 }
+
+a {
+  margin: 10px;
+  display: inline-block;
+}
+
+button {
+  margin:10px;
+}
+
+.panel {
+  margin: 5px;
+}
