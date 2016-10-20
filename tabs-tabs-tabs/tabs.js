@@ -1,3 +1,9 @@
+// Zoom constants. Define Max, Min, increment and default values
+const ZOOM_INCREMENT = 0.2;
+const MAX_ZOOM = 3;
+const MIN_ZOOM = 0.3;
+const DEFAULT_ZOOM = 1;
+
 function firstUnpinnedTab(tabs) {
   for (var tab of tabs) {
     if (!tab.pinned) {
@@ -71,47 +77,43 @@ document.addEventListener("click", function(e) {
   }
 
   else if (e.target.id === "tabs-add-zoom") {
-      callOnActiveTab((tab) => {
-        chrome.tabs.getZoom(tab.id, function(zoomFactor){
-            var newZoomFactor = zoomFactor + 0.2;
-            newZoomFactor = newZoomFactor > 3 ? 3 : newZoomFactor
-
-            //the maximum zoomFactor is 3, it can't go higher
-            if (zoomFactor >= 3) {
-                alert("Tab zoom factor is already at max!");
-            } else {
-                chrome.tabs.setZoom(tab.id, newZoomFactor);
-            }
-        });
+    callOnActiveTab((tab) => {
+      chrome.tabs.getZoom(tab.id, function(zoomFactor){
+        //the maximum zoomFactor is 3, it can't go higher
+        if (zoomFactor >= MAX_ZOOM) {
+          alert("Tab zoom factor is already at max!");
+        } else {
+          var newZoomFactor = zoomFactor + ZOOM_INCREMENT;
+          chrome.tabs.setZoom(tab.id, newZoomFactor);
+        }
       });
+    });
   }
 
   else if (e.target.id === "tabs-decrease-zoom") {
-      callOnActiveTab((tab) => {
-        chrome.tabs.getZoom(tab.id, function(zoomFactor){
-            var newZoomFactor = zoomFactor - 0.2;
-            newZoomFactor = newZoomFactor < 0.3 ? 0.3 : newZoomFactor
-
-            //the minimum zoomFactor is 0.3, it can't go lower
-            if (zoomFactor <= 0.3) {
-                alert("Tab zoom factor is already at minimum!");
-            } else {
-                chrome.tabs.setZoom(tab.id, newZoomFactor);
-            }
-        });
+    callOnActiveTab((tab) => {
+      chrome.tabs.getZoom(tab.id, function(zoomFactor){
+        //the minimum zoomFactor is 0.3, it can't go lower
+        if (zoomFactor <= MIN_ZOOM) {
+          alert("Tab zoom factor is already at minimum!");
+        } else {
+          var newZoomFactor = zoomFactor - ZOOM_INCREMENT;
+          chrome.tabs.setZoom(tab.id, newZoomFactor);
+        }
       });
+    });
   }
 
   else if (e.target.id === "tabs-default-zoom") {
-      callOnActiveTab((tab) => {
-        chrome.tabs.getZoom(tab.id, function(zoomFactor){
-            if (zoomFactor == 1) {
-                alert("Tab zoom is already at the default zoom factor");
-            } else {
-                chrome.tabs.setZoom(tab.id, 1);
-            }
-        });
+    callOnActiveTab((tab) => {
+      chrome.tabs.getZoom(tab.id, function(zoomFactor){
+        if (zoomFactor == DEFAULT_ZOOM) {
+          alert("Tab zoom is already at the default zoom factor");
+        } else {
+          chrome.tabs.setZoom(tab.id, DEFAULT_ZOOM);
+        }
       });
+    });
   }
 
   e.preventDefault();
