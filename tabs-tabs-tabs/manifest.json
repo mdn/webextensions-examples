@@ -6,6 +6,7 @@
     }
   },
   "browser_action": {
+      "browser_style": true,
       "default_title": "Tabs, tabs, tabs",
       "default_popup": "tabs.html"
   },

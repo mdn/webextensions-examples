@@ -84,6 +84,9 @@ document.addEventListener("click", function(e) {
           alert("Tab zoom factor is already at max!");
         } else {
           var newZoomFactor = zoomFactor + ZOOM_INCREMENT;
+          //if the newZoomFactor is set to higher than the max accepted
+          //it won't change, and will never alert that it's at maximum
+          newZoomFactor = newZoomFactor > MAX_ZOOM ? MAX_ZOOM : newZoomFactor;
           chrome.tabs.setZoom(tab.id, newZoomFactor);
         }
       });
@@ -98,6 +101,9 @@ document.addEventListener("click", function(e) {
           alert("Tab zoom factor is already at minimum!");
         } else {
           var newZoomFactor = zoomFactor - ZOOM_INCREMENT;
+          //if the newZoomFactor is set to lower than the min accepted
+          //it won't change, and will never alert that it's at minimum
+          newZoomFactor = newZoomFactor < MIN_ZOOM ? MIN_ZOOM : newZoomFactor;
           chrome.tabs.setZoom(tab.id, newZoomFactor);
         }
       });
