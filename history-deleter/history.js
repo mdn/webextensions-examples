@@ -15,6 +15,8 @@ function set_domain(domain) {
 
 function no_history(hostname) {
   var history_text = document.getElementById('history');
+  while(history_text.firstChild)
+    history_text.removeChild(history_text.firstChild);
   history_text.textContent = `No history for ${hostname}.`;
 }
 
