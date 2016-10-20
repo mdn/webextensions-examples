@@ -97,6 +97,7 @@ document.addEventListener("click", function(e) {
     callOnActiveTab((tab) => {
       chrome.tabs.getZoom(tab.id, function(zoomFactor){
         //the minimum zoomFactor is 0.3, it can't go lower
+        console.log(zoomFactor)
         if (zoomFactor <= MIN_ZOOM) {
           alert("Tab zoom factor is already at minimum!");
         } else {
