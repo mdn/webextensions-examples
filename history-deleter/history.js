@@ -14,7 +14,10 @@ function set_domain(domain) {
 }
 
 function no_history(hostname) {
-  document.getElementById('history').innerHTML = `No history for ${hostname}.`;
+  var history_text = document.getElementById('history');
+  while(history_text.firstChild)
+    history_text.removeChild(history_text.firstChild);
+  history_text.textContent = `No history for ${hostname}.`;
 }
 
 // When the page is loaded find the current tab and then use that to query

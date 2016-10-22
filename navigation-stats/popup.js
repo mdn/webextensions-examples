@@ -14,7 +14,8 @@ chrome.storage.local.get("hostNavigationStats", results => {
   }
 
   let listEl = document.querySelector("ul");
-  listEl.innerHTML = "";
+  while(listEl.firstChild)
+    listEl.removeChild(listEl.firstChild);
 
   const MAX_ITEMS = 5;
   for (let i=0; i < sortedHostnames.length; i++) {
