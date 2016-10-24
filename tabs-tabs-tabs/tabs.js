@@ -122,5 +122,22 @@ document.addEventListener("click", function(e) {
     });
   }
 
+  else if (e.target.id === "tabs-onremoved") {
+    callOnActiveTab((tab) => {
+      chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
+        if(removeInfo.isWindowClosing) {
+          //probably never shows because tab/window already closed
+          alert("The window will be closed.");
+        } else {
+          alert("The window will not be closed.");
+        }
+      });
+
+      //remove tab to fire event listener
+      chrome.tabs.remove(tab.id);
+    });
+
+  }
+
   e.preventDefault();
 });
