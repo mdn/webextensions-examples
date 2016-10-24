@@ -22,23 +22,30 @@ for (let word of emojiMap.keys()) {
  * If the node contains more than just text (ex: it has child nodes),
  * call replaceText() on each of its children.
  *
- * @param  {Node} element - The target DOM element.
+ * @param  {Node} node    - The target DOM Node.
  * @return {void}         - Note: the emoji substitution is done inline.
  */
-function replaceText (element) {
+function replaceText (node) {
   // Setting textContent on a node removes all of its children and replaces
   // them with a single text node. Since we don't want to alter the DOM aside
   // from substituting text, we only substitute on single text nodes.
   // @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
-  if (element.nodeType === Node.TEXT_NODE) {
+  if (node.nodeType === Node.TEXT_NODE) {
     // This node only contains text.
     // @see https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType.
+
+    // Skip textarea nodes due to the potential for accidental submission
+    // of substituted emoji where none was intended.
+    if (node.parentNode &&
+        node.parentNode.nodeName === 'TEXTAREA') {
+      return;
+    }
 
     // Because DOM manipulation is slow, we don't want to keep setting
     // textContent after every replacement. Instead, manipulate a copy of
     // this string outside of the DOM and then perform the manipulation
     // once, at the end.
-    let content = element.textContent;
+    let content = node.textContent;
 
     // Replace every occurrence of 'word' in 'content' with its emoji.
     // Use the emojiMap for replacements.
@@ -52,13 +59,13 @@ function replaceText (element) {
     }
 
     // Now that all the replacements are done, perform the DOM manipulation.
-    element.textContent = content;
+    node.textContent = content;
   }
   else {
     // This node contains more than just text, call replaceText() on each
     // of its children.
-    for (let i = 0; i < element.childNodes.length; i++) {
-      replaceText(element.childNodes[i]);
+    for (let i = 0; i < node.childNodes.length; i++) {
+      replaceText(node.childNodes[i]);
     }    
   }
 }
