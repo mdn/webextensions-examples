@@ -3,9 +3,9 @@
  * all occurrences of each mapped word with its emoji counterpart.
  */
 
-// emojiMap.js defines the 'dictionary' variable.
+// emojiMap.js defines the 'sortedEmojiMap' variable.
 // Referenced here to reduce confusion.
-const emojiMap = dictionary;
+const emojiMap = sortedEmojiMap;
 
 /*
  * For efficiency, create a word --> search RegEx Map too.
