@@ -1,0 +1,26 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "window-manipulate@mozilla.org",
+      "strict_min_version": "47.0a1"
+    }
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Window manipulate",
+    "default_popup": "window.html",
+    "default_icon": {
+      "19": "icons/default19.png",
+      "38": "icons/default38.png"
+    }
+  },
+  "icons": {
+    "48": "icons/window.png",
+    "96": "icons/window@2x.png"
+  },
+  "description": "A list of methods you can perform on a window.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/window-resize",
+  "manifest_version": 2,
+  "name": "Window manipulate",
+  "version": "1.0"
+}
