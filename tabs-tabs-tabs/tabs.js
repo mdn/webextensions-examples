@@ -122,5 +122,12 @@ document.addEventListener("click", function(e) {
     });
   }
 
+  else if (e.target.id === "tabs-highlight") { // highlights current tab and next tab
+    callOnActiveTab((tab, tabs) => {
+      next = (tab.index+1) % tabs.length;
+      chrome.tabs.highlight({tabs:[tab.index, next]});
+    });
+  }
+
   e.preventDefault();
 });
