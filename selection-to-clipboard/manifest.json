@@ -6,7 +6,7 @@
     "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/selection-to-clipboard",
 
     "icons": {
-        "48": "icons/page-48.png"
+        "48": "icons/clipboard-48.png"
     },
 
     "applications": {
