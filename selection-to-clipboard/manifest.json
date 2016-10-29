@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "selection-to-clipboard",
+    "description": "Example of WebExtensionAPI for writing to the [clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard) ",
+    "version": "1.0",
+    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/selection-to-clipboard",
+
+    "icons": {
+        "48": "icons/quicknote-48.png"
+    },
+
+    "applications": {
+        "gecko": {
+            "id": "selection-to-clipboard@mozilla.org",
+            "strict_min_version": "49.0a1"
+        }
+    },
+
+    "permissions": ["clipboardWrite"],
+
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content-script.js"]
+    }]
+}
