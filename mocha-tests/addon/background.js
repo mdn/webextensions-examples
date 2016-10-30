@@ -7,7 +7,7 @@ var Background = {
             return Background[msg.action](msg, sender, sendResponse);
         }
     },
-    pong: function() {
+    ping: function(msg, sender, sendResponse) {
         sendResponse('pong');
         return true;
     }
