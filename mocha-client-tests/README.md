@@ -1,6 +1,8 @@
 #Mocha client tests for WebExtensions
 ##Install dependency
-`npm install` and `bower install` 
+`npm install` and `bower install`  
+
+And inside of addon please run `npm i`
 
 ##Run with web-ext cli
 If you have it already run `npm run web-ext` if not `npm i web-ext -g` and then first command (will work with FF dev edition), if you have error with web-ext cli please add path for FF binary file with `--firefox-binary /path/to/firefox-bin`
