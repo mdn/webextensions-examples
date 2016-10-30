@@ -132,9 +132,27 @@ function notesApp(event) {
     }];
 
     var db = event.target.result;
+    db.onerror = showErrorMessage;
 
     populateDb(db, seedData);
     showNotes(db);
+
+    // add new item
+    var form = document.getElementById('add-new-item');
+    form.addEventListener('submit', function(event) {
+        var title = document.getElementById('new-title'),
+            description = document.getElementById('new-description');
+
+        addItem(db, {
+            title: title.value,
+            description: description.value
+        }, function() {
+            showNotes(db);
+            form.reset();
+        });
+
+        event.preventDefault();
+    });
 }
 
 /*

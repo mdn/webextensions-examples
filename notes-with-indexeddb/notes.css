@@ -1,0 +1,12 @@
+form {
+	display: inline-block;
+	margin: 10px 0;
+}
+
+label {
+	display: block;
+}
+
+legend ~ div {
+	margin: 10px 0;
+}
