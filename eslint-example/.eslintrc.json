@@ -2,11 +2,11 @@
     "plugins": [
         "mozilla"
     ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:mozilla"
-    ],
+
     "rules": {
         "no-set-state": "off"
+    },
+    "env": {
+        "es6": true
     }
 }

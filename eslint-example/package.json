@@ -1,16 +1,18 @@
 {
-  "name": "eslint-example",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^3.9.0",
-    "eslint-plugin-mozilla": "^0.2.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "eslint-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "eslint": "^3.9.0",
+        "eslint-plugin-mozilla": "^0.2.3"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "eslint": "./node_modules/.bin/eslint",
+        "lint": "eslint ."
+    },
+    "author": "",
+    "license": "ISC"
 }

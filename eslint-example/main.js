@@ -1,7 +1,12 @@
- import {
-     getUsefulContents
- } from "file";
+ // not supported in Firefox
+ // import { getUsefulContents } from "file";
 
- getUsefulContents("http://www.example.com", data => {
-     doSomethingUseful(data);
- });
+ function start() {
+     getUsefulContents(data => {
+         var display = document.getElementById('display');
+
+         display.innerHTML = data;
+     });
+ }
+
+ document.addEventListener('DOMContentLoaded', start);
