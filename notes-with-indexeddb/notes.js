@@ -16,27 +16,58 @@ if (!window.indexedDB) {
 }
 
 /*
-requestError
+showErrorMessage from event if available
  */
-function requestError() {
-    alert('IndexedDB request denied');
-}
+function showErrorMessage(event) {
+    if (event && event.target && event.target.errorCode) {
+        alert('Database error: ' + event.target.errorCode);
+        return;
+    }
 
-/*
-dbError message from event
- */
-function dbError(event) {
-    alert('Database error: ' + event.target.errorCode);
+    alert('IndexedDB request denied');
 }
 
 /*
 notesApp
  */
 function notesApp(event) {
-    this.db = event.target.result;
-    this.db.onerror = dbError;
+    var db = event.target.result;
+
+    db.onerror = showErrorMessage;
+}
+
+const seedData = [{
+    title: "To-do",
+    description: "Buy cheese"
+}, {
+    title: "Books I like",
+    description: "Peak: the science of expertise"
+}];
+
+function populateDb(event) {
+    var db = event.target.result;
+
+    var store = db.createObjectStore("notes", {
+        autoIncrement: true
+    });
+
+    // create indices to search db by
+    store.createIndex("title", "title", {
+        unique: false
+    });
+    store.createIndex("description", "description", {
+        unique: false
+    });
+
+    for (var row of seedData) {
+        store.add(seedData[row]);
+    }
 }
 
 var request = window.indexedDB.open("MyNotes", 1);
-request.onerror = requestError;
+
+request.onerror = showErrorMessage;
+// if this fails a request error is thrown
+request.onupgradeneeded = populateDb;
+
 request.onsuccess = notesApp;
