@@ -10,8 +10,6 @@
   "author": "",
   "license": "MPL-2.0",
   "devDependencies": {
-    "mocha": "^3.1.2",
-    "mocha-phantomjs": "^4.1.0",
     "web-ext": "^1.6.0"
   }
 }
