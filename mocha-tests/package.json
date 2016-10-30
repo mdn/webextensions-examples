@@ -1,0 +1,17 @@
+{
+  "name": "mocha-test-webextension",
+  "version": "1.0.0",
+  "description": "Example how to run unit tests for WebExtension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web-ext": "web-ext run --firefox-binary /Applications/FirefoxDeveloperEdition.app/Contents/MacOS/firefox-bin -s ./addon"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "mocha-phantomjs": "^4.1.0",
+    "web-ext": "^1.6.0"
+  }
+}
