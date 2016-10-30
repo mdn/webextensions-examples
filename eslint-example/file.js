@@ -1,7 +1,4 @@
 function getJSON(url, callback) {
-    var one, two
-
-
     let xhr = new XMLHttpRequest();
     xhr.onload = function() {
         callback(this.responseText);
