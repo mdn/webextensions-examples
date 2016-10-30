@@ -27,7 +27,10 @@ function showErrorMessage(event) {
     alert('IndexedDB request denied');
 }
 
-function addData(db, data, success) {
+/*
+addItem to db
+ */
+function addItem(db, data, success) {
     var store = db.transaction(['notes'], 'readwrite').objectStore('notes'),
         request = store.add(data);
 
@@ -57,8 +60,21 @@ populateDb with data
  */
 function populateDb(db, data) {
     data.forEach(function(row) {
-        addData(db, row);
+        addItem(db, row);
     });
+}
+
+/*
+removeItem from db
+ */
+function removeItem(db, key) {
+    var request = db.transaction(['notes'], 'readwrite')
+        .objectStore('notes')
+        .delete(key);
+
+    request.onsuccess = function(event) {
+        showNotes(db);
+    };
 }
 
 function showNotes(db) {
@@ -74,13 +90,24 @@ function showNotes(db) {
         if (cursor) {
             var title = document.createElement('h3'),
                 description = document.createElement('p'),
-                item = document.createElement('div');
+                item = document.createElement('div'),
+                button = document.createElement('button');
 
             title.innerHTML = cursor.value.title;
             description.innerHTML = cursor.value.description;
 
+            // delete action
+            button.setAttribute('id', cursor.primaryKey);
+            button.onclick = function(event) {
+                var key = +event.target.getAttribute('id');
+                removeItem(db, key);
+            };
+            button.innerHTML = 'Remove';
+
             item.appendChild(title);
             item.appendChild(description);
+            item.appendChild(button);
+
             list.appendChild(item);
 
             cursor.continue();
