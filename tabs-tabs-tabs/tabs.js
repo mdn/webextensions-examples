@@ -132,7 +132,7 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
   if(removeInfo.isWindowClosing) {
     console.log(`Its window is also closing.`);
   } else {
-    console.log(`Its window window is not closing`);
+    console.log(`Its window is not closing`);
   }
 });
 
@@ -140,5 +140,5 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
 chrome.tabs.onMoved.addListener(function(tabId, moveInfo){
   var startIndex = moveInfo.fromIndex;
   var endIndex = moveInfo.toIndex;
-  console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to: ${endIndex}`);
+  console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to index: ${endIndex}`);
 });
