@@ -122,22 +122,23 @@ document.addEventListener("click", function(e) {
     });
   }
 
-  else if (e.target.id === "tabs-onremoved") {
-    callOnActiveTab((tab) => {
-      chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
-        if(removeInfo.isWindowClosing) {
-          //probably never shows because tab/window already closed
-          alert("The window will be closed.");
-        } else {
-          alert("The window will not be closed.");
-        }
-      });
-
-      //remove tab to fire event listener
-      chrome.tabs.remove(tab.id);
-    });
-
-  }
-
   e.preventDefault();
+});
+
+//onRemoved listener. fired when tab is removed
+chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
+  console.log(`The tab with id: ${tabId}, is closing`);
+
+  if(removeInfo.isWindowClosing) {
+    console.log(`Its window is also closing.`);
+  } else {
+    console.log(`Its window window is not closing`);
+  }
+});
+
+//onMoved listener. fired when tab is moved into the same window
+chrome.tabs.onMoved.addListener(function(tabId, moveInfo){
+  var startIndex = moveInfo.fromIndex;
+  var endIndex = moveInfo.toIndex;
+  console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to: ${endIndex}`);
 });
