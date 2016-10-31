@@ -1,4 +1,4 @@
-# Window manipulate
+# Window manipulator
 
 ## What it does
 
