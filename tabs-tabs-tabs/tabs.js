@@ -124,3 +124,21 @@ document.addEventListener("click", function(e) {
 
   e.preventDefault();
 });
+
+//onRemoved listener. fired when tab is removed
+chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
+  console.log(`The tab with id: ${tabId}, is closing`);
+
+  if(removeInfo.isWindowClosing) {
+    console.log(`Its window is also closing.`);
+  } else {
+    console.log(`Its window is not closing`);
+  }
+});
+
+//onMoved listener. fired when tab is moved into the same window
+chrome.tabs.onMoved.addListener(function(tabId, moveInfo){
+  var startIndex = moveInfo.fromIndex;
+  var endIndex = moveInfo.toIndex;
+  console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to index: ${endIndex}`);
+});
