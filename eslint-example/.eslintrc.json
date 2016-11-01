@@ -1,12 +1,10 @@
 {
-    "plugins": [
-        "mozilla"
-    ],
-
+		"globals": {"chrome": true},
     "rules": {
         "no-set-state": "off"
     },
     "env": {
+    		"browser": true,
         "es6": true
     }
 }
