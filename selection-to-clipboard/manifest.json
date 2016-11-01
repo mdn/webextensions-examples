@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "selection-to-clipboard",
-    "description": "Example of WebExtensionAPI for writing to the [clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard) ",
+    "description": "Example of WebExtensionAPI for writing to the clipboard",
     "version": "1.0",
     "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/selection-to-clipboard",
 
@@ -11,8 +11,7 @@
 
     "applications": {
         "gecko": {
-            "id": "selection-to-clipboard@mozilla.org",
-            "strict_min_version": "49.0a1"
+            "strict_min_version": "51"
         }
     },
 
