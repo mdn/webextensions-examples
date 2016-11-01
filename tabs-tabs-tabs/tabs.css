@@ -7,6 +7,14 @@ a {
   display: inline-block;
 }
 
+.switch-tabs {
+	padding-left: 10px;
+}
+
+.switch-tabs a {
+	display: block;
+}
+
 .panel {
   margin: 5px;
 }

@@ -12,6 +12,30 @@ function firstUnpinnedTab(tabs) {
   }
 }
 
+function listTabs() {
+  chrome.tabs.query({
+    currentWindow: true
+  }, function(tabs) {
+    var tabsList = document.getElementById('tabs-list'),
+        currentTabs = document.createDocumentFragment();
+
+    tabsList.innerHTML = '';
+
+    for (var tab of tabs) {
+      if (!tab.active) {
+        var tabLink = document.createElement('a');
+
+        tabLink.innerHTML = tab.title || tab.id;
+        tabLink.setAttribute('href', tab.id);
+        tabLink.classList.add('switch-tabs');
+        currentTabs.appendChild(tabLink);
+      }
+    }
+
+    tabsList.appendChild(currentTabs);
+  });
+}
+
 document.addEventListener("click", function(e) {
   function callOnActiveTab(callback) {
     chrome.tabs.query({currentWindow: true}, function(tabs) {
@@ -122,5 +146,23 @@ document.addEventListener("click", function(e) {
     });
   }
 
+  else if (e.target.classList.contains('switch-tabs')) {
+    var tabId = +e.target.getAttribute('href');
+
+    chrome.tabs.query({
+      currentWindow: true
+    }, function(tabs) {
+      for (var tab of tabs) {
+        if (tab.id === tabId) {
+          chrome.tabs.update(tabId, {
+              active: true
+          });
+        }
+      }
+    });
+  }
+
   e.preventDefault();
 });
+
+document.addEventListener("DOMContentLoaded", listTabs);
