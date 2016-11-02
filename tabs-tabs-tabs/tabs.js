@@ -16,20 +16,24 @@ function listTabs() {
   chrome.tabs.query({
     currentWindow: true
   }, function(tabs) {
-    var tabsList = document.getElementById('tabs-list'),
-        currentTabs = document.createDocumentFragment();
+    var tabsList = document.getElementById('tabs-list');
+    var currentTabs = document.createDocumentFragment();
+    var limit = 5;
+    var counter = 0;
 
     tabsList.innerHTML = '';
 
     for (var tab of tabs) {
-      if (!tab.active) {
+      if (!tab.active && counter <= limit) {
         var tabLink = document.createElement('a');
 
-        tabLink.innerHTML = tab.title || tab.id;
+        tabLink.textContent = tab.title || tab.id;
         tabLink.setAttribute('href', tab.id);
         tabLink.classList.add('switch-tabs');
         currentTabs.appendChild(tabLink);
       }
+
+      counter += 1;
     }
 
     tabsList.appendChild(currentTabs);
