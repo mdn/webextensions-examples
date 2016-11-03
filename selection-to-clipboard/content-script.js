@@ -12,6 +12,4 @@ function copySelection(e) {
 /*
 Add copySelection() as a listener to mouseup events.
 */
-document.addEventListener("mouseup", function() {
-    setTimeout(copySelection, 1);
-});
+document.addEventListener("mouseup", copySelection);
