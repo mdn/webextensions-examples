@@ -121,8 +121,8 @@ document.addEventListener("click", function(e) {
       });
     });
   }
-
-  else if (e.target.id === "tabs-highlight") { // highlights current tab and next tab
+  // Currently (11/2/2016) only supported by Chrome
+  else if (e.target.id === "tabs-highlight") { // highlights current tab and next tab (cycles back to first tab if current tab is the last one)
     callOnActiveTab((tab, tabs) => {
       next = (tab.index+1) % tabs.length;
       chrome.tabs.highlight({tabs:[tab.index, next]});
