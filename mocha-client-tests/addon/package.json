@@ -10,7 +10,6 @@
   "license": "MPL-2.0",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^3.1.2",
-    "should": "^11.1.1"
+    "mocha": "^3.1.2"
   }
 }
