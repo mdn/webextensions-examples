@@ -1,13 +1,10 @@
-$(document).ready(function() {
     setInterval(function() {
-        var $game = $('#game');
-        if($game.text() !== 'ping'){
-            $game.text('ping');
+        var $game = document.querySelector('#game');
+        if($game.innerText !== 'ping'){
+            $game.innerText = 'ping';
         } else{
             chrome.runtime.sendMessage({action: 'ping'},function(response) {
-                $game.text(response);
+                $game.innerText = response;
             });
         }
     }, 1000);
-
-});
