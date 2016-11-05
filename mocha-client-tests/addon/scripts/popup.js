@@ -1,6 +1,3 @@
-/**
- * Created by hmelenok on 10/30/16.
- */
 $(document).ready(function() {
     setInterval(function() {
         var $game = $('#game');

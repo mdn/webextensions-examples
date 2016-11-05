@@ -22,20 +22,6 @@
     "storage",
     "<all_urls>"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "bower_components/jquery/dist/jquery.min.js",
-        "contentscript.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": false
-    }
-  ],
   "browser_action": {
     "default_icon": {
       "19": "images/icon-19.png"

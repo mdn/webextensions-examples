@@ -1,6 +1,3 @@
-/**
- * Created by hmelenok on 10/30/16.
- */
 describe('Array', function() {
     describe('#indexOf()', function() {
         it('should return -1 when the value is not present', function() {
