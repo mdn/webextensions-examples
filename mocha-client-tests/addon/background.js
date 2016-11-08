@@ -2,6 +2,8 @@ var Background = {
     receiveMessage: function(msg, sender, sendResponse) {
         if (msg && msg.action && Background.hasOwnProperty(msg.action)) {
             return Background[msg.action](msg, sender, sendResponse);
+        } else {
+            console.warning('No handler for message: ' + JSON.stringify(msg));
         }
     },
     ping: function(msg, sender, sendResponse) {
