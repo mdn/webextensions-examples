@@ -12,6 +12,6 @@ When addon will start click on mocha icon in your browser bar to run client test
 
 ![addon screenshot](screenshots/addon-button.png "Mocha test addon")
 
-Addon will run test of  `./addon/background.js` in `mocha-client-tests/addon/tests/lib/background-messaging.test.js`
+Addon will run test of  `./addon/background.js` in `./addon/tests/lib/background-messaging.test.js`
 ##PhantomJs tests
 `npm test` will run simple test of `./addon/background.js` in `./tests/lib/background.test.js`
