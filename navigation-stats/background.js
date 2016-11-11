@@ -1,5 +1,6 @@
 // Load existent stats with the storage API.
-chrome.storage.local.get("hostNavigationStats", results => {
+var gettingStoredStats = browser.storage.local.get("hostNavigationStats");
+gettingStoredStats.then(results => {
   // Initialize the saved stats if not yet initialized.
   if (!results.hostNavigationStats) {
     results = {
@@ -11,7 +12,7 @@ chrome.storage.local.get("hostNavigationStats", results => {
 
   // Monitor completed navigation events and update
   // stats accordingly.
-  chrome.webNavigation.onCompleted.addListener(evt => {
+  browser.webNavigation.onCompleted.addListener(evt => {
     // Filter out any sub-frame related navigation event
     if (evt.frameId !== 0) {
       return;
@@ -23,6 +24,7 @@ chrome.storage.local.get("hostNavigationStats", results => {
     hostNavigationStats[url.hostname]++;
 
     // Persist the updated stats.
-    chrome.storage.local.set(results);
-  }, { url: [{schemes: ["http", "https"]}]});
+    browser.storage.local.set(results);
+  }, {
+    url: [{schemes: ["http", "https"]}]});
 });

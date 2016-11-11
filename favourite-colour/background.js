@@ -1,5 +1,5 @@
 function handleClick() {
-  chrome.runtime.openOptionsPage();
+  browser.runtime.openOptionsPage();
 }
 
-chrome.browserAction.onClicked.addListener(handleClick);
+browser.browserAction.onClicked.addListener(handleClick);
