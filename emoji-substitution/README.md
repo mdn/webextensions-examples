@@ -2,7 +2,7 @@
 
 ## What it does
 
-Replaces words that describe an emoji with the emoji itself.
+Replaces words that describe an emoji with the emoji itself. This runs as a content script and scans web pages, looking for text that can be replaced with emoji. As an example, after installing visit https://mozilla.org and notice that the text "firefox" should change.
 
 ## What it shows
 
