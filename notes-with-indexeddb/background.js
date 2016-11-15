@@ -1,14 +1,15 @@
-/*
-Open a new tab, and load "notes.html" into it.
-*/
+'use strict';
+
+/**
+ * openNotes in new tab
+ */
 function openNotes() {
 	chrome.tabs.create({
-		"url": chrome.extension.getURL("notes.html")
+		"url": chrome.runtime.getURL("notes.html")
 	});
 }
 
-
-/*
-Add openNotes() as a listener to clicks on the browser action.
+/**
+* Add openNotes() as a listener to clicks on the browser action.
 */
 chrome.browserAction.onClicked.addListener(openNotes);

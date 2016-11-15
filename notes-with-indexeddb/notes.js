@@ -8,6 +8,18 @@ if (!window.indexedDB) {
 }
 
 /**
+ * wrapRequest using Promise
+ * @param  {Object} request with onsuccess and onerror callbacks
+ * @return {Object} Promise
+ */
+function wrapRequest(request) {
+  return new Promise((resolve, reject) => {
+    request.onsuccess = resolve;
+    request.onerror = reject;
+  });
+}
+
+/**
  * showErrorMessage from event if availble
  * @param  {Object} event
  */
@@ -20,9 +32,6 @@ function showErrorMessage(event) {
   alert('IndexedDB request denied');
 }
 
-/*
-addItem to db
- */
 /**
  * addItem to db
  * @param {Object} db      IDBDatabase instance
@@ -31,10 +40,8 @@ addItem to db
  */
 function addItem(db, data, success) {
   let store = db.transaction(['notes'], 'readwrite').objectStore('notes');
-  let request = store.add(data);
 
-  request.onerror = showErrorMessage;
-  request.onsuccess = success;
+  return wrapRequest(store.add(data));
 }
 
 function createIndex(event) {
@@ -100,8 +107,8 @@ function showNotes(db) {
       let item = document.createElement('div');
       let button = document.createElement('button');
 
-      title.innerHTML = cursor.value.title;
-      description.innerHTML = cursor.value.description;
+      title.textContent = cursor.value.title;
+      description.textContent = cursor.value.description;
 
       // delete action
       button.setAttribute('id', cursor.primaryKey);
@@ -109,7 +116,7 @@ function showNotes(db) {
         let key = +event.target.getAttribute('id');
         removeItem(db, key);
       };
-      button.innerHTML = 'Remove';
+      button.textContent = 'Remove';
 
       item.appendChild(title);
       item.appendChild(description);
@@ -119,7 +126,7 @@ function showNotes(db) {
 
       cursor.continue();
     } else {
-      notes.innerHTML = '';
+      notes.textContent = '';
       notes.appendChild(list);
     }
   }
@@ -150,19 +157,19 @@ function notesApp(event) {
 
   // add new item
   let form = document.getElementById('add-new-item');
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
     let title = document.getElementById('new-title'),
       description = document.getElementById('new-description');
 
     addItem(db, {
       title: title.value,
       description: description.value
-    }, function() {
+    }).then(() => {
       showNotes(db);
       form.reset();
-    });
-
-    event.preventDefault();
+    }, showErrorMessage);
   });
 }
 
