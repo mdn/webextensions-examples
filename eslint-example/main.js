@@ -1,12 +1,13 @@
- // not supported in Firefox
- // import { getUsefulContents } from "file";
+/* global getUsefulContents */
+// not supported in Firefox
+// import { getUsefulContents } from "file";
 
- function start() {
-     getUsefulContents(data => {
-         var display = document.getElementById('display');
+function start() {
+   getUsefulContents(data => {
+       var display = document.getElementById('display');
 
-         display.innerHTML = data;
-     });
- }
+       display.innerHTML = data;
+   });
+}
 
- document.addEventListener('DOMContentLoaded', start);
+document.addEventListener('DOMContentLoaded', start);
