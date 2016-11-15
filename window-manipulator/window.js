@@ -1,29 +1,27 @@
 document.addEventListener("click", (e) => {
 
-  function callOnCurrentWindow(callback){
-    chrome.windows.getCurrent((currentWindow) => {
-      callback(currentWindow);
-    });
+  function getCurrentWindow() {
+    return browser.windows.getCurrent();
   }
 
   if (e.target.id === "window-update-size_768") {
-    callOnCurrentWindow((currentWindow) => {
+    getCurrentWindow().then((currentWindow) => {
       var updateInfo = {
         width: 768,
         height: 1024
       };
 
-      chrome.windows.update(currentWindow.id, updateInfo);
+      browser.windows.update(currentWindow.id, updateInfo);
     });
   }
 
   if (e.target.id === "window-update-minimize") {
-    callOnCurrentWindow((currentWindow) => {
+    getCurrentWindow().then((currentWindow) => {
       var updateInfo = {
         state: "minimized"
       };
 
-      chrome.windows.update(currentWindow.id, updateInfo);
+      browser.windows.update(currentWindow.id, updateInfo);
     });
   }
 
@@ -31,25 +29,27 @@ document.addEventListener("click", (e) => {
     var createData = {
       incognito: true,
     };
-    chrome.windows.create(createData, () => {
+    var creating = browser.windows.create(createData);
+    creating.then(() => {
       console.log("The incognito window has been created");
     });
   }
 
   else if (e.target.id === "window-remove") {
-    callOnCurrentWindow((currentWindow) => {
-      chrome.windows.remove(currentWindow.id);
+    getCurrentWindow().then((currentWindow) => {
+      browser.windows.remove(currentWindow.id);
     });
   }
 
   else if (e.target.id === "window-resize-all") {
-    chrome.windows.getAll((windows) => {
+    var gettingAll = browser.windows.getAll();
+    gettingAll.then((windows) => {
       var updateInfo = {
         width: 1024,
         height: 768
       };
       for (var item of windows) {
-        chrome.windows.update(item.id, updateInfo);
+        browser.windows.update(item.id, updateInfo);
       }
     });
   }

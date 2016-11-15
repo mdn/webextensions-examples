@@ -13,11 +13,12 @@ document.getElementById("leftpad-form").addEventListener("submit", (e) => {
 }, false);
 
 document.getElementById("pad-bg").addEventListener("click", (e) => {
-    chrome.runtime.sendMessage({
+    var sendingMessage = browser.runtime.sendMessage({
         text: textNode.value,
         amount: amountNode.valueAsNumber,
         with: withNode.value
-    }, (result) => {
-        resultNode.value = result;
+    });
+    sendingMessage.then((result) => {
+      resultNode.value = result;
     });
 });

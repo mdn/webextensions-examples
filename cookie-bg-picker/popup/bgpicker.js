@@ -6,6 +6,10 @@ var reset = document.querySelector('.color-reset button');
 var cookieVal = { image : '',
                   color : '' };
 
+function getActiveTab() {
+  return browser.tabs.query({active: true, currentWindow: true});
+}
+
 /* apply backgrounds to buttons */
 /* add listener so that when clicked, button applies background to page HTML */
 
@@ -15,13 +19,13 @@ for(var i = 0; i < bgBtns.length; i++) {
   bgBtns[i].style.backgroundImage = bgImg;
 
   bgBtns[i].onclick = function(e) {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    getActiveTab().then((tabs) => {
       var imgName = e.target.getAttribute('class');
-      var fullURL = chrome.extension.getURL('popup/images/'+ imgName + '.png');
-      chrome.tabs.sendMessage(tabs[0].id, {image: fullURL});
+      var fullURL = browser.extension.getURL('popup/images/'+ imgName + '.png');
+      browser.tabs.sendMessage(tabs[0].id, {image: fullURL});
 
       cookieVal.image = fullURL;
-      chrome.cookies.set({
+      browser.cookies.set({
         url: tabs[0].url,
         name: "bgpicker", 
         value: JSON.stringify(cookieVal)
@@ -33,12 +37,12 @@ for(var i = 0; i < bgBtns.length; i++) {
 /* apply chosen color to HTML background */
 
 colorPick.onchange = function(e) {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  getActiveTab().then((tabs) => {
     var currColor = e.target.value;
-    chrome.tabs.sendMessage(tabs[0].id, {color: currColor});
+    browser.tabs.sendMessage(tabs[0].id, {color: currColor});
 
     cookieVal.color = currColor;
-    chrome.cookies.set({
+    browser.cookies.set({
       url: tabs[0].url,
       name: "bgpicker", 
       value: JSON.stringify(cookieVal)
@@ -49,12 +53,12 @@ colorPick.onchange = function(e) {
 /* reset background */
 
 reset.onclick = function() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, {reset: true});
+  getActiveTab().then((tabs) => {
+    browser.tabs.sendMessage(tabs[0].id, {reset: true});
 
     cookieVal = { image : '',
                   color : '' };
-    chrome.cookies.remove({
+    browser.cookies.remove({
       url: tabs[0].url,
       name: "bgpicker" 
     })
@@ -63,6 +67,9 @@ reset.onclick = function() {
 
 /* Report cookie changes to the console */
 
-chrome.cookies.onChanged.addListener(function(changeInfo) {
-  console.log('Cookie changed:\n* Cookie: ' + JSON.stringify(changeInfo.cookie) + '\n* Cause: ' + changeInfo.cause + '\n* Removed: ' + changeInfo.removed);
-})
+browser.cookies.onChanged.addListener((changeInfo) => {
+  console.log(`Cookie changed:\n
+              * Cookie: ${JSON.stringify(changeInfo.cookie)}\n
+              * Cause: ${changeInfo.cause}\n
+              * Removed: ${changeInfo.removed}`);
+});

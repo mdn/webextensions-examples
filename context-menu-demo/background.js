@@ -3,63 +3,67 @@ Called when the item has been created, or when creation failed due to an error.
 We'll just log success/failure here.
 */
 function onCreated(n) {
-  if (chrome.runtime.lastError) {
-    console.log("error creating item:" + chrome.runtime.lastError);
+  if (browser.runtime.lastError) {
+    console.log(`Error: ${browser.runtime.lastError}`);
   } else {
-    console.log("item created successfully");
+    console.log("Item created successfully");
   }
 }
 
 /*
-Called when the item has been removed, or when there was an error.
-We'll just log success or failure here.
+Called when the item has been removed.
+We'll just log success here.
 */
 function onRemoved() {
-  if (chrome.runtime.lastError) {
-    console.log("error removing item:" + chrome.runtime.lastError);
-  } else {
-    console.log("item removed successfully");
-  }
+  console.log("Item removed successfully");
+}
+
+/*
+Called when there was an error.
+We'll just log the error here.
+*/
+function onError(error) {
+  console.log(`Error: ${error}`);
 }
 
 /*
 Create all the context menu items.
 */
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "log-selection",
-  title: chrome.i18n.getMessage("contextMenuItemSelectionLogger"),
+  title: browser.i18n.getMessage("contextMenuItemSelectionLogger"),
   contexts: ["selection"]
 }, onCreated);
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "remove-me",
-  title: chrome.i18n.getMessage("contextMenuItemRemoveMe"),
+  title: browser.i18n.getMessage("contextMenuItemRemoveMe"),
   contexts: ["all"]
 }, onCreated);
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "separator-1",
   type: "separator",
   contexts: ["all"]
 }, onCreated);
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "greenify",
   type: "radio",
-  title: chrome.i18n.getMessage("contextMenuItemGreenify"),
+  title: browser.i18n.getMessage("contextMenuItemGreenify"),
   contexts: ["all"],
   checked: true
 }, onCreated);
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "bluify",
   type: "radio",
-  title: chrome.i18n.getMessage("contextMenuItemBluify"),
+  title: browser.i18n.getMessage("contextMenuItemBluify"),
   contexts: ["all"],
   checked: false
 }, onCreated);
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "separator-2",
   type: "separator",
   contexts: ["all"]
@@ -67,10 +71,10 @@ chrome.contextMenus.create({
 
 var checkedState = true;
 
-chrome.contextMenus.create({
+browser.contextMenus.create({
   id: "check-uncheck",
   type: "checkbox",
-  title: chrome.i18n.getMessage("contextMenuItemUncheckMe"),
+  title: browser.i18n.getMessage("contextMenuItemUncheckMe"),
   contexts: ["all"],
   checked: checkedState
 }, onCreated);
@@ -85,7 +89,7 @@ var blue = 'document.body.style.border = "5px solid blue"';
 var green = 'document.body.style.border = "5px solid green"';
 
 function borderify(tabId, color) {
-  chrome.tabs.executeScript(tabId, {
+  browser.tabs.executeScript(tabId, {
     code: color
   });
 }
@@ -101,12 +105,12 @@ property into the event listener.
 function updateCheckUncheck() {
   checkedState = !checkedState;
   if (checkedState) {
-    chrome.contextMenus.update("check-uncheck", {
-      title: chrome.i18n.getMessage("contextMenuItemUncheckMe"),
+    browser.contextMenus.update("check-uncheck", {
+      title: browser.i18n.getMessage("contextMenuItemUncheckMe"),
     });
   } else {
-    chrome.contextMenus.update("check-uncheck", {
-      title: chrome.i18n.getMessage("contextMenuItemCheckMe"),
+    browser.contextMenus.update("check-uncheck", {
+      title: browser.i18n.getMessage("contextMenuItemCheckMe"),
     });
   }
 }
@@ -115,13 +119,14 @@ function updateCheckUncheck() {
 The click event listener, where we perform the appropriate action given the
 ID of the menu item that was clicked.
 */
-chrome.contextMenus.onClicked.addListener(function(info, tab) {
+browser.contextMenus.onClicked.addListener(function(info, tab) {
   switch (info.menuItemId) {
     case "log-selection":
       console.log(info.selectionText);
       break;
     case "remove-me":
-      chrome.contextMenus.remove(info.menuItemId, onRemoved);
+      var removing = browser.contextMenus.remove(info.menuItemId);
+      removing.then(onRemoved, onError);
       break;
     case "bluify":
       borderify(tab.id, blue);
