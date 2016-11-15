@@ -1,12 +1,12 @@
 form {
-	display: inline-block;
-	margin: 10px 0;
+  display: inline-block;
+  margin: 10px 0;
 }
 
 label {
-	display: block;
+  display: block;
 }
 
 legend ~ div {
-	margin: 10px 0;
+  margin: 10px 0;
 }

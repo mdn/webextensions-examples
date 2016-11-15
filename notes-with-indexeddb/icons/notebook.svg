@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>editor-notebook-outline-stroke</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="miu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-647.000000, -371.000000)">
+            <g id="slice" sketch:type="MSLayerGroup" transform="translate(215.000000, 119.000000)"></g>
+            <path d="M653.007484,374 C652.451066,374 652,374.455306 652,374.991803 L652,393.008197 C652,393.555955 652.44892,394 653.007484,394 L665.992516,394 C666.548934,394 667,393.544694 667,393.008197 L667,374.991803 C667,374.444045 666.55108,374 665.992516,374 L653.007484,374 Z M653,375 L653,393 L666,393 L666,375 L653,375 Z M650.2,389 C650.2,389 649,389 649,390.5 C649,392 650.2,392 650.2,392 L651,392 L651,389 L650.2,389 Z M650.2,385 C650.2,385 649,385 649,386.5 C649,388 650.2,388 650.2,388 L651,388 L651,385 L650.2,385 Z M650.2,380 C650.2,380 649,380 649,381.5 C649,383 650.2,383 650.2,383 L651,383 L651,380 L650.2,380 Z M650.2,376 C650.2,376 649,376 649,377.5 C649,379 650.2,379 650.2,379 L651,379 L651,376 L650.2,376 Z M653,373 L667,373 C668,373 668,374 668,374 L668,393 L669,392 L669,374 C669,374 669,372 667,372 L654,372 L653,373 Z" id="editor-notebook-outline-stroke" fill="#000000" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

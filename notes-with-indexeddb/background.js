@@ -2,9 +2,9 @@
 Open a new tab, and load "notes.html" into it.
 */
 function openNotes() {
-    chrome.tabs.create({
-        "url": chrome.extension.getURL("notes.html")
-    });
+	chrome.tabs.create({
+		"url": chrome.extension.getURL("notes.html")
+	});
 }
 
 
