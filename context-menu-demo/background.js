@@ -6,7 +6,7 @@ function onCreated(n) {
   if (browser.runtime.lastError) {
     console.log(`Error: ${browser.runtime.lastError}`);
   } else {
-    console.log(`Item created successfully`);
+    console.log("Item created successfully");
   }
 }
 
@@ -15,7 +15,7 @@ Called when the item has been removed.
 We'll just log success here.
 */
 function onRemoved() {
-  console.log(`Item removed successfully`);
+  console.log("Item removed successfully");
 }
 
 /*
