@@ -20,6 +20,6 @@
   },
 
   "browser_action": {
-    "default_icon": "icons/notebook-32.png"
+    "default_icon": "icons/notebook.svg"
   }
 }
