@@ -11,17 +11,18 @@ function toggleCSS(tab) {
 
   function gotTitle(title) {
     if (title === TITLE_APPLY) {
-      chrome.pageAction.setIcon({tabId: tab.id, path: "icons/on.svg"});
-      chrome.pageAction.setTitle({tabId: tab.id, title: TITLE_REMOVE});
-      chrome.tabs.insertCSS({code: CSS});
+      browser.pageAction.setIcon({tabId: tab.id, path: "icons/on.svg"});
+      browser.pageAction.setTitle({tabId: tab.id, title: TITLE_REMOVE});
+      browser.tabs.insertCSS({code: CSS});
     } else {
-      chrome.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
-      chrome.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
-      chrome.tabs.removeCSS({code: CSS});    
+      browser.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
+      browser.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
+      browser.tabs.removeCSS({code: CSS});
     }
   }
 
-  chrome.pageAction.getTitle({tabId: tab.id}, gotTitle)
+  var gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
+  gettingTitle.then(gotTitle);
 }
 
 /*
@@ -39,16 +40,17 @@ Only operates on tabs whose URL's protocol is applicable.
 */
 function initializePageAction(tab) {
   if (protocolIsApplicable(tab.url)) {
-    chrome.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
-    chrome.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
-    chrome.pageAction.show(tab.id);
+    browser.pageAction.setIcon({tabId: tab.id, path: "icons/off.svg"});
+    browser.pageAction.setTitle({tabId: tab.id, title: TITLE_APPLY});
+    browser.pageAction.show(tab.id);
   }
 }
 
 /*
 When first loaded, initialize the page action for all tabs.
 */
-chrome.tabs.query({}, (tabs) => {
+var gettingAllTabs = browser.tabs.query({});
+gettingAllTabs.then((tabs) => {
   for (tab of tabs) {
     initializePageAction(tab);
   }
@@ -57,11 +59,11 @@ chrome.tabs.query({}, (tabs) => {
 /*
 Each time a tab is updated, reset the page action for that tab.
 */
-chrome.tabs.onUpdated.addListener((id, changeInfo, tab) => {
+browser.tabs.onUpdated.addListener((id, changeInfo, tab) => {
   initializePageAction(tab);
 });
 
 /*
 Toggle CSS when the page action is clicked.
 */
-chrome.pageAction.onClicked.addListener(toggleCSS);
+browser.pageAction.onClicked.addListener(toggleCSS);

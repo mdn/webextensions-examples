@@ -1,5 +1,5 @@
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (!tab.url.match(/^about:/)) {
-    chrome.pageAction.show(tab.id);
+    browser.pageAction.show(tab.id);
   }
 });

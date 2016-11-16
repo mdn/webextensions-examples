@@ -1,4 +1,5 @@
-browser.storage.local.get("prefs", results => {
+const gettingItem = browser.storage.local.get("prefs");
+gettingItem.then(results => {
   const {prefs} = results || {
     prefs: {
       superImportantUserPref: "default value"

@@ -7,7 +7,7 @@ beastify():
 function beastify(request, sender, sendResponse) {
   removeEverything();
   insertBeast(request.beastURL);
-  chrome.runtime.onMessage.removeListener(beastify);
+  browser.runtime.onMessage.removeListener(beastify);
 }
 
 /*
@@ -34,4 +34,4 @@ function insertBeast(beastURL) {
 /*
 Assign beastify() as a listener for messages from the extension.
 */
-chrome.runtime.onMessage.addListener(beastify);
+browser.runtime.onMessage.addListener(beastify);

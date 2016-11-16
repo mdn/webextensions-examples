@@ -1,7 +1,7 @@
 var html = document.querySelector('html');
 var body = document.querySelector('body');
 
-chrome.runtime.onMessage.addListener(updateBg);
+browser.runtime.onMessage.addListener(updateBg);
 
 function updateBg(request, sender, sendResponse) {
   if(request.image) {

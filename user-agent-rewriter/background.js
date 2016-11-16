@@ -37,7 +37,7 @@ only for the target page.
 
 Make it "blocking" so we can modify the headers.
 */
-chrome.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
+browser.webRequest.onBeforeSendHeaders.addListener(rewriteUserAgentHeader,
                                           {urls: [targetPage]},
                                           ["blocking", "requestHeaders"]);
 

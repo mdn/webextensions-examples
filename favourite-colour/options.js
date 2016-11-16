@@ -1,11 +1,12 @@
 function saveOptions(e) {
-  chrome.storage.local.set({
+  browser.storage.local.set({
     colour: document.querySelector("#colour").value
   });
 }
 
 function restoreOptions() {
-  chrome.storage.local.get('colour', (res) => {
+  var gettingItem = browser.storage.local.get('colour');
+  gettingItem.then((res) => {
     document.querySelector("#colour").value = res.colour || 'Firefox red';
   });
 }

@@ -9,7 +9,7 @@ This extension includes:
 
 * A browser action that creates a popup — within the popup is:
 	* Two form elements for entering title and body text for a new note, along with a button to add a note, and a button to clear all notes.
-	* A list of the notes that have been added to the extension — each note includes a delete button to delete just that extension. You can also click on the note title and body to edit them. In edit mode, each note includes:
+	* A list of the notes that have been added to the extension — each note includes a delete button to delete just that note. You can also click on the note title and body to edit them. In edit mode, each note includes:
 		* An update button to submit an update.
 		* A cancel button to cancel the update.
 		

@@ -3,20 +3,15 @@ var latestDownloadId;
 
 /*
 Callback from getFileIcon.
-Log an error, or initialize the displayed icon.
+Initialize the displayed icon.
 */
 function updateIconUrl(iconUrl) {
-  /*
-  If there was an error getting the icon URL,
-  then lastError will be set. So check lastError
-  and handle it.
-  */
-  if (chrome.runtime.lastError) {
-    console.error(chrome.runtime.lastError);
-    iconUrl = "";
-  }
   var downloadIcon = document.querySelector("#icon");
   downloadIcon.setAttribute("src", iconUrl);
+}
+
+function onError(error) {
+  console.log(`Error: ${error}`);
 }
 
 /*
@@ -30,7 +25,8 @@ function initializeLatestDownload(downloadItems) {
   var downloadUrl = document.querySelector("#url");
   if (downloadItems.length > 0) {
     latestDownloadId = downloadItems[0].id;
-    chrome.downloads.getFileIcon(latestDownloadId, updateIconUrl);
+    var gettingIconUrl = browser.downloads.getFileIcon(latestDownloadId);
+    gettingIconUrl.then(updateIconUrl, onError);
     downloadUrl.textContent = downloadItems[0].url;
     document.querySelector("#open").classList.remove("disabled");
     document.querySelector("#remove").classList.remove("disabled");
@@ -44,17 +40,18 @@ function initializeLatestDownload(downloadItems) {
 /*
 Search for the most recent download, and pass it to initializeLatestDownload()
 */
-chrome.downloads.search({
+var searching = browser.downloads.search({
   limit: 1,
   orderBy: ["-startTime"]
-}, initializeLatestDownload);
+});
+searching.then(initializeLatestDownload);
 
 /*
 Open the item using the associated application.
 */
 function openItem() {
   if (!document.querySelector("#open").classList.contains("disabled")) {
-    chrome.downloads.open(latestDownloadId);
+    browser.downloads.open(latestDownloadId);
   }
 }
 
@@ -63,8 +60,8 @@ Remove item from disk (removeFile) and from the download history (erase)
 */
 function removeItem() {
   if (!document.querySelector("#remove").classList.contains("disabled")) {
-    chrome.downloads.removeFile(latestDownloadId);
-    chrome.downloads.erase({id: latestDownloadId});
+    browser.downloads.removeFile(latestDownloadId);
+    browser.downloads.erase({id: latestDownloadId});
     window.close();
   }
 }
