@@ -56,7 +56,7 @@ document.addEventListener("click", function(e) {
         }
       }
     });
-  }
+}
 
   if (e.target.id === "tabs-move-beginning") {
     callOnActiveTab((tab, tabs) => {
