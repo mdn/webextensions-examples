@@ -9,12 +9,6 @@
         "48": "icons/clipboard-48.png"
     },
 
-    "applications": {
-        "gecko": {
-            "strict_min_version": "51.0a1"
-        }
-    },
-
     "content_scripts": [{
         "matches": ["<all_urls>"],
         "js": ["content-script.js"]

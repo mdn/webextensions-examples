@@ -1,10 +1,4 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "some-options@mozilla.org",
-      "strict_min_version": "48.0a1"
-    }
-  },
   "background": {
       "scripts": ["background.js"]
   },

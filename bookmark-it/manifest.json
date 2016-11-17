@@ -9,13 +9,6 @@
     "96": "icons/bookmark-it@2x.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "bookmark-it-extension@mozilla.org",
-      "strict_min_version": "47.0a1"
-    }
-  },
-
   "permissions": [
     "bookmarks",
     "tabs"

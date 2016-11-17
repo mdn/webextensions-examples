@@ -6,13 +6,6 @@
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/apply-css",
 
-  "applications": {
-    "gecko": {
-      "id": "apply-css@mozilla.org",
-      "strict_min_version": "49.0"
-    }
-  },
-
   "background": {
     "scripts": ["background.js"]
   },

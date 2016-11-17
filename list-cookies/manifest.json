@@ -1,10 +1,4 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "list-cookies@mozilla.org",
-      "strict_min_version": "47.0a1"
-    }
-  },
   "browser_action": {
     "browser_style": true,
     "default_title": "List cookies in the active tab",

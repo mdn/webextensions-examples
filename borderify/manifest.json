@@ -9,13 +9,6 @@
     "48": "icons/border-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "borderify@mozilla.org",
-      "strict_min_version": "45.0"
-    }
-  },
-
   "content_scripts": [
     {
       "matches": ["*://*.mozilla.org/*"],

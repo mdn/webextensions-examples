@@ -9,13 +9,6 @@
     "48": "icons/person-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "user-agent-rewriter@mozilla.org",
-      "strict_min_version": "45.0"
-    }
-  },
-
   "permissions": [
     "webRequest", "webRequestBlocking", "http://useragentstring.com/*" 
   ],

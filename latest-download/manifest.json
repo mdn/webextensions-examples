@@ -9,13 +9,6 @@
     "48": "icons/page-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "latest-download@mozilla.org",
-      "strict_min_version": "48.0a1"
-    }
-  },
-
   "permissions": [
     "downloads",
     "downloads.open"

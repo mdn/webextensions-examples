@@ -1,10 +1,4 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "history-deleter@mozilla.com",
-      "strict_min_version": "49.0a2"
-    }
-  },
   "background": {
     "scripts": ["background.js"]
   },

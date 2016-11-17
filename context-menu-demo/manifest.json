@@ -5,13 +5,6 @@
   "version": "1.0",
   "default_locale": "en",
 
-  "applications": {
-    "gecko": {
-      "id": "context-menu-demo@mozilla.org",
-      "strict_min_version": "48.0"
-    }
-  },
-
   "background": {
     "scripts": ["background.js"]
   },
