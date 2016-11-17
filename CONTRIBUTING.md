@@ -12,15 +12,13 @@ to help contributors write useful examples.
 There are many ways you can help improve this repository! For example:
 
 * **write a brand-new example:** for example, you might notice that there are no
-examples highlighting the [cookies API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies).
+examples highlighting a particular API.
 * **extend an existing example:** for example,
-you might notice that the [tabs-tabs-tabs](https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs) example
-uses a lot of tab manipulation APIs, but does not cover
-[tabs.setZoom()](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/setZoom).
+you might notice that an existing example could usefully be extended to demonstrate some extra APIs or techniques.
 * **fix a bug:** we have a list of [issues](https://github.com/mdn/webextensions-examples/issues),
 or maybe you found your own.
 * **contribute a translation:** find an example with a `_locales` directory in
-it, and create a translation of the example's localizable strings into a new language. 
+it, and create a translation of the example's localizable strings into a new language.
 
 ## Guidelines for examples
 
@@ -35,9 +33,17 @@ complexity
     * [`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description)
     * [`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons)
     * `homepage_url`
-    * [`strict_min_version` in the `applications` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications)
+* omit the [`applications` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications), unless either of the following apply:
+    * the example uses an API or other feature that's not yet available in the current released version of Firefox. In this case, include the `applications` key and set `strict_min_version` to the minimum required version of Firefox.
+    * the example needs an explicitly specified ID (for example, [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) requires an explicitly specified ID). In this case, include the `applications` key and set `id` appropriately.
 
-Finally, note that the examples are all made available under the
+## Code style
+
+If you're editing an existing file, code style should be consistent with the rest of the code in the file. Otherwise, code style should follow the style for WebExtensions code itself: [https://wiki.mozilla.org/WebExtensions/Hacking#Code_Style](https://wiki.mozilla.org/WebExtensions/Hacking#Code_Style).
+
+## Licensing
+
+Please note that the examples are all made available under the
 [Mozilla Public License 2.0](https://github.com/mdn/webextensions-examples/blob/master/LICENSE),
 so any contributions must be
 [compatible with that license](https://www.mozilla.org/en-US/MPL/license-policy/).
