@@ -1,5 +1,5 @@
 {
-  "name": "chrome.identity example",
+  "name": "browser.identity example",
   "version": "1",
   "manifest_version": 2,
   "applications": {
