@@ -1,6 +1,7 @@
 
 let providers = {
   facebook: {
+    // See README for configuring Facebook.
     clientId: '1094807753900920',
     clientSecret: '3d4af261312493c4397e8003c9139500',
     token: null,
@@ -80,6 +81,7 @@ let providers = {
     }
   },
   google: {
+    // See README for instructions on getting your client id.
     clientId: "457987252532-cag55ui6oeopjfs73ajcmd13un7jklmk.apps.googleusercontent.com",
     scopes: ["openid", "email", "profile"],
     token: null,
@@ -168,7 +170,7 @@ function parseSearchParams(redirectUri) {
 }
 
 function authorize(provider, interactive) {
-  let redirectUri = chrome.identity.getRedirectURL('/provider_cb');
+  let redirectUri = chrome.identity.getRedirectURL('/callback');
 
   return new Promise((resolve, reject) => {
     if (provider.token) {
@@ -231,3 +233,5 @@ function openPage() {
   });
 }
 chrome.browserAction.onClicked.addListener(openPage);
+
+console.log(`Your redirect_uri is ${browser.identity.getRedirectURL("callback")}`);
