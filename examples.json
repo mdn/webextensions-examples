@@ -12,7 +12,7 @@
             "tabs.removeCSS"
         ], 
         "name": "apply-css", 
-        "description": "Adds a page action to the toolbar. Click the button to apply a red border using injected CSS. Click the button again to remove the CSS.",
+        "description": "Adds a page action to the toolbar. Click the button to apply a red border using injected CSS. Click the button again to remove the CSS."
     }, 
     {
         "javascript_apis": [
@@ -24,7 +24,7 @@
             "tabs.sendMessage"
         ], 
         "name": "beastify", 
-        "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast.",
+        "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast."
     }, 
     {
         "javascript_apis": [
@@ -38,12 +38,12 @@
             "tabs.query"
         ], 
         "name": "bookmark-it", 
-        "description": "Adds a bookmark button to the toolbar. Click the button to toggle a bookmark for the current page.",
+        "description": "Adds a bookmark button to the toolbar. Click the button to toggle a bookmark for the current page."
     }, 
     {
         "javascript_apis": [], 
         "name": "borderify", 
-        "description": "Adds a solid red border to all webpages matching mozilla.org.",
+        "description": "Adds a solid red border to all webpages matching mozilla.org."
     }, 
     {
         "javascript_apis": [
@@ -60,7 +60,7 @@
             "tabs.update"
         ], 
         "name": "chill-out", 
-        "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked.",
+        "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked."
     }, 
     {
         "javascript_apis": [
@@ -68,7 +68,7 @@
             "commands.onCommand"
         ], 
         "name": "commands", 
-        "description": "Demonstrates using the commands API to set up a keyboard shortcut. Thr shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac).",
+        "description": "Demonstrates using the commands API to set up a keyboard shortcut. Thr shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac)."
     }, 
     {
         "javascript_apis": [
@@ -81,7 +81,7 @@
             "tabs.executeScript"
         ], 
         "name": "context-menu-demo", 
-        "description": "Demonstrates adding and manipulating context menu items using the contextMenus API.",
+        "description": "Demonstrates adding and manipulating context menu items using the contextMenus API."
     }, 
     {
         "javascript_apis": [
@@ -97,7 +97,7 @@
             "tabs.sendMessage"
         ], 
         "name": "cookie-bg-picker", 
-        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
+        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized."
     }, 
     {
         "javascript_apis": [
@@ -106,7 +106,7 @@
             "storage.local"
         ], 
         "name": "embedded-webextension-bootstrapped", 
-        "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension.",
+        "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension."
     }, 
     {
         "javascript_apis": [
@@ -118,12 +118,12 @@
             "storage.local"
         ], 
         "name": "embedded-webextension-sdk", 
-        "description": "Demonstrates how to use an embedded WebExtension to port from an SDK-based add-on.",
+        "description": "Demonstrates how to use an embedded WebExtension to port from an SDK-based add-on."
     }, 
     {
         "javascript_apis": [], 
         "name": "emoji-substitution", 
-        "description": "Replaces words with emojis.",
+        "description": "Replaces words with emojis."
     }, 
     {
         "javascript_apis": [
@@ -132,7 +132,7 @@
             "storage.local"
         ], 
         "name": "favourite-colour", 
-        "description": "An example options page, letting you store your favourite colour.",
+        "description": "An example options page, letting you store your favourite colour."
     }, 
     {
         "javascript_apis": [
@@ -143,7 +143,7 @@
             "tabs.query"
         ], 
         "name": "history-deleter", 
-        "description": "History API demo: deletes history items for a given domain",
+        "description": "History API demo: deletes history items for a given domain"
     }, 
     {
         "javascript_apis": [
@@ -154,7 +154,7 @@
             "downloads.search"
         ], 
         "name": "latest-download", 
-        "description": "Shows the last downloaded item, and lets you open or delete it.",
+        "description": "Shows the last downloaded item, and lets you open or delete it."
     }, 
     {
         "javascript_apis": [
@@ -170,7 +170,7 @@
             "runtime.connectNative"
         ], 
         "name": "native-messaging", 
-        "description": "Example of native messaging, including a Python application and a WebExtension which exchanges messages with it.",
+        "description": "Example of native messaging, including a Python application and a WebExtension which exchanges messages with it."
     }, 
     {
         "javascript_apis": [
@@ -178,7 +178,7 @@
             "webNavigation.onCompleted"
         ], 
         "name": "navigation-stats", 
-        "description": "Demonstration of the webNavigation API, showing basic stata about which pages you've visited.",
+        "description": "Demonstration of the webNavigation API, showing basic stata about which pages you've visited."
     }, 
     {
         "javascript_apis": [
@@ -189,7 +189,7 @@
             "runtime.sendMessage"
         ], 
         "name": "notify-link-clicks-i18n", 
-        "description": "Shows a localized notification when the user clicks on links.",
+        "description": "Shows a localized notification when the user clicks on links."
     }, 
     {
         "javascript_apis": [
@@ -197,24 +197,24 @@
             "tabs.create"
         ], 
         "name": "open-my-page-button", 
-        "description": "Adds a browser action icon to the toolbar. When the browser action is clicked, the add-on opens a page that was packaged with it.",
+        "description": "Adds a browser action icon to the toolbar. When the browser action is clicked, the add-on opens a page that was packaged with it."
     }, 
     {
         "javascript_apis": [], 
         "name": "page-to-extension-messaging", 
-        "description": "Demonstrates how a web page and a content script can exchange messages. Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo.",
+        "description": "Demonstrates how a web page and a content script can exchange messages. Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo."
     }, 
     {
         "javascript_apis": [
             "storage.local"
         ], 
         "name": "quicknote", 
-        "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage.",
+        "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage."
     }, 
     {
         "javascript_apis": [], 
         "name": "selection-to-clipboard", 
-        "description": "Demonstrates how to write to the clipboard from a content script",
+        "description": "Demonstrates how to write to the clipboard from a content script"
     }, 
     {
         "javascript_apis": [
@@ -239,7 +239,7 @@
             "webRequest.onBeforeSendHeaders"
         ], 
         "name": "user-agent-rewriter", 
-        "description": "Demonstrates using the webRequest API to rewrite the User-Agent HTTP header.",
+        "description": "Demonstrates using the webRequest API to rewrite the User-Agent HTTP header."
     }, 
     {
         "javascript_apis": [
@@ -247,7 +247,7 @@
             "runtime.sendMessage"
         ], 
         "name": "webpack-modules", 
-        "description": "Demonstrates how to use webpack to package npm modules in a WebExtension.",
+        "description": "Demonstrates how to use webpack to package npm modules in a WebExtension."
     }, 
     {
         "javascript_apis": [
@@ -258,6 +258,6 @@
             "windows.update"
         ], 
         "name": "window-manipulator", 
-        "description": "Demonstrates how to manipulate windows: opening, closing, resizing windows.",
+        "description": "Demonstrates how to manipulate windows: opening, closing, resizing windows."
     }
 ]
