@@ -231,7 +231,7 @@
             "tabs.setZoom"
         ], 
         "name": "tabs-tabs-tabs", 
-        "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs.",
+        "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs."
     }, 
     {
         "javascript_apis": [
