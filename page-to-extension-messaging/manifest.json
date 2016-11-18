@@ -9,13 +9,6 @@
     "48": "icons/message-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "page-to-extension-messaging@mozilla.org",
-      "strict_min_version": "45.0"
-    }
-  },
-
   "content_scripts": [
     {
       "matches": ["https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html"],

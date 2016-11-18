@@ -1,11 +1,5 @@
 {
   "manifest_version": 2,
-  "applications": {
-    "gecko": {
-      "strict_min_version": "49.0.1"
-    }
-  },
-
   "name": "Emoji Substitution",
   "description": "Replaces words with emojis.",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/emoji-substitution",
