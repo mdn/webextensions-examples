@@ -61,6 +61,7 @@ dictionary.set('pig', '🐷');
 dictionary.set('pizza', '🍕');
 dictionary.set('planet', '🌎');
 dictionary.set('rose', '🌹');
+dictionary.set('rofl', '😂');
 dictionary.set('sad', '😢');
 dictionary.set('sleep', '😴');
 dictionary.set('smile', '😀');
