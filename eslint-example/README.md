@@ -2,9 +2,16 @@
 
 ## What it shows
 
-A project configured to use the [Mozilla ESlint configuration](https://www.npmjs.com/package/eslint-plugin-mozilla). By using a linter on your extension source code you can be sure that you will only be writing JavaScript that is compatible with Firefox.
+This shows how to configure a WebExtension with
+[eslint](http://eslint.org/)
+to protect against
+writing JavaScript code that may be incompatible with modern versions of
+Firefox or Chrome.
 
-## How to use
+## How to use it
 
-* run `npm install` to install packages
-* run `npm run lint` to use eslint
+This requires [NodeJS](https://nodejs.org/en/) and [npm](http://npmjs.com/).
+
+* Change into the example directory and run `npm install` to install all
+  dependencies.
+* Execute `npm run lint` to view a report of any coding errors.
