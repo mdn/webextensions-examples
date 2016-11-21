@@ -12,7 +12,7 @@ to help contributors write useful examples.
 There are many ways you can help improve this repository! For example:
 
 * **write a brand-new example:** for example, you might notice that there are no
-examples highlighting a particular API.
+examples highlighting a particular [API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API).
 * **extend an existing example:** for example,
 you might notice that an existing example could usefully be extended to demonstrate some extra APIs or techniques.
 * **fix a bug:** we have a list of [issues](https://github.com/mdn/webextensions-examples/issues),
