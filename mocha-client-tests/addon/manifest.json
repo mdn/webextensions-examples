@@ -1,0 +1,28 @@
+{
+  "name": "Mocha tests",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Check ",
+  "icons": {
+    "16": "images/icon-16.png"
+  },
+  "short_name": "MochaTest",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon-19.png"
+    },
+    "default_title": "Mocha Test",
+    "default_popup": "popup.html"
+  },
+  "applications": {
+    "gecko": {
+      "strict_min_version": "45.0"
+    }
+  },
+  "content_security_policy": "script-src 'self'; object-src 'self'; img-src 'self'"
+}
