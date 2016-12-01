@@ -17,14 +17,14 @@ To run tests from within the addon:
 ```
 
 ##Testing within the Addon
-This gives you the possibility to run client test inside the addon with the mocha UI.
+This gives you the possibility to run client tests inside the addon with the mocha UI.
 If you don't want to use the mocha UI, you can install [WebConsole-reporter](https://github.com/eeroan/WebConsole-reporter).
 
 ###Run with web-ext cli
 Just run `npm run web-ext` (will work with FF dev edition), if you have error with web-ext cli please add path for FF binary file with `--firefox-binary /path/to/firefox-bin`
 [(web-ext docs)](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/web-ext_command_reference).
 
-When the addon starts, click on mocha icon in your browser bar to run client tests: 
+When the addon starts, click on the mocha icon in your browser bar to run the tests:
 
 ![addon screenshot](screenshots/addon-button.png "Mocha test addon")
 
@@ -36,4 +36,5 @@ This uses [Karma](http://karma-runner.github.io) to run tests from the commandli
 ###Debug  Mode
 Use `npm run test:debug` to run Karma in watch mode. Whenever you modify a Javascript file, the tests will automatically rerun.
 
-You can install [karma-notification-reporter](https://www.npmjs.com/package/karma-notification-reporter) to display test results in a desktop notification.
+You can install [karma-notification-reporter](https://www.npmjs.com/package/karma-notification-reporter) to display test results in a desktop notification. You'll need to add `--reporters=dots,notification` to the `test:debug` command line of
+`package.json` to enable it.
