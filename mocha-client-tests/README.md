@@ -1,17 +1,39 @@
 #Mocha client tests for WebExtensions
-##Install dependency
-`npm install` - will install all dependencies for running PhantomJS outside of addon
+##Introduction
+This example shows two methods of testing a WebExtension:
+* Running tests from within the addon
+* Running tests from the commandline using Karma
 
-Than please run `cd ./addon/` and `npm install` to install mocha. It give you possibility to run client test inside of addon with mocha UI. If you don't want to have mocha UI you can install [WebConsole-reporter](https://github.com/eeroan/WebConsole-reporter)
+See https://github.com/Standard8/example-webextension for a more complete example of WebExtension test configuration.
 
-##Run with web-ext cli
+##Install Dependencies:
+```
+  npm install
+```
+To run tests from within the addon:
+```
+  cd addon
+  npm install
+```
+
+##Testing within the Addon
+This gives you the possibility to run client test inside the addon with the mocha UI.
+If you don't want to use the mocha UI, you can install [WebConsole-reporter](https://github.com/eeroan/WebConsole-reporter).
+
+###Run with web-ext cli
 Just run `npm run web-ext` (will work with FF dev edition), if you have error with web-ext cli please add path for FF binary file with `--firefox-binary /path/to/firefox-bin`
 [(web-ext docs)](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/web-ext_command_reference).
 
-When addon will start click on mocha icon in your browser bar to run client tests: 
+When the addon starts, click on mocha icon in your browser bar to run client tests: 
 
 ![addon screenshot](screenshots/addon-button.png "Mocha test addon")
 
-Addon will run test of  `./addon/background.js` in `./addon/tests/lib/background-messaging.test.js`
-##PhantomJs tests
-`npm test` will run simple test of `./addon/background.js` in `./tests/lib/background.test.js`
+This will test  `./addon/background.js` with `./addon/tests/lib/background-messaging.test.js`.
+
+##Testing from the Commandline
+This uses [Karma](http://karma-runner.github.io) to run tests from the commandline. Just type `npm test` to test `./addon/background.js` with `./tests/lib/background.test.js`.
+
+###Debug  Mode
+Use `npm run test:debug` to run Karma in watch mode. Whenever you modify a Javascript file, the tests will automatically rerun.
+
+You can install [karma-notification-reporter](https://www.npmjs.com/package/karma-notification-reporter) to display test results in a desktop notification.
