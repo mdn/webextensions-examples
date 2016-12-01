@@ -21,7 +21,8 @@ module.exports = function(config) {
       'tests/lib/*.js'
     ],
 
-    // list of files to exclude
+    // The tests below are intended to be run from inside the WebExtension itself,
+    // not from the Karma test suite.
     exclude: [
       'addon/tests',
     ],
