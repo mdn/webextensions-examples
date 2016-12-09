@@ -1,4 +1,5 @@
-# Ignore build artifacts.
+# Ignore build artifacts and other files.
+.DS_Store
 yarn.lock
 extension/dist
 node_modules
