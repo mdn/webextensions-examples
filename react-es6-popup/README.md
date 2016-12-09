@@ -31,7 +31,7 @@ can run in Firefox or Chrome:
     npm run build
 
 This creates a WebExtension in the `extension` subdirectory.
-Any time you edit a file, it will be built automatically.
+Any time you edit a file, it will be rebuilt automatically.
 
 In another shell window, run the extension in Firefox using a wrapper
 around [web-ext][web-ext]:
@@ -39,10 +39,8 @@ around [web-ext][web-ext]:
     npm start
 
 Any time you edit a file, [web-ext][web-ext] will reload the extension
-in Firefox.
-
-To see the popup, click the watermelon icon from the browser bar.
-Here is an example screenshot:
+in Firefox. To see the popup, click the watermelon icon from the browser bar.
+Here is what it looks like:
 
 ![popup screenshot](screenshots/popup.png "React popup screenshot")
 
