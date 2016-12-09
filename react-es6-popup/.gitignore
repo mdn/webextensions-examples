@@ -1,3 +1,4 @@
 # Ignore build artifacts.
+yarn.lock
 extension/dist
 node_modules
