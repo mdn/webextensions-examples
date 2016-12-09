@@ -1,0 +1,3 @@
+# Ignore build artifacts.
+extension/dist
+node_modules
