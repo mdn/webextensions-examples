@@ -6,8 +6,8 @@ module.exports = {
     // Each entry in here would declare a file that needs to be transpiled
     // and included in the extension source.
     // For example, you could add a background script like:
-    // background: './src/background',
-    popup: './src/popup',
+    // background: './src/background.js',
+    popup: './src/popup.js',
   },
   output: {
     // This copies each source entry into the extension dist folder named
