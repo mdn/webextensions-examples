@@ -16,6 +16,7 @@ UI in [React][react] and [ES6](http://es6-features.org/) JavaScript.
   syntax and [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
 * How to continuously build code as you edit files.
 * How to customize [web-ext][web-ext] for your extension's specific needs.
+* How to structure your code in reusable ES6 modules.
 
 ## Usage
 
