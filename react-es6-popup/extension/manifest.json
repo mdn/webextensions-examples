@@ -11,5 +11,7 @@
     },
     "default_title": "React Example",
     "default_popup": "popup.html"
-  }
+  },
+
+  "permissions": ["activeTab"]
 }
