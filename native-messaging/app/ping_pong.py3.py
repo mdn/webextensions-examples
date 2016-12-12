@@ -29,4 +29,4 @@ def sendMessage(encodedMessage):
 while True:
   receivedMessage = getMessage()
   if (receivedMessage == "ping"):
-    sendMessage(encodeMessage("OH"))
+    sendMessage(encodeMessage("pong"))
