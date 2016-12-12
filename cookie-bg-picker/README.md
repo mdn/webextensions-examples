@@ -5,6 +5,8 @@ The WebExtension also uses cookies to save preferences for each site you customi
 
 Works in Firefox 47+, and will also work as a Chrome extension, out of the box.
 
+**This add-on injects JavaScript into web pages. The `addons.mozilla.org` domain disallows this operation, so this add-on will not work properly when it's run on pages in the `addons.mozilla.org` domain.**
+
 ## What it does
 
 This extension includes:
