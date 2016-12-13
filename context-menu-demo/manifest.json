@@ -1,7 +1,8 @@
 {
 
   "manifest_version": 2,
-  "name": "context-menu-demo",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "default_locale": "en",
 
