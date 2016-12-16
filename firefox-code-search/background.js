@@ -80,8 +80,8 @@ function createSuggestionsFromResponse(response) {
       if (occurrences) {
         occurrences.forEach(occurrence => {
           suggestions.push({
-            content:
-              `${SOURCE_URL}/${occurrence.path}#${occurrence.lines[0].lno}`,
+            content: `${SOURCE_URL}/${occurrence.path}
+              #${occurrence.lines[0].lno}`,
             description: occurrence.lines[0].line,
           });
         });
