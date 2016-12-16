@@ -78,21 +78,20 @@ function createSuggestionsFromResponse(response) {
       }
 
       if (occurrences) {
-        occurrences.forEach(occurrence => {
+        occurrences.forEach(({path, lines}) => {
           suggestions.push({
-            content: `${SOURCE_URL}/${occurrence.path}
-              #${occurrence.lines[0].lno}`,
-            description: occurrence.lines[0].line,
+            content: `${SOURCE_URL}/${path}#${lines[0].lno}`,
+            description: lines[0].line,
           });
         });
         return resolve(suggestions);
       }
 
       // There won't be any textual occurrences if the "path:" prefix is used.
-      files.forEach(file => {
+      files.forEach(({path}) => {
         suggestions.push({
-          content: `${SOURCE_URL}/${file.path}`,
-          description: file.path,
+          content: `${SOURCE_URL}/${path}`,
+          description: path,
         });
       });
       return resolve(suggestions);
