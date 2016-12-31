@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create temporary files</title>
+    <meta charset="utf-8">
+    <style>
+     .overflow-scroll {
+       max-height: 200px;
+       overflow: auto;
+     }
+    </style>
+  </head>
+  <body>
+    <h1>Create mutable files using the MutableFile API, and then save and retrieve them using IndexedDB API</h1>
+
+    <hr/>
+
+    <h1>1. Create temporary files</h1>
+
+    <div>
+      <button id="create-file">Create a MutableFile</button>
+      <button id="get-metadata">Get Metadata of the opened MutableFile</button>
+    </div>
+
+    <hr/>
+
+    <div>
+      <textarea id="file-data" placeholder="data to save into the file..."
+                style="width: 100%;"></textarea>
+      <button id="save-data">Save Data into the opened MutableFile</button><br/>
+    </div>
+
+    <hr/>
+
+    <div>
+      <input id="filename-to-save" placeholder="filename to save...">
+      <button id="persist-file">Persist the opened MutableFile into an IndexedDB key</button>
+    </div>
+    <div>
+
+    <h1>2. Retrieve persisted files</h1>
+
+    <button id="list-saved-files">List all the saved files</button>
+
+    <hr/>
+
+    <div>
+      <input id="filename-to-read" placeholder="filename to read...">
+      <button id="read-file">Read a MutableFile by IndexedDB key</button>
+    </div>
+
+    <hr/>
+
+    <button id="clear-logs">Clear Logs</button>
+
+    <pre id="indexed-logs" class="overflow-scroll">Logs from the IndexedDB operations...</pre>
+
+    <script src="indexeddb-filehandle.js"></script>
+  </body>
+</html>
