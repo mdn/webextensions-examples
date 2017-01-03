@@ -2,6 +2,7 @@ function saveOptions(e) {
   browser.storage.local.set({
     colour: document.querySelector("#colour").value
   });
+  e.preventDefault();
 }
 
 function restoreOptions() {
