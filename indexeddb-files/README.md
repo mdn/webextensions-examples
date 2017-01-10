@@ -1,18 +1,17 @@
 # indexeddb-files
 
-This add-on shows how to read and save files using the IndexedDB API and the sub-set of the "File and Directory Entries API" supported on Firefox.
+This add-on shows how to read and save files using the IndexedDB API and the subset of the "File and Directory Entries API" supported on Firefox.
 
 ## What it does ##
 
 The extension includes:
 
-* a browser action which opens a new extension tab
-* 3 examples that can be loaded by the extension tab opened by clicking the browser action.
+* a browser action which opens a popup with a list of examples
+* 2 file manipulations examples (that are opened in a tab by clicking their related link)
 
 ## What it shows ##
 
-- **Reading files from a local directory tree**: which shows how to use the sub-set of the "File and Directory API" supported on Firefox to read a directory tree instead of single files
-- **Save files into IndexedDB**: which shows how to use the IndexedDB files to save and read files from indexedDB (and how to extract of the files as a single zip files)
+- **Save files into IndexedDB**: which shows how to read a local directory tree and save all its content into IndexedDB files, then read files from indexedDB and download them as a single zip files.
 - **Create temporary files**: which shows how to use the MutableFile API exposed by the IndexedDB API to create mutable files and save them using the IndexedDB API.
 
 ## More docs on MDN ##

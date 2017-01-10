@@ -12,10 +12,7 @@
     "default_icon": {
       "48": "icons/files-50.png"
     },
-    "default_title": "IndexedDB Files"
-  },
-
-  "background": {
-    "scripts": ["background.js"]
+    "default_title": "IndexedDB Files",
+    "default_popup": "popup.html"
   }
 }

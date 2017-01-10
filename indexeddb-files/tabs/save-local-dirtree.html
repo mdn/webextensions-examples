@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Save files into IndexedDB</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="common-tab.css">
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Reading files from a local directory tree and save them into IndexedDB</h1>
+
+      <hr/>
+
+      <details id="step-01" open>
+        <summary>1. Open a directory tree of local files to save into indexedDB</summary>
+        <div>
+          <input type="file" id="filepicker" name="fileList" webkitdirectory multiple disabled>
+        </div>
+      </details>
+
+      <details id="step-02">
+        <summary>2. Retrieve files saved in the IndexedDB</summary>
+        <div>
+          <button id="list-saved-files">List all the saved files</button>
+
+          <div>
+            <input id="filename-to-read" placeholder="filename to read..." disabled>
+            <input type="button" id="read-file" value="Read by IndexedDB key" disabled>
+          </div>
+        </div>
+      </details>
+
+
+      <details id="step-03">
+        <summary>3. Download all the saved files as a single Zip file</summary>
+        <div>
+          <input type="button" id="zip-files" value="Save as a zip file" disabled>
+          <a id="zip-file-link" target="_blank"></a>
+        </div>
+      </details>
+    </main>
+
+    <aside>
+      <div id="logs-panel">
+        <pre id="indexed-logs" class="overflow-scroll">Logs from the IndexedDB operations...</pre>
+
+        <button id="clear-logs">Clear Logs</button>
+      </div>
+    </aside>
+
+    <script src="/vendor/jszip.js"></script>
+    <script src="common-log-helpers.js"></script>
+    <script src="save-local-dirtree.js"></script>
+  </body>
+</html>

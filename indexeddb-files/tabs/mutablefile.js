@@ -1,14 +1,7 @@
-// Log utilities.
-const dbLogsEl = document.querySelector("#indexed-logs");
-
-document.querySelector("#clear-logs").onclick = () => {
-  dbLogsEl.innerText = "";
-};
-
-const dbLog = (...args) => {
-  dbLogsEl.innerText += '\n' + args.join(" ");
-};
-
+const step01El = document.querySelector("#step-01");
+const step02El = document.querySelector("#step-02");
+const step03El = document.querySelector("#step-03");
+const step04El = document.querySelector("#step-03");
 
 // IndexedDB initializations.
 var db;
@@ -31,6 +24,15 @@ dbReq.onupgradeneeded = () => {
 dbReq.onsuccess = () => {
   db = dbReq.result;
 
+  step01El.setAttribute("open", "open");
+  step02El.removeAttribute("open");
+  step03El.removeAttribute("open");
+  step04El.removeAttribute("open");
+
+  for (let el of document.querySelectorAll("input")) {
+    el.removeAttribute("disabled");
+  }
+
   dbLog(`Opened tempFiles db.`);
 
   db.onerror = evt => {
@@ -44,6 +46,7 @@ dbReq.onsuccess = () => {
 // referenced anymore.
 var tempFile;
 
+// Assert helpers (which log errors and raise an Error if the assertion is not verified).
 function assertDefined(val, msg) {
   if (!val) {
     dbLog(msg);
@@ -72,10 +75,14 @@ document.querySelector("#create-file").addEventListener("click", () => {
     // Persist the opened file into a global var, so that the file handle will not
     // be invalidated once this function returns.
     tempFile = tempFileReq.result;
+
+    step02El.setAttribute("open", "open");
+    document.querySelector("textarea").removeAttribute("disabled");
   };
 });
 
-// Handle the save-data, get-metadata and persist-file buttons.
+// Handle the "save-data" button: fetch the contents of the "file-data" textarea
+// and append it to the currently open temporary file.
 document.querySelector("#save-data").addEventListener("click", () => {
   assertOpenedFileReady();
 
@@ -84,12 +91,14 @@ document.querySelector("#save-data").addEventListener("click", () => {
   const saveDataReq = lockedFile.append(document.querySelector('#file-data').value);
   saveDataReq.onsuccess = () => {
     dbLog(`wrote data into the tempFile`);
+    step03El.setAttribute("open", "open");
   };
   saveDataReq.onerror = () => {
     dbLog(`ERROR on writing data into the mutable file: ${saveDataReq.error.message}`);
   };
 });
 
+// Handle the "get-metadata" button: logs the metadata of the opened MutableFile.
 document.querySelector("#get-metadata").addEventListener("click", () => {
   assertOpenedFileReady();
 
@@ -99,10 +108,11 @@ document.querySelector("#get-metadata").addEventListener("click", () => {
   metaDataReq.onsuccess = () => {
     console.log(metaDataReq);
     const {size, lastModified} = metaDataReq.result;
-    dbLog(`tempFile metadata: ${JSON.stringify({size, lastModified})}`);
+    dbLog(`tempFile metadata: ${JSON.stringify({size, lastModified}, null, 2)}`);
   };
 });
 
+// Handle the "persist-file" button: save the opened MutableFile into IndexedDB.
 document.querySelector("#persist-file").addEventListener("click", () => {
   assertOpenedFileReady();
   assertIndexedDBReady();
@@ -123,6 +133,8 @@ document.querySelector("#persist-file").addEventListener("click", () => {
   const request = objectStore.put(tempFile, filename);
   request.onsuccess = function(event) {
     dbLog(`tempFile has been stored into IndexedDB as "${filename}"`);
+
+    step03El.setAttribute("open", "open");
   };
 });
 
@@ -139,7 +151,8 @@ document.getElementById("list-saved-files").addEventListener("click", () => {
   };
 });
 
-// Handle the button which read a saved MutableFile.
+// Handle the button which reads and logs the metadata and the text content
+// of a saved MutableFile.
 document.getElementById("read-file").addEventListener("click", () => {
   assertIndexedDBReady();
 
@@ -161,13 +174,13 @@ document.getElementById("read-file").addEventListener("click", () => {
   dbRequest.onsuccess = (evt) => {
     const file = evt.target.result;
     if (!file) {
-      dbLog("File ${filename} not found.");
+      dbLog(`File ${filename} not found.`);
       return;
     }
 
     // Read and print the file metadata.
     const {name, size, type, lastModifiedDate} = file;
-    dbLog(`Read ${filename}: ${JSON.stringify({name, size, type, lastModifiedDate})}`);
+    dbLog(`Read ${filename}: ${JSON.stringify({name, size, type, lastModifiedDate}, null, 2)}`);
 
     const reader = new FileReader();
     reader.addEventListener("loadend", () => {

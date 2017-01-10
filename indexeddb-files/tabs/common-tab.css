@@ -1,0 +1,30 @@
+.overflow-scroll {
+  max-height: 200px;
+  overflow: auto;
+  border: 1px dashed grey;
+  padding: 0.5em;
+}
+
+#logs-panel {
+  background: #EEEEEE;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  display: flex;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+aside {
+  flex: 1 1 auto;
+  min-width: 50%;
+}
+
+details > div {
+  padding: 1em;
+}
