@@ -4,7 +4,10 @@ const step03El = document.querySelector("#step-03");
 
 // IndexedDB initializations.
 var db;
-const dbReq = indexedDB.open("savedFilesDB", 3);
+
+// Open the file database as "persistent" to get highers quota limits:
+// https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria#Firefox_specifics
+const dbReq = indexedDB.open("savedFilesDB", {version: 1, storage: "persistent"});
 
 // Logs errors on opening the db.
 dbReq.onerror = evt => {
@@ -61,7 +64,8 @@ document.getElementById("filepicker").addEventListener("change", (event) => {
       logIDBFileLink({
         prefixText: "\n",
         fileIDBKey: file.webkitRelativePath,
-        suffixText: " has been saved"
+        suffixText: " has been saved",
+        onClickHandler: readIDBFileByKey,
       });
     };
     dbRequest.onerror = (evt) => {

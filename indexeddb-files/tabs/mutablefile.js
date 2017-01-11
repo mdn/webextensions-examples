@@ -5,7 +5,10 @@ const step04El = document.querySelector("#step-03");
 
 // IndexedDB initializations.
 var db;
-const dbReq = indexedDB.open("tempFilesDB", 3);
+
+// Open the file database as "persistent" to get highers quota limits:
+// https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria#Firefox_specifics
+const dbReq = indexedDB.open("tempFilesDB",  {version: 1, storage: "persistent"});
 
 dbReq.onerror = evt => {
   dbLog(`ERROR: Fail to open indexedDB 'tempFilesDB' db: ${evt.target.error.message}`);

@@ -29,6 +29,10 @@ The extension includes:
 - IndexedDB MutableFile API:
   * https://developer.mozilla.org/en-US/docs/Web/API/IDBMutableFile
 
+- Quota limits and Storage types:
+  * https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Browser_storage_limits_and_eviction_criteria#Firefox_specifics
+  * https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API#Storage_limits_and_eviction_criteria
+
 ## Acknowledgements
 
 * WebExtension icon courtesy of [icons8.com](http://icons8.com).
