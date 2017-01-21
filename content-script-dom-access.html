@@ -1,0 +1,60 @@
+
+<h1 id="my-heading-1">This is a web page for testing content scripts</h1>
+
+<p>This is a web page for testing the kind of access content scripts get to the web pages they run inside.
+The page includes a page script, which does three things:
+</p>
+
+<ul>
+  <li>Adds a new paragraph, with code like this:
+  <pre>
+var p = document.createElement("p");
+p.textContent = "This paragraph was added by a page script.";
+p.setAttribute("id", "page-script-para");
+document.body.appendChild(p);
+  </pre>
+  </li>
+  <li>Adds a new variable "foo" to the global window object, with code like this:
+
+<pre>
+window.foo = "This global variable was added by a page script";
+</pre>
+</li>
+  <li>redefines the build-in window.confirm() function, with code like this:
+<pre>
+window.confirm = function() {
+  alert("The page script has also redefined 'confirm'");
+}
+</pre>
+  </li>
+</ul>
+
+<p>If you now install the <a href="https://github.com/mdn/webextensions-examples/tree/master/content-scripts">content-scripts extension</a>, and reload the page, you'll now see two columns of buttons underneath this text.</p>
+
+<p>Each column contains three buttons:</p>
+<ul>
+  <li>Button 1 toggles a blue background for the paragraph the page script added.</li>
+  <li>Button 2 prints the value of "window.foo" in the text box below.</li>
+  <li>Button 3 calls window.confirm()</li>
+</ul>
+
+<p>The exact same code is running in each column. But the left-hand column is running in the  page script, while the right-hand button is running in the content script. So you'll see the following:</p>
+
+<ul>
+  <li>Button 1 gives the same result in both columns: content scripts can see and modify the DOM, even for elements added by page scripts.</li>
+  <li>Button 2 gives "undefined" for the content script column: content scripts can't see variables added by page scripts.</li>
+  <li>Button 3 calls the original, unmodified version of window.confirm(): content scripts are unaffected by redefinitions of built-in DOM functions that are made by page scripts.</li>
+</ul>
+
+<div id="wrap">
+    <div id="left-column">
+    </div>
+    <div id="right-column">
+    </div>
+</div>
+
+
+<div id="output"></div>
+
+<script src="content-scripts/insert-controls.js"></script>
+<script src="page-scripts/page-script.js"></script>
