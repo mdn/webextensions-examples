@@ -2,7 +2,7 @@
 
 ## What it does
 
-This extension creates a new tab page that lists the topSites visited.
+This extension replaces the built-in page shown when the user opens a new tab without specifying a page to load (for example, when the user presses Ctrl+T). The replacement page is populated with links taken from the topSites API.
 
 # What it shows
 

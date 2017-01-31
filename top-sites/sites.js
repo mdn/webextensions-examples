@@ -9,12 +9,12 @@ browser.topSites.get()
 
     let ul = document.createElement('ul');
     ul.className = 'list-group';
-    for (let k in sites) {
+    for (let site of sites) {
       let li = document.createElement('li');
       li.className = 'list-group-item';
       let a = document.createElement('a');
-      a.href = sites[k].url;
-      a.innerText = sites[k].title || sites[k].url;
+      a.href = site.url;
+      a.innerText = site.title || site.url;
       li.appendChild(a);
       ul.appendChild(li);
     }
