@@ -19,6 +19,10 @@ function isEvent(obj) {
 }
 
 for (let api_name of Object.keys(browser)) {
+  if (!browser[api_name]) {
+    console.log(`Skipping: ${api_name}`);
+    continue;
+  }
   for (let method_name of Object.keys(browser[api_name])) {
     let method = browser[api_name][method_name];
     let name = `${api_name}.${method_name}`;
