@@ -1,0 +1,18 @@
+html, body {
+  width: 350px;
+}
+
+a {
+  margin: 10px;
+  display: inline-block;
+}
+
+.panel {
+  margin: 5px;
+}
+
+span.identity {
+  width: 100px;
+  display: inline-block;
+  margin-left: 1em;
+}
