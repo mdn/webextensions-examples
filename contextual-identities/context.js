@@ -30,7 +30,7 @@ function createOptions(node, identity) {
 var div = document.getElementById('identity-list');
 
 if (browser.contextualIdentities === undefined) {
-  div.innerText = 'browser.contextualIdentities not available, do you have the pref privacy.userContext.enabled set to true?';
+  div.innerText = 'browser.contextualIdentities not available. Check that the privacy.userContext.enabled pref is set to true, and reload the add-on.';
 } else {
   browser.contextualIdentities.query({})
     .then((identities) => {
