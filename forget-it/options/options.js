@@ -32,21 +32,15 @@ Update the options UI with the settings values retrieved from storage,
 or the default settings if the stored settings are empty.
 */
 function updateUI(restoredSettings) {
-  if (!restoredSettings.since || !restoredSettings.dataTypes) {
-    browser.runtime.getBackgroundPage().then((backgroundPage) => {
-      updateUI(backgroundPage.defaultSettings);
-    });
-  } else {
-    const selectList = document.querySelector("#since");
-    selectList.value = restoredSettings.since;
+  const selectList = document.querySelector("#since");
+  selectList.value = restoredSettings.since;
 
-    const checkboxes = document.querySelectorAll(".data-types [type=checkbox]");
-    for (item of checkboxes) {
-      if (restoredSettings.dataTypes.indexOf(item.getAttribute("data-type")) != -1) {
-        item.checked = true;
-      } else {
-        item.checked = false;
-      }
+  const checkboxes = document.querySelectorAll(".data-types [type=checkbox]");
+  for (item of checkboxes) {
+    if (restoredSettings.dataTypes.indexOf(item.getAttribute("data-type")) != -1) {
+      item.checked = true;
+    } else {
+      item.checked = false;
     }
   }
 }

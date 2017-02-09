@@ -7,54 +7,67 @@ var defaultSettings = {
 };
 
 /*
-Convert from a string to a time.
-The string is one of: "hour", "day", "week", "forever".
-The time is given in milliseconds since the epoch.
+Generic error logger.
 */
-function getSince(selectedSince) {
-  if (selectedSince === "forever") {
-    return 0;
-  }
-
-  const times = {
-    hour: () => { return 1000 * 60 * 60 },
-    day: () => { return 1000 * 60 * 60 * 24 },
-    week: () => { return 1000 * 60 * 60 * 24 * 7}
-  }
-
-  const sinceMilliseconds = times[selectedSince].call();
-  return (new Date()).getTime() - sinceMilliseconds;
+function onError(e) {
+  console.error(e);
 }
 
 /*
-Convert from an array of strings, representing data types,
-to an object suitable for passing into browsingData.remove().
+On startup, check whether we have stored settings.
+If we don't, then store the default settings.
 */
-function getTypes(selectedTypes) {
-  let dataTypes = {};
-  for (item of selectedTypes) {
-    dataTypes[item] = true;
+function checkStoredSettings(storedSettings) {
+  if (!storedSettings.since || !storedSettings.dataTypes) {
+    browser.storage.local.set(defaultSettings);
   }
-  return dataTypes;
 }
+
+const gettingStoredSettings = browser.storage.local.get();
+gettingStoredSettings.then(checkStoredSettings, onError);
 
 /*
 Forget browsing data, according to the settings passed in as storedSettings
 or, if this is empty, according to the default settings.
 */
 function forget(storedSettings) {
-  if (!storedSettings.since || !storedSettings.dataTypes) {
-    storedSettings = defaultSettings;
+
+  /*
+  Convert from a string to a time.
+  The string is one of: "hour", "day", "week", "forever".
+  The time is given in milliseconds since the epoch.
+  */
+  function getSince(selectedSince) {
+    if (selectedSince === "forever") {
+      return 0;
+    }
+
+    const times = {
+      hour: () => { return 1000 * 60 * 60 },
+      day: () => { return 1000 * 60 * 60 * 24 },
+      week: () => { return 1000 * 60 * 60 * 24 * 7}
+    }
+
+    const sinceMilliseconds = times[selectedSince].call();
+    return (new Date()).getTime() - sinceMilliseconds;
   }
-  
+
+  /*
+  Convert from an array of strings, representing data types,
+  to an object suitable for passing into browsingData.remove().
+  */
+  function getTypes(selectedTypes) {
+    let dataTypes = {};
+    for (item of selectedTypes) {
+      dataTypes[item] = true;
+    }
+    return dataTypes;
+  }
+
   const since = getSince(storedSettings.since);
   const dataTypes = getTypes(storedSettings.dataTypes);
 
   browser.browsingData.remove({since}, dataTypes);
-}
-
-function onError(e) {
-  console.error(e);
 }
 
 /*
