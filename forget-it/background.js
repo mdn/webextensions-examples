@@ -33,9 +33,6 @@ function forget(storedSettings) {
   
   const since = getSince(storedSettings.since);
   const dataTypes = getTypes(storedSettings.dataTypes);
-  
-  console.log(new Date(since));
-  console.log(dataTypes);
 
   browser.browsingData.remove({since}, dataTypes);
 }
