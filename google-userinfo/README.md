@@ -29,3 +29,5 @@ There's some basic setup you must do before you can use this example.
   * You'll see a popup containing a Client ID and a secret. Copy the client ID (you can ignore the secret).
   * Paste this value into authorize.js in place of YOUR-CLIENT-ID.
   * Reload the add-on.
+
+Note that because you have to edit authorize.js, we can't provide a prebuilt, presigned version of this add-on in the "builds" directory of this repo, as we can for other examples. So to run this example in Firefox you'll need to use the ["Load Temporary Add-on"](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Temporary_Installation_in_Firefox) feature, or use the [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext) tool.

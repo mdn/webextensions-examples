@@ -13,11 +13,11 @@ function extractAccessToken(redirectUri) {
   let m = redirectUri.match(/[#\?](.*)/);
   if (!m || m.length < 1)
     return null;
-  const params = new URLSearchParams(m[1].split("#")[0]);
+  let params = new URLSearchParams(m[1].split("#")[0]);
   return params.get("access_token");
 }
 
-/*
+/**
 Validate the token contained in redirectURL.
 This follows essentially the process here:
 https://developers.google.com/identity/protocols/OAuth2UserAgent#tokeninfo-validation
@@ -57,7 +57,7 @@ function validate(redirectURL) {
   return fetch(validationRequest).then(checkResponse);
 }
 
-/*
+/**
 Authenticate and authorize using browser.identity.launchWebAuthFlow().
 If successful, this resolves with a redirectURL string that contains
 an access token.

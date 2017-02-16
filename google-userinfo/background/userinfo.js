@@ -1,4 +1,4 @@
-/*
+/**
 Fetch the user's info, passing in the access token in the Authorization
 HTTP request header.
 */
