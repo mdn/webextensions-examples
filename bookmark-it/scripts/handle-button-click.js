@@ -18,9 +18,14 @@ function toggleBookmark(tabInfo) {
       browser.bookmarks.remove(bookmarkArray[0].id);
     }
   }
+  
+  function handleError(error) {
+    console.error(`Error updating bookmark state: ${error}`);
+  }
 
   browser.bookmarks.search(tabInfo.url)
-    .then(updateBookmark);
+    .then(updateBookmark)
+    .catch(handleError);
 }
 
 browser.browserAction.onClicked.addListener(toggleBookmark);

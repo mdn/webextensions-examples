@@ -40,6 +40,10 @@ function updateIcon(bookmarkArray) {
   }
 }
 
+function handleError(error) {
+  console.error(`Error updating bookmark icon: ${error}`);
+}
+
 /**
 When the page hosted by a tab changes:
 * check whether the new page is bookmarked
@@ -48,7 +52,8 @@ When the page hosted by a tab changes:
 browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
   if (changeInfo.url) {
     browser.bookmarks.search({url: changeInfo.url})
-      .then(updateIcon);
+      .then(updateIcon)
+      .catch(handleError);
   }
 });
 
@@ -63,7 +68,8 @@ browser.tabs.onActivated.addListener((activeInfo) => {
     .then((tabInfo) => {
       return browser.bookmarks.search({url: tabInfo.url});
     })
-    .then(updateIcon);
+    .then(updateIcon)
+    .catch(handleError);
 });
 
 /**
