@@ -33,9 +33,9 @@ react/jsx, css modules, image processing, local modules and so on.
 The WebExtension in the [addon](addon/) folder should now work.
 
 ## What about Browserify?
-Browserify works just as well as webpack for extensions, in the end it's a
-personal choice about your prefered tool.
+[Browserify](http://browserify.org/) works just as well as webpack for extensions. In the end it's a
+personal choice about your preferred tool.
 
 ## Live-development
-Additionally to watching the folder with your `manifest.json` in it, you will also
+As well as watching the folder with your `manifest.json` in it, you will also
 have to run webpack in watch mode.
