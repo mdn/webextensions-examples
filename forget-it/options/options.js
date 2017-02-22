@@ -11,7 +11,7 @@ function storeSettings() {
   function getTypes() {
     let dataTypes = [];
     const checkboxes = document.querySelectorAll(".data-types [type=checkbox]");
-    for (item of checkboxes) {
+    for (let item of checkboxes) {
       if (item.checked) {
         dataTypes.push(item.getAttribute("data-type"));
       }
@@ -36,7 +36,7 @@ function updateUI(restoredSettings) {
   selectList.value = restoredSettings.since;
 
   const checkboxes = document.querySelectorAll(".data-types [type=checkbox]");
-  for (item of checkboxes) {
+  for (let item of checkboxes) {
     if (restoredSettings.dataTypes.indexOf(item.getAttribute("data-type")) != -1) {
       item.checked = true;
     } else {

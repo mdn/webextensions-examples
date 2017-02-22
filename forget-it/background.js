@@ -49,7 +49,7 @@ function forget(storedSettings) {
     }
 
     const sinceMilliseconds = times[selectedSince].call();
-    return (new Date()).getTime() - sinceMilliseconds;
+    return Date.now() - sinceMilliseconds;
   }
 
   /*
@@ -58,7 +58,7 @@ function forget(storedSettings) {
   */
   function getTypes(selectedTypes) {
     let dataTypes = {};
-    for (item of selectedTypes) {
+    for (let item of selectedTypes) {
       dataTypes[item] = true;
     }
     return dataTypes;
@@ -67,7 +67,17 @@ function forget(storedSettings) {
   const since = getSince(storedSettings.since);
   const dataTypes = getTypes(storedSettings.dataTypes);
 
-  browser.browsingData.remove({since}, dataTypes);
+  function notify() {
+    let dataTypesString = Object.keys(dataTypes).join(", ");
+    let sinceString = new Date(since).toLocaleString();
+    browser.notifications.create({
+      "type": "basic",
+      "title": "Removed browsing data",
+      "message": `Removed ${dataTypesString}\nsince ${sinceString}`
+    });
+  }
+
+  browser.browsingData.remove({since}, dataTypes).then(notify);
 }
 
 /*
