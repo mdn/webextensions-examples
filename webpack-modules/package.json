@@ -8,7 +8,7 @@
   },
   "license": "MPL-2.0",
   "devDependencies": {
-    "webpack": "^1.13.1"
+    "webpack": "^2.3.2"
   },
   "dependencies": {
     "left-pad": "^1.1.1"
