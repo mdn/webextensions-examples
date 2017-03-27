@@ -30,11 +30,14 @@ To find your way around a WebExtension's internal structure, have a look at the
 [Anatomy of a WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
 page on MDN.
 
-To use these examples in Firefox, you need at least Firefox 45. Some examples
-rely on APIs that were added in more recent versions of Firefox.
-To check the minimum version of Firefox needed for a given example,
-see the `strict_min_version` part of the [applications key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications)
-in the example's manifest.json file.
+To use these examples in Firefox, you should use the most recent release
+of Firefox. Some examples work with earlier releases.
+
+A few examples rely on APIs that are currently only available in pre-release
+versions of Firefox. Where this is the case, the example should declare
+the minimum version that it needs in the `strict_min_version` part of the
+[applications key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications)
+in its manifest.json file.
 
 ## Installing an example
 
@@ -71,4 +74,3 @@ If you need help, email the [dev-addons mailing list](https://mail.mozilla.org/l
 We welcome contributions, whether they are whole new examples, new features,
 bug fixes, or translations of localizable strings into new languages. Please
 see the [CONTRIBUTING.md](https://github.com/mdn/webextensions-examples/blob/master/CONTRIBUTING.md) file for more details.
-
