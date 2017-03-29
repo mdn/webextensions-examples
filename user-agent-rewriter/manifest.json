@@ -10,7 +10,7 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "http://useragentstring.com/*" 
+    "webRequest", "webRequestBlocking", "https://httpbin.org/*" 
   ],
   
   "background": {
