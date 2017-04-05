@@ -16,6 +16,14 @@
     "default_panel": "sidebar/panel.html"
   },
 
-  "permissions": ["storage", "tabs"]
+  "permissions": ["storage", "tabs"],
+
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      }
+    }
+  }
 
 }
