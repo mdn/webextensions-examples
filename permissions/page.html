@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <div class="container">
+    <h3>Permissions Example</h3>
+    <p style="display: none" id="result"></p>
+    <p>
+      <b>Current permissions returned by the API:</b>
+      <span id="permissions"></span>
+    </p>
+    <hr>
+    <ul>
+      <li>Tabs permission has been <b>granted</b> on install.</li>
+      <li>History permission is an optional permission that can be
+          <a href="#" class="permission" data-permission="history" data-action="grant">granted</a> or
+          <a href="#" class="permission" data-permission="history" data-action="revoke">revoked</a>.
+      </li>
+      <li>Cookies permission cannot be <a href="#" class="permission" data-permission="cookies" data-action="grant">granted</a>.</li>
+      <li>Foo permission cannot be <a href="#" class="permission" data-permission="foo" data-action="grant">granted</a>.</li>
+    </ul>
+    <script src="page.js"></script>
+    <link rel="stylesheet" href="page.css"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+  </body>
+</html>
