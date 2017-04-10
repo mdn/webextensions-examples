@@ -6,8 +6,4 @@ browser.proxy.onProxyError.addListener(error => {
   console.log(error.message);
 });
 
-browser.runtime.onMessage.addListener(msg => {
-  console.log(msg);
-});
-
 browser.runtime.sendMessage({enabled: true}, {toProxyScript: true});
