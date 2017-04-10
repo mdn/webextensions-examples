@@ -1,0 +1,13 @@
+{
+  "name": "Proxy Boilerplate Code",
+  "manifest_version": 2,
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "proxy"
+  ],
+  "description": "Provides boilerplate code to get started with the Proxy API.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/proxy"
+}
