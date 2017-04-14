@@ -8,6 +8,12 @@
     "48": "icons/lock.svg"
   },
 
+  "applications": {
+    "gecko": {
+      "strict_min_version": "54.0a1"
+    }
+  },
+
   "background": {
     "scripts": ["storage.js", "auth.js"]
   },
