@@ -10,8 +10,14 @@
   "manifest_version": 2,
   "name": "Favourite colour",
   "options_ui": {
-      "page": "options.html"
+      "page": "options.html",
+      "browser_style": true
   },
   "permissions": ["storage"],
-  "version": "1.0"
+  "version": "1.1",
+  "applications": {
+      "gecko": {
+          "id": "favourite-colour-examples@mozilla.org"
+      }
+  }
 }
