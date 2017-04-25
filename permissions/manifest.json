@@ -20,5 +20,10 @@
   ],
   "optional_permissions": [
     "history"
-  ]
+  ],
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a2"
+    }
+  }
 }

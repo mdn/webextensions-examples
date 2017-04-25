@@ -2,7 +2,7 @@
 
 ## What it does
 
-An example using the permissions API to grant an optional permission.
+An example using the permissions API to grant and revoke an optional permission.
 
 ## What it shows
 
