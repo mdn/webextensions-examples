@@ -30,7 +30,7 @@ try:
 
     while True:
         receivedMessage = getMessage()
-        if (receivedMessage == "ping"):
+        if receivedMessage == "ping":
             sendMessage(encodeMessage("pong3"))
 except AttributeError:
     # Python 2.x version (if sys.stdin.buffer is not defined)
@@ -58,5 +58,5 @@ except AttributeError:
 
     while True:
         receivedMessage = getMessage()
-        if (receivedMessage == "ping"):
+        if receivedMessage == "ping":
             sendMessage(encodeMessage("pong2"))
