@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Permissions Example",
+  "description": "Permissions Example",
+  "version": "1.0",
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "48": "icon.svg"
+  },
+  "browser_action": {
+    "default_title": "Permissions Example",
+    "default_icon": "icon.svg"
+  },
+
+  "permissions": [
+    "tabs"
+  ],
+  "optional_permissions": [
+    "history"
+  ],
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a2"
+    }
+  }
+}
