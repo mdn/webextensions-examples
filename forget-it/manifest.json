@@ -1,0 +1,30 @@
+{
+
+  "description": "Forget it!",
+  "manifest_version": 2,
+  "name": "forget-it",
+  "version": "2.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/forget-it",
+  "icons": {
+    "48": "icons/trash.svg"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "icons/trash.svg",
+    "default_title": "Forget it!"
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  },
+
+  "permissions": [
+    "browsingData",
+    "notifications",
+    "storage"
+  ]
+}

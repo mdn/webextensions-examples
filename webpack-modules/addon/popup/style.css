@@ -39,4 +39,8 @@ input[type="number"]:focus {
 /* Reset the default styles for buttons if it's a footer button */
 button.panel-section-footer-button {
     padding: 12px;
+    border: none;
+    margin: 0;
+    box-shadow: none;
+    background-color: none;
 }

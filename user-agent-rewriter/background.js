@@ -3,7 +3,7 @@
 /*
 This is the page for which we want to rewrite the User-Agent header.
 */
-var targetPage = "http://useragentstring.com/*";
+var targetPage = "https://httpbin.org/*";
 
 /*
 Map browser names to UA strings.
@@ -24,7 +24,7 @@ Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeader(e) {
   for (var header of e.requestHeaders) {
-    if (header.name == "User-Agent") {
+    if (header.name.toLowerCase() === "user-agent") {
       header.value = ua;
     }
   }
