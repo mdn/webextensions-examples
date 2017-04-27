@@ -10,12 +10,12 @@ function toggleBookmark(tabInfo) {
 
   function updateBookmark(bookmarkArray) {
     if (bookmarkArray.length === 0) {
-      browser.bookmarks.create({
+      return browser.bookmarks.create({
         title: tabInfo.title,
         url: tabInfo.url
       });
     } else {
-      browser.bookmarks.remove(bookmarkArray[0].id);
+      return browser.bookmarks.remove(bookmarkArray[0].id);
     }
   }
   
@@ -23,7 +23,11 @@ function toggleBookmark(tabInfo) {
     console.error(`Error updating bookmark state: ${error}`);
   }
 
-  browser.bookmarks.search(tabInfo.url)
+  if (!isSupported(tabInfo.url)) {
+    console.log(`${tabInfo.url} not supported`)
+    return;
+  }
+  browser.bookmarks.search({url: tabInfo.url})
     .then(updateBookmark)
     .catch(handleError);
 }

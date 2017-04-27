@@ -21,9 +21,8 @@
 
   "background": {
     "scripts": [
-      "scripts/handle-bookmark-changed.js",
-      "scripts/handle-button-click.js",
-      "scripts/update-icon.js"
+      "scripts/update-icons.js",
+      "scripts/toggle-bookmark.js"
     ]
   }
 
