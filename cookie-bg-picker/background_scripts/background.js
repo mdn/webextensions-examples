@@ -1,12 +1,10 @@
 /* Retrieve any previously set cookie and send to content script */
 
-browser.tabs.onUpdated.addListener(cookieUpdate);
-
 function getActiveTab() {
   return browser.tabs.query({active: true, currentWindow: true});
 }
 
-function cookieUpdate(tabId, changeInfo, tab) {
+function cookieUpdate() {
   getActiveTab().then((tabs) => {
     // get any previously set cookie for the current tab 
     var gettingCookies = browser.cookies.get({
@@ -22,3 +20,8 @@ function cookieUpdate(tabId, changeInfo, tab) {
     });
   }); 
 }
+
+// update when the tab is updated
+browser.tabs.onUpdated.addListener(cookieUpdate);
+// update when the tab is activated
+browser.tabs.onActivated.addListener(cookieUpdate);
