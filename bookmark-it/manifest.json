@@ -20,10 +20,7 @@
   },
 
   "background": {
-    "scripts": [
-      "scripts/update-icons.js",
-      "scripts/toggle-bookmark.js"
-    ]
+    "scripts": ["background.js"]
   }
 
 }
