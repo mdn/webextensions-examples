@@ -1,0 +1,36 @@
+
+body {
+  width: 25em;
+  font-family: "Open Sans Light", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+section.clear-options {
+  padding: 0.5em 0;
+  margin: 1em 0;
+}
+
+#clear-button {
+  margin: 0 1.3em 1em 0;
+}
+
+section.clear-options input,
+section.clear-options>select,
+#clear-button {
+  float: right;
+}
+
+label {
+  display: block;
+  padding: 0.2em 0;
+}
+
+label:hover {
+  background-color: #EAEFF2;
+}
+
+.title {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
