@@ -36,5 +36,12 @@
 
   "background": {
     "scripts": ["background_scripts/background.js"]
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/updatebg.js"]
+    }
+  ]
 }
