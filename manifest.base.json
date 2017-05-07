@@ -1,0 +1,279 @@
+{
+
+// Applications: ne marche pas dans Chrome, bonne pratique.
+// mais obligatoire avant FF48, et pour Firefox-Android et pour AMO
+ 
+ "applications": 	{
+    "gecko": 	{
+      "id": "NOMEXTENSION@PERCENEIGE.FRANCE",
+//      "strict_min_version": "42.0"
+//	  "strict_max_version": "60.0"
+				}
+					},
+					
+// Background: inclure 1 ou plusieurs scripts d'arrière-plan, et éventuellement une page d'arrière-plan dans votre extension.
+// Les scripts d'arrière-plan: placer le code, indépendamment de la durée de vie de toutes les pages Web ou les fenêtres du navigateur.
+// Les scripts d'arrière-plan sont chargés dès que l'extension est chargée et reste chargée jusqu'à ce que l'extension soit désactivée ou désinstallée.
+// Vous pouvez utiliser n'importe laquelle des WebExtension APIs dans le script, tant que vous avez demandé les permissions nécessaires.
+ 
+ "background": {
+    "scripts": ["jquery.js", "my-background.js"],
+    "page": "my-background.html"
+				},
+
+//	Barre d'outil: 16, menu panel is 32, Chrome: 19, Retina: 38: double de 19, Retina: 64, double de 32
+// La 20 est à corriger en 19, car si FF ne trouve pas la taille exacte, il choisit celle immédiatement + petite		
+		
+// Browser style: inclue une feuille de style dans le popup. Défaut: false, but true recommandé
+// Dans FF, la feuille de style se trouve à chrome://browser/content/extension.css.
+
+//Default area à partir de FF54, pas pour Chrome.
+    //"navbar": barre d'outil principale, près de l'URL.
+    //"menupanel", "tabstrip": Barre d'outil des onglets
+    //"personaltoolbar": barre d'outil des bookmarks. Défaut: "navbar".
+	
+// Default title: spécifie le texte du tooltip.
+// default popup: indique où trouver l'HTML pour le popup.
+
+	//Le fichier HTML peut inclure du CSS et des fichiers JavaScript en utilisant les balises <link> et <script> comme 1 page web normale.
+	//Mais contrairement à une page web ordinaire, le JavaScript qui s'exécuter dans popup peut avoir accès à toutes les APIs WebExtension (à condition d'avoir les permissions appropriées).
+
+		
+ "browser_action": {
+  "browser_style": true,
+  "default_icon": 			{
+    "16": "icons/plus-16.png",
+      "20": "icons/plus-20.png",
+    "32": "icons/plus-32.png",
+      "38": "icons/plus-38.png",
+    "64": "icons/plus-64.png"
+							},
+	"default_area": "navbar",
+  "default_title": "Texte du tooltip",
+  "default_popup": "popup/popup.html"
+					}
+
+ //  Chrome settings overrides: pour forcer une nouvelle page d'accueil
+ // à partir de FF54. Doit commencer par https.
+ // Si 2 addons utilisent cette propriété, c'est le dernier exécuté qui "gagne".
+ // Si l'utilisateur la définie manuellement dans les paramètres, il l'emporte.
+ 
+  "chrome_settings_overrides": {
+  "homepage": "https://www.google.fr"
+	
+// Chrome url overrides: définie une page nouvel onglet.
+// Bonne pratique: inclure une balise <titre>
+// Le fichier HTML doit absolument être inclus dans l'addon, on ne peut pas faire appel à une URL extérieure.
+// La page peut charger du CSS et du JavaScript comme une page normale,
+// La page a accès aux ApiS de navigateur privilégies, comme le script de fond de l'addon.
+// Pour laisser l'utilisateur choisir une URL, il faut que la page navigue jusqu'à la page de l'utilisateur.
+
+
+	}
+ "chrome_url_overrides" : {
+    "newtab": "newtab/newtab.html"
+							}
+
+// Commands: pour définir des raccourcis clavier							
+								
+ "commands": {
+ 
+  "raccourci1": 	{
+    "suggested_key": 		{
+      "default": "Alt+Shift+U",
+	  "windows":"Alt+Shift+U",
+      "linux": "Ctrl+Shift+U",
+	  "mac":"Alt+Shift+U",
+	  "chromeos":"Alt+Shift+U",
+	  "ios":"Alt+Shift+U",
+							},
+    "description": "Décrire ici ce que fait le raccourci."
+					},
+
+	"nomduraccourci2": 			{
+    "suggested_key": 	{
+      "default": "Ctrl+Shift+Y"
+						}
+								}
+						
+// Execute browser action: raccourci spécial qui simule un clic sur l'icône browser action.
+						
+	"_execute_browser_action": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+I"
+					}
+								}
+								
+// Execute page action: raccourci spécial qui simule le clic sur l'icône page action	(de la barre d'URL).		
+"_execute_page_action": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+B"
+					}
+						}
+
+// Execute sidebar action: ouvre la sidebar
+// à partir de FF54, pas pour Chrome.
+
+"_execute_sidebar_action": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+S"
+					}
+						}
+						
+// Raccourcis possibles:
+	//modifier (mandatory, except for function keys). This can be any of: "Ctrl", "Alt", "Command", "MacCtrl".
+    //secondary modifier (optional). If supplied, this must be "Shift".
+    //key (mandatory). This can be any one of:
+        //the letters A-Z
+        //the numbers 0-9
+        //the function keys F1-F12 (since Firefox 53a1 2017-01-09, see http://bugzil.la/1322033)
+        //Comma, Period, Home, End, PageUp, PageDown, Space, Insert, Delete, Up, Down, Left, Right
+
+				
+// Fermeture de "commands"								
+				}
+
+				
+// Content script: charge des scripts qui modifient les pages web
+// lorsque "match" correspond.
+
+// globs à partir de FF48
+
+"content_scripts":[
+  {
+    "all_frames": true,
+	"match_about_blank": true,
+	"matches": ["*://*.mozilla.org/*", "*://*.example.com/*"],
+    "js": ["content_scripts/borderify.js"],
+	"exclude_matches": ["*://developer.mozilla.org/*"],
+//	"include_globs" :["*na?i"],
+//	"exclude_globs" :["*na?i"],
+	}
+					]
+
+// Content security policy: Permission pour les scripts distants, non obligatoire.
+
+//"content_security_policy": "script-src 'self' https://example.com; object-src 'self'",
+
+// default locale: doit être présent seulement si l'extension comporte un sous-répertoire _locales
+// _locales est utilisé pour trouver la chaîne de langue par défaut.
+
+"default_locale": "fr",
+
+// description (localisable), qui affiche une courte description de l'extension dans le navigateur.
+
+  "description": "Cette extension a pour but de...",
+
+// Affiche l'auteur de l'extension et sa page d'accueil.
+  
+ "developer": 	{
+  "name": "PERCE-NEIGE",
+  "url": "https://addons.mozilla.org/fr/firefox/user/perce-neige/"
+				} 
+				
+// homepage url: défini la page d'accueil de l'extension.
+// mais nesert à rien si "url" est mentionné dans "developper"
+// par contre, homepage url est localisable.
+
+"homepage_url": "https://addons.mozilla.org/fr/firefox/user/perce-neige/"				
+				
+ // Devtools page: pas compris.(décommenter le code qui suit)
+    
+// "devtools_page": "devtools/my-page.html" 
+  
+// icons: icônes pour représenter l'extension dans le gestionnaire d'extensions. 
+// 48 est la bonne taille,
+// mais ils ne disent pas à quoi correspond 96, à part que c'est le double.
+
+  "icons": {
+    //"96": "icons/fleur-96.png",
+	"48": "icons/Butterfly-48.png"
+			},
+
+// Version du manifest, toujours 2
+
+  "manifest_version": 2,
+
+// Nom de l'extension(obligatoire)
+// Short name n'est pas obligatoire
+// et devrait normalement <12 caractères.
+
+  "name": "JOLI MOIS DE MAI",
+  
+  "short_name": "JOLI MOI"
+
+// omnibox. En tapant les caractères mentionnés puis espace
+// le texte qui suit est envoyé à l'API omnibox.
+
+"omnibox": {
+  "keyword": "aaa"
+			} 
+			
+// options ui
+// définie une page HTML interne, qui affiche les options de l'extension.
+// Le fichier HTML peut inclure, comme une page web normale, du JavaScript et du CSS
+// Le JavaScript peut accéder à toutes les APIs WebExtension pour lesquelles la permission a été donnée.
+
+// open in tab, par défaut:false.
+// si "true": ouvre la page d'option dans un onglet plutôt que le gestionnaire d'extensions.
+
+"options_ui": 	{
+  "page": "options/options.html",
+  "open_in_tab": true
+				}
+// browser style: à partir de FF48,
+// sert à définir 1 CSS pour le popup
+// le défaut est: false.
+
+// Dans l'exemple, ils donnent les tailles 19 et 38
+
+  "page_action":   {
+    "browser_style": false,
+    "default_icon": {
+	"16": "icons/plus-16.png",
+      "20": "icons/plus-20.png",
+      "38": "icons/plus-38.png",
+					}
+    "default_title": "Texte du popup de la barre URL",
+    "default_popup": "popup/popup_barre_URL.html"
+					},
+
+//  "permissions": ["activeTab", "alarms", "bookmarks", "browsingData", "contextMenus", "contextualIdentities", "cookies", "downloads", "downloads.open", "history", "identity", "idle", "management", "nativeMessaging", "notifications", "sessions", "storage", "tabs", "topSites", "webNavigation", "webRequest", "webRequestBlocking" ],
+//  "permissions": ["*://developer.mozilla.org/*", "tabs"]
+
+"permissions": ["alarms", "bookmarks", "browsingData", "contextMenus", "contextualIdentities", "cookies", "downloads", "downloads.open", "history", "identity", "idle", "management", "nativeMessaging", "notifications", "sessions", "storage", "tabs", "topSites", "webNavigation", "webRequest", "webRequestBlocking" ],
+
+// Protocol handlers: soit peut définir une URL pour un protocole donné,
+// ou par exemple appelle l'application de lecture de mail, pour le protocole mailto
+
+// Protocol handlers ne marche pas dans Chrome.
+
+// Protocoles: "bitcoin", "geo", "im", "irc", "ircs", "magnet", "mailto", "mms", "news", "nntp", "sip", "sms", "smsto", "ssh", "tel", "urn", "webcal", "wtai", "xmpp".
+
+// uriTemplate doit comporter %s
+// Cela peut être une URL, un numéro de tél, une adresse mail, etc...
+
+"protocol_handlers": [
+  {
+    "protocol": "mailto",
+    "name": "Lien @mailto",
+    "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+  }
+					 ]
+		
+// Sidebar action
+// Dans l'exemple, ils utilisent des icônes 16 et 32.
+		
+"sidebar_action": {
+  "default_icon": "sidebar/Butterfly-48.png",
+  "default_title": "SIDEBAR",
+  "default_panel": "sidebar/sidebar.html"
+}
+// Version de l'extension, attention à la compatibilité Chrome
+  
+  "version": "0.1",
+// Web accessible resources: pour rendre accessible une image (par ex)
+// en vue par exemple d'être remplacé dans les pages web
+
+  "web_accessible_resources": ["web_accessible_resources/test.png"]
+}
