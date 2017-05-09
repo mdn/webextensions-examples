@@ -40,7 +40,7 @@ function updateActiveTab(tabs) {
     var supportedProtocols = ["https:", "http:", "ftp:", "file:"];
     var url = document.createElement('a');
     url.href = urlString;
-    return supportedProtocols.indexOf(url.protocol) != -1;;
+    return supportedProtocols.indexOf(url.protocol) != -1;
   }
 
   function updateTab(tabs) {
