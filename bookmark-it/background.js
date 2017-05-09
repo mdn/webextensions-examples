@@ -24,14 +24,8 @@ function updateIcon() {
 function toggleBookmark() {
   if (currentBookmark) {
     browser.bookmarks.remove(currentBookmark.id);
-    currentBookmark = null;
-    updateIcon();
   } else {
-    var creating = browser.bookmarks.create({title: currentTab.title, url: currentTab.url});
-    creating.then(function(bookmark) {
-      currentBookmark = bookmark;
-      updateIcon();
-    });
+    browser.bookmarks.create({title: currentTab.title, url: currentTab.url});
   }
 }
 
@@ -42,14 +36,25 @@ browser.browserAction.onClicked.addListener(toggleBookmark);
  */
 function updateActiveTab(tabs) {
 
+  function isSupportedProtocol(urlString) {
+    var supportedProtocols = ["https:", "http:", "ftp:", "file:"];
+    var url = document.createElement('a');
+    url.href = urlString;
+    return supportedProtocols.indexOf(url.protocol) != -1;
+  }
+
   function updateTab(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
-      var searching = browser.bookmarks.search({url: currentTab.url});
-      searching.then((bookmarks) => {
-        currentBookmark = bookmarks[0];
-        updateIcon();
-      });
+      if (isSupportedProtocol(currentTab.url)) {
+        var searching = browser.bookmarks.search({url: currentTab.url});
+        searching.then((bookmarks) => {
+          currentBookmark = bookmarks[0];
+          updateIcon();
+        });
+      } else {
+        console.log(`Bookmark it! does not support the '${currentTab.url}' URL.`)
+      }
     }
   }
 
@@ -57,13 +62,20 @@ function updateActiveTab(tabs) {
   gettingActiveTab.then(updateTab);
 }
 
-// TODO listen for bookmarks.onCreated and bookmarks.onRemoved once Bug 1221764 lands
+// listen for bookmarks being created
+browser.bookmarks.onCreated.addListener(updateActiveTab);
+
+// listen for bookmarks being removed
+browser.bookmarks.onRemoved.addListener(updateActiveTab);
 
 // listen to tab URL changes
 browser.tabs.onUpdated.addListener(updateActiveTab);
 
 // listen to tab switching
 browser.tabs.onActivated.addListener(updateActiveTab);
+
+// listen for window switching
+browser.windows.onFocusChanged.addListener(updateActiveTab);
 
 // update when the extension loads initially
 updateActiveTab();

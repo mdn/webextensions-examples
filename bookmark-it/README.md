@@ -1,7 +1,5 @@
 # bookmark-it
 
-> This example uses APIs that are available from Firefox 47 onwards.
-
 ## What it does
 
 Displays a simple button in the menu bar that toggles a bookmark for the currently active tab.
