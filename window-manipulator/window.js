@@ -25,6 +25,14 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  else if (e.target.id === "window-create-normal") {
+    var createData = {};
+    var creating = browser.windows.create(createData);
+    creating.then(() => {
+      console.log("The normal window has been created");
+    });
+  }
+
   else if (e.target.id === "window-create-incognito") {
     var createData = {
       incognito: true,
@@ -32,6 +40,36 @@ document.addEventListener("click", (e) => {
     var creating = browser.windows.create(createData);
     creating.then(() => {
       console.log("The incognito window has been created");
+    });
+  }
+
+  else if (e.target.id === "window-create-panel") {
+    var createData = {
+      type: "panel",
+    };
+    var creating = browser.windows.create(createData);
+    creating.then(() => {
+      console.log("The panel has been created");
+    });
+  }
+
+  else if (e.target.id === "window-create-detached-panel") {
+    var createData = {
+      type: "detached_panel",
+    };
+    var creating = browser.windows.create(createData);
+    creating.then(() => {
+      console.log("The detached panel has been created");
+    });
+  }
+
+  else if (e.target.id === "window-create-popup") {
+    var createData = {
+      type: "popup",
+    };
+    var creating = browser.windows.create(createData);
+    creating.then(() => {
+      console.log("The popup has been created");
     });
   }
 
