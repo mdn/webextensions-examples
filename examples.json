@@ -68,7 +68,7 @@
             "commands.onCommand"
         ],
         "name": "commands",
-        "description": "Demonstrates using the commands API to set up a keyboard shortcut. Thr shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac)."
+        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac)."
     },
     {
         "javascript_apis": [
@@ -231,7 +231,7 @@
             "webNavigation.onCompleted"
         ],
         "name": "navigation-stats",
-        "description": "Demonstration of the webNavigation API, showing basic stata about which pages you've visited."
+        "description": "Demonstration of the webNavigation API, showing basic stats about which pages you've visited."
     },
     {
         "javascript_apis": [
