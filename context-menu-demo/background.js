@@ -79,6 +79,14 @@ browser.contextMenus.create({
   checked: checkedState
 }, onCreated);
 
+
+browser.contextMenus.create({
+  id: "open-sidebar",
+  title: browser.i18n.getMessage("contextMenuItemOpenSidebar"),
+  contexts: ["all"],
+  command: "_execute_sidebar_action"
+}, onCreated);
+
 /*
 Set a colored border on the document in the given tab.
 
@@ -136,6 +144,9 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
       break;
     case "check-uncheck":
       updateCheckUncheck();
+      break;
+    case "open-sidebar":
+      console.log("Opening my sidebar");
       break;
   }
 });
