@@ -37,6 +37,11 @@
   "contextMenuItemUncheckMe": {
     "message": "Uncheck me",
     "description": "Title of context menu item when the item is unchecked."
+  },
+
+  "contextMenuItemOpenSidebar": {
+    "message": "Open sidebar",
+    "description": "Title of context menu item that opens a sidebar."
   }
 
 }

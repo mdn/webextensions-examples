@@ -5,6 +5,11 @@
   "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "default_locale": "en",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a1"
+    }
+  },
 
   "background": {
     "scripts": ["background.js"]
@@ -19,6 +24,12 @@
     "16": "icons/page-16.png",
     "32": "icons/page-32.png",
     "48": "icons/page-48.png"
+  },
+
+  "sidebar_action": {
+    "default_icon": "icons/page-32.png",
+    "default_title" : "My sidebar",
+    "default_panel": "sidebar/sidebar.html"
   }
 
 }

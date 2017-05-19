@@ -18,6 +18,7 @@ Note that these buttons only work on normal web pages, not special pages
 like about:debugging.
 * one "checkbox" item, shown in all contexts, whose title is updated when the
 item is clicked.
+* one item that uses the "commands" property to open the add-on's sidebar.
 
 ## What it shows
 
