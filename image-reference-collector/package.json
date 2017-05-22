@@ -1,0 +1,38 @@
+{
+  "name": "image-reference-collector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -w -v --display-error-details --progress --colors",
+    "start": "web-ext run -s extension/"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "babel-core": "6.20.0",
+    "babel-loader": "6.2.9",
+    "babel-plugin-transform-class-properties": "6.19.0",
+    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-2": "6.18.0",
+    "idb-file-storage": "^0.1.0",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
+    "react-file-drag-and-drop": "^0.1.6",
+    "uuid": "^3.0.1",
+    "web-ext": "1.6.0",
+    "webpack": "1.14.0"
+  },
+  "babel": {
+    "presets": [
+      "es2017",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}
