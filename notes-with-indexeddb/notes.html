@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Notes</title>
+    <link rel="stylesheet" type="text/css" href="notes.css">
+    <script src="notes.js"></script>
+  </head>
+
+<body>
+  <h1>Notes</h1>
+
+  <form id="add-new-item">
+    <fieldset>
+      <legend>Add note</legend>
+
+      <div>
+        <label for="new-title">Title</label>
+        <input type="text" name="new-title" id="new-title">
+      </div>
+
+      <div>
+        <label for="new-description">Description</label>
+        <input type="text" name="new-description" id="new-description">
+      </div>
+
+      <button type="submit">Add</button>
+    </fieldset>
+  </form>
+
+  <div id="notes"></div>
+</body>
+
+</html>
