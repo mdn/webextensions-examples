@@ -1,0 +1,15 @@
+
+body {
+  width: 25em;
+  font-family: "Open Sans Light", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.title, #blocked-hosts {
+  margin: 1em;
+}
+
+.title {
+  font-size: 1.2em;
+}

@@ -1,0 +1,24 @@
+{
+
+  "manifest_version": 2,
+  "name": "Proxy-blocker",
+  "description": "Uses the proxy API to block requests to specific hosts.",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/block.svg",
+    "96": "icons/block.svg"
+  },
+
+  "background": {
+    "scripts": [
+      "background/proxy-handler.js"
+    ]
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  },
+
+  "permissions": ["proxy", "storage"]
+
+}
