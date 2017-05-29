@@ -259,6 +259,14 @@
     },
     {
         "javascript_apis": [
+            "proxy.registerProxyScript",
+            "proxy.onProxyError"
+        ],
+        "name": "proxy-blocker",
+        "description": "Uses the proxy API to block requests to specific hosts."
+    },
+    {
+        "javascript_apis": [
             "storage.local"
         ],
         "name": "quicknote",
