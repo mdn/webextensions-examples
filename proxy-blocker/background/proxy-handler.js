@@ -1,4 +1,3 @@
-
 // Location of the proxy script, relative to manifest.json
 const proxyScriptURL = "proxy/proxy-script.js";
 
@@ -41,7 +40,7 @@ function handleInit(message) {
 
 function handleMessage(message, sender) {
   // only handle messages from the proxy script
-  if (sender.url !=  browser.extension.getURL("") + proxyScriptURL) {
+  if (sender.url !=  browser.extension.getURL(proxyScriptURL)) {
     return;
   }
 
