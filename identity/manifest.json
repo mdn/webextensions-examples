@@ -1,0 +1,24 @@
+{
+  "name": "browser.identity example",
+  "version": "1",
+  "manifest_version": 2,
+  "applications": {
+    "gecko": {
+      "id": "identity.example@mozilla.org",
+      "strict_min_version": "53a1"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "browser_style": true
+  },
+  "permissions": [
+    "identity",
+    "*://www.facebook.com/*",
+    "*://graph.facebook.com/*",
+    "*://www.googleapis.com/*",
+    "*://accounts.google.com/*"
+  ]
+}
