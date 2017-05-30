@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Switch tabs",
+    "version": "1.0",
+
+    "description": "Changes current active tab",
+
+    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/switch-tabs",
+
+    "icons": {
+        "48": "icons/switch-tabs-48.png"
+    },
+
+    "applications": {
+        "gecko": {
+            "id": "switch-tabs@mozilla.org",
+            "strict_min_version": "47.0a1"
+        }
+    },
+
+    "permissions": [
+        "tabs"
+    ],
+
+    "browser_action": {
+        "browser_style": true,
+        "default_title": "Switch tabs",
+        "default_popup": "tabs.html"
+    }
+}

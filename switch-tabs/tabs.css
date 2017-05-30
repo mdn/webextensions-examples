@@ -1,0 +1,12 @@
+html, body {
+  width: 350px;
+}
+
+a {
+  margin: 10px;
+  display: block;
+}
+
+.panel {
+  margin: 5px;
+}
