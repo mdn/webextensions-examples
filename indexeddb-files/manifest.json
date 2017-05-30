@@ -1,0 +1,18 @@
+{
+  "description": "Save and Load Files using IndexedDB",
+  "manifest_version": 2,
+  "name": "indexeddb-fs",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/indexeddb-fs-webext",
+  "icons": {
+    "48": "icons/files-50.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/files-50.png"
+    },
+    "default_title": "IndexedDB Files",
+    "default_popup": "popup.html"
+  }
+}

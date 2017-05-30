@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create and save temporary files</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="common-tab.css">
+  </head>
+  <body>
+    <main>
+      <h1>Create and save temporary files</h1>
+
+      <p>Create a temporary file, give it some data and a name, then save it using indexedDB.</p>
+
+      <details id="step-01">
+        <summary>1. Create a MutableFile</summary>
+        <div>
+          <div>
+            <input type="button" id="create-file" value="Create a MutableFile" disabled>
+            <input type="button" id="get-metadata" value="Get Metadata" disabled>
+          </div>
+        </div>
+      </details>
+
+      <details id="step-02">
+        <summary>2. Append data to the MutableFile</summary>
+        <div>
+          <div>
+            <textarea id="file-data" placeholder="data to save into the file..."
+                      style="width: 100%;" disabled></textarea>
+
+            <input type="button" id="save-data" value="Append data" disabled>
+          </div>
+
+        </div>
+      </details>
+
+      <details id="step-03">
+        <summary>3. Save to IndexedDB</summary>
+        <div>
+          <input id="filename-to-save" placeholder="filename to save..." disabled>
+          <input type="button" id="persist-file" value="Save to IndexedDB key" disabled>
+        </div>
+      </details>
+
+      <details id="step-04">
+        <summary>4. Retrieve saved files</summary>
+        <div>
+          <input type="button" id="list-saved-files" value="List all the saved files" disabled>
+
+          <div>
+            <input id="filename-to-read" placeholder="filename to read..." disabled>
+            <input type="button" id="read-file" value="Read saved file" disabled>
+          </div>
+        </div>
+      </details>
+    </main>
+
+    <aside>
+      <div id="logs-panel">
+        <pre id="indexed-logs" class="overflow-scroll">Logs from the IndexedDB operations...</pre>
+
+        <button id="clear-logs">Clear Logs</button>
+      </div>
+    </aside>
+
+    <script src="common-log-helpers.js"></script>
+    <script src="mutablefile.js"></script>
+  </body>
+</html>
