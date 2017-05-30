@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "applications": {
+    "gecko": {
+      "id": "shaggy-page-action@mozilla.com"
+    }
+  },
+
+  "description": "Shows a page action icon in the addressbar, which opens a popup when clicked.",
+  "name": "Shaggy Page Action",
+  "version": "0.1",
+
+  "permissions": ["tabs"],
+
+  "background": {"scripts": ["shaggy-bg.js"]},
+  "page_action": {
+    "default_popup": "popup.html"
+  }
+}
