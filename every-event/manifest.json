@@ -1,0 +1,31 @@
+{
+  "description": "An attempt to capture every event and log it to the console",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/every-event",
+  "manifest_version": 2,
+  "name": "Every event",
+  "permissions": [
+    "alarms",
+    "bookmarks",
+    "contextMenus",
+    "contextualIdentities",
+    "cookies",
+    "downloads",
+    "downloads.open",
+    "history",
+    "sessions",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "console": {
+      "suggested_key": { "default": "Ctrl+Shift+U" },
+      "description": "Send an event to the console"
+    }
+  },
+  "version": "1.0"
+}
