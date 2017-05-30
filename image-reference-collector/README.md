@@ -32,18 +32,18 @@ you need to change into the example subdirectory and install all
 
     npm install
 
-Start the continuous build process to transpile the code into something that
-can run in Firefox or Chrome:
+Now you can build the sources and start the extension in one command:
 
-    npm run build
+    npm run start
 
-This creates a WebExtension in the `extension` subdirectory.
-()Any time you edit a file, it will be rebuilt automatically).
+This creates the source bundles for the WebExtension in the `extension` subdirectory.
 
-In another shell window, run the extension in Firefox using a wrapper
-around [web-ext][web-ext]:
+To start a webpack instance that automatically rebuild the extension when
+you change the sources, in another shell window, you can run the following npm script:
 
-    npm start
+    npm run build:watch
+
+While this npm script is running, any time you edit a file, it will be rebuilt automatically).
 
 [![entension demo screencast](screenshots/screenshot.png "extension demo screencast")](https://youtu.be/t6aVqMMe2Rc)
 

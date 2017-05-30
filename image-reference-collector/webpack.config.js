@@ -6,33 +6,34 @@ module.exports = {
     // Each entry in here would declare a file that needs to be transpiled
     // and included in the extension source.
     // For example, you could add a background script like:
-    background: './src/background.js',
-    popup: './src/popup.js',
-    'navigate-collection': './src/navigate-collection.js',
+    background: 'background.js',
+    popup: 'popup.js',
+    'navigate-collection': 'navigate-collection.js',
   },
   output: {
     // This copies each source entry into the extension dist folder named
     // after its entry config key.
-    path: 'extension/dist',
+    path: path.join(__dirname, 'extension', 'dist'),
     filename: '[name].js',
   },
   module: {
-    // This transpiles all code (except for third party modules) using Babel.
-    loaders: [{
+    rules: [{
       exclude: ['/node_modules/', '!/node_modules/idb-file-storage'],
       test: /\.js$/,
-      // Babel options are in .babelrc
-      loaders: ['babel'],
-    }],
+      use: [
+        // This transpiles all code (except for third party modules) using Babel.
+        {
+          // Babel options are in .babelrc
+          loader: 'babel-loader',
+        },
+      ]
+    }]
   },
   resolve: {
     // This allows you to import modules just like you would in a NodeJS app.
-    extensions: ['', '.js', '.jsx'],
-    root: [
-      path.resolve(__dirname),
-    ],
-    modulesDirectories: [
-      'src',
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.join(__dirname, 'src'),
       'node_modules',
     ],
   },
