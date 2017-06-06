@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "image-reference-collector",
+  "name": "store-collected-images",
   "version": "1.0",
 
   "icons": {
