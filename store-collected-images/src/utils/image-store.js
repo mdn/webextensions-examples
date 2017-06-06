@@ -10,7 +10,7 @@ export async function saveCollectedBlobs(collectionName, collectedBlobs) {
   }
 }
 
-export async function loadStoredImages(filter, component) {
+export async function loadStoredImages(filter) {
   const imagesStore = await getFileStorage({name: "stored-images"});
 
   let listOptions = filter ? {includes: filter} : undefined;
@@ -22,10 +22,9 @@ export async function loadStoredImages(filter, component) {
     const blob = await imagesStore.get(storedName);
 
     storedImages.push({storedName, blobUrl: URL.createObjectURL(blob)});
-
-    // Refresh the UI.
-    component.setState({storedImages});
   }
+
+  return storedImages;
 }
 
 export async function removeStoredImages(storedImages) {

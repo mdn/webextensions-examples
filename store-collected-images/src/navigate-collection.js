@@ -20,11 +20,16 @@ class NavigateCollectionUI extends React.Component {
   }
 
   componentDidMount() {
-    loadStoredImages(undefined, this);
+    // Load the stored image once the component has been rendered in the page.
+    this.onFilterUpdated();
   }
 
   onFilterUpdated() {
-    loadStoredImages(this.refs.imageFilter.value, this);
+    loadStoredImages(this.refs.imageFilter.value)
+      .then((storedImages) => {
+        this.setState({storedImages});
+      })
+      .catch(console.error);
   }
 
   onDelete() {
