@@ -17,9 +17,6 @@
   "icons": {
       "128": "star-half.svg"
   },
-  "background": {
-    "scripts": ["background.js"]
-  },
   "version": "1.0",
   "applications": {
     "gecko": {
