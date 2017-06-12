@@ -6,12 +6,15 @@ function enableTheme(e) {
   window.close();
 }
 
-browser.management.getAll().then((themes) => {
-  for (let theme of themes) {
+browser.management.getAll().then((extensions) => {
+  for (let extension of extensions) {
+    if (extension.type !== 'theme') {
+      continue;
+    }
     let option = document.createElement('option');
-    option.textContent = theme.name;
-    option.value = theme.id;
-    if (theme.enabled) {
+    option.textContent = extension.name;
+    option.value = extension.id;
+    if (extension.enabled) {
       option.selected = true;
     }
     themeList.appendChild(option);
