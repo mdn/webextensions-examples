@@ -10,7 +10,7 @@ function setSun() {
       headerURL: 'sun.jpg',
     },
     colors: {
-      accentcolor: '#000',
+      accentcolor: '#CF723F',
       textcolor: '#111',
     }
   });
