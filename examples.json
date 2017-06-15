@@ -1,6 +1,17 @@
 [
     {
         "javascript_apis": [
+            "storage.local",
+            "tabs.onActivated",
+            "tabs.onUpdated",
+            "tabs.query",
+            "windows.getCurrent"
+        ],
+        "name": "annotate-page",
+        "description": "Displays a sidebar that lets you take notes on web pages."
+    },
+    {
+        "javascript_apis": [
             "pageAction.getTitle",
             "pageAction.onClicked",
             "pageAction.setIcon",
@@ -29,13 +40,16 @@
     {
         "javascript_apis": [
             "bookmarks.create",
+            "bookmarks.onCreated",
+            "bookmarks.onRemoved",
             "bookmarks.remove",
             "bookmarks.search",
             "browserAction.onClicked",
             "browserAction.setIcon",
             "tabs.onActivated",
             "tabs.onUpdated",
-            "tabs.query"
+            "tabs.query",
+            "windows.onFocusChanged"
         ],
         "name": "bookmark-it",
         "description": "Adds a bookmark button to the toolbar. Click the button to toggle a bookmark for the current page."
@@ -74,6 +88,15 @@
         "javascript_apis": [
             "contextMenus.create",
             "contextMenus.onClicked",
+            "tabs.executeScript"
+        ],
+        "name": "context-menu-copy-link-with-types",
+        "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML."
+    },
+    {
+        "javascript_apis": [
+            "contextMenus.create",
+            "contextMenus.onClicked",
             "contextMenus.remove",
             "contextMenus.update",
             "i18n.getMessage",
@@ -101,13 +124,22 @@
             "cookies.set",
             "extension.getURL",
             "runtime.onMessage",
-            "tabs.executeScript",
+            "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
             "tabs.sendMessage"
         ],
         "name": "cookie-bg-picker",
         "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized."
+    },
+    {
+        "javascript_apis": [
+            "alarms.create",
+            "alarms.onAlarm",
+            "theme.update"
+        ],
+        "name": "dynamic-theme",
+        "description": "Dynamic theme example"
     },
     {
         "javascript_apis": [
@@ -144,7 +176,7 @@
         "javascript_apis": [
             "browserAction.onClicked",
             "runtime.openOptionsPage",
-            "storage.local"
+            "storage.sync"
         ],
         "name": "favourite-colour",
         "description": "An example options page, letting you store your favourite colour."
@@ -259,8 +291,25 @@
     },
     {
         "javascript_apis": [
+            "browserAction.onClicked",
+            "permissions.getAll",
+            "permissions.remove",
+            "permissions.request",
+            "runtime.getURL",
+            "tabs.create"
+        ],
+        "name": "permissions",
+        "description": "Demonstrates optional permissions using the permissions API."
+    },
+    {
+        "javascript_apis": [
+            "extension.getURL",
+            "proxy.onProxyError",
             "proxy.registerProxyScript",
-            "proxy.onProxyError"
+            "runtime.onMessage",
+            "runtime.sendMessage",
+            "storage.local",
+            "storage.onChanged"
         ],
         "name": "proxy-blocker",
         "description": "Uses the proxy API to block requests to specific hosts."
@@ -284,6 +333,16 @@
     },
     {
         "javascript_apis": [
+            "storage.local",
+            "webRequest.onAuthRequired",
+            "webRequest.onCompleted",
+            "webRequest.onErrorOccurred"
+        ],
+        "name": "stored-credentials",
+        "description": "Performs basic authentication by supplying stored credentials."
+    },
+    {
+        "javascript_apis": [
             "tabs.create",
             "tabs.duplicate",
             "tabs.getZoom",
@@ -298,6 +357,14 @@
         ],
         "name": "tabs-tabs-tabs",
         "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs."
+    },
+    {
+        "javascript_apis": [
+            "management.getAll",
+            "management.setEnabled"
+        ],
+        "name": "theme-switcher",
+        "description": "An example of how to use the management API for themes."
     },
     {
         "javascript_apis": [
