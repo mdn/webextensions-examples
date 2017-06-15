@@ -8,7 +8,7 @@ To flip themes you can change the system time.
 
 ## What it shows
 
-How to use the dynamic theme API and how alarms.
+How to use the dynamic theme API and the alarm API.
 
 Images are under creative commons 2.0: https://creativecommons.org/licenses/by/2.0/ and are:
 

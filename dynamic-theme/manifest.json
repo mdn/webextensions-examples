@@ -10,5 +10,8 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "version": "1.0"
+  "version": "1.0",
+  "gecko": {
+      "strict_min_version": "55.0a2"
+  }
 }

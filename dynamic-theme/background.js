@@ -1,11 +1,7 @@
 var currentTheme = '';
 
-function setSun() {
-  if (currentTheme === 'sun') {
-    return;
-  }
-  currentTheme = 'sun';
-  browser.theme.update({
+const themes = {
+  'day': {
     images: {
       headerURL: 'sun.jpg',
     },
@@ -13,15 +9,8 @@ function setSun() {
       accentcolor: '#CF723F',
       textcolor: '#111',
     }
-  });
-}
-
-function setMoon() {
-  if (currentTheme === 'moon') {
-    return;
-  }
-  currentTheme = 'moon';
-  browser.theme.update({
+  },
+  'night': {
     images: {
       headerURL: 'moon.jpg',
     },
@@ -29,7 +18,16 @@ function setMoon() {
       accentcolor: '#000',
       textcolor: '#fff',
     }
-  });
+  }
+};
+
+function setTheme(theme) {
+  if (currentTheme === theme) {
+    // No point in changing the theme if it has already been set.
+    return;
+  }
+  currentTheme = theme;
+  browser.theme.update(themes[theme]);
 }
 
 function checkTime() {
@@ -37,9 +35,9 @@ function checkTime() {
   let hours = date.getHours();
   // Will set the sun theme between 8am and 8pm.
   if ((hours > 8) && (hours < 20)) {
-    setSun();
+    setTheme('day');
   } else {
-    setMoon();
+    setTheme('night');
   }
 }
 
@@ -47,4 +45,5 @@ function checkTime() {
 checkTime();
 
 // Set up an alarm to check this regularly.
+browser.alarms.onAlarm.addListener(checkTime);
 browser.alarms.create('checkTime', {periodInMinutes: 5});
