@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="options.css"/>
+  </head>
+
+  <body>
+
+    <p>
+      <label>Proxy server DNS name or IP address</label>
+      <input id="proxyServerAddressInput"/><br>
+      <label>Proxy server port</label>
+      <input id="proxyServerPortInput"/><br>
+      <label>Proxy server username (optional)</label>
+      <input id="proxyServerUsernameInput"/><br>
+      <label>Proxy server password (optional)</label>
+      <input id="proxyServerPasswordInput"/><br>
+      <label>Proxy server type</label><br>
+      <input name="proxyServerTypeInput" type="radio" value="HTTP" checked>HTTP
+      <input name="proxyServerTypeInput" type="radio" value="HTTPS">HTTPS/SSL
+      <input name="proxyServerTypeInput" type="radio" value="SOCKS">SOCKS5
+    </p>
+
+    <script src="options.js"></script>
+  </body>
+
+</html>
