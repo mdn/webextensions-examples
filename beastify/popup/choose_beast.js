@@ -24,6 +24,9 @@ If the click is on one of the beasts:
 If it's on a button wich contains class "clear":
   Reload the page.
   Close the popup. This is needed, as the content script malfunctions after page reloads.
+
+Note: if your add-on doesn't reload the tab on button-click, then place the executeScript outside the listener.
+  Otherwise you will end up with the content script injected as many times as you click the button.
 */
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("beast")) {
