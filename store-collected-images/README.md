@@ -21,31 +21,12 @@ The main goal of this example is showing how to use the [idb-file-storage librar
 * How to turn the stored blobs into blob urls to show them in the extension page
 * How to remove the stored blobs from the extension IndexedDB storage.
 
-## Usage
-
-This example is built using Babel and Webpack, and so the transpiled bundles have to
-be built first:
-
-you need to change into the example subdirectory and install all
-[NodeJS][nodejs] dependencies with [npm](http://npmjs.com/) or
-[yarn](https://yarnpkg.com/):
-
-    npm install
-
-Now you can build the sources and start the extension in one command:
-
-    npm run start
-
-This creates the source bundles for the WebExtension in the `extension` subdirectory.
-
-To start a webpack instance that automatically rebuild the extension when
-you change the sources, in another shell window, you can run the following npm script:
-
-    npm run build:watch
-
-While this npm script is running, any time you edit a file, it will be rebuilt automatically).
-
 [![entension demo screencast](screenshots/screenshot.png "extension demo screencast")](https://youtu.be/t6aVqMMe2Rc)
+
+This example is written in two forms:
+
+- a plain webextension (which doesn't need any build step)
+- a webextension built using webpack
 
 ## Icons
 
