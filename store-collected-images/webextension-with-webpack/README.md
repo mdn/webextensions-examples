@@ -11,13 +11,20 @@ you need to change into the example subdirectory and install all
 
     npm install
 
-Now you can build the sources and start the extension in one command:
+You can build the extension using:
+
+    npm run build
+
+This creates the source bundles for the WebExtension in the `extension` subdirectory, and
+you can manually install the add-on on Firefox by loading the `extension` from the
+"about:debugging#addons" page.
+
+You can also build the sources and start a new Firefox instance with the add-on installed
+in one command:
 
     npm run start
 
-This creates the source bundles for the WebExtension in the `extension` subdirectory.
-
-To start a webpack instance that automatically rebuild the extension when
+To start a webpack instance that automatically rebuild the add-on when
 you change the sources, in another shell window, you can run the following npm script:
 
     npm run build:watch

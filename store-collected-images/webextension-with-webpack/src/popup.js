@@ -1,6 +1,5 @@
 "use strict";
 
-import {getFileStorage} from 'idb-file-storage/src/idb-file-storage';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import uuidV4 from 'uuid/v4';
@@ -25,6 +24,7 @@ class Popup extends React.Component {
         lastMessage: {text: "The collection name is mandatory.", type: "error"},
       });
 
+      // Clear the error message after a 2s timeout.
       setTimeout(() => {
         this.setState({lastError: undefined});
       }, 2000);
@@ -39,6 +39,7 @@ class Popup extends React.Component {
           collectedBlobs: [],
         });
 
+        // Clear the error message after a 2s timeout.
         setTimeout(() => {
           this.setState({lastMessage: undefined});
         }, 2000);
@@ -48,10 +49,11 @@ class Popup extends React.Component {
           lastMessage: {text: `Failed to save collected images: ${err}`, type: "error"},
         });
 
+        // Clear the error message after a 2s timeout.
         setTimeout(() => {
           this.setState({lastMessage: undefined});
         }, 2000);
-      })
+      });
   }
 
   render() {

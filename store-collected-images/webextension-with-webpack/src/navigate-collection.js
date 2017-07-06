@@ -1,6 +1,5 @@
 "use strict";
 
-import {getFileStorage} from 'idb-file-storage/src/idb-file-storage';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
