@@ -2,12 +2,10 @@
 beastify():
 * removes every node in the document.body,
 * then inserts the chosen beast
-* then removes itself as a listener 
 */
 function beastify(request, sender, sendResponse) {
   removeEverything();
   insertBeast(request.beastURL);
-  browser.runtime.onMessage.removeListener(beastify);
 }
 
 /*
