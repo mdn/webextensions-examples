@@ -58,10 +58,15 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  function reportError(error) {
+    console.error(`Could not inject content script: ${error}`);
+  }
+
   if (e.target.classList.contains("beast")) {
     injectTestScript()
       .then(injectBeastify)
-      .then(messageBeastify);
+      .then(messageBeastify)
+      .catch(reportError);
   }
   else if (e.target.classList.contains("clear")) {
     browser.tabs.reload();
