@@ -1,7 +1,7 @@
 /*
 copy the selected text to clipboard
 */
-function copySelection(e) {
+function copySelection() {
     var selectedText = window.getSelection().toString().trim();
 
     if (selectedText) {

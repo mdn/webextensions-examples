@@ -2,6 +2,8 @@
  * This file contains the Map of word --> emoji substitutions.
  */
 
+/* exported sortedEmojiMap */
+
 let dictionary = new Map();
 dictionary.set('apple', '🍎');
 dictionary.set('banana', '🍌');

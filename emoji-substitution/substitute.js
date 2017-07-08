@@ -3,6 +3,8 @@
  * all occurrences of each mapped word with its emoji counterpart.
  */
 
+/*global sortedEmojiMap*/
+
 // emojiMap.js defines the 'sortedEmojiMap' variable.
 // Referenced here to reduce confusion.
 const emojiMap = sortedEmojiMap;

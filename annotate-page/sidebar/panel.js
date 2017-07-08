@@ -4,14 +4,14 @@ const contentBox = document.querySelector("#content");
 /*
 Make the content box editable as soon as the user mouses over the sidebar.
 */
-window.addEventListener("mouseover", (e) => {
+window.addEventListener("mouseover", () => {
   contentBox.setAttribute("contenteditable", true);
 });
 
 /*
 When the user mouses out, save the current contents of the box.
 */
-window.addEventListener("mouseout", (e) => {
+window.addEventListener("mouseout", () => {
   contentBox.setAttribute("contenteditable", false);
   browser.tabs.query({windowId: myWindowId, active: true}).then((tabs) => {
     let contentToStore = {};
