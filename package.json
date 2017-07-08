@@ -1,0 +1,15 @@
+{
+  "name": "webextensions-examples",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "^7.2.3"
+  }
+}
