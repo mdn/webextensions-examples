@@ -27,7 +27,7 @@ function initialize() {
   var gettingAllStorageItems = browser.storage.local.get(null);
   gettingAllStorageItems.then((results) => {
     var noteKeys = Object.keys(results);
-    for(noteKey of noteKeys) {
+    for (let noteKey of noteKeys) {
       var curValue = results[noteKey];
       displayNote(noteKey,curValue);
     }
@@ -89,7 +89,7 @@ function displayNote(title, body) {
   /* set up listener for the delete functionality */
 
   deleteBtn.addEventListener('click',(e) => {
-    evtTgt = e.target;
+    const evtTgt = e.target;
     evtTgt.parentNode.parentNode.parentNode.removeChild(evtTgt.parentNode.parentNode);
     browser.storage.local.remove(title);
   })

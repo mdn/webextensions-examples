@@ -2,7 +2,7 @@
 Called when the item has been created, or when creation failed due to an error.
 We'll just log success/failure here.
 */
-function onCreated(n) {
+function onCreated() {
   if (browser.runtime.lastError) {
     console.log(`Error: ${browser.runtime.lastError}`);
   } else {
