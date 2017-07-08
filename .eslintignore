@@ -1,0 +1,6 @@
+**/node_modules/**
+react-es6-popup/**/dist
+embedded-webextension-bootstrapped
+embedded-webextension-sdk
+mocha-client-tests
+react-es6-popup
