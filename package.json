@@ -6,6 +6,7 @@
     "eslint": "^3.19.0"
   },
   "scripts": {
+    "test": "eslint .",
     "lint": "eslint ."
   },
   "license": "MIT",
