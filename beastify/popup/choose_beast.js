@@ -18,7 +18,7 @@ Listen for clicks in the popup.
 If the click is on one of the beasts:
   (1) inject the beastify.js content script.
 
-  (3) send a message to "beastify.js" that contains the URL to
+  (2) send a message to "beastify.js" that contains the URL to
   the chosen beast's image.
 
 If it's on a button which contains class "clear":
