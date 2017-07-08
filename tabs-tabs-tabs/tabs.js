@@ -47,7 +47,7 @@ function getCurrentWindowTabs() {
   return browser.tabs.query({currentWindow: true});
 }
 
-document.addEventListener("click", function(e) {
+document.addEventListener("click", (e) => {
   function callOnActiveTab(callback) {
     getCurrentWindowTabs().then((tabs) => {
       for (var tab of tabs) {
@@ -173,7 +173,7 @@ document.addEventListener("click", function(e) {
 
     chrome.tabs.query({
       currentWindow: true
-    }, function(tabs) {
+    }, (tabs) => {
       for (var tab of tabs) {
         if (tab.id === tabId) {
           chrome.tabs.update(tabId, {
@@ -188,7 +188,7 @@ document.addEventListener("click", function(e) {
 });
 
 //onRemoved listener. fired when tab is removed
-browser.tabs.onRemoved.addListener(function(tabId, removeInfo){
+browser.tabs.onRemoved.addListener((tabId, removeInfo) => {
   console.log(`The tab with id: ${tabId}, is closing`);
 
   if(removeInfo.isWindowClosing) {
@@ -199,7 +199,7 @@ browser.tabs.onRemoved.addListener(function(tabId, removeInfo){
 });
 
 //onMoved listener. fired when tab is moved into the same window
-browser.tabs.onMoved.addListener(function(tabId, moveInfo){
+browser.tabs.onMoved.addListener((tabId, moveInfo) => {
   var startIndex = moveInfo.fromIndex;
   var endIndex = moveInfo.toIndex;
   console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to index: ${endIndex}`);

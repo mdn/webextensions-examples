@@ -127,7 +127,7 @@ function updateCheckUncheck() {
 The click event listener, where we perform the appropriate action given the
 ID of the menu item that was clicked.
 */
-browser.contextMenus.onClicked.addListener(function(info, tab) {
+browser.contextMenus.onClicked.addListener((info, tab) => {
   switch (info.menuItemId) {
     case "log-selection":
       console.log(info.selectionText);
