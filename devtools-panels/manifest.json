@@ -1,5 +1,5 @@
 {
-  "description": "A tab with an associated HTML document that displays in the browser's developer tools.",
+  "description": "Adds a tab to the devtools toolbox. Click on the tab to see the different options. Each button will be positioned at a specific location on the web page.",
   "manifest_version": 2,
   "name": "devtools-panels",
   "version": "1.0",

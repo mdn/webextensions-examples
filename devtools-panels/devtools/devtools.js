@@ -7,9 +7,9 @@ function handleHidden() {
 }
 
 browser.devtools.panels.create(
-  "My Panel",           // title
-  "icons/star.png",           // icon
-  "devtools/panel/panel.html"          // content
+  "My Panel",
+  "icons/star.png",
+  "devtools/panel/panel.html"
 ).then((newPanel) => {
   newPanel.onShown.addListener(handleShown);
   newPanel.onHidden.addListener(handleHidden);
