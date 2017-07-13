@@ -1,6 +1,6 @@
 function showCookiesForTab(tabs) {
   //get the first tab object in the array
-  tab = tabs.pop();
+  var tab = tabs.pop();
 
   //get all cookies in the domain
   var gettingAllCookies = browser.cookies.getAll({url: tab.url});
@@ -14,10 +14,18 @@ function showCookiesForTab(tabs) {
 
     if (cookies.length > 0) {
       //add an <li> item with the name and value of the cookie to the list
-      for (cookie of cookies) {
+      for (var cookie of cookies) {
         var li = document.createElement("li");
-        var content = document.createTextNode(cookie.name + ": "+ cookie.value);
+        li.setAttribute("id", cookie.name);
+        var content = document.createTextNode(`${cookie.name}: ${cookie.value}`);
         li.appendChild(content);
+        var btn = document.createElement("input");
+        btn.setAttribute("type", "button");
+        btn.setAttribute("value", "delete");
+        btn.setAttribute("cookieName", cookie.name);
+        btn.setAttribute("url", tab.url);
+        btn.addEventListener("click", deleteCookie);
+        li.appendChild(btn);
         cookieList.appendChild(li);
       }
     } else {
@@ -31,9 +39,34 @@ function showCookiesForTab(tabs) {
   });
 };
 
+function deleteCookie() {
+  var cookieName = this.getAttribute("cookieName");
+  var url = this.getAttribute("url");
+  var removing = browser.cookies.remove({url: url, name: cookieName});
+  removing.then(onCookieRemoved, onDeleteCookieError).catch(onDeleteCookieException);
+}
+
+function onCookieRemoved(cookie) {
+  console.log(`Removed cookie: ${JSON.stringify(cookie)}`);
+  var li = document.getElementById(cookie.name);
+  li.remove();
+}
+
+function onDeleteCookieError(error) {
+  console.log(`Error removing cookie: ${error}`);
+}
+
+function onDeleteCookieException(error) {
+  console.log(`Exception removing cookie: ${error}`);
+}
+
+
 //get active tab to run an callback function.
 //it sends to our callback an array of tab objects
 function getActiveTab() {
   return browser.tabs.query({currentWindow: true, active: true});
 }
 getActiveTab().then(showCookiesForTab);
+
+//        var removing = browser.cookies.remove({url: 'http://example.com', name: cookie.name, storeId: cookie.storeId});
+//        removing.then(onCookieRemoved, onCookieRemovalError).catch(onCookieDeletionError);
