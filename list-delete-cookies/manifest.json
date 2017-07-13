@@ -1,21 +1,21 @@
 {
   "browser_action": {
     "browser_style": true,
-    "default_title": "List cookies in the active tab",
+    "default_title": "List cookies for the active tab's URL with the option to delete them",
     "default_popup": "cookies.html",
     "default_icon": {
       "19": "icons/default19.png",
       "38": "icons/default38.png"
     }
   },
-  "description": "List cookies in the active tab.",
+  "description": "List cookies for the active tab's URL with the option to delete them.",
   "icons": {
     "48": "icons/cookie.png",
     "96": "icons/cookie@2x.png"
   },
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/list-cookies",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/list-delete-cookies",
   "manifest_version": 2,
-  "name": "List cookies",
+  "name": "List and delete cookies",
   "version": "1.0",
   "permissions": ["cookies","<all_urls>","tabs"]
 }
