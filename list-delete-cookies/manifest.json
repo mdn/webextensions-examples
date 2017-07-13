@@ -13,7 +13,7 @@
     "48": "icons/cookie.png",
     "96": "icons/cookie@2x.png"
   },
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/list-cookies",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/list-delete-cookies",
   "manifest_version": 2,
   "name": "List and delete cookies",
   "version": "1.0",
