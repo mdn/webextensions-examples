@@ -9,19 +9,21 @@
   <body>
 
     <p>
-      <label>Proxy server DNS name or IP address</label>
-      <input id="proxyServerAddressInput"/><br>
-      <label>Proxy server port</label>
-      <input id="proxyServerPortInput"/><br>
-      <label>Proxy server username (optional)</label>
-      <input id="proxyServerUsernameInput"/><br>
-      <label>Proxy server password (optional)</label>
-      <input id="proxyServerPasswordInput"/><br>
-      <label>Proxy server type</label><br>
-      <input name="proxyServerTypeInput" type="radio" value="HTTP" checked>HTTP
-      <input name="proxyServerTypeInput" type="radio" value="HTTPS">HTTPS/SSL
-      <input name="proxyServerTypeInput" type="radio" value="SOCKS">SOCKS5
+      <input id="proxyServerAddressInput"/>
+      <label>Proxy server DNS name or IP address</label><br>
+      <input id="proxyServerPortInput"/>
+      <label>Proxy server port</label><br>
+      <input id="proxyServerUsernameInput"/>
+      <label>Proxy server username (optional)</label><br>
+      <input id="proxyServerPasswordInput"/>
+      <label>Proxy server password (optional)</label><br>
+      <input id="http" name="proxyServerTypeInput" type="radio" value="HTTP" checked>HTTP
+      <input id="https"name="proxyServerTypeInput" type="radio" value="HTTPS">HTTPS/SSL
+      <input id="socks" name="proxyServerTypeInput" type="radio" value="SOCKS">SOCKS5
+      <label>Proxy server type</label>
     </p>
+    <p>
+      <input id="saveButton" type="button" value="Save"/>
 
     <script src="options.js"></script>
   </body>

@@ -6,13 +6,13 @@
   "version": "1.0",
 
   "icons": {
-    "48": "icons/block.svg",
-    "96": "icons/block.svg"
+    "48": "icons/ic_compare_arrows_black_48.png",
+    "96": "icons/ic_compare_arrows_black_96.png"
   },
 
   "applications": {
     "gecko": {
-      "strict_min_version": "55.0a1"
+      "strict_min_version": "56.0a1"
     }
   },
 

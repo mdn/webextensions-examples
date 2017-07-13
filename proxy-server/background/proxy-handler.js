@@ -11,6 +11,9 @@ function handleInit(message) {
       console.log("Sending updated proxyServerInfo to proxy script");
       browser.runtime.sendMessage(newSettings.proxyServerInfo.newValue, {toProxyScript: true});
     }
+    else {
+      console.log("No proxy server defined: visit the options page to define a proxy server.");
+    }
   });
 
   // get the current settings, then...
@@ -24,7 +27,7 @@ function handleInit(message) {
       }
     })
     .catch(()=> {
-      console.log("Error retrieving stored settings");
+      console.error("Error retrieving stored settings");
     });
 }
 
@@ -34,7 +37,7 @@ function logSettings(settings) {
   console.log(`${settings.proxyServerInfo.proxyServerPort}`);
   console.log(`${settings.proxyServerInfo.proxyServerType}`);
   console.log(`${settings.authCredentials.username}`);
-  console.log(`${settings.authCredentials.paΩssword}`);
+  console.log(`${settings.authCredentials.password}`);
 }
 
 function handleMessage(message, sender) {
@@ -51,15 +54,20 @@ function handleMessage(message, sender) {
   }
 }
 
-function provideCredentialsASync(details) {
+function provideCredentialsAsync(details) {
   return browser.storage.local.get('authCredentials');
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
 
-// After https://bugzilla.mozilla.org/show_bug.cgi?id=1359693 is fixed, onAuthRequired() not needed
-// You can specify username/password in FindProxyForURL() 
-browser.webRequest.onAuthRequired.addListener(provideCredentialsASync,
+/**
+ * After https://bugzilla.mozilla.org/show_bug.cgi?id=1359693 is fixed, onAuthRequired() not needed.
+ * You can then specify username/password in FindProxyForURL().
+ * If incorrect username/password is specified, then Firefox displays either
+ * "Proxy server is refusing connections" (HTTP and HTTPS proxy servers) or
+ * "Unable to connect" (SOCKS proxy servers)
+ */
+browser.webRequest.onAuthRequired.addListener(provideCredentialsAsync,
                                           {urls: ["<all_urls>"]},
                                           ["blocking"]);
 

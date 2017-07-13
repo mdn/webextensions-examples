@@ -11,9 +11,14 @@ browser.runtime.onMessage.addListener((message) => {
 // required PAC function that will be called to determine
 // if a proxy should be used.
 function FindProxyForURL(url, host) {
-	browser.runtime.sendMessage("In FindProxyForURL()");
-	if (proxyInfo.proxyServerAddress && proxyInfo.proxyServerPort && proxyInfo.proxyServerType)
-  	return proxyInfo.proxyServerType + " " + proxyInfo.proxyServerAddress + ":" + proxyInfo.proxyServerPort;
-	else
-		return "DIRECT 123"; // After https://bugzilla.mozilla.org/show_bug.cgi?id=1355198 is fixed, change this to "DIRECT"
+  browser.runtime.sendMessage("In FindProxyForURL()");
+  if (proxyInfo.proxyServerAddress && proxyInfo.proxyServerPort && proxyInfo.proxyServerType) {
+    let ret = proxyInfo.proxyServerType + " " + proxyInfo.proxyServerAddress + ":" + proxyInfo.proxyServerPort;
+    browser.runtime.sendMessage("Proxying request: " + url + " with " + ret);
+    return ret;
+  }
+  else {
+    browser.runtime.sendMessage("Not proxying request: " + url);
+    return "DIRECT"; // If you want this code to work with Firefox 55, change this to "DIRECT 123" see bug https://bugzilla.mozilla.org/show_bug.cgi?id=1355198
+  }
 }
