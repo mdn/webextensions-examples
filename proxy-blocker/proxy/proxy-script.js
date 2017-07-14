@@ -1,3 +1,5 @@
+/* exported FindProxyForURL */
+
 var blockedHosts = [];
 const allow = "DIRECT 1234";
 const deny = "PROXY 127.0.0.1:65535";
