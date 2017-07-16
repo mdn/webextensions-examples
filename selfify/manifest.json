@@ -1,0 +1,23 @@
+{
+
+  "description": "Adds a sidebar offerin a file picker and drap and drop zone. When an image file ise chosen the active tab's body content is replaced with file selected. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#selfify",
+  "manifest_version": 2,
+  "name": "Selfify",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/selfify",
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>" 
+  ],
+
+  "sidebar_action": {
+    "default_title": "Selfify",
+    "default_panel": "sidebar/sidebar.html"
+  },
+
+  "web_accessible_resources": [
+    "/viewer.html"
+  ]
+}
