@@ -170,7 +170,7 @@
     {
         "javascript_apis": [],
         "name": "eslint-example",
-        "description": "Demonstrates how to configure a WebExtension with eslint."
+        "description": "Demonstrates how to configure an extension with eslint."
     },
     {
         "javascript_apis": [
@@ -247,7 +247,7 @@
             "runtime.sendMessage"
         ],
         "name": "mocha-client-tests",
-        "description": "This example shows two methods of testing a WebExtension: running tests from within the add-on, and running tests from the command line using Karma"
+        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma"
     },
     {
         "javascript_apis": [
@@ -255,7 +255,7 @@
             "runtime.connectNative"
         ],
         "name": "native-messaging",
-        "description": "Example of native messaging, including a Python application and a WebExtension which exchanges messages with it."
+        "description": "Example of native messaging, including a Python application and an extension which exchanges messages with it."
     },
     {
         "javascript_apis": [
@@ -387,7 +387,7 @@
             "runtime.sendMessage"
         ],
         "name": "webpack-modules",
-        "description": "Demonstrates how to use webpack to package npm modules in a WebExtension."
+        "description": "Demonstrates how to use webpack to package npm modules in an extension."
     },
     {
         "javascript_apis": [
