@@ -1,3 +1,5 @@
+/* globals Components, dump */
+
 {
   const addonId = "my-overlay-addon@me";
   const {
