@@ -29,14 +29,17 @@ function drop(e) {
 async function displayFile(fileList) {
   var imageURL = window.URL.createObjectURL(fileList[0]);
   var theFileName = fileList[0].name;
+  var myWindowId;
+  var tabId;
+
 
   // Get the Window ID.
-  browser.windows.getCurrent({populate: true}).then((windowInfo) => {
+  await browser.windows.getCurrent({populate: true}).then((windowInfo) => {
     myWindowId = windowInfo.id;
   });
 
   // Get the active tab for this sidebar
-  browser.tabs.query({windowId: myWindowId, active: true})
+  await browser.tabs.query({windowId: myWindowId, active: true})
     .then((tabs) => {
       tabId = tabs[0].id;
     });
