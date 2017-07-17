@@ -1,19 +1,37 @@
 "use strict";
 
-// Shortcut for React components render methods.
-const el = React.createElement;
+class NavigateCollectionUI {
+  constructor(containerEl) {
+    this.containerEl = containerEl;
 
-class NavigateCollectionUI extends React.Component {
-  constructor(props) {
-    super(props);
     this.state = {
       storedImages: [],
     };
 
     this.onFilterUpdated = this.onFilterUpdated.bind(this);
     this.onReload = this.onFilterUpdated;
-
     this.onDelete = this.onDelete.bind(this);
+
+    this.containerEl.querySelector("button.reload-images").onclick = this.onReload;
+    this.containerEl.querySelector("button.delete-images").onclick = this.onDelete;
+    this.containerEl.querySelector("input.image-filter").onchange = this.onFilterUpdated;
+
+    // Load the stored image once the component has been rendered in the page.
+    this.onFilterUpdated();
+  }
+
+  get imageFilterValue() {
+    return this.containerEl.querySelector("input.image-filter").value;
+  }
+
+  set imageFilterValue(value) {
+    return this.containerEl.querySelector("input.image-filter").value = value;
+  }
+
+  setState(state) {
+    // Merge the new state on top of the previous one and re-render everything.
+    this.state = Object.assign(this.state, state);
+    this.render();
   }
 
   componentDidMount() {
@@ -22,7 +40,7 @@ class NavigateCollectionUI extends React.Component {
   }
 
   onFilterUpdated() {
-    loadStoredImages(this.refs.imageFilter.value)
+    loadStoredImages(this.imageFilterValue)
       .then((storedImages) => {
         this.setState({storedImages});
       })
@@ -39,26 +57,26 @@ class NavigateCollectionUI extends React.Component {
   render() {
     const {storedImages} = this.state;
 
-    const storedImagesElements = storedImages.map(({storedName, blobUrl}) => {
+    const thumbnailsUl = this.containerEl.querySelector("ul.thumbnails");
+    while (thumbnailsUl.firstChild) {
+      thumbnailsUl.removeChild(thumbnailsUl.firstChild);
+    }
+
+    storedImages.forEach(({storedName, blobUrl}) => {
       const onClickedImage = () => {
-        this.refs.imageFilter.value = storedName;
+        this.imageFilterValue = storedName;
         this.onFilterUpdated();
       };
-      return el("li", {key: storedName}, el("img", {src: blobUrl, onClick: onClickedImage}));
-    });
+      const li = document.createElement("li");
+      const img = document.createElement("img");
+      li.setAttribute("id", storedName);
+      img.setAttribute("src", blobUrl);
+      img.onclick = onClickedImage;
 
-    return el("div", {}, [
-      el("h3", {}, "Stored images"),
-      el("input", {
-        placeholder: "filter image",
-        ref: "imageFilter",
-        onChange: this.onFilterUpdated,
-      }),
-      el("button", {onClick: this.onReload}, "reload"),
-      el("button", {onClick: this.onDelete}, "delete"),
-      el("ul", {className: "thumbnails"}, storedImagesElements),
-    ]);
+      li.appendChild(img);
+      thumbnailsUl.appendChild(li);
+    });
   }
 }
 
-ReactDOM.render(el(NavigateCollectionUI), document.getElementById('app'));
+const navigateCollectionUI = new NavigateCollectionUI(document.getElementById('app'));

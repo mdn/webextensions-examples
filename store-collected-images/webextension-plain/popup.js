@@ -1,33 +1,43 @@
 "use strict";
 
-// Shortcut for React components render methods.
-const el = React.createElement;
+class Popup {
+  constructor(containerEl) {
+    this.containerEl = containerEl;
 
-class Popup extends React.Component {
-  constructor(props) {
-    super(props);
     this.state = {
       collectedBlobs: [],
       lastMessage: undefined,
     };
 
     this.onClick = this.onClick.bind(this);
+
+    this.containerEl.querySelector("button.save-collection").onclick = this.onClick;
+  }
+
+  get collectionNameValue() {
+    return this.containerEl.querySelector("input.collection-name").value;
+  }
+
+  setState(state) {
+    // Merge the new state on top of the previous one and re-render everything.
+    this.state = Object.assign(this.state, state);
+    this.render();
   }
 
   onClick(ev) {
-    if (!this.refs.collectionName.value) {
+    if (!this.collectionNameValue) {
       this.setState({
         lastMessage: {text: "The collection name is mandatory.", type: "error"},
       });
 
       setTimeout(() => {
-        this.setState({lastError: undefined});
+        this.setState({lastMessage: undefined});
       }, 2000);
 
       return;
     }
 
-    saveCollectedBlobs(this.refs.collectionName.value, this.state.collectedBlobs)
+    saveCollectedBlobs(this.collectionNameValue, this.state.collectedBlobs)
       .then(() => {
         this.setState({
           lastMessage: {text: "All the collected images have been saved", type: "success"},
@@ -52,25 +62,33 @@ class Popup extends React.Component {
   render() {
     const {activeTab, collectedBlobs, lastMessage} = this.state;
 
-    const lastMessageEl = lastMessage && el("p", {
-      className: lastMessage.type,
-    }, lastMessage.text);
+    const lastMessageEl = this.containerEl.querySelector("p#error-message");
+    if (lastMessage) {
+      lastMessageEl.setAttribute("class", lastMessage.type);
+      lastMessageEl.textContent = lastMessage.text;
+    } else {
+      lastMessageEl.setAttribute("class", "");
+      lastMessageEl.textContent = "";
+    }
 
-    const collectedBlobsElements = collectedBlobs.map(({uuid, blobUrl}) => {
-      return el("li", {key: uuid}, el("img", {src: blobUrl}));
+    const thumbnailsUl = this.containerEl.querySelector("ul.thumbnails");
+    while (thumbnailsUl.firstChild) {
+      thumbnailsUl.removeChild(thumbnailsUl.firstChild);
+    }
+
+    collectedBlobs.forEach(({uuid, blobUrl}) => {
+      const li = document.createElement("li");
+      const img = document.createElement("img");
+      li.setAttribute("id", uuid);
+      img.setAttribute("src", blobUrl);
+      li.appendChild(img);
+
+      thumbnailsUl.appendChild(li);
     });
-
-    return el("div", {}, [
-      el("h3", {}, "Collected images"),
-      lastMessageEl,
-      el("input", {placeholder: "collection name", ref: "collectionName"}),
-      el("button", {onClick: this.onClick}, "save"),
-      el("ul", {className: "thumbnails"}, collectedBlobsElements),
-    ]);
   }
 }
 
-const popup = ReactDOM.render(el(Popup), document.getElementById('app'));
+const popup = new Popup(document.getElementById('app'));
 
 async function fetchBlobFromUrl(fetchUrl) {
   const res = await fetch(fetchUrl);

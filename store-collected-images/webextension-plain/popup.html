@@ -5,9 +5,14 @@
     <link rel="stylesheet" href="popup.css"/>
   </head>
   <body>
-    <div id="app"></div>
-    <script src="/deps/react.js"></script>
-    <script src="/deps/react-dom.js"></script>
+    <div id="app">
+      <h3>Collected images</h3>
+      <p id="error-message"></p>
+      <input placeholder="collection name" class="collection-name">
+      <button class="save-collection">save</button>
+      <ul class="thumbnails">
+      <ul>
+    </div>
     <script src="/deps/idb-file-storage.js"></script>
     <script src="/deps/uuidv4.js"></script>
     <script src="/utils/handle-window-drag-and-drop.js"></script>
