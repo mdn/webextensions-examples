@@ -1,3 +1,5 @@
+/* exported preventWindowDragAndDrop */
+
 "use strict";
 
 function preventWindowDragAndDrop() {
@@ -9,4 +11,4 @@ function preventWindowDragAndDrop() {
   window.ondragover = preventDefault;
   window.ondragend = preventDefault;
   window.ondrop = preventDefault;
-};
+}

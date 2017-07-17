@@ -18,7 +18,7 @@ class Popup extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(ev) {
+  onClick() {
     if (!this.refs.collectionName.value) {
       this.setState({
         lastMessage: {text: "The collection name is mandatory.", type: "error"},
@@ -57,7 +57,7 @@ class Popup extends React.Component {
   }
 
   render() {
-    const {activeTab, collectedBlobs, lastMessage} = this.state;
+    const {collectedBlobs, lastMessage} = this.state;
 
     return (
       <div>

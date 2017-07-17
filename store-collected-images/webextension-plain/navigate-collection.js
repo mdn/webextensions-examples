@@ -1,3 +1,5 @@
+/* global loadStoredImages, removeStoredImages */
+
 "use strict";
 
 class NavigateCollectionUI {
@@ -79,4 +81,5 @@ class NavigateCollectionUI {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 const navigateCollectionUI = new NavigateCollectionUI(document.getElementById('app'));

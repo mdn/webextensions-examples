@@ -1,3 +1,5 @@
+/* global saveCollectedBlobs, uuidv4, preventWindowDragAndDrop */
+
 "use strict";
 
 class Popup {
@@ -24,7 +26,7 @@ class Popup {
     this.render();
   }
 
-  onClick(ev) {
+  onClick() {
     if (!this.collectionNameValue) {
       this.setState({
         lastMessage: {text: "The collection name is mandatory.", type: "error"},
@@ -60,7 +62,7 @@ class Popup {
   }
 
   render() {
-    const {activeTab, collectedBlobs, lastMessage} = this.state;
+    const {collectedBlobs, lastMessage} = this.state;
 
     const lastMessageEl = this.containerEl.querySelector("p#error-message");
     if (lastMessage) {

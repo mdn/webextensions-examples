@@ -1,3 +1,6 @@
+/* global IDBFiles */
+/* exported saveCollectedBlobs, loadStoredImages, removeStoredImages */
+
 "use strict";
 
 async function saveCollectedBlobs(collectionName, collectedBlobs) {

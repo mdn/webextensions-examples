@@ -21,7 +21,7 @@ browser.runtime.onMessage.addListener((msg) => {
 });
 
 // Handle the context menu action click events.
-browser.contextMenus.onClicked.addListener(async (info, tab) => {
+browser.contextMenus.onClicked.addListener(async (info) => {
   try {
     await browser.runtime.sendMessage({
       type: "new-collected-images",
