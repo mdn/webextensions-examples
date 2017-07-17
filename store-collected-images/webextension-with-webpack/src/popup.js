@@ -26,7 +26,7 @@ class Popup extends React.Component {
 
       // Clear the error message after a 2s timeout.
       setTimeout(() => {
-        this.setState({lastError: undefined});
+        this.setState({lastMessage: undefined});
       }, 2000);
 
       return;
