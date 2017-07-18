@@ -7,7 +7,6 @@ function handleMessage(request, sender, sendResponse) {
       code: request.script
     });
   
-//  console.log(request.script);
 }
 
 browser.runtime.onMessage.addListener(handleMessage); 
