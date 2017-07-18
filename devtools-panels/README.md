@@ -1,48 +1,29 @@
 # devtools-panels
 
-**Adds a tab to the devtools toolbox. Click on the tab to see the different options. Each button will be positioned at a specific location on the web page.**
+**Adds a new panel to the developer tools. The panel contains buttons that demonstrate various basic features of the devtools API.**
 
 ## What it does ##
 
-The extension includes:
+This extension adds a new panel to the developer tools. The panel contains four buttons:
 
-* Adding a new tab to the devtools bar
+* **Inspect H1**: this injects a script into the active page. The script uses the [`inspect()` helper function](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Helpers) to select the first &lt;h1&gt; element in the page in the devtools inspector.
 
-In this tab, several buttons are presented
+* **Reddinate inspected element**: this injects a script into the active page. The script uses the [`$0` helper](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Helpers) to get the element that's currently selected in the devtools Inspector, and gives it a red background.
 
-* A button H1
+* **Check for jQuery**: this injects a script into the active page. The script checks whether `jQuery` is defined in the page, and logs a string to the add-on debugging console (note: *not* the web console) recording the result.
 
-* A button Background
+* **Inject content script**: this sends a message to the extension's background script, asking it to inject a given content script in the active page.
 
-* A button Jquery
-
-* A button Message
-
-When you activate the devtools bar either from inspected the item or from the F12 key, a new one is displayed called "My Panel"
-
+To learn more about the devtools APIs, see [Extending the developer tools](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Extending_the_developer_tools).
 
 ## What it shows ##
 
-You click on the 'My Panel' tab to see the various clickable buttons:
+* How to add a new panel to the devtools.
 
-* The button: H1
+* How to inject a script into the active page using [`inspectedWindow.eval()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval).
 
-This uses the inspect() helper to select the first <h1> element in the page
-You can access the page https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Examples for more information
+* How to use  [helpers](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Helpers) to interact with the devtools.
 
-* The button: Background
+* That unlike content scripts, scripts injected with `eval()` can see objects, like `jQuery`, that were added by page scripts.
 
-This uses the $0 helper to set the background color of the element that's currently selected in the Inspector
-You can access the page https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Examples for more information
-
-* The button: jQuery
-
-This tests whether jQuery is defined in the inspected window, and logs the result. Note that this wouldn't work in a content script, because even if jQuery were defined, the content script would not see it
-You can access the page https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Examples for more information
-
-* The button: message
-
-This test shows how to send a message in the content script
-You can access the page https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Extending_the_developer_tools for more information
-
-
+* How to send messages to the background script.
