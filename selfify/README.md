@@ -8,7 +8,7 @@ The extension includes:
 
 * a sidebar including HTML, CSS, and JavaScript
 * a content script
-* three images, each of a different beast, packaged as web accessible resources
+* a web page template, packaged as web accessible resources
 
 When the extension loads the user is offered a file picker and drop zone as methods to 
 choose an image file.
@@ -22,6 +22,7 @@ content with the chosen image file.
 
 ## What it shows ##
 
+How to:
 * write a sidebar
 * give a sidebar style and behavior using CSS and JavaScript
 * inject a content script programmatically using `tabs.executeScript()`

@@ -1,8 +1,8 @@
 /*
-selfify():
-* removes every node in the document.body,
-* then inserts the selected image
-* then removes itself as a listener 
+"Selfifies" the web page by:
+* Removing every node in the document.body
+* Inserting the selected image
+* Removing itself as a listener
 */
 function selfify(request, sender, sendResponse) {
   debugger;
@@ -21,8 +21,8 @@ function removeEverything() {
 }
 
 /*
-Given a URL to an image, create and style an IMG node pointing to
-that image, then insert the node into the document.
+Given a URL to an image, create and style an iframe containing an 
+IMG node pointing to that image, then insert the node into the document.
 */
 function insertImage(imageURL, fileName) {
   var insertImage = document.createElement("iframe");
