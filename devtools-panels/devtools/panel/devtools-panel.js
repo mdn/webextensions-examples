@@ -1,3 +1,9 @@
+/**
+Handle errors from the injected script.
+Errors may come from evaluating the JavaScript itself
+or from the devtools framework.
+See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Return_value
+*/
 function handleError(error) {
   if (error.isError) {
     console.log(`Devtools error: ${error.code}`);
@@ -6,6 +12,10 @@ function handleError(error) {
   }
 }
 
+/**
+Handle the result of evaluating the script.
+If there was an error, call handleError.
+*/
 function handleResult(result) {
   console.log('Function handleResult');
   console.log(result);
@@ -16,12 +26,20 @@ function handleResult(result) {
   }
 }
 
+/**
+When the user clicks the 'jquery' button,
+evaluate the jQuery script.
+*/
 const checkjQuery = "typeof jQuery != 'undefined'";
 document.getElementById("jquery").addEventListener("click", () => {
   browser.devtools.inspectedWindow.eval(checkjQuery)
     .then(handleResult);
 });
 
+/**
+When the user clicks each of the first three buttons,
+evaluate the corresponding script.
+*/
 const evalButton = document.querySelector("#reddinate");
 const evalString = "$0.style.backgroundColor = 'red'";
 document.getElementById("background").addEventListener("click", () => {
@@ -35,6 +53,10 @@ document.getElementById("h1").addEventListener("click", function(){
     .then(handleResult);  
 }); 
 
+/**
+When the user clicks the 'message' button,
+send a message to the background script.
+*/
 const scriptToAttach = "document.body.innerHTML = 'Hi from the devtools';";
 document.getElementById("message").addEventListener("click", () => {
   browser.runtime.sendMessage({
