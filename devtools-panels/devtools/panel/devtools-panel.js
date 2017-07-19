@@ -6,9 +6,9 @@ See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspe
 */
 function handleError(error) {
   if (error.isError) {
-    console.log(`Devtools error: ${error.code}`);
+    console.log('Devtools error: ${error.code}');
   } else {
-    console.log(`JavaScript error: ${error.value}`);
+    console.log('JavaScript error: ${error.value}');
   }
 }
 
@@ -31,7 +31,7 @@ When the user clicks the 'jquery' button,
 evaluate the jQuery script.
 */
 const checkjQuery = "typeof jQuery != 'undefined'";
-document.getElementById("jquery").addEventListener("click", () => {
+document.getElementById("button_jquery").addEventListener("click", () => {
   browser.devtools.inspectedWindow.eval(checkjQuery)
     .then(handleResult);
 });
@@ -40,15 +40,14 @@ document.getElementById("jquery").addEventListener("click", () => {
 When the user clicks each of the first three buttons,
 evaluate the corresponding script.
 */
-const evalButton = document.querySelector("#reddinate");
 const evalString = "$0.style.backgroundColor = 'red'";
-document.getElementById("background").addEventListener("click", () => {
+document.getElementById("button_background").addEventListener("click", () => {
   browser.devtools.inspectedWindow.eval(evalString)
     .then(handleResult);
 });
 
 const inspectString = "inspect(document.querySelector('h1'))";
-document.getElementById("h1").addEventListener("click", function(){
+document.getElementById("button_h1").addEventListener("click", function(){
     browser.devtools.inspectedWindow.eval(inspectString)
     .then(handleResult);  
 }); 
@@ -58,13 +57,8 @@ When the user clicks the 'message' button,
 send a message to the background script.
 */
 const scriptToAttach = "document.body.innerHTML = 'Hi from the devtools';";
-document.getElementById("message").addEventListener("click", () => {
+document.getElementById("button_message").addEventListener("click", () => {
   browser.runtime.sendMessage({
-    tabId: browser.devtools.inspectedWindow.tabId,
-    script: scriptToAttach
-  });
-  
-  newPanel.sendMessage({
     tabId: browser.devtools.inspectedWindow.tabId,
     script: scriptToAttach
   });
