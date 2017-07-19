@@ -69,9 +69,13 @@ https://github.com/TooTallNate/proxy
 To test this proxy server, enter the following into the addon's options:
 
 Proxy server DNS name or IP address: [IP address of machine running proxy server]
+
 Proxy server port: 3128
+
 Proxy server username: b63GuBL5Mxu6
+
 Proxy server password: R4ESpG7LsQHe
+
 Proxy server type: HTTP
 
 ### How to run an HTTP proxy server without a username/password
@@ -93,9 +97,13 @@ You can read about this node.js package at https://github.com/TooTallNate/proxy
 To test this proxy server, enter the following into the addon's options:
 
 Proxy server DNS name or IP address: [IP address of machine running proxy server]
+
 Proxy server port: 3128
+
 Proxy server username: [none]
+
 Proxy server password: [none]
+
 Proxy server type: HTTP
 
 ### How to run a SOCKS proxy server with a username/password
@@ -109,25 +117,29 @@ Assuming you have node.js and npm installed on the remote machine:
 
 then at a nodejs command-line:
 
-`var socks = require('socksv5');
-var srv = socks.createServer(function(info, accept, deny) {
-  accept();
-});
-srv.listen(1080, 'localhost', function() {
-  console.log('SOCKS server listening on port 1080');
-});
+    var socks = require('socksv5');
+    var srv = socks.createServer(function(info, accept, deny) {
+      accept();
+    });
+    srv.listen(1080, 'localhost', function() {
+      console.log('SOCKS server listening on port 1080');
+    });
 
-srv.useAuth(socks.auth.UserPassword(function(user, password, cb) {
-  cb(user === 'b63GuBL5Mxu6' && password === 'R4ESpG7LsQHe');
-}));`
+    srv.useAuth(socks.auth.UserPassword(function(user, password, cb) {
+      cb(user === 'b63GuBL5Mxu6' && password === 'R4ESpG7LsQHe');
+    }));
 
 This starts a SOCKS5 proxy server listening on port 1080 with the username b63GuBL5Mxu6 and
 password R4ESpG7LsQHe.
 
 Proxy server DNS name or IP address: [IP address of machine running proxy server]
+
 Proxy server port: 1080
+
 Proxy server username: b63GuBL5Mxu6
+
 Proxy server password: R4ESpG7LsQHe
+
 Proxy server type: SOCKS
 
 ### How to run a SOCKS proxy server without a username/password
@@ -144,8 +156,11 @@ The remote machine is not running an open proxy server on the public internet in
 To test this proxy server, enter the following into the addon's options:
 
 Proxy server DNS name or IP address: [IP address of machine running proxy server]
-Proxy server port: 1080
-Proxy server username: [none]
-Proxy server password: [none]
-Proxy server type: SOCKS
 
+Proxy server port: 1080
+
+Proxy server username: [none]
+
+Proxy server password: [none]
+
+Proxy server type: SOCKS
