@@ -3,11 +3,11 @@
 ## Usage
 
 This version of the example doesn't use Webpack and Babel to transpile the ES6 modules (and JSX)
-into javascript bundle scrips, and so it can be executed (using `web-ext run` or by installing it temporarely from "about:debugging#addons") and changed without any build step.
+into JavaScript bundle scripts, so it can be executed (using `web-ext run` or by installing it temporarily from "about:debugging#addons") and changed without any build step.
 
 ## NOTE on the plain JavaScript React UI
 
-The UI of this example is based on React (as the "build with webpack" version of this example), but it uses plain javascript instead of JSX (the "HTML"-like syntax usually used in "React"-based projects), and so the component UI hierarchy is composed of `React.createElement` function calls, e.g.
+The UI of this example is based on React (as is the "build with webpack" version of this example), but it uses plain JavaScript instead of JSX (the "HTML"-like syntax usually used in "React"-based projects), and so the component UI hierarchy is composed of `React.createElement` function calls, e.g.
 
 ```
 class MyReactComponent extends React.Component {
@@ -22,7 +22,7 @@ class MyReactComponent extends React.Component {
 }
 ```
 
-in plain Javascript (without JSX) becomes:
+in plain Javascript (without JSX) this becomes:
 
 ```
 // Shortcut for React components render methods.

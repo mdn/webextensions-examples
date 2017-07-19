@@ -24,9 +24,9 @@ in one command:
 
     npm run start
 
-To start a webpack instance that automatically rebuild the add-on when
+To start a webpack instance that automatically rebuilds the add-on when
 you change the sources, in another shell window, you can run the following npm script:
 
     npm run build:watch
 
-While this npm script is running, any time you edit a file, it will be rebuilt automatically).
+While this npm script is running, any time you edit a file, it will be rebuilt automatically.
