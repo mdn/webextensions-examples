@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<overlay id="myOverlayAddon" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="chrome://my-overlay-addon/content/init.js"></script>
+</overlay>

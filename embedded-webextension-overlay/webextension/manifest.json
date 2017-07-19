@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "Overlay Addon WebExtension",
+  "version": "1.0.1",
+  "description": "test embedding a webextension in a legacy overlay addon",
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
