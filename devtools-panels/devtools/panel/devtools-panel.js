@@ -6,9 +6,9 @@ See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspe
 */
 function handleError(error) {
   if (error.isError) {
-    console.log('Devtools error: ${error.code}');
+    console.log(`Devtools error: ${error.code}`);
   } else {
-    console.log('JavaScript error: ${error.value}');
+    console.log(`JavaScript error: ${error.value}`);
   }
 }
 
@@ -17,8 +17,6 @@ Handle the result of evaluating the script.
 If there was an error, call handleError.
 */
 function handleResult(result) {
-  console.log('Function handleResult');
-  console.log(result);
   if (result[0] !== undefined) {
     console.log(`jQuery: ${result[0]}`);
   } else if (result[1]) {
