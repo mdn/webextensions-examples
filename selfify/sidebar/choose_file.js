@@ -1,11 +1,11 @@
-
 /*
-Listens for a file being selected, gets the active tab ID, injects the content script
-into the active tab and then passes the image URL and file name through a message.
+Listens for a file being selected, creates a ObjectURL for the chosen file, injects a
+content script into the active tab then passes the image URL through a message to the
+active tab ID.
 */
 
 // Listen for a file being selected through the file picker
-var inputElement = document.getElementById("input");
+let inputElement = document.getElementById("input");
 inputElement.addEventListener("change", handlePicked, false);
 
 // Listen for a file being dropped into the drop zone
@@ -16,50 +16,38 @@ dropbox.addEventListener("drop", drop, false);
 
 // Get the image file if it was chosen from the pick list
 function handlePicked() {
-  var fileList = this.files;
-  displayFile(fileList);
+  displayFile(this.files);
 }
 
 // Get the image file if it was dragged into the sidebar drop zone
 function drop(e) {
   e.stopPropagation();
   e.preventDefault();
-
-  var dt = e.dataTransfer;
-  var files = dt.files;
-
-  displayFile(files);
+  displayFile(e.dataTransfer.files);
 }
 
-// Send the image file to the content script 
+/* 
+Insert the content script and send the image file ObjectURL to the content script using a 
+message.
+*/ 
 async function displayFile(fileList) {
   var imageURL = window.URL.createObjectURL(fileList[0]);
-  var theFileName = fileList[0].name;
-  var myWindowId;
-  var tabId;
 
-  // Get the Window ID.
-  await browser.windows.getCurrent({populate: true}).then((windowInfo) => {
-    myWindowId = windowInfo.id;
-  });
-
-  // Get the active tab for the sidebar
-  await browser.tabs.query({windowId: myWindowId, active: true})
-    .then((tabs) => {
-      tabId = tabs[0].id;
-    });
-
-  // Inject the content script into the active tab
-  console.log("TAB ID", tabId);
-  await browser.tabs.executeScript(tabId, {
+  browser.tabs.executeScript({
     file: "/content_scripts/selfify.js"
-  });
+    }).then(messageSelfify)
+      .catch(reportError);
 
-  // Send the content script the image URL and file name
-  await browser.tabs.sendMessage(tabId, {
-    imageURL: imageURL,
-    fileName: theFileName,
-  });
+  function messageSelfify() {
+    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+    gettingActiveTab.then((tabs) => {
+      browser.tabs.sendMessage(tabs[0].id, {imageURL});
+    });
+  }
+
+  function reportError(error) {
+    console.error(`Could not inject content script: ${error}`);
+  }
 }
 
 // Ignore the drag enter event - not used in this extension

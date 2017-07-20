@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 
 <html>
+
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="sidebar.css"/>
-    
-    <style>
-    
-    </style>
-    
   </head>
 
-<body>
-  <input type="file" accept="image/*" id="input">
+  <body>
   
-  <p></p>
+    <div id="picker_zone" style="margin:20px ;color:blue">
+      <input type="file" accept="image/*" id="input">
+    </div>
   
-  <div id="drop_zone">
-    <strong>Drag an image file into this Drop Zone ...</strong>
-  </div>
+    <div id="drop_zone">
+      <strong id="drop_zone_label">Drag an image file into this Drop Zone ...</strong>
+    </div>
 
-  <script src="choose_file.js"></script>
-</body>
+    <script src="choose_file.js"></script>
+    
+  </body>
 
 </html>
