@@ -7,7 +7,6 @@
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/selfify",
 
   "permissions": [
-    "activeTab",
     "tabs",
     "<all_urls>" 
   ],

@@ -34,11 +34,11 @@ function displayFile(fileList) {
   const imageURL = window.URL.createObjectURL(fileList[0]);
 
   browser.tabs.executeScript({
-    file: "/content_scripts/selfify.js"
-    }).then(messageSelfify)
+    file: "/content_scripts/content.js"
+    }).then(messageContent)
       .catch(reportError);
 
-  function messageSelfify() {
+  function messageContent() {
     const gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then((tabs) => {
       browser.tabs.sendMessage(tabs[0].id, {imageURL});

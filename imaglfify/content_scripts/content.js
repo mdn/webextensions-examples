@@ -10,11 +10,11 @@
   window.hasRun = true;
 
   /*
-  "Selfifies" the web page by:
+  Add the image to the web page by:
   * Removing every node in the document.body
   * Inserting the selected image
   */
-  function selfify(request, sender, sendResponse) {
+  function injectImage(request, sender, sendResponse) {
     removeEverything();
     insertImage(request.imageURL);
   }
@@ -37,12 +37,11 @@
     insertImage.setAttribute("src", browser.extension.getURL(`/viewer.html?blobURL=${imageURL}`));
     insertImage.setAttribute("style", "width: 100vw; height: 100vh;");
     document.body.appendChild(insertImage);
-    document.body.appendChild(info);
   }  
 
   /*
-  Assign selfify() as a listener for messages from the extension.
+  Assign injectImage() as a listener for messages from the extension.
   */
-  browser.runtime.onMessage.addListener(selfify);
+  browser.runtime.onMessage.addListener(injectImage);
 
 })();
