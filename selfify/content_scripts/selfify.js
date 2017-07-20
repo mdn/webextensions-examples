@@ -16,7 +16,7 @@
   */
   function selfify(request, sender, sendResponse) {
     removeEverything();
-    insertImage(request.imageURL, request.fileName);
+    insertImage(request.imageURL);
   }
 
   /*
@@ -32,12 +32,11 @@
   Given a URL to an image, create and style an iframe containing an 
   IMG node pointing to that image, then insert the node into the document.
   */
-  function insertImage(imageURL, fileName) {
-    var insertImage = document.createElement("iframe");
+  function insertImage(imageURL) {
+    const insertImage = document.createElement("iframe");
     insertImage.setAttribute("src", browser.extension.getURL(`/viewer.html?blobURL=${imageURL}`));
     insertImage.setAttribute("style", "width: 100vw; height: 100vh;");
     document.body.appendChild(insertImage);
-    var info = document.createElement("span");
     document.body.appendChild(info);
   }  
 

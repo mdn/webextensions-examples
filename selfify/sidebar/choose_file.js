@@ -5,11 +5,11 @@ active tab ID.
 */
 
 // Listen for a file being selected through the file picker
-let inputElement = document.getElementById("input");
+const inputElement = document.getElementById("input");
 inputElement.addEventListener("change", handlePicked, false);
 
 // Listen for a file being dropped into the drop zone
-var dropbox = document.getElementById("drop_zone");
+const dropbox = document.getElementById("drop_zone");
 dropbox.addEventListener("dragenter", dragenter, false);
 dropbox.addEventListener("dragover", dragover, false);
 dropbox.addEventListener("drop", drop, false);
@@ -30,8 +30,8 @@ function drop(e) {
 Insert the content script and send the image file ObjectURL to the content script using a 
 message.
 */ 
-async function displayFile(fileList) {
-  var imageURL = window.URL.createObjectURL(fileList[0]);
+function displayFile(fileList) {
+  const imageURL = window.URL.createObjectURL(fileList[0]);
 
   browser.tabs.executeScript({
     file: "/content_scripts/selfify.js"
@@ -39,7 +39,7 @@ async function displayFile(fileList) {
       .catch(reportError);
 
   function messageSelfify() {
-    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+    const gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then((tabs) => {
       browser.tabs.sendMessage(tabs[0].id, {imageURL});
     });
