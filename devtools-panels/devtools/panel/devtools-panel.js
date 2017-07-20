@@ -17,6 +17,9 @@ Handle the result of evaluating the script.
 If there was an error, call handleError.
 */
 function handleResult(result) {
+  console.log ("handleResmtat");
+  console.log (result);
+  
   if (result[0] !== undefined) {
     console.log(`jQuery: ${result[0]}`);
   } else if (result[1]) {
@@ -31,8 +34,11 @@ evaluate the jQuery script.
 const checkjQuery = "typeof jQuery != 'undefined'";
 document.getElementById("button_jquery").addEventListener("click", () => {
   browser.devtools.inspectedWindow.eval(checkjQuery)
-    .then(handleResult);
-});
+   .then(result => {
+    if (result[1]) {
+      handleError(result[1]);
+    }
+  });
 
 /**
 When the user clicks each of the first three buttons,
