@@ -225,6 +225,16 @@
     },
     {
         "javascript_apis": [
+            "runtime.onMessage",
+            "tabs.executeScript",
+            "tabs.query",
+            "tabs.sendMessage"
+        ],
+        "name": "imagify",
+        "description": "Using a sidebar, illustrates the use of file picker and drag and drop. A content script replaces the current page content with the chosen image."
+    },
+    {
+        "javascript_apis": [
             "downloads.erase",
             "downloads.getFileIcon",
             "downloads.open",
@@ -365,6 +375,12 @@
         ],
         "name": "theme-switcher",
         "description": "An example of how to use the management API for themes."
+    },
+    {
+        "javascript_apis": [
+        ],
+        "name": "themes",
+        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>"
     },
     {
         "javascript_apis": [
