@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="navigate-collection.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <h3>Stored images</h3>
+      <input placeholder="filter image" class="image-filter">
+      <button class="reload-images">reload</button>
+      <button class="delete-images">delete</button>
+      <ul class="thumbnails"></ul>
+    </div>
+    <script src="/deps/idb-file-storage.js"></script>
+    <script src="/deps/uuidv4.js"></script>
+    <script src="/utils/handle-window-drag-and-drop.js"></script>
+    <script src="/utils/image-store.js"></script>
+    <script src="navigate-collection.js"></script>
+  </body>
+</html>

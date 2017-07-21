@@ -7,7 +7,7 @@ function get_hostname(url) {
 }
 
 function set_domain(domain) {
-  spans = document.getElementsByClassName('domain');
+  const spans = document.getElementsByClassName('domain');
   [].slice.call(spans).forEach((span) => {
     span.textContent = domain;
   });
@@ -65,7 +65,7 @@ function clearAll(e) {
     // Loop through them and delete them one by one.
     var searchingHistory = browser.history.search({text: hostname})
     searchingHistory.then((results) => {
-        for (k = 0; k < results.length; k++) {
+        for (let k of results) {
           browser.history.deleteUrl({url: results[k].url});
         }
         // Clear out the UI.

@@ -51,7 +51,7 @@ When first loaded, initialize the page action for all tabs.
 */
 var gettingAllTabs = browser.tabs.query({});
 gettingAllTabs.then((tabs) => {
-  for (tab of tabs) {
+  for (let tab of tabs) {
     initializePageAction(tab);
   }
 });

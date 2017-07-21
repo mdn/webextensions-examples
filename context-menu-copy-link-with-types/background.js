@@ -3,7 +3,7 @@ browser.contextMenus.create({
     title: "Copy link to clipboard",
     contexts: ["link"],
 });
-browser.contextMenus.onClicked.addListener(function(info, tab) {
+browser.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "copy-link-to-clipboard") {
         // Examples: text and HTML to be copied.
         const text = "This is text: " + info.linkUrl;
@@ -22,7 +22,7 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
 
         browser.tabs.executeScript({
             code: "typeof copyToClipboard === 'function';",
-        }).then(function(results) {
+        }).then((results) => {
             // The content script's last expression will be true if the function
             // has been defined. If this is not the case, then we need to run
             // clipboard-helper.js to define function copyToClipboard.
@@ -31,11 +31,11 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
                     file: "clipboard-helper.js",
                 });
             }
-        }).then(function() {
+        }).then(() => {
             return browser.tabs.executeScript(tab.id, {
                 code,
             });
-        }).catch(function(error) {
+        }).catch((error) => {
             // This could happen if the extension is not allowed to run code in
             // the page, for example if the tab is a privileged page.
             console.error("Failed to copy text: " + error);

@@ -1,0 +1,19 @@
+{
+
+  "description": "Theme using a PNG as the headerURL image, employing a faded edge. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "weta_fade",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes/weta_fade",
+
+  "theme": {
+    "images": {
+      "headerURL": "weta.png"
+    },
+    
+    "colors": {
+       "accentcolor": "#adb09f",
+       "textcolor": "#000"
+    }
+  }
+}

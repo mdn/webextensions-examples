@@ -1,0 +1,19 @@
+{
+
+  "description": "Theme using an animated PNG file as the headerURL image. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "animated",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes/animated",
+
+  "theme": {
+    "images": {
+      "headerURL": "parrot.png"
+    },
+    
+    "colors": {
+       "accentcolor": "#ffffff",
+       "textcolor": "#000"
+    }
+  }
+}

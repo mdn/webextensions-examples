@@ -1,3 +1,5 @@
+/* exported getAccessToken */
+
 const REDIRECT_URL = browser.identity.getRedirectURL();
 const CLIENT_ID = "YOUR-CLIENT-ID";
 const SCOPES = ["openid", "email", "profile"];

@@ -1,3 +1,5 @@
+/*global getAccessToken*/
+
 function notifyUser(user) {
   browser.notifications.create({
     "type": "basic",
