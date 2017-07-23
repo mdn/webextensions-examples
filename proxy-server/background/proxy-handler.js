@@ -25,6 +25,9 @@ function handleInit(message) {
         console.log("Sending updated proxyServerInfo to proxy script");
         browser.runtime.sendMessage(storedSettings.proxyServerInfo, {toProxyScript: true});
       }
+      else {
+        console.log("No proxy server defined: visit the options page to define a proxy server");
+      }
     })
     .catch(()=> {
       console.error("Error retrieving stored settings");
@@ -74,4 +77,4 @@ browser.webRequest.onAuthRequired.addListener(provideCredentialsAsync,
 let proxyScriptURL = "proxy/proxy-script.js";
 
 // Register the proxy script. Path is relative to manifest.json
-browser.proxy.registerProxyScript(proxyScriptURL);
+browser.proxy.register(proxyScriptURL);
