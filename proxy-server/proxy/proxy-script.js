@@ -1,7 +1,7 @@
 var proxyInfo = {};
 
 // tell the background script that we are ready
-browser.runtime.sendMessage("init");
+//browser.runtime.sendMessage("init");
 
 // listen for updates to the proxy info
 browser.runtime.onMessage.addListener((message) => {

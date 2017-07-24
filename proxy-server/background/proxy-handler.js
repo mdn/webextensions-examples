@@ -3,62 +3,68 @@ browser.proxy.onProxyError.addListener(error => {
   console.error(`Proxy error: ${error.message}`);
 });
 
-// Initialize the proxy
-function handleInit(message) {
-  // update the proxy whenever stored settings change
-  browser.storage.onChanged.addListener((newSettings) => {
-    if (newSettings.proxyServerInfo) {
-      console.log("Sending updated proxyServerInfo to proxy script");
-      browser.runtime.sendMessage(newSettings.proxyServerInfo.newValue, {toProxyScript: true});
-    }
-    else {
-      console.log("No proxy server defined: visit the options page to define a proxy server.");
-    }
-  });
-
-  // get the current settings, then...
-  browser.storage.local.get()
-    .then((storedSettings) => {
-      // if there are stored settings, update the proxy with them...
-      if (storedSettings.proxyServerInfo) {
-        logSettings(storedSettings);
-        console.log("Sending updated proxyServerInfo to proxy script");
-        browser.runtime.sendMessage(storedSettings.proxyServerInfo, {toProxyScript: true});
-      }
-      else {
-        console.log("No proxy server defined: visit the options page to define a proxy server");
-      }
-    })
-    .catch(()=> {
-      console.error("Error retrieving stored settings");
-    });
+function logSettings(storedSettings) {
+  console.log("Got proxy server info and auth info:");
+  console.log(`proxy server address: ${storedSettings.proxyServerInfo.proxyServerAddress}`);
+  console.log(`proxy server port: ${storedSettings.proxyServerInfo.proxyServerPort}`);
+  console.log(`proxy server type: ${storedSettings.proxyServerInfo.proxyServerType}`);
+  console.log(`proxy server username: ${storedSettings.authCredentials.username}`);
+  console.log(`proxy server password: ${storedSettings.authCredentials.password}`);
 }
 
-function logSettings(settings) {
-  console.log("Got settings:");
-  console.log(`${settings.proxyServerInfo.proxyServerAddress}`);
-  console.log(`${settings.proxyServerInfo.proxyServerPort}`);
-  console.log(`${settings.proxyServerInfo.proxyServerType}`);
-  console.log(`${settings.authCredentials.username}`);
-  console.log(`${settings.authCredentials.password}`);
-}
+let proxyScriptLoaded = false;
+let proxyScriptURL = "proxy/proxy-script.js";
 
 function handleMessage(message, sender) {
   // only handle messages from the proxy script
   if (sender.url !=  browser.extension.getURL(proxyScriptURL)) {
     return;
   }
-
-  if (message === "init") {
-    handleInit(message);
-  } else {
-    // after the init message the only other messages are status messages
-    console.log(message);
-  }
+  console.log(message);
 }
 
 function provideCredentialsAsync(details) {
   return browser.storage.local.get('authCredentials');
+}
+
+// storedSettings includes both proxyServerInfo and authCredentials
+function registerProxyScript(proxyServerInfoAndAuth) {
+  logSettings(proxyServerInfoAndAuth);
+  if (!proxyScriptLoaded) {
+    if (validateProxyServerInfo(proxyServerInfoAndAuth.proxyServerInfo)) {
+      console.log("Registering proxy script");
+
+      // Register the proxy script. Path is relative to manifest.json
+      browser.proxy.register(proxyScriptURL);
+      proxyScriptLoaded = true;
+      sendSettingsToProxyScript(proxyServerInfoAndAuth.proxyServerInfo);
+    }
+  }
+}
+
+function unregisterProxyScript() {
+  if (proxyScriptLoaded) {
+    console.log("Unegistering proxy script");
+    browser.proxy.unregister();
+    proxyScriptLoaded = false;
+  }
+}
+
+function validateProxyServerInfo(proxyServerInfo) {
+  if (proxyServerInfo && proxyServerInfo.proxyServerAddress &&
+        proxyServerInfo.proxyServerPort && proxyServerInfo.proxyServerType) {
+    console.log("Validated proxy server, proxy server port, and proxy type");
+    return true;
+  }
+  else {
+    console.log("Visit the options page to define a proxy server, proxy server port, and proxy type");
+    return false;
+  }
+}
+
+function sendSettingsToProxyScript(proxyServerInfo) {
+  console.log("Sending updated proxyServerInfo to proxy script");
+  browser.runtime.sendMessage(proxyServerInfo, {toProxyScript: true});
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
@@ -74,7 +80,35 @@ browser.webRequest.onAuthRequired.addListener(provideCredentialsAsync,
                                           {urls: ["<all_urls>"]},
                                           ["blocking"]);
 
-let proxyScriptURL = "proxy/proxy-script.js";
 
-// Register the proxy script. Path is relative to manifest.json
-browser.proxy.register(proxyScriptURL);
+// update the proxy whenever stored settings change
+browser.storage.onChanged.addListener((newProxyServerInfoAndAuth) => {
+  /** newProxyServerInfoAndAuth has this format (data is fake):
+   *
+   * proxyServerInfo: {newValue: {proxyServerAddress: "foo.bar", proxyServerPort: "3128", proxyServerType: "HTTP"},
+   *                  oldValue: {proxyServerAddress: "baz.bar", proxyServerPort: "1235", proxyServerType: "SOCKS"}},
+   * authCrendentials: {newValue: {username: "mungsantamaria", password: "mypass"}, oldValue: {username: "", password: ""}}
+   */
+  if (newProxyServerInfoAndAuth && validateProxyServerInfo(newProxyServerInfoAndAuth.proxyServerInfo.newValue)) {
+    if (proxyScriptLoaded) {
+      sendSettingsToProxyScript(newProxyServerInfoAndAuth.proxyServerInfo.newValue);
+    }
+    else {
+      registerProxyScript({proxyServerInfo: newProxyServerInfoAndAuth.proxyServerInfo.newValue,
+        authCredentials: newProxyServerInfoAndAuth.authCredentials.newValue});
+    }
+  }
+  else {
+    unregisterProxyScript();
+  }
+});
+
+// get the current settings, then...
+browser.storage.local.get()
+  .then((proxyServerInfoAndAuth) => {
+    // attempt to register the proxy script
+    registerProxyScript(proxyServerInfoAndAuth);
+  })
+  .catch(()=> {
+    console.error("Error retrieving stored settings");
+  });
