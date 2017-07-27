@@ -1,0 +1,22 @@
+{
+  "description": "Adds a new panel to the developer tools. The panel contains buttons that demonstrate various basic features of the devtools API.",
+  "manifest_version": 2,
+  "name": "devtools-panels",
+  "version": "1.0",
+  "author": "Christophe Villeneuve",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/devtools-panels",
+  "icons": {
+    "48": "icons/star.png"
+  },
+  
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  },
+  
+  "permissions": [
+      "<all_urls>"
+  ],
+  
+  "devtools_page": "devtools/devtools-page.html"
+
+}
