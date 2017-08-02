@@ -92,5 +92,14 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  else if (e.target.id === "window-preface-title") {
+    getCurrentWindow().then((currentWindow) => {
+      let updateInfo = {
+        titlePreface: "Preface | "
+      }
+      browser.windows.update(currentWindow.id, updateInfo);
+    });
+  }
+
   e.preventDefault();
 });
