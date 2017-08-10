@@ -7,7 +7,7 @@ const defaultSettings = {
  }
 
 // Register the proxy script
-browser.proxy.registerProxyScript(proxyScriptURL);
+browser.proxy.register(proxyScriptURL);
 
 // Log any errors from the proxy script
 browser.proxy.onProxyError.addListener(error => {
