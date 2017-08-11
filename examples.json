@@ -315,7 +315,7 @@
         "javascript_apis": [
             "extension.getURL",
             "proxy.onProxyError",
-            "proxy.registerProxyScript",
+            "proxy.register",
             "runtime.onMessage",
             "runtime.sendMessage",
             "storage.local",
