@@ -54,7 +54,7 @@ document.getElementById("button_background").addEventListener("click", () => {
 });
 
 const inspectString = "inspect(document.querySelector('h1'))";
-document.getElementById("button_h1").addEventListener("click", function(){
+document.getElementById("button_h1").addEventListener("click", () => {
     browser.devtools.inspectedWindow.eval(inspectString)
     .then(handleResult);  
 }); 
