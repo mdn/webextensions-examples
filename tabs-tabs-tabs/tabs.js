@@ -164,12 +164,12 @@ document.addEventListener("click", (e) => {
   else if (e.target.classList.contains('switch-tabs')) {
     var tabId = +e.target.getAttribute('href');
 
-    chrome.tabs.query({
+    browser.tabs.query({
       currentWindow: true
     }, (tabs) => {
       for (var tab of tabs) {
         if (tab.id === tabId) {
-          chrome.tabs.update(tabId, {
+          browser.tabs.update(tabId, {
               active: true
           });
         }
