@@ -12,4 +12,4 @@ var Background = {
     }
 };
 
-chrome.runtime.onMessage.addListener(Background.receiveMessage);
+browser.runtime.onMessage.addListener(Background.receiveMessage);
