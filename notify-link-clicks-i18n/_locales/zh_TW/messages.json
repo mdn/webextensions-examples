@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Notify link clicks i18n",
+    "description": "此為擴充套件的名稱。"
+  },
+
+  "extensionDescription": {
+    "message": "在使用者點擊連結時，顯示系統通知。",
+    "description": "此為擴充套件的描述。"
+  },
+
+  "notificationTitle": {
+    "message": "點擊通知",
+    "description": "此為系統通知的標題。"
+  },
+
+  "notificationContent": {
+    "message": "您已點擊 $URL$。",
+    "description": "告訴使用者他點了哪個連結。",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
+  }
+}
