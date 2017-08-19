@@ -166,7 +166,7 @@ document.addEventListener("click", (e) => {
 
     browser.tabs.query({
       currentWindow: true
-    }, (tabs) => {
+    }).then((tabs) => {
       for (var tab of tabs) {
         if (tab.id === tabId) {
           browser.tabs.update(tabId, {
