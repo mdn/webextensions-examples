@@ -1,0 +1,23 @@
+#output {
+  border: 1px solid blue;
+  padding: 1em;
+  margin: 1em;
+  clear: both;
+}
+
+#wrap {
+   width:600px;
+   margin:0 auto;
+}
+#left-column {
+   float:left;
+   width:300px;
+}
+#right-column {
+   float:right;
+   width:300px;
+}
+
+input {
+  margin: 0.5em;
+}
