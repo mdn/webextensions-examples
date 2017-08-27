@@ -11,7 +11,7 @@ class Popup extends React.Component {
 
   componentDidMount() {
     // Get the active tab and store it in component state.
-    browser.tabs.query({active: true}, tabs => {
+    browser.tabs.query({active: true}).then(tabs => {
       this.setState({activeTab: tabs[0]});
     });
   }
