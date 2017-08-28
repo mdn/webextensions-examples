@@ -1,3 +1,23 @@
 html, body {
-  width: 300px;
+  width: 400px;
+  /* cancel browser_style's unselectable text default */
+  -moz-user-select: auto;
+  user-select: auto;
+}
+
+h2 {
+  /* was too close to H1 */
+  font-size: 110%;
+}
+
+.hidden {
+  display: none;
+}
+
+.warning:before {
+  content: "⚠";
+}
+
+.warning {
+  color: red;
 }

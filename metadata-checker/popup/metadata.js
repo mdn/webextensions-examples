@@ -1,95 +1,123 @@
 function onMetaData(metaData) {
   metaData = metaData[0];
-  var data = { og: {}, tw: {}, fb: {} };
+
+  var shown = false;
 
   for (prop in metaData) {
     value = metaData[prop];
     var section = null;
-    if (prop.match(/^og:/)) {
-      section = "og";
-    } else if (prop.match(/^twitter:/)) {
-      section = "tw";
-    } else if (prop.match(/^fb:/)) {
-      section = "fb";
-    } else
+    if (!prop.match(/^og:/) && !prop.match(/^twitter:/) && !prop.match(/^fb:/))
       continue;
-    data[section][prop] = value;
-    let ul = document.getElementById(section+"-meta");
+    if (!shown) {
+      document.getElementById("metadata").setAttribute("class", "");
+      document.getElementById("nothing-to-see").setAttribute("class", "hidden");
+    }
+    let ul = document.getElementById("metadata-list");
     let li = document.createElement("li");
-    let content = document.createTextNode(prop + ": "+ value);
-    li.appendChild(content);
+    let tt = document.createElement("tt");
+    tt.appendChild(document.createTextNode(prop));
+    li.appendChild(tt);
+    li.appendChild(document.createTextNode(": "+ value));
     ul.appendChild(li);
   }
 
-  if (Object.keys(data["og"]).length) {
+  // see http://ogp.me/
+  if (metaData["og:url"] || metaData["og:title"] || metaData["og:description"]) {
     let container = document.getElementById("og-preview");
-    //TODO: handle og:image:url
+    container.setAttribute("class", "");
     //XXX: handle arrays ?
-    if (data["og"]["og:image"]) {
+    var image = metaData["og:image"] || metaData["og:image:src"];
+    // TODO: fixup "//..." urls
+    // cf. https://css-tricks.com/essential-meta-tags-social-media/
+    //if (image && image.match(/^\/\/:/))
+    //  image = (new URL(tabUrl)).protocol + image;
+    if (image) {
       let div = document.createElement("div");
       let img = document.createElement("img");
       img.setAttribute("style", "max-width: 100px; max-height: 100px;");
       //TODO: check og:image:width & height
-      if (data["og"]["og:image:alt"]) {
-        img.setAttribute("alt", data["og"]["og:image:alt"]);
-        img.setAttribute("title", data["og"]["og:image:alt"]);
+      if (metaData["og:image:alt"]) {
+        img.setAttribute("alt", metaData["og:image:alt"]);
+        img.setAttribute("title", metaData["og:image:alt"]);
       }
-      img.setAttribute("src", data["og"]["og:image"]);
+      img.setAttribute("src", image);
       div.appendChild(img);
       container.appendChild(div);
     }
     let div = document.createElement("div");
-    if (data["og"]["og:title"]) {
+    if (metaData["og:title"]) {
       let h2 = document.createElement("h2");
-      let content = document.createTextNode(data["og"]["og:title"]);
+      let content = document.createTextNode(metaData["og:title"]);
       h2.appendChild(content);
       div.appendChild(h2);
     }
-    if (data["og"]["og:description"]) {
-      let content = document.createTextNode(data["og"]["og:description"]);
+    if (metaData["og:description"]) {
+      let content = document.createTextNode(metaData["og:description"]);
       div.appendChild(content);
     }
-    if (data["og"]["og:url"]) {
+    if (metaData["og:url"]) {
       let d = document.createElement("div");
       let a = document.createElement("a");
-      let content = document.createTextNode(data["og"]["og:site_name"]);
+      let sitename = metaData["og:site_name"] || metaData["og:title"]
+      let content = document.createTextNode(sitename);
       a.appendChild(content);
-      a.setAttribute("href", data["og"]["og:url"]);
+      a.setAttribute("href", metaData["og:url"]);
       d.appendChild(a);
       div.appendChild(d);
     }
     container.appendChild(div);
   }
 
-  if (Object.keys(data["tw"]).length) {
+  // see https://dev.twitter.com/cards/markup
+  if (metaData["twitter:card"] || metaData["twitter:description"] || metaData["twitter:title"]) {
     let container = document.getElementById("tw-preview");
-    let card = data["tw"]["twitter:card"];
-    if (data["tw"]["twitter:image:src"]) {
+    container.setAttribute("class", "");
+
+    var card = metaData["twitter:card"];
+
+    // "then a summary card may be rendered."
+    if (!card && (metaData["og:type"] || metaData["og:title"] || metaData["og:description"])) {
+      card = "summary";
+    }
+    if (!card) {
+      let div = document.createElement("div");
+      div.setAttribute("class", "warning");
+      div.appendChild(document.createTextNode("Missing twitter:card!"));
+      container.appendChild(div);
+    }
+
+    let image = metaData["twitter:image"] || metaData["twitter:image:src"] || metaData["og:image"] || metaData["og:image:src"];
+    // TODO: fixup "//..." urls
+    //if (image && image.match(/^\/\/:/))
+    //  image = new URL(tabUrl).protocol + image;
+    if (image) {
       let div = document.createElement("div");
       let img = document.createElement("img");
       if (card == "summary_large_image")
         img.setAttribute("style", "max-width: 300px; max-height: 300px;");
       else
         img.setAttribute("style", "max-width: 100px; max-height: 100px;");
-      img.setAttribute("src", data["tw"]["twitter:image:src"]);
+      img.setAttribute("src", image);
       div.appendChild(img);
       container.appendChild(div);
     }
     let div = document.createElement("div");
-    if (data["tw"]["twitter:title"]) {
+
+    let title = metaData["twitter:title"] || metaData["og:title"];
+    if (metaData["twitter:title"]) {
       let h2 = document.createElement("h2");
-      let content = document.createTextNode(data["tw"]["twitter:title"]);
+      let content = document.createTextNode(title);
       h2.appendChild(content);
       div.appendChild(h2);
     }
-    if (data["tw"]["twitter:description"]) {
-      let content = document.createTextNode(data["tw"]["twitter:description"]);
+
+    let description = metaData["twitter:description"] || metaData["og:description"];
+    if (description) {
+      let content = document.createTextNode(description);
       div.appendChild(content);
     }
     container.appendChild(div);
   }
-  /* TODO: handle fb-preview. Do we really need it? */
-
 }
 
 function showMetaDataForTab(tabs) {
@@ -99,7 +127,6 @@ function showMetaDataForTab(tabs) {
   var gettingMetaData = browser.tabs.executeScript(tab.id, {
     file: "/content_scripts/get_metadata.js"
   });
-
   gettingMetaData.then(onMetaData);
 }
 

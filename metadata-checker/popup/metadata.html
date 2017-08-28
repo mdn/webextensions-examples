@@ -7,20 +7,20 @@
   </head>
 
   <body>
-    <h1>OpenGraph</h1>
-    <div id="og-preview"></div>
-    <hr />
-    <ul id="og-meta"></ul>
-    <hr />
-    <h1>Twitter</h1>
-    <div id="tw-preview"></div>
-    <hr />
-    <ul id="tw-meta"></ul>
-    <hr />
-    <h1>Facebook</h1>
-    <div id="fb-preview"></div>
-    <hr />
-    <ul id="fb-meta"></ul>
+    <section id="og-preview" class="hidden">
+      <h1>OpenGraph (Facebook) Preview</h1>
+    </section>
+    <section id="tw-preview" class="hidden">
+      <h1>Twitter Preview</h1>
+    </section>
+    <section id="metadata" class="hidden">
+      <h1>Raw Metadata Tags</h1>
+      <ul id="metadata-list"></ul>
+    </section>
+
+    <section id="nothing-to-see">
+      <h1>No Metadata available</h1>
+    </section>
 
     <script src="metadata.js"></script>
   </body>

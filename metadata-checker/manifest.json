@@ -11,7 +11,8 @@
   "browser_action": {
     "default_icon": "icons/icon.png",
     "default_title" : "Metadata",
-    "default_popup": "popup/metadata.html"
+    "default_popup": "popup/metadata.html",
+    "browser_style": true
   },
 
   "permissions": ["activeTab"]

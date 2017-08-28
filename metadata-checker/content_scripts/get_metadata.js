@@ -5,6 +5,8 @@ var metaData = {};
 for (meta of document.getElementsByTagName("meta")) {
   var prop = meta.getAttribute("property");
   if (!prop)
+    prop = meta.getAttribute("property");
+  if (!prop)
     continue;
   var content = meta.getAttribute("content");
   metaData[prop] = content;
