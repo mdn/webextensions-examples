@@ -211,6 +211,10 @@ There are a couple ways to try out the example extensions in this repository.
 <dd>Demo of various <code>windows</code> functions: create, close, resize, etc.</dd>
 </dl>
 
+<dl><dt><a href="https://github.com/mdn/webextensions-examples/tree/master/ip-finder">ip-finder</a></dt>
+<dd>Demo of <code>pageAction</code> API, finds IP of open website</dd>
+</dl>
+
 ## Learn more
 
 To learn more about developing WebExtensions, see the
