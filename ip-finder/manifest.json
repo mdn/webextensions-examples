@@ -1,0 +1,25 @@
+{
+
+  "description": "Find the IP of given website - pagAction API example",
+  "manifest_version": 2,
+  "name": "IP finder",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/ip-finder",
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "page_action": {
+    "default_icon": "icons/icon.png",
+    "browser_style": true
+  },
+  
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ]
+
+}
