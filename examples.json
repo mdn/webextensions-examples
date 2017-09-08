@@ -86,8 +86,8 @@
     },
     {
         "javascript_apis": [
-            "contextMenus.create",
-            "contextMenus.onClicked",
+            "menus.create",
+            "menus.onClicked",
             "tabs.executeScript"
         ],
         "name": "context-menu-copy-link-with-types",
@@ -95,10 +95,10 @@
     },
     {
         "javascript_apis": [
-            "contextMenus.create",
-            "contextMenus.onClicked",
-            "contextMenus.remove",
-            "contextMenus.update",
+            "menus.create",
+            "menus.onClicked",
+            "menus.remove",
+            "menus.update",
             "i18n.getMessage",
             "runtime.lastError",
             "tabs.executeScript"
