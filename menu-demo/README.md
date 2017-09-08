@@ -1,8 +1,10 @@
-# context-menu-demo
+# menu-demo
 
-A demo of the [contextMenus API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/contextMenus/).
+A demo of the [menus API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/).
 
 **This add-on injects JavaScript into web pages. The `addons.mozilla.org` domain disallows this operation, so this add-on will not work properly when it's run on pages in the `addons.mozilla.org` domain.**
+
+**This add-on uses the `menus` namespace to access the functions it needs to create menu items. Note that Chrome, Edge, and Opera all use the `contextMenus` namespace for this, so this extension will not work in these browsers. For compatibility with these browsers, Firefox also offers the `contextMenus` namespace, so to make this extension work with other browsers, use `contextMenus`.**
 
 ## What it does
 
@@ -20,9 +22,11 @@ like about:debugging.
 item is clicked.
 * one item that uses the "commands" property to open the add-on's sidebar.
 
+It also adds one item to the browser's "Tools" menu.
+
 ## What it shows
 
-* How to create various types of context menu item:
+* How to create various types of menu item:
   * normal
   * radio
   * separator

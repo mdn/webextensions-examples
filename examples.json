@@ -103,8 +103,8 @@
             "runtime.lastError",
             "tabs.executeScript"
         ],
-        "name": "context-menu-demo",
-        "description": "Demonstrates adding and manipulating context menu items using the contextMenus API."
+        "name": "menu-demo",
+        "description": "Demonstrates adding and manipulating menu items using the menus API."
     },
     {
         "javascript_apis": [
