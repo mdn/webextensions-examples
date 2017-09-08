@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "Context menu demo",
+    "message": "Menu demo",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "Demonstrates the contextMenus API.",
+    "message": "Demonstrates the menus API.",
     "description": "Description of the add-on."
   },
 
