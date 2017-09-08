@@ -82,7 +82,7 @@
             "commands.onCommand"
         ],
         "name": "commands",
-        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac)."
+        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+U (Command+Shift+U on a Mac)."
     },
     {
         "javascript_apis": [
@@ -315,7 +315,7 @@
         "javascript_apis": [
             "extension.getURL",
             "proxy.onProxyError",
-            "proxy.registerProxyScript",
+            "proxy.register",
             "runtime.onMessage",
             "runtime.sendMessage",
             "storage.local",

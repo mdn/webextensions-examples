@@ -16,6 +16,11 @@ function updateIcon() {
     },
     tabId: currentTab.id
   });
+  browser.browserAction.setTitle({
+    // Screen readers can see the title
+    title: currentBookmark ? 'Unbookmark it!' : 'Bookmark it!',
+    tabId: currentTab.id
+  }); 
 }
 
 /*

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Example Firefox add-ons created using the WebExtensions API",
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^4.4.1"
   },
   "repository": {
     "type": "git",
