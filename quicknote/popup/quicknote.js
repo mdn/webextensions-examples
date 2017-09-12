@@ -27,7 +27,7 @@ function initialize() {
   var gettingAllStorageItems = browser.storage.local.get(null);
   gettingAllStorageItems.then((results) => {
     var noteKeys = Object.keys(results);
-    for(noteKey of noteKeys) {
+    for (let noteKey of noteKeys) {
       var curValue = results[noteKey];
       displayNote(noteKey,curValue);
     }
@@ -88,8 +88,8 @@ function displayNote(title, body) {
 
   /* set up listener for the delete functionality */
 
-  deleteBtn.addEventListener('click',function(e){
-    evtTgt = e.target;
+  deleteBtn.addEventListener('click',(e) => {
+    const evtTgt = e.target;
     evtTgt.parentNode.parentNode.parentNode.removeChild(evtTgt.parentNode.parentNode);
     browser.storage.local.remove(title);
   })
@@ -125,24 +125,24 @@ function displayNote(title, body) {
 
   /* set up listeners for the update functionality */
 
-  noteH.addEventListener('click',function(){
+  noteH.addEventListener('click',() => {
     noteDisplay.style.display = 'none';
     noteEdit.style.display = 'block';
   })
 
-  notePara.addEventListener('click',function(){
+  notePara.addEventListener('click',() => {
     noteDisplay.style.display = 'none';
     noteEdit.style.display = 'block';
   }) 
 
-  cancelBtn.addEventListener('click',function(){
+  cancelBtn.addEventListener('click',() => {
     noteDisplay.style.display = 'block';
     noteEdit.style.display = 'none';
     noteTitleEdit.value = title;
     noteBodyEdit.value = body;
   })
 
-  updateBtn.addEventListener('click',function(){
+  updateBtn.addEventListener('click',() => {
     if(noteTitleEdit.value !== title || noteBodyEdit.value !== body) {
       updateNote(title,noteTitleEdit.value,noteBodyEdit.value);
       note.parentNode.removeChild(note);

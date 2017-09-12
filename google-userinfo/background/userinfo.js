@@ -2,6 +2,9 @@
 Fetch the user's info, passing in the access token in the Authorization
 HTTP request header.
 */
+
+/* exported getUserInfo */
+
 function getUserInfo(accessToken) {
   const requestURL = "https://www.googleapis.com/oauth2/v1/userinfo?alt=json";
   const requestHeaders = new Headers();

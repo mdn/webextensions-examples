@@ -7,7 +7,7 @@
   "default_locale": "en",
   "applications": {
     "gecko": {
-      "strict_min_version": "55.0a1"
+      "strict_min_version": "56.0a1"
     }
   },
 
@@ -16,7 +16,7 @@
   },
   
   "permissions": [
-    "contextMenus",
+    "menus",
     "activeTab"
   ],
   

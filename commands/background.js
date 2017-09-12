@@ -12,7 +12,7 @@
  */
 var gettingAllCommands = browser.commands.getAll();
 gettingAllCommands.then((commands) => {
-  for (command of commands) {
+  for (let command of commands) {
     console.log(command);
   }
 });

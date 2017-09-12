@@ -69,6 +69,6 @@ browser.alarms.onAlarm.addListener((alarm) => {
 /*
 On page action click, navigate the corresponding tab to the cat gifs.
 */
-browser.pageAction.onClicked.addListener(function () {
+browser.pageAction.onClicked.addListener(() => {
   browser.tabs.update({url: CATGIFS});
 });

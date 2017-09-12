@@ -1,0 +1,25 @@
+{
+
+  "description": "Theme with a single image placed centrally and then tiled. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "weta_tiled",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes/weta_tiled",
+
+  "theme": {
+    "images": {
+      "headerURL": "empty.png",
+      "additional_backgrounds": [ "weta_for_tiling.png"]
+    },
+
+    "properties": {
+      "additional_backgrounds_alignment": [ "top" ],
+      "additional_backgrounds_tiling": [ "repeat"  ]
+   },
+    
+    "colors": {
+       "accentcolor": "#adb09f",
+       "textcolor": "#000"
+    }
+  }
+}

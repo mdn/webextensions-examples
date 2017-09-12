@@ -7,7 +7,7 @@ const defaultSettings = {
  }
 
 // Register the proxy script
-browser.proxy.registerProxyScript(proxyScriptURL);
+browser.proxy.register(proxyScriptURL);
 
 // Log any errors from the proxy script
 browser.proxy.onProxyError.addListener(error => {
@@ -15,7 +15,7 @@ browser.proxy.onProxyError.addListener(error => {
 });
 
 // Initialize the proxy
-function handleInit(message) {
+function handleInit() {
   // update the proxy whenever stored settings change
   browser.storage.onChanged.addListener((newSettings) => {
     browser.runtime.sendMessage(newSettings.blockedHosts.newValue, {toProxyScript: true});

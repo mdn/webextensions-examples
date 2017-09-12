@@ -1,3 +1,5 @@
+/* exported getAccessToken */
+
 const REDIRECT_URL = browser.identity.getRedirectURL();
 const CLIENT_ID = "YOUR-CLIENT-ID";
 const SCOPES = ["openid", "email", "profile"];
@@ -10,7 +12,7 @@ const AUTH_URL =
 const VALIDATION_BASE_URL="https://www.googleapis.com/oauth2/v3/tokeninfo";
 
 function extractAccessToken(redirectUri) {
-  let m = redirectUri.match(/[#\?](.*)/);
+  let m = redirectUri.match(/[#?](.*)/);
   if (!m || m.length < 1)
     return null;
   let params = new URLSearchParams(m[1].split("#")[0]);

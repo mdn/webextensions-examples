@@ -82,12 +82,12 @@
             "commands.onCommand"
         ],
         "name": "commands",
-        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+Y (Command+Shift+Y on a Mac)."
+        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+U (Command+Shift+U on a Mac)."
     },
     {
         "javascript_apis": [
-            "contextMenus.create",
-            "contextMenus.onClicked",
+            "menus.create",
+            "menus.onClicked",
             "tabs.executeScript"
         ],
         "name": "context-menu-copy-link-with-types",
@@ -95,16 +95,16 @@
     },
     {
         "javascript_apis": [
-            "contextMenus.create",
-            "contextMenus.onClicked",
-            "contextMenus.remove",
-            "contextMenus.update",
+            "menus.create",
+            "menus.onClicked",
+            "menus.remove",
+            "menus.update",
             "i18n.getMessage",
             "runtime.lastError",
             "tabs.executeScript"
         ],
-        "name": "context-menu-demo",
-        "description": "Demonstrates adding and manipulating context menu items using the contextMenus API."
+        "name": "menu-demo",
+        "description": "Demonstrates adding and manipulating menu items using the menus API."
     },
     {
         "javascript_apis": [
@@ -170,7 +170,7 @@
     {
         "javascript_apis": [],
         "name": "eslint-example",
-        "description": "Demonstrates how to configure a WebExtension with eslint."
+        "description": "Demonstrates how to configure an extension with eslint."
     },
     {
         "javascript_apis": [
@@ -225,6 +225,16 @@
     },
     {
         "javascript_apis": [
+            "runtime.onMessage",
+            "tabs.executeScript",
+            "tabs.query",
+            "tabs.sendMessage"
+        ],
+        "name": "imagify",
+        "description": "Using a sidebar, illustrates the use of file picker and drag and drop. A content script replaces the current page content with the chosen image."
+    },
+    {
+        "javascript_apis": [
             "downloads.erase",
             "downloads.getFileIcon",
             "downloads.open",
@@ -247,7 +257,7 @@
             "runtime.sendMessage"
         ],
         "name": "mocha-client-tests",
-        "description": "This example shows two methods of testing a WebExtension: running tests from within the add-on, and running tests from the command line using Karma"
+        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma"
     },
     {
         "javascript_apis": [
@@ -255,7 +265,7 @@
             "runtime.connectNative"
         ],
         "name": "native-messaging",
-        "description": "Example of native messaging, including a Python application and a WebExtension which exchanges messages with it."
+        "description": "Example of native messaging, including a Python application and an extension which exchanges messages with it."
     },
     {
         "javascript_apis": [
@@ -305,7 +315,7 @@
         "javascript_apis": [
             "extension.getURL",
             "proxy.onProxyError",
-            "proxy.registerProxyScript",
+            "proxy.register",
             "runtime.onMessage",
             "runtime.sendMessage",
             "storage.local",
@@ -368,6 +378,12 @@
     },
     {
         "javascript_apis": [
+        ],
+        "name": "themes",
+        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>"
+    },
+    {
+        "javascript_apis": [
             "topSites.get"
         ],
         "name": "top-sites",
@@ -387,7 +403,7 @@
             "runtime.sendMessage"
         ],
         "name": "webpack-modules",
-        "description": "Demonstrates how to use webpack to package npm modules in a WebExtension."
+        "description": "Demonstrates how to use webpack to package npm modules in an extension."
     },
     {
         "javascript_apis": [

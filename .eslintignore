@@ -1,0 +1,4 @@
+**/node_modules/**
+react-es6-popup/**/dist
+mocha-client-tests
+store-collected-images/webextension-plain/deps

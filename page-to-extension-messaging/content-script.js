@@ -2,7 +2,7 @@
 Listen for messages from the page.
 If the message was from the page script, show an alert.
 */
-window.addEventListener("message", function(event) {
+window.addEventListener("message", (event) => {
   if (event.source == window &&
       event.data &&
       event.data.direction == "from-page-script") {

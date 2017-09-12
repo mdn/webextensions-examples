@@ -2,7 +2,7 @@
 Called when the item has been created, or when creation failed due to an error.
 We'll just log success/failure here.
 */
-function onCreated(n) {
+function onCreated() {
   if (browser.runtime.lastError) {
     console.log(`Error: ${browser.runtime.lastError}`);
   } else {
@@ -29,41 +29,41 @@ function onError(error) {
 /*
 Create all the context menu items.
 */
-browser.contextMenus.create({
+browser.menus.create({
   id: "log-selection",
-  title: browser.i18n.getMessage("contextMenuItemSelectionLogger"),
+  title: browser.i18n.getMessage("menuItemSelectionLogger"),
   contexts: ["selection"]
 }, onCreated);
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "remove-me",
-  title: browser.i18n.getMessage("contextMenuItemRemoveMe"),
+  title: browser.i18n.getMessage("menuItemRemoveMe"),
   contexts: ["all"]
 }, onCreated);
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "separator-1",
   type: "separator",
   contexts: ["all"]
 }, onCreated);
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "greenify",
   type: "radio",
-  title: browser.i18n.getMessage("contextMenuItemGreenify"),
+  title: browser.i18n.getMessage("menuItemGreenify"),
   contexts: ["all"],
   checked: true
 }, onCreated);
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "bluify",
   type: "radio",
-  title: browser.i18n.getMessage("contextMenuItemBluify"),
+  title: browser.i18n.getMessage("menuItemBluify"),
   contexts: ["all"],
   checked: false
 }, onCreated);
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "separator-2",
   type: "separator",
   contexts: ["all"]
@@ -71,20 +71,25 @@ browser.contextMenus.create({
 
 var checkedState = true;
 
-browser.contextMenus.create({
+browser.menus.create({
   id: "check-uncheck",
   type: "checkbox",
-  title: browser.i18n.getMessage("contextMenuItemUncheckMe"),
+  title: browser.i18n.getMessage("menuItemUncheckMe"),
   contexts: ["all"],
   checked: checkedState
 }, onCreated);
 
-
-browser.contextMenus.create({
+browser.menus.create({
   id: "open-sidebar",
-  title: browser.i18n.getMessage("contextMenuItemOpenSidebar"),
+  title: browser.i18n.getMessage("menuItemOpenSidebar"),
   contexts: ["all"],
   command: "_execute_sidebar_action"
+}, onCreated);
+
+browser.menus.create({
+  id: "tools-menu",
+  title: browser.i18n.getMessage("menuItemToolsMenu"),
+  contexts: ["tools_menu"],
 }, onCreated);
 
 /*
@@ -113,12 +118,12 @@ property into the event listener.
 function updateCheckUncheck() {
   checkedState = !checkedState;
   if (checkedState) {
-    browser.contextMenus.update("check-uncheck", {
-      title: browser.i18n.getMessage("contextMenuItemUncheckMe"),
+    browser.menus.update("check-uncheck", {
+      title: browser.i18n.getMessage("menuItemUncheckMe"),
     });
   } else {
-    browser.contextMenus.update("check-uncheck", {
-      title: browser.i18n.getMessage("contextMenuItemCheckMe"),
+    browser.menus.update("check-uncheck", {
+      title: browser.i18n.getMessage("menuItemCheckMe"),
     });
   }
 }
@@ -127,13 +132,13 @@ function updateCheckUncheck() {
 The click event listener, where we perform the appropriate action given the
 ID of the menu item that was clicked.
 */
-browser.contextMenus.onClicked.addListener(function(info, tab) {
+browser.menus.onClicked.addListener((info, tab) => {
   switch (info.menuItemId) {
     case "log-selection":
       console.log(info.selectionText);
       break;
     case "remove-me":
-      var removing = browser.contextMenus.remove(info.menuItemId);
+      var removing = browser.menus.remove(info.menuItemId);
       removing.then(onRemoved, onError);
       break;
     case "bluify":
@@ -147,6 +152,9 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
       break;
     case "open-sidebar":
       console.log("Opening my sidebar");
+      break;
+    case "tools-menu":
+      console.log("Clicked the tools menu item");
       break;
   }
 });
