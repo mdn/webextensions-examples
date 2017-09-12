@@ -35,8 +35,7 @@
   function insertBeast(beastURL) {
     var beastImage = document.createElement("img");
     beastImage.setAttribute("src", beastURL);
-    beastImage.setAttribute("style", "width: 100vw");
-    beastImage.setAttribute("style", "height: 100vh");
+    beastImage.style.height = "100vh";
     document.body.appendChild(beastImage);
   }
 

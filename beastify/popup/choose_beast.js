@@ -27,23 +27,23 @@ If it's on a button which contains class "clear":
 */
 document.addEventListener("click", (e) => {
 
-  function messageBeastify() {
-    var chosenBeast = e.target.textContent;
-    var chosenBeastURL = beastNameToURL(chosenBeast);
-    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-    gettingActiveTab.then((tabs) => {
-      browser.tabs.sendMessage(tabs[0].id, {beastURL: chosenBeastURL});
+  function reportError(error) {
+    console.error(`Could not beastify: ${error}`);
+  }
+
+  function beastify(tabs) {
+    browser.tabs.executeScript(tabs[0].id, {
+      file: "/content_scripts/beastify.js"
+    }).then(() => {
+      var chosenBeast = e.target.textContent;
+      var url = beastNameToURL(chosenBeast);
+      browser.tabs.sendMessage(tabs[0].id, {beastURL: url});
     });
   }
 
-  function reportError(error) {
-    console.error(`Could not inject content script: ${error}`);
-  }
-
   if (e.target.classList.contains("beast")) {
-    browser.tabs.executeScript({
-      file: "/content_scripts/beastify.js"
-    }).then(messageBeastify)
+    browser.tabs.query({active: true, currentWindow: true})
+      .then(beastify)
       .catch(reportError);
   }
   else if (e.target.classList.contains("clear")) {
