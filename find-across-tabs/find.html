@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Find across tabs</h3>
+      <p>Search across all the tabs and highlight the results in those tabs.</p>
+      <p><b>Please note</b>: this tab is excluded from the search.</p>
+      <form id="find-form">
+        <div class="form-group" id="form">
+          <input type="text" class="form-control" id="find-input" placeholder="Some text to find">
+        </div>
+      <button type="submit" class="btn btn-default">Find</button>
+      </form>
+      <hr>
+      <h3>Results</h3>
+      <ul id="result-list">
+      </ul>
+    </div>
+    <script src="find.js"></script>
+  </body>
+</html>
