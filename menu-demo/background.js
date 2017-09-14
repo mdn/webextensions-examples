@@ -52,7 +52,11 @@ browser.menus.create({
   type: "radio",
   title: browser.i18n.getMessage("menuItemGreenify"),
   contexts: ["all"],
-  checked: true
+  checked: true,
+  icons: {
+    "16": "icons/paint-green-16.png",
+    "32": "icons/paint-green-32.png"
+  }
 }, onCreated);
 
 browser.menus.create({
@@ -60,7 +64,11 @@ browser.menus.create({
   type: "radio",
   title: browser.i18n.getMessage("menuItemBluify"),
   contexts: ["all"],
-  checked: false
+  checked: false,
+  icons: {
+    "16": "icons/paint-blue-16.png",
+    "32": "icons/paint-blue-32.png"
+  }
 }, onCreated);
 
 browser.menus.create({
