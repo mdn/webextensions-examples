@@ -5,8 +5,7 @@
   "name": "Find across tabs",
   "permissions": [
     "find",
-    "tabs",
-    "<all_urls>"
+    "tabs"
   ],
   "background": {
     "scripts": ["background.js"]
