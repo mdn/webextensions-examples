@@ -1,54 +1,81 @@
-/*
-Given the name of a beast, get the URL to the corresponding image.
-*/
-function beastNameToURL(beastName) {
-  switch (beastName) {
-    case "Frog":
-      return browser.extension.getURL("beasts/frog.jpg");
-    case "Snake":
-      return browser.extension.getURL("beasts/snake.jpg");
-    case "Turtle":
-      return browser.extension.getURL("beasts/turtle.jpg");
-  }
-}
+/**
+ * CSS to hide everything on the page,
+ * except for elements that have the "beastify-image" class.
+ */
+const hidePage = `body > :not(.beastify-image) {
+                    display: none;
+                  }`;
 
-/*
-Listen for clicks in the popup.
+/**
+ * When the popup loads, inject a content script into the active tab,
+ * and add a clck handler.
+ */
+browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
+.then(() => {
+  document.addEventListener("click", (e) => {
 
-If the click is on one of the beasts:
-  (1) inject the beastify.js content script.
+    /**
+     * Given the name of a beast, get the URL to the corresponding image.
+     */
+    function beastNameToURL(beastName) {
+      switch (beastName) {
+        case "Frog":
+          return browser.extension.getURL("beasts/frog.jpg");
+        case "Snake":
+          return browser.extension.getURL("beasts/snake.jpg");
+        case "Turtle":
+          return browser.extension.getURL("beasts/turtle.jpg");
+      }
+    }
 
-  (2) send a message to "beastify.js" that contains the URL to
-  the chosen beast's image.
+    /**
+     * Insert the page-hiding CSS into the active tab,
+     * then get the beast URL and
+     * send a "beastify" message to the content script in the active tab.
+     */
+    function beastify(tabs) {
+      browser.tabs.insertCSS({code: hidePage}).then(() => {
+        let url = beastNameToURL(e.target.textContent);
+        browser.tabs.sendMessage(tabs[0].id, {
+          command: "beastify",
+          beastURL: url
+        });
+      });
+    }
 
-If it's on a button which contains class "clear":
-  Reload the page.
-  Close the popup. This is needed, as the content script malfunctions after page reloads.
-*/
-document.addEventListener("click", (e) => {
+    /**
+     * Remove the page-hiding CSS from the active tab,
+     * send a "reset" message to the content script in the active tab.
+     */
+    function reset(tabs) {
+      browser.tabs.removeCSS({code: hidePage}).then(() => {
+        browser.tabs.sendMessage(tabs[0].id, {
+          command: "reset",
+        });
+      });
+    }
 
-  function reportError(error) {
-    console.error(`Could not beastify: ${error}`);
-  }
+    /**
+     * Just log the error to the console.
+     */
+    function reportError(error) {
+      console.error(`Could not beastify: ${error}`);
+    }
 
-  function beastify(tabs) {
-    browser.tabs.executeScript(tabs[0].id, {
-      file: "/content_scripts/beastify.js"
-    }).then(() => {
-      var chosenBeast = e.target.textContent;
-      var url = beastNameToURL(chosenBeast);
-      browser.tabs.sendMessage(tabs[0].id, {beastURL: url});
-    });
-  }
-
-  if (e.target.classList.contains("beast")) {
-    browser.tabs.query({active: true, currentWindow: true})
-      .then(beastify)
-      .catch(reportError);
-  }
-  else if (e.target.classList.contains("clear")) {
-    browser.tabs.reload();
-    window.close();
-    return;
-  }
+    /**
+     * Get the active tab,
+     * then call "beastify()" or "reset()" as appropriate.
+     */
+    if (e.target.classList.contains("beast")) {
+      browser.tabs.query({active: true, currentWindow: true})
+        .then(beastify)
+        .catch(reportError);
+    }
+    else if (e.target.classList.contains("reset")) {
+      browser.tabs.query({active: true, currentWindow: true})
+        .then(reset)
+        .catch(reportError);
+    }
+  });
+  
 });

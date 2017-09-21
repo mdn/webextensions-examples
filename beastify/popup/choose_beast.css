@@ -18,10 +18,10 @@ html, body {
   background-color: #E5F2F2;
 }
 
-.clear {
+.reset {
   background-color: #FBFBC9;
 }
 
-.clear:hover {
+.reset:hover {
   background-color: #EAEA9D;
 }
