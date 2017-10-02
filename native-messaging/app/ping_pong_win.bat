@@ -1,3 +1,3 @@
 @echo off
 
-call python C:\path\to\ping_pong.py
+call python C:\\Users\\andy\\sandboxes\\webextensions-examples\\native-messaging\\app\\ping_pong.py
