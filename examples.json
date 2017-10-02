@@ -46,6 +46,7 @@
             "bookmarks.search",
             "browserAction.onClicked",
             "browserAction.setIcon",
+            "browserAction.setTitle",
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
