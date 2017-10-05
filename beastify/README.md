@@ -25,6 +25,7 @@ When the user clicks the reset button, the page reloads, and reverts to its orig
 ## What it shows ##
 
 * write a browser action with a popup
+* how to have different browser_action images based upon the theme
 * give the popup style and behavior using CSS and JS
 * inject a content script programmatically using `tabs.executeScript()`
 * send a message from the main extension to a content script
