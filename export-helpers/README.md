@@ -2,27 +2,46 @@
 
 ## What it does
 
-This extension demonstrates how to use export helpers in Firefox to share
+This extension demonstrates how to use [export helpers](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Sharing_content_script_objects_with_page_scripts) in Firefox to share
 JavaScript objects defined in content scripts with scripts loaded by web pages.
 
-It has a background script that does two things:
+## How it works
 
-* execute a content script in the current tab, when the user clicks a browser action
-* listen for messages from the content script, and display a notification when the message arrives.
+This example is in two parts:
+
+* an extension that consists of a content script and a background script
+* a web page at: https://mdn.github.io/webextensions-examples/export-helpers.html
+
+### The extension
+
+ The extension loads a content script into the page at: https://mdn.github.io/webextensions-examples/export-helpers.html. The content script:
  
-The content script then:
- 
- * defines a function `notify()` and exports that to the page as a property
- of the global `window` object.
+ * defines a function `notify()` and uses `exportFunction()` to export it to the page as a property of the global `window` object.
  * defines an object `messenger`, that has a member function `notify()`, and
- exports that to the page as a property of the global `window` object.
- * creates an object `messenger2` directly in the page's scope
- as a property of the global `window` object, then
- exports a function `notify()` as a member of that object.
+uses `cloneInto()` to export that to the page as a property of the global `window` object.
  
-All that means that after clicking the browser action, any scripts loaded by
-the current page will be able to do things like this:
- 
-     window.notify("Message from the page script!");
-     window.messenger.notify("Message from the page script!");
-     window.messenger2.notify("Message from the page script!");
+ In the implementation of `notify()`, the content script sends a message to the extension's background script: when the background script gets the messages, it displays a [notification](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/notifications).
+
+## The page
+
+The page is just a normal web page. It contains two buttons and loads a script. The script:
+
+* listens for clicks on the first button and calls:
+
+
+    window.notify("Message from the page script!");
+
+* listens for clicks on the other button and calls:
+
+
+    window.messenger.notify("Message from the page script!");
+
+These items are available in the page's scope because the content script exported them.
+
+## How to us it
+
+To see the extension in action:
+
+1. install the extension
+2. visit https://mdn.github.io/webextensions-examples/export-helpers.html
+3. click one of the buttons in the page. You should see a notification from the extension.
