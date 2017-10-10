@@ -1,0 +1,4 @@
+node_modules
+addon/bower_components
+addon/node_modules
+.idea

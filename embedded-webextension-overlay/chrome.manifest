@@ -1,0 +1,2 @@
+content my-overlay-addon content/
+overlay chrome://browser/content/browser.xul chrome://my-overlay-addon/content/overlay.xul

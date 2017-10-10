@@ -1,0 +1,30 @@
+{
+  "name": "SDK Addon Name",
+  "version": "0.3.0",
+  "manifest_version": 2,
+  "permissions": ["storage", "notifications"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "icons/icon-32.png",
+    "default_title": "button label",
+    "default_popup": "popup.html"
+  },
+  "applications": {
+    "gecko": {
+      "id": "original-sdk-addon-id@mozilla.com",
+      "strict_min_version": "51.0a1"
+    }
+  }
+}

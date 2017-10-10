@@ -1,19 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Bookmark it!",
-  "version": "1.0",
+  "version": "1.1",
   "description": "A simple bookmark button",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/bookmark-it",
   "icons": {
     "48": "icons/bookmark-it.png",
     "96": "icons/bookmark-it@2x.png"
-  },
-
-  "applications": {
-    "gecko": {
-      "id": "bookmark-it-extension@mozilla.org",
-      "strict_min_version": "47.0a1"
-    }
   },
 
   "permissions": [

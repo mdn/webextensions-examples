@@ -8,12 +8,6 @@
     "48": "icons/chillout-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "chillout-page-action@mozilla.org"
-    }
-  },
-
   "permissions": [
     "alarms",
     "tabs"

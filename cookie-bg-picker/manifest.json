@@ -9,13 +9,6 @@
     "48": "icons/bgpicker-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "quicknote@mozilla.org",
-      "strict_min_version": "45.0"
-    }
-  }, 
-
   "permissions": [
       "tabs",
       "cookies",
@@ -43,5 +36,12 @@
 
   "background": {
     "scripts": ["background_scripts/background.js"]
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/updatebg.js"]
+    }
+  ]
 }

@@ -5,11 +5,11 @@ which we read from the message.
 */
 function notify(message) {
   console.log("background script received message");
-  var title = chrome.i18n.getMessage("notificationTitle");
-  var content = chrome.i18n.getMessage("notificationContent", message.url);
-  chrome.notifications.create({
+  var title = browser.i18n.getMessage("notificationTitle");
+  var content = browser.i18n.getMessage("notificationContent", message.url);
+  browser.notifications.create({
     "type": "basic",
-    "iconUrl": chrome.extension.getURL("icons/link-48.png"),
+    "iconUrl": browser.extension.getURL("icons/link-48.png"),
     "title": title,
     "message": content
   });
@@ -18,4 +18,4 @@ function notify(message) {
 /*
 Assign `notify()` as a listener to messages from the content script.
 */
-chrome.runtime.onMessage.addListener(notify);
+browser.runtime.onMessage.addListener(notify);

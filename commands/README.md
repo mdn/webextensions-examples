@@ -10,4 +10,4 @@ All it does is:
 
 It shows:
 
-* how to use chrome.commands to register keyboard shortcuts for your extension.
+* how to use browser.commands to register keyboard shortcuts for your extension.

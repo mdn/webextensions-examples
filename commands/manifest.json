@@ -7,12 +7,7 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "applications": {
-    "gecko": {
-      "id": "commands@mozilla.org",
-      "strict_min_version": "48.0a1"
-    }
-  },
+
   "commands": {
     "toggle-feature": {
       "suggested_key": { "default": "Ctrl+Shift+U" },

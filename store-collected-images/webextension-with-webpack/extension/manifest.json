@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "store-collected-images",
+  "version": "1.0",
+
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "48": "images/icon.png"
+    },
+    "default_title": "Collected Images"
+  },
+
+  "background": {
+    "scripts": ["dist/background.js"]
+  },
+
+  "permissions": [
+    "contextMenus",
+    "<all_urls>"
+  ]
+}

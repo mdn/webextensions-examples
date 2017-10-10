@@ -6,7 +6,7 @@ var currentBookmark;
  * is already bookmarked.
  */
 function updateIcon() {
-  chrome.browserAction.setIcon({
+  browser.browserAction.setIcon({
     path: currentBookmark ? {
       19: "icons/star-filled-19.png",
       38: "icons/star-filled-38.png"
@@ -16,6 +16,11 @@ function updateIcon() {
     },
     tabId: currentTab.id
   });
+  browser.browserAction.setTitle({
+    // Screen readers can see the title
+    title: currentBookmark ? 'Unbookmark it!' : 'Bookmark it!',
+    tabId: currentTab.id
+  }); 
 }
 
 /*
@@ -23,42 +28,59 @@ function updateIcon() {
  */
 function toggleBookmark() {
   if (currentBookmark) {
-    chrome.bookmarks.remove(currentBookmark.id);
-    currentBookmark = null;
-    updateIcon();
+    browser.bookmarks.remove(currentBookmark.id);
   } else {
-    chrome.bookmarks.create({title: currentTab.title, url: currentTab.url}, function(bookmark) {
-      currentBookmark = bookmark;
-      updateIcon();
-    });
+    browser.bookmarks.create({title: currentTab.title, url: currentTab.url});
   }
 }
 
-chrome.browserAction.onClicked.addListener(toggleBookmark);
+browser.browserAction.onClicked.addListener(toggleBookmark);
 
 /*
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
-function updateTab() {
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+function updateActiveTab(tabs) {
+
+  function isSupportedProtocol(urlString) {
+    var supportedProtocols = ["https:", "http:", "ftp:", "file:"];
+    var url = document.createElement('a');
+    url.href = urlString;
+    return supportedProtocols.indexOf(url.protocol) != -1;
+  }
+
+  function updateTab(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
-
-      chrome.bookmarks.search({url: currentTab.url}, (bookmarks) => {
-        currentBookmark = bookmarks[0];
-        updateIcon();
-      });
+      if (isSupportedProtocol(currentTab.url)) {
+        var searching = browser.bookmarks.search({url: currentTab.url});
+        searching.then((bookmarks) => {
+          currentBookmark = bookmarks[0];
+          updateIcon();
+        });
+      } else {
+        console.log(`Bookmark it! does not support the '${currentTab.url}' URL.`)
+      }
     }
-  });
+  }
+
+  var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+  gettingActiveTab.then(updateTab);
 }
 
-// TODO listen for bookmarks.onCreated and bookmarks.onRemoved once Bug 1221764 lands
+// listen for bookmarks being created
+browser.bookmarks.onCreated.addListener(updateActiveTab);
+
+// listen for bookmarks being removed
+browser.bookmarks.onRemoved.addListener(updateActiveTab);
 
 // listen to tab URL changes
-chrome.tabs.onUpdated.addListener(updateTab);
+browser.tabs.onUpdated.addListener(updateActiveTab);
 
 // listen to tab switching
-chrome.tabs.onActivated.addListener(updateTab);
+browser.tabs.onActivated.addListener(updateActiveTab);
+
+// listen for window switching
+browser.windows.onFocusChanged.addListener(updateActiveTab);
 
 // update when the extension loads initially
-updateTab();
+updateActiveTab();

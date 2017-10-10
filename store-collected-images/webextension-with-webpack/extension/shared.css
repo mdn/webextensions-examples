@@ -1,0 +1,22 @@
+ul.thumbnails {
+  padding: 0;
+}
+
+ul.thumbnails li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.4em;
+}
+
+.thumbnails img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.error {
+  background: rgba(255,0,0,0.4);
+}
+
+.success {
+  background: rgba(0,255,0,0.4);
+}

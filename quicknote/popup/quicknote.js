@@ -14,23 +14,24 @@ var addBtn = document.querySelector('.add');
 addBtn.addEventListener('click', addNote);
 clearBtn.addEventListener('click', clearAll);
 
+/* generic error handler */
+function onError(error) {
+  console.log(error);
+}
+
 /* display previously-saved stored notes on startup */
 
 initialize();
 
 function initialize() {
-  chrome.storage.local.get(null,function(results) {
-    if(chrome.runtime.lastError) {
-      console.log(chrome.runtime.lastError);
-    } else {
-      var noteKeys = Object.keys(results);
-      for(i = 0; i < noteKeys.length; i++) {
-        var curKey = noteKeys[i];
-        var curValue = results[curKey];
-        displayNote(curKey,curValue);
-      }
+  var gettingAllStorageItems = browser.storage.local.get(null);
+  gettingAllStorageItems.then((results) => {
+    var noteKeys = Object.keys(results);
+    for (let noteKey of noteKeys) {
+      var curValue = results[noteKey];
+      displayNote(noteKey,curValue);
     }
-  });
+  }, onError);
 }
 
 /* Add a note to the display, and storage */
@@ -38,26 +39,24 @@ function initialize() {
 function addNote() {
   var noteTitle = inputTitle.value;
   var noteBody = inputBody.value;
-  chrome.storage.local.get(noteTitle, function(result) {
+  var gettingItem = browser.storage.local.get(noteTitle);
+  gettingItem.then((result) => {
     var objTest = Object.keys(result);
     if(objTest.length < 1 && noteTitle !== '' && noteBody !== '') {
       inputTitle.value = '';
       inputBody.value = '';
       storeNote(noteTitle,noteBody);
     }
-  })
+  }, onError);
 }
 
 /* function to store a new note in storage */
 
 function storeNote(title, body) {
-  chrome.storage.local.set({ [title] : body }, function() {
-    if(chrome.runtime.lastError) {
-      console.log(chrome.runtime.lastError);
-    } else {
-      displayNote(title,body);
-    }
-  });
+  var storingNote = browser.storage.local.set({ [title] : body });
+  storingNote.then(() => {
+    displayNote(title,body);
+  }, onError);
 }
 
 /* function to display a note in the note box */
@@ -89,10 +88,10 @@ function displayNote(title, body) {
 
   /* set up listener for the delete functionality */
 
-  deleteBtn.addEventListener('click',function(e){
-    evtTgt = e.target;
+  deleteBtn.addEventListener('click',(e) => {
+    const evtTgt = e.target;
     evtTgt.parentNode.parentNode.parentNode.removeChild(evtTgt.parentNode.parentNode);
-    chrome.storage.local.remove(title);
+    browser.storage.local.remove(title);
   })
 
   /* create note edit box */
@@ -126,24 +125,24 @@ function displayNote(title, body) {
 
   /* set up listeners for the update functionality */
 
-  noteH.addEventListener('click',function(){
+  noteH.addEventListener('click',() => {
     noteDisplay.style.display = 'none';
     noteEdit.style.display = 'block';
   })
 
-  notePara.addEventListener('click',function(){
+  notePara.addEventListener('click',() => {
     noteDisplay.style.display = 'none';
     noteEdit.style.display = 'block';
   }) 
 
-  cancelBtn.addEventListener('click',function(){
+  cancelBtn.addEventListener('click',() => {
     noteDisplay.style.display = 'block';
     noteEdit.style.display = 'none';
     noteTitleEdit.value = title;
     noteBodyEdit.value = body;
   })
 
-  updateBtn.addEventListener('click',function(){
+  updateBtn.addEventListener('click',() => {
     if(noteTitleEdit.value !== title || noteBodyEdit.value !== body) {
       updateNote(title,noteTitleEdit.value,noteBodyEdit.value);
       note.parentNode.removeChild(note);
@@ -155,15 +154,17 @@ function displayNote(title, body) {
 /* function to update notes */
 
 function updateNote(delNote,newTitle,newBody) {
-  chrome.storage.local.set({ [newTitle] : newBody }, function() {
+  var storingNote = browser.storage.local.set({ [newTitle] : newBody });
+  storingNote.then(() => {
     if(delNote !== newTitle) {
-      chrome.storage.local.remove(delNote, function() {
+      var removingNote = browser.storage.local.remove(delNote);
+      removingNote.then(() => {
         displayNote(newTitle, newBody);
-      });
+      }, onError);
     } else {
       displayNote(newTitle, newBody);
     }
-  });
+  }, onError);
 }
 
 /* Clear all notes from the display/storage */
@@ -172,5 +173,5 @@ function clearAll() {
   while (noteContainer.firstChild) {
       noteContainer.removeChild(noteContainer.firstChild);
   }
-  chrome.storage.local.clear();
+  browser.storage.local.clear();
 }

@@ -1,0 +1,15 @@
+{
+  "name": "Legacy Addon Name",
+  "version": "0.2.0",
+  "manifest_version": 2,
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "icons/icon-32.png",
+    "default_title": "button label",
+    "default_popup": "popup.html"
+  }
+}

@@ -9,13 +9,6 @@
     "48": "icons/beasts-48.png"
   },
 
-  "applications": {
-    "gecko": {
-      "id": "beastify@mozilla.org",
-      "strict_min_version": "45.0"
-    }
-  },
-
   "permissions": [
     "activeTab"
   ],  
