@@ -42,8 +42,8 @@ browser.tabs.onCreated.addListener((tab) => {
       if (stored) {
         let result = await browser.tabs.insertCSS(targetTabId, {code: stored});
       }
+      browser.tabs.onUpdated.removeListener(thisBorderifyRestored);
     }
-    browser.tabs.onUpdated.removeListener(thisBorderifyRestored);
   }
   
   let thisBorderifyRestored = borderifyRestored.bind(null, tab.id);
