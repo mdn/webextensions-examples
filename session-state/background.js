@@ -2,8 +2,8 @@
  * Add a context menu item to borderify the current tab.
  */
 browser.menus.create({
-  id: "borderify",
-  title: "borderify",
+  id: "borderify-current-tab",
+  title: "Borderify current tab",
   contexts: ["all"]
 });
 
@@ -49,14 +49,3 @@ browser.tabs.onCreated.addListener((tab) => {
   let thisBorderifyRestored = borderifyRestored.bind(null, tab.id);
   browser.tabs.onUpdated.addListener(thisBorderifyRestored);
 });
-
-/*
-browser.tabs.onUpdated.addListener((tabId) => {
-  console.log(tabId);
-  browser.sessions.getTabValue(tabId, "border-css").then(result => {
-    if (result) {
-      browser.tabs.insertCSS(tabId, {code: result, runAt: "document_end"});
-    }
-  });
-});
-*/
