@@ -7,11 +7,10 @@ const hidePage = `body > :not(.beastify-image) {
                   }`;
 
 /**
- * When the popup loads, inject a content script into the active tab,
- * and add a clck handler.
+ * Listen for clicks on the buttons, and send the appropriate message to
+ * the content script in the page.
  */
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
-.then(() => {
+function listenForClicks() {
   document.addEventListener("click", (e) => {
 
     /**
@@ -77,5 +76,22 @@ browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
         .catch(reportError);
     }
   });
-  
-});
+}
+
+/**
+ * There was an error executing the script.
+ * Display the popup's error message, and hide the normal UI.
+ */
+function reportExecuteScriptError() {
+  document.querySelector("#popup-content").classList.add("hidden");
+  document.querySelector("#error-content").classList.remove("hidden");
+}
+
+/**
+ * When the popup loads, inject a content script into the active tab,
+ * and add a click handler.
+ * If we couldn't inject the script, handle the error.
+ */
+browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
+.then(listenForClicks)
+.catch(reportExecuteScriptError);

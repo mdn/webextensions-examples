@@ -2,6 +2,10 @@ html, body {
   width: 100px;
 }
 
+.hidden {
+  display: none;
+}
+
 .button {
   margin: 3% auto;
   padding: 4px;
