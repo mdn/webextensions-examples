@@ -6,6 +6,11 @@ function saveOptions(e) {
 }
 
 function restoreOptions() {
+  var storageItem = browser.storage.managed.get('colour');
+  storageItem.then((res) => {
+    document.querySelector("#managed-colour").innerText = res.colour;
+  });
+
   var gettingItem = browser.storage.sync.get('colour');
   gettingItem.then((res) => {
     document.querySelector("#colour").value = res.colour || 'Firefox red';
