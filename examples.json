@@ -87,25 +87,12 @@
     },
     {
         "javascript_apis": [
-            "menus.create",
-            "menus.onClicked",
+            "contextMenus.create",
+            "contextMenus.onClicked",
             "tabs.executeScript"
         ],
         "name": "context-menu-copy-link-with-types",
         "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML."
-    },
-    {
-        "javascript_apis": [
-            "menus.create",
-            "menus.onClicked",
-            "menus.remove",
-            "menus.update",
-            "i18n.getMessage",
-            "runtime.lastError",
-            "tabs.executeScript"
-        ],
-        "name": "menu-demo",
-        "description": "Demonstrates adding and manipulating menu items using the menus API."
     },
     {
         "javascript_apis": [
@@ -135,6 +122,23 @@
     },
     {
         "javascript_apis": [
+            "devtools.inspectedWindow",
+            "devtools.panels",
+            "runtime.getURL",
+            "runtime.onMessage",
+            "runtime.sendMessage",
+            "tabs.executeScript"
+        ],
+        "name": "devtools-panels",
+        "description": "Demonstrates some of the devtools APIs."
+    },
+    {
+        "javascript_apis": [],
+        "name": "discogs-search",
+        "description": "Demonstrates adding a custom search engnie with the chrome_settings_overrides key."
+    },
+    {
+        "javascript_apis": [
             "alarms.create",
             "alarms.onAlarm",
             "theme.update"
@@ -150,6 +154,14 @@
         ],
         "name": "embedded-webextension-bootstrapped",
         "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension."
+    },
+    {
+        "javascript_apis": [
+            "runtime.onMessage",
+            "runtime.sendMessage"
+        ],
+        "name": "embedded-webextension-overlay",
+        "description": "Demonstrates how to use an embedded WebExtension to port from an overlay extension."
     },
     {
         "javascript_apis": [
@@ -175,12 +187,37 @@
     },
     {
         "javascript_apis": [
+            "notifications.create",
+            "runtime.onMessage",
+            "runtime.sendMessage"
+        ],
+        "name": "export-helpers",
+        "description": "Demonstrates how to use export helpers like cloneInto to share objects with page scripts."
+    },
+    {
+        "javascript_apis": [
             "browserAction.onClicked",
             "runtime.openOptionsPage",
+            "storage.managed",
             "storage.sync"
         ],
         "name": "favourite-colour",
         "description": "An example options page, letting you store your favourite colour."
+    },
+    {
+        "javascript_apis": [
+            "browserAction.onClicked",
+            "extension.getBackgroundPage",
+            "find.find",
+            "find.highlightResults",
+            "runtime.getURL",
+            "runtime.onMessage",
+            "runtime.sendMessage",
+            "tabs.create",
+            "tabs.query"
+        ],
+        "name": "find-across-tabs",
+        "description": "Demonstration of the find API."
     },
     {
         "javascript_apis": [
@@ -226,6 +263,15 @@
     },
     {
         "javascript_apis": [
+            "webRequest.filterResponseData",
+            "webRequest.onBeforeRequest"
+        ],
+        "name": "http-response",
+        "description": "Demonstrates how to rewrite HTTP responses using the webRequest.filterResponseData() API."
+    },
+    {
+        "javascript_apis": [
+            "extension.getURL",
             "runtime.onMessage",
             "tabs.executeScript",
             "tabs.query",
@@ -255,6 +301,20 @@
     },
     {
         "javascript_apis": [
+            "i18n.getMessage",
+            "menus.create",
+            "menus.onClicked",
+            "menus.remove",
+            "menus.update",
+            "runtime.lastError",
+            "tabs.executeScript"
+        ],
+        "name": "menu-demo",
+        "description": "Demonstrates adding and manipulating menu items using the menus API."
+    },
+    {
+        "javascript_apis": [
+            "runtime.onMessage",
             "runtime.sendMessage"
         ],
         "name": "mocha-client-tests",
@@ -333,7 +393,9 @@
         "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage."
     },
     {
-        "javascript_apis": [],
+        "javascript_apis": [
+            "tabs.query"
+        ],
         "name": "react-es6-popup",
         "description": "This is an example of creating a browser action popup UI in React and ES6 JavaScript."
     },
@@ -341,6 +403,33 @@
         "javascript_apis": [],
         "name": "selection-to-clipboard",
         "description": "Demonstrates how to write to the clipboard from a content script"
+    },
+    {
+        "javascript_apis": [
+            "menus.create",
+            "menus.onClicked",
+            "sessions.getTabValue",
+            "sessions.setTabValue",
+            "tabs.insertCSS",
+            "tabs.onCreated",
+            "tabs.onUpdated",
+            "tabs.query"
+        ],
+        "name": "session-state",
+        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs."
+    },
+    {
+        "javascript_apis": [
+            "browserAction.onClicked",
+            "contextMenus.create",
+            "contextMenus.onClicked",
+            "runtime.onMessage",
+            "runtime.sendMessage",
+            "tabs.create",
+            "windows.create"
+        ],
+        "name": "store-collected-images",
+        "description": "Demonstrates how to use the idb-file-storage library to store and manipulate files in an extension."
     },
     {
         "javascript_apis": [
@@ -357,14 +446,14 @@
             "tabs.create",
             "tabs.duplicate",
             "tabs.getZoom",
-            "tabs.highlight",
             "tabs.move",
             "tabs.onMoved",
             "tabs.onRemoved",
             "tabs.query",
             "tabs.reload",
             "tabs.remove",
-            "tabs.setZoom"
+            "tabs.setZoom",
+            "tabs.update"
         ],
         "name": "tabs-tabs-tabs",
         "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs."
@@ -378,8 +467,7 @@
         "description": "An example of how to use the management API for themes."
     },
     {
-        "javascript_apis": [
-        ],
+        "javascript_apis": [],
         "name": "themes",
         "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>"
     },
