@@ -1,4 +1,7 @@
 {
+  "background": {
+      "scripts": ["background.js"]
+  },
   "browser_action": {
     "browser_style": true,
     "default_title": "Tabs, tabs, tabs",
