@@ -102,6 +102,10 @@ document.addEventListener("click", (e) => {
     browser.tabs.create({url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"});
   }
 
+  else if (e.target.id === "tabs-create-reader") {
+    browser.tabs.create({url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions", openInReaderMode: true});
+  }
+
   else if (e.target.id === "tabs-alertinfo") {
     callOnActiveTab((tab) => {
       let props = "";
