@@ -1,32 +1,44 @@
 // Get the saved stats and render the data in the popup window.
-var gettingStoredStats = browser.storage.local.get("hostNavigationStats");
-gettingStoredStats.then(results => {
-  if (!results.hostNavigationStats) {
-    return;
-  }
+const MAX_ITEMS = 5;
 
-  const {hostNavigationStats} = results;
-  const sortedHostnames = Object.keys(hostNavigationStats).sort((a, b) => {
-    return hostNavigationStats[a] <= hostNavigationStats[b];
+function sorter(array) {
+  return Object.keys(array).sort((a, b) => {
+    return array[a] <= array[b];
   });
+}
 
-  if (sortedHostnames.length === 0) {
-    return;
+function addElements(element, array, callback) {
+  while(element.firstChild) {
+    element.removeChild(element.firstChild);
   }
 
-  let listEl = document.querySelector("ul");
-  while(listEl.firstChild)
-    listEl.removeChild(listEl.firstChild);
-
-  const MAX_ITEMS = 5;
-  for (let i=0; i < sortedHostnames.length; i++) {
+  for (let i=0; i < array.length; i++) {
     if (i >= MAX_ITEMS) {
       break;
     }
 
     const listItem = document.createElement("li");
-    const hostname = sortedHostnames[i];
-    listItem.textContent = `${hostname}: ${hostNavigationStats[hostname]} visit(s)`;
-    listEl.appendChild(listItem);
+    listItem.textContent = callback(array[i]);
+    element.appendChild(listItem);
   }
+}
+
+var gettingStoredStats = browser.storage.local.get();
+gettingStoredStats.then(results => {
+  if (results.type.length === 0 || results.host.length === 0) {
+    return;
+  }
+
+  let hostElement = document.getElementById("hosts");
+  let sortedHosts = sorter(results.host);
+  addElements(hostElement, sortedHosts, (host) => {
+    return `${host}: ${results.host[host]} visit(s)`;
+  });
+
+  let typeElement = document.getElementById("types");
+  let sortedTypes = sorter(results.type);
+  addElements(typeElement, sortedTypes, (type) => {
+    return `${type}: ${results.type[type]} use(s)`;
+  });
+
 });
