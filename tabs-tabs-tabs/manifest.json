@@ -1,4 +1,9 @@
 {
+  "applications": {
+    "gecko": {
+      "strict_min_version": "58.0a1"
+    }
+  },
   "background": {
       "scripts": ["background.js"]
   },
