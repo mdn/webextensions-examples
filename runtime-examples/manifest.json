@@ -2,8 +2,8 @@
   "browser_action": {
     "default_icon": "run.png"
   },
-  "description": "Some runtimes example",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs",
+  "description": "Demonstration of some runtime APIs",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/runtime-examples",
   "manifest_version": 2,
   "name": "Runtime examples",
   "version": "1.0",
