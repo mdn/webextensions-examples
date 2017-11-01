@@ -2,6 +2,10 @@ html, body {
   width: 100px;
 }
 
+.hidden {
+  display: none;
+}
+
 .button {
   margin: 3% auto;
   padding: 4px;
@@ -18,10 +22,10 @@ html, body {
   background-color: #E5F2F2;
 }
 
-.clear {
+.reset {
   background-color: #FBFBC9;
 }
 
-.clear:hover {
+.reset:hover {
   background-color: #EAEA9D;
 }
