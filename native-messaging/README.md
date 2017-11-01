@@ -21,6 +21,8 @@ To get this working, there's a little setup to do.
 3. Edit "ping_pong_win.bat" to refer to the location of "ping_pong.py" on your computer.
 4. Add a registry key containing the path to "ping_pong.json" on your computer. See [App manifest location ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#App_manifest_location) to find details of the registry key to add.
 
+To assist in troubleshooting on Windows, there is a script called `check_config_win.py`. Running this from the command line should give you an idea of any problems.
+
 ## Testing the example ##
 
 Then just install the add-on as usual, by visiting about:debugging, clicking "Load Temporary Add-on", and selecting the add-on's "manifest.json".
@@ -29,5 +31,5 @@ You should see a new browser action icon in the toolbar. Open the console ("Tool
 
     Sending: ping
     Received: pong
-    
+
 If you don't see this output, see the [Troubleshooting guide](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#Troubleshooting) for ideas.
