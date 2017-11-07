@@ -1,0 +1,20 @@
+{
+  "description": "A sidebar that integrates with the current theme",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/theme-integrated-sidebar",
+  "manifest_version": 2,
+  "name": "Theme integrated sidebar",
+  "permissions": [
+    "theme"
+  ],
+  "sidebar_action": {
+    "default_title": "Theme integrated sidebar",
+    "default_panel": "sidebar.html"
+  },
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "theme-integrated-sidebar@mozilla.org",
+      "strict_min_version": "58.0a1"
+    }
+  }
+}
