@@ -20,4 +20,4 @@ The content script listens for text selections in the page it's attached to and 
 ```
 "permissions": ["clipboardWrite"]
 ```
-See [Interact with the clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard.)
+See [Interact with the clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard).
