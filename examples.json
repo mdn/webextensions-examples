@@ -135,7 +135,7 @@
     {
         "javascript_apis": [],
         "name": "discogs-search",
-        "description": "Demonstrates adding a custom search engnie with the chrome_settings_overrides key."
+        "description": "Demonstrates adding a custom search engine with the chrome_settings_overrides key."
     },
     {
         "javascript_apis": [
