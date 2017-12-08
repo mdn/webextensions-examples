@@ -65,7 +65,7 @@ function clearAll(e) {
     // Loop through them and delete them one by one.
     var searchingHistory = browser.history.search({text: hostname})
     searchingHistory.then((results) => {
-        for (let k of results) {
+        for (let k in results) {
           browser.history.deleteUrl({url: results[k].url});
         }
         // Clear out the UI.
