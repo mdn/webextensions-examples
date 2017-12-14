@@ -38,7 +38,7 @@ The page is just a normal web page. It contains two buttons and loads a script. 
 
 These items are available in the page's scope because the content script exported them.
 
-## How to us it
+## How to use it
 
 To see the extension in action:
 
