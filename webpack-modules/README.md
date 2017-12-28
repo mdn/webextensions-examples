@@ -5,7 +5,7 @@ The example package used by this extension is `left-pad`, an essential package
 in almost any situation.
 
 ## What it does
-This example shows how to use a node module in a background and a content script.
+This example shows how to use a node module in a background script and popup.
 It defines two build targets in [webpack.config.js](webpack.config.js), they each
 generate a file that includes all modules used the entry point and store it in
 the [addon](addon/) folder. The first one starts with [background_scripts/background.js](background_scripts/background.js)
