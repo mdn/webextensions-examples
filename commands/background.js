@@ -13,6 +13,8 @@
 var gettingAllCommands = browser.commands.getAll();
 gettingAllCommands.then((commands) => {
   for (let command of commands) {
+    // Note that this logs to the Add-on Debugger's console: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging
+    // not the regular Web console.
     console.log(command);
   }
 });
@@ -24,5 +26,5 @@ gettingAllCommands.then((commands) => {
  * On Mac, this command will automatically be converted to "Command+Shift+U".
  */
 browser.commands.onCommand.addListener((command) => {
-  console.log("onCommand event received for message: ", command);
+  browser.tabs.create({url: "https://developer.mozilla.org"});
 });
