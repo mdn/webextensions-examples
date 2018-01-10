@@ -30,8 +30,9 @@
             "extension.getURL",
             "runtime.onMessage",
             "tabs.executeScript",
+            "tabs.insertCSS",
             "tabs.query",
-            "tabs.reload",
+            "tabs.removeCSS",
             "tabs.sendMessage"
         ],
         "name": "beastify",
@@ -80,7 +81,8 @@
     {
         "javascript_apis": [
             "commands.getAll",
-            "commands.onCommand"
+            "commands.onCommand",
+            "tabs.create"
         ],
         "name": "commands",
         "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+U (Command+Shift+U on a Mac)."
@@ -331,6 +333,7 @@
     {
         "javascript_apis": [
             "storage.local",
+            "webNavigation.onCommitted",
             "webNavigation.onCompleted"
         ],
         "name": "navigation-stats",
@@ -374,6 +377,16 @@
     },
     {
         "javascript_apis": [
+            "theme.reset",
+            "theme.update",
+            "windows.getAll",
+            "windows.onCreated"
+        ],
+        "name": "private-browsing-theme",
+        "description": "Example dynamic theme: sets a dark theme for private windows."
+    },
+    {
+        "javascript_apis": [
             "extension.getURL",
             "proxy.onProxyError",
             "proxy.register",
@@ -398,6 +411,17 @@
         ],
         "name": "react-es6-popup",
         "description": "This is an example of creating a browser action popup UI in React and ES6 JavaScript."
+    },
+    {
+        "javascript_apis": [
+            "browserAction.onClicked",
+            "notifications.create",
+            "runtime.getManifest",
+            "runtime.onInstalled",
+            "runtime.reload"
+        ],
+        "name": "runtime-examples",
+        "description": "Demo of various runtime APIs."
     },
     {
         "javascript_apis": [],
@@ -443,10 +467,13 @@
     },
     {
         "javascript_apis": [
+            "browserAction.setBadgeBackgroundColor",
+            "browserAction.setBadgeText",
             "tabs.create",
             "tabs.duplicate",
             "tabs.getZoom",
             "tabs.move",
+            "tabs.onCreated",
             "tabs.onMoved",
             "tabs.onRemoved",
             "tabs.query",
@@ -457,6 +484,15 @@
         ],
         "name": "tabs-tabs-tabs",
         "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs."
+    },
+    {
+        "javascript_apis": [
+            "theme.getCurrent",
+            "theme.onUpdated",
+            "windows.getCurrent"
+        ],
+        "name": "theme-integrated-sidebar",
+        "description": "A sidebar that integrates with the current theme."
     },
     {
         "javascript_apis": [
