@@ -1,0 +1,20 @@
+{
+
+  "description": "Theme with a single image placed centrally and then tiled. The theme is included with an extension. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "themes_theme",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes/weta_tiled_theme",
+  
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+
+  "web_accessible_resources": [
+    "resource/weta_for_tiling.png",
+    "resource/empty.png"
+  ],
+  
+  "permissions": ["theme"]
+  
+}
