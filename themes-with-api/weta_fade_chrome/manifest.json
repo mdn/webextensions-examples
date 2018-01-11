@@ -1,0 +1,19 @@
+{
+
+  "description": "Version of the weta_fade theme using the Chrome compatible manifest keys. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "weta_fade_chrome_API_theme",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes-with-api/weta_fade_chrome",
+
+
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+  
+  "web_accessible_resources": [
+    "resource/weta.png"
+  ],
+  
+  "permissions": ["theme"]
+}

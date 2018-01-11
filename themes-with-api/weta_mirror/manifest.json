@@ -1,0 +1,21 @@
+{
+
+  "description": "Theme using multiple additional_backgrounds images. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "weta_mirror_api_theme",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes-with-api/weta_mirror",
+
+   "background": {
+    "scripts": ["background/background.js"]
+  },
+  
+  "web_accessible_resources": [
+    "resource/empty.png",
+    "resource/weta-left.png",
+    "resource/weta.png"
+  ],
+  
+  "permissions": ["theme"]
+  
+}
