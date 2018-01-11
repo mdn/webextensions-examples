@@ -1,19 +1,19 @@
 function themeWindow(window) {   
     browser.theme.update(window.id, 
     {
-      images: 
+      "images": 
       {
-	headerURL: "resource/empty.png",
-	additional_backgrounds: [ "resource/weta_for_tiling.png"]
+	"headerURL": "resource/empty.png",
+	"additional_backgrounds": [ "resource/weta_for_tiling.png"]
       },    
-      properties: 
+      "properties": 
       {
 	"additional_backgrounds_alignment": [ "top" ],
         "additional_backgrounds_tiling": [ "repeat"  ]
       },
-      colors: {
-       accentcolor: "#adb09f",
-       textcolor: "#000"
+      "colors": {
+       "accentcolor": "#adb09f",
+       "textcolor": "#000"
       }      
     });
 }
