@@ -1,4 +1,6 @@
-# Themes: Animated
+# Themes: weta_tiled
+Theme with a single image placed centrally and then tiled. The theme use the theme key of the manifest.json.
+
 
 ## What it does
 
