@@ -12,7 +12,7 @@ To get this working, there's a little setup to do.
 
 1. Check that the [file permissions](https://en.wikipedia.org/wiki/File_system_permissions) for "ping_pong.py" include the `execute` permission.
 2. Edit the "path" property of "ping_pong.json" to point to the location of "ping_pong.py" on your computer.
-3. copy "ping_pong.json" to the correct location on your computer. See [App manifest location ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#App_manifest_location) to find the correct location for your OS.
+3. copy "ping_pong.json" to the correct location on your computer. See [App manifest location ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Manifest_location) to find the correct location for your OS.
 
 ### Windows setup ###
 
