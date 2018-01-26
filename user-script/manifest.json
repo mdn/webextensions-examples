@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "User script",
+  "version": "1.1",
+
+  "applications": {
+    "gecko": {
+      "id": "user-script-example@mozilla.org",
+      "strict_min_version": "59.0a1"
+    }
+  },
+
+  "description": "Demonstration of contentScripts.register.",
+  "icons": {
+    "48": "icons/if_source_code_103710.svg"
+  },
+
+  "permissions": [
+    "<all_urls>"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+     "32" : "icons/if_source_code_103710.svg"
+    },
+    "default_title": "User script",
+    "default_popup": "popup/user-script.html",
+    "browser_style": true
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}
