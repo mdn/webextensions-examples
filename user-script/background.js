@@ -2,7 +2,10 @@
 
 var registered = null;
 
-async function register(hosts, code) {
+async function registerScript(message) {
+
+  let hosts = message.hosts;
+  let code = message.code;
 
   if (registered) {
     registered.unregister();
@@ -15,3 +18,5 @@ async function register(hosts, code) {
   });
 
 }
+
+browser.runtime.onMessage.addListener(registerScript);
