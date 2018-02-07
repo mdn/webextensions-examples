@@ -4,22 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -w -v --display-error-details --progress --colors",
+    "build": "webpack -w --display-error-details --progress --colors",
     "start": "web-ext run -s extension/"
   },
   "author": "",
   "license": "MPL-2.0",
   "devDependencies": {
-    "babel-core": "6.20.0",
-    "babel-loader": "6.2.9",
-    "babel-plugin-transform-class-properties": "6.19.0",
-    "babel-plugin-transform-object-rest-spread": "6.20.2",
-    "babel-preset-es2015": "6.18.0",
-    "babel-preset-react": "6.16.0",
-    "babel-preset-stage-2": "6.18.0",
-    "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "web-ext": "1.6.0",
-    "webpack": "1.14.0"
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "web-ext": "2.3.2",
+    "webpack": "3.10.0"
   }
 }
