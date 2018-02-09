@@ -12,25 +12,22 @@ module.exports = {
   output: {
     // This copies each source entry into the extension dist folder named
     // after its entry config key.
-    path: 'extension/dist',
+    path: path.join(path.resolve(__dirname), 'extension', 'dist'),
     filename: '[name].js',
   },
   module: {
     // This transpiles all code (except for third party modules) using Babel.
-    loaders: [{
+    rules: [{
       exclude: /node_modules/,
       test: /\.js$/,
       // Babel options are in .babelrc
-      loaders: ['babel'],
+      use: ['babel-loader'],
     }],
   },
   resolve: {
     // This allows you to import modules just like you would in a NodeJS app.
-    extensions: ['', '.js', '.jsx'],
-    root: [
-      path.resolve(__dirname),
-    ],
-    modulesDirectories: [
+    extensions: ['.js', '.jsx'],
+    modules: [
       'src',
       'node_modules',
     ],
