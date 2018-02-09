@@ -1,6 +1,10 @@
 {
   "presets": [
-    "env",
+    ["env", {
+        "targets": {
+            "firefox": 57
+        }
+    }],
     "stage-2",
     "react"
   ]
