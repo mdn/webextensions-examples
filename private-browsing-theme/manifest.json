@@ -10,7 +10,7 @@
   "applications": {
     "gecko": {
       "id": "private-window-theme@mozilla.org",
-      "strict_min_version": "57.0b14"
+      "strict_min_version": "58.0"
     }
   }
 }
