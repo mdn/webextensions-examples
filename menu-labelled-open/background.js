@@ -1,6 +1,8 @@
+'use strict';
+
 const openLabelledId = "open-labelled";
 
-let menuItem = browser.menus.create({
+browser.menus.create({
   id: openLabelledId,
   title: "Open",
   contexts: ["link"]
