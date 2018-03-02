@@ -1,5 +1,6 @@
 [
     {
+        "description": "Displays a sidebar that lets you take notes on web pages.",
         "javascript_apis": [
             "storage.local",
             "tabs.onActivated",
@@ -7,10 +8,10 @@
             "tabs.query",
             "windows.getCurrent"
         ],
-        "name": "annotate-page",
-        "description": "Displays a sidebar that lets you take notes on web pages."
+        "name": "annotate-page"
     },
     {
+        "description": "Adds a page action to the toolbar. Click the button to apply a red border using injected CSS. Click the button again to remove the CSS.",
         "javascript_apis": [
             "pageAction.getTitle",
             "pageAction.onClicked",
@@ -22,10 +23,10 @@
             "tabs.query",
             "tabs.removeCSS"
         ],
-        "name": "apply-css",
-        "description": "Adds a page action to the toolbar. Click the button to apply a red border using injected CSS. Click the button again to remove the CSS."
+        "name": "apply-css"
     },
     {
+        "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast.",
         "javascript_apis": [
             "extension.getURL",
             "runtime.onMessage",
@@ -35,10 +36,10 @@
             "tabs.removeCSS",
             "tabs.sendMessage"
         ],
-        "name": "beastify",
-        "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast."
+        "name": "beastify"
     },
     {
+        "description": "Adds a bookmark button to the toolbar. Click the button to toggle a bookmark for the current page.",
         "javascript_apis": [
             "bookmarks.create",
             "bookmarks.onCreated",
@@ -53,15 +54,15 @@
             "tabs.query",
             "windows.onFocusChanged"
         ],
-        "name": "bookmark-it",
-        "description": "Adds a bookmark button to the toolbar. Click the button to toggle a bookmark for the current page."
+        "name": "bookmark-it"
     },
     {
+        "description": "Adds a solid red border to all webpages matching mozilla.org.",
         "javascript_apis": [],
-        "name": "borderify",
-        "description": "Adds a solid red border to all webpages matching mozilla.org."
+        "name": "borderify"
     },
     {
+        "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked.",
         "javascript_apis": [
             "alarms.clearAll",
             "alarms.create",
@@ -75,38 +76,38 @@
             "tabs.query",
             "tabs.update"
         ],
-        "name": "chill-out",
-        "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked."
+        "name": "chill-out"
     },
     {
+        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+U (Command+Shift+U on a Mac).",
         "javascript_apis": [
             "commands.getAll",
             "commands.onCommand",
             "tabs.create"
         ],
-        "name": "commands",
-        "description": "Demonstrates using the commands API to set up a keyboard shortcut. The shortcut created is accessed using Ctrl+Shift+U (Command+Shift+U on a Mac)."
+        "name": "commands"
     },
     {
+        "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML.",
         "javascript_apis": [
             "contextMenus.create",
             "contextMenus.onClicked",
             "tabs.executeScript"
         ],
-        "name": "context-menu-copy-link-with-types",
-        "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML."
+        "name": "context-menu-copy-link-with-types"
     },
     {
+        "description": "List, create, and remove contextual identities.",
         "javascript_apis": [
             "contextualIdentities.query",
             "tabs.create",
             "tabs.query",
             "tabs.remove"
         ],
-        "name": "contextual-identities",
-        "description": "List, create, and remove contextual identities."
+        "name": "contextual-identities"
     },
     {
+        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
         "javascript_apis": [
             "cookies.get",
             "cookies.onChanged",
@@ -119,10 +120,10 @@
             "tabs.query",
             "tabs.sendMessage"
         ],
-        "name": "cookie-bg-picker",
-        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized."
+        "name": "cookie-bg-picker"
     },
     {
+        "description": "Demonstrates some of the devtools APIs.",
         "javascript_apis": [
             "devtools.inspectedWindow",
             "devtools.panels",
@@ -131,41 +132,41 @@
             "runtime.sendMessage",
             "tabs.executeScript"
         ],
-        "name": "devtools-panels",
-        "description": "Demonstrates some of the devtools APIs."
+        "name": "devtools-panels"
     },
     {
+        "description": "Demonstrates adding a custom search engine with the chrome_settings_overrides key.",
         "javascript_apis": [],
-        "name": "discogs-search",
-        "description": "Demonstrates adding a custom search engine with the chrome_settings_overrides key."
+        "name": "discogs-search"
     },
     {
+        "description": "Dynamic theme example",
         "javascript_apis": [
             "alarms.create",
             "alarms.onAlarm",
             "theme.update"
         ],
-        "name": "dynamic-theme",
-        "description": "Dynamic theme example"
+        "name": "dynamic-theme"
     },
     {
+        "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension.",
         "javascript_apis": [
             "runtime.onMessage",
             "runtime.sendMessage",
             "storage.local"
         ],
-        "name": "embedded-webextension-bootstrapped",
-        "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension."
+        "name": "embedded-webextension-bootstrapped"
     },
     {
+        "description": "Demonstrates how to use an embedded WebExtension to port from an overlay extension.",
         "javascript_apis": [
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "embedded-webextension-overlay",
-        "description": "Demonstrates how to use an embedded WebExtension to port from an overlay extension."
+        "name": "embedded-webextension-overlay"
     },
     {
+        "description": "Demonstrates how to use an embedded WebExtension to port from an SDK-based add-on.",
         "javascript_apis": [
             "notifications.create",
             "runtime.connect",
@@ -174,39 +175,39 @@
             "runtime.sendMessage",
             "storage.local"
         ],
-        "name": "embedded-webextension-sdk",
-        "description": "Demonstrates how to use an embedded WebExtension to port from an SDK-based add-on."
+        "name": "embedded-webextension-sdk"
     },
     {
+        "description": "Replaces words with emojis.",
         "javascript_apis": [],
-        "name": "emoji-substitution",
-        "description": "Replaces words with emojis."
+        "name": "emoji-substitution"
     },
     {
+        "description": "Demonstrates how to configure an extension with eslint.",
         "javascript_apis": [],
-        "name": "eslint-example",
-        "description": "Demonstrates how to configure an extension with eslint."
+        "name": "eslint-example"
     },
     {
+        "description": "Demonstrates how to use export helpers like cloneInto to share objects with page scripts.",
         "javascript_apis": [
             "notifications.create",
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "export-helpers",
-        "description": "Demonstrates how to use export helpers like cloneInto to share objects with page scripts."
+        "name": "export-helpers"
     },
     {
+        "description": "An example options page, letting you store your favourite colour.",
         "javascript_apis": [
             "browserAction.onClicked",
             "runtime.openOptionsPage",
             "storage.managed",
             "storage.sync"
         ],
-        "name": "favourite-colour",
-        "description": "An example options page, letting you store your favourite colour."
+        "name": "favourite-colour"
     },
     {
+        "description": "Demonstration of the find API.",
         "javascript_apis": [
             "browserAction.onClicked",
             "extension.getBackgroundPage",
@@ -218,10 +219,10 @@
             "tabs.create",
             "tabs.query"
         ],
-        "name": "find-across-tabs",
-        "description": "Demonstration of the find API."
+        "name": "find-across-tabs"
     },
     {
+        "description": "Demonstrates how to use the omnibox API.",
         "javascript_apis": [
             "omnibox.onInputChanged",
             "omnibox.onInputEntered",
@@ -229,30 +230,30 @@
             "tabs.create",
             "tabs.update"
         ],
-        "name": "firefox-code-search",
-        "description": "Demonstrates how to use the omnibox API."
+        "name": "firefox-code-search"
     },
     {
+        "description": "Demonstrates how to use the browsingData API.",
         "javascript_apis": [
             "browserAction.onClicked",
             "browsingData.remove",
             "notifications.create",
             "storage.local"
         ],
-        "name": "forget-it",
-        "description": "Demonstrates how to use the browsingData API."
+        "name": "forget-it"
     },
     {
+        "description": "Demonstrates how to use the identity API.",
         "javascript_apis": [
             "browserAction.onClicked",
             "identity.getRedirectURL",
             "identity.launchWebAuthFlow",
             "notifications.create"
         ],
-        "name": "google-userinfo",
-        "description": "Demonstrates how to use the identity API."
+        "name": "google-userinfo"
     },
     {
+        "description": "History API demo: deletes history items for a given domain",
         "javascript_apis": [
             "history.deleteUrl",
             "history.search",
@@ -260,18 +261,18 @@
             "tabs.onUpdated",
             "tabs.query"
         ],
-        "name": "history-deleter",
-        "description": "History API demo: deletes history items for a given domain"
+        "name": "history-deleter"
     },
     {
+        "description": "Demonstrates how to rewrite HTTP responses using the webRequest.filterResponseData() API.",
         "javascript_apis": [
             "webRequest.filterResponseData",
             "webRequest.onBeforeRequest"
         ],
-        "name": "http-response",
-        "description": "Demonstrates how to rewrite HTTP responses using the webRequest.filterResponseData() API."
+        "name": "http-response"
     },
     {
+        "description": "Using a sidebar, illustrates the use of file picker and drag and drop. A content script replaces the current page content with the chosen image.",
         "javascript_apis": [
             "extension.getURL",
             "runtime.onMessage",
@@ -279,10 +280,10 @@
             "tabs.query",
             "tabs.sendMessage"
         ],
-        "name": "imagify",
-        "description": "Using a sidebar, illustrates the use of file picker and drag and drop. A content script replaces the current page content with the chosen image."
+        "name": "imagify"
     },
     {
+        "description": "Shows the last downloaded item, and lets you open or delete it.",
         "javascript_apis": [
             "downloads.erase",
             "downloads.getFileIcon",
@@ -290,18 +291,18 @@
             "downloads.removeFile",
             "downloads.search"
         ],
-        "name": "latest-download",
-        "description": "Shows the last downloaded item, and lets you open or delete it."
+        "name": "latest-download"
     },
     {
+        "description": "This extensions list the cookies in the active tab.",
         "javascript_apis": [
             "cookies.getAll",
             "tabs.query"
         ],
-        "name": "list-cookies",
-        "description": "This extensions list the cookies in the active tab."
+        "name": "list-cookies"
     },
     {
+        "description": "Demonstrates adding and manipulating menu items using the menus API.",
         "javascript_apis": [
             "i18n.getMessage",
             "menus.create",
@@ -311,35 +312,47 @@
             "runtime.lastError",
             "tabs.executeScript"
         ],
-        "name": "menu-demo",
-        "description": "Demonstrates adding and manipulating menu items using the menus API."
+        "name": "menu-demo"
     },
     {
+        "description": "",
+        "javascript_apis": [
+            "menus.create",
+            "menus.onClicked",
+            "menus.onShown",
+            "menus.refresh",
+            "menus.update",
+            "tabs.update"
+        ],
+        "name": "menu-labelled-open"
+    },
+    {
+        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma",
         "javascript_apis": [
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "mocha-client-tests",
-        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma"
+        "name": "mocha-client-tests"
     },
     {
+        "description": "Example of native messaging, including a Python application and an extension which exchanges messages with it.",
         "javascript_apis": [
             "browserAction.onClicked",
             "runtime.connectNative"
         ],
-        "name": "native-messaging",
-        "description": "Example of native messaging, including a Python application and an extension which exchanges messages with it."
+        "name": "native-messaging"
     },
     {
+        "description": "Demonstration of the webNavigation API, showing basic stats about which pages you've visited.",
         "javascript_apis": [
             "storage.local",
             "webNavigation.onCommitted",
             "webNavigation.onCompleted"
         ],
-        "name": "navigation-stats",
-        "description": "Demonstration of the webNavigation API, showing basic stats about which pages you've visited."
+        "name": "navigation-stats"
     },
     {
+        "description": "Shows a localized notification when the user clicks on links.",
         "javascript_apis": [
             "extension.getURL",
             "i18n.getMessage",
@@ -347,23 +360,23 @@
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "notify-link-clicks-i18n",
-        "description": "Shows a localized notification when the user clicks on links."
+        "name": "notify-link-clicks-i18n"
     },
     {
+        "description": "Adds a browser action icon to the toolbar. When the browser action is clicked, the add-on opens a page that was packaged with it.",
         "javascript_apis": [
             "browserAction.onClicked",
             "tabs.create"
         ],
-        "name": "open-my-page-button",
-        "description": "Adds a browser action icon to the toolbar. When the browser action is clicked, the add-on opens a page that was packaged with it."
+        "name": "open-my-page-button"
     },
     {
+        "description": "Demonstrates how a web page and a content script can exchange messages. Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo.",
         "javascript_apis": [],
-        "name": "page-to-extension-messaging",
-        "description": "Demonstrates how a web page and a content script can exchange messages. Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo."
+        "name": "page-to-extension-messaging"
     },
     {
+        "description": "Demonstrates optional permissions using the permissions API.",
         "javascript_apis": [
             "browserAction.onClicked",
             "permissions.getAll",
@@ -372,20 +385,20 @@
             "runtime.getURL",
             "tabs.create"
         ],
-        "name": "permissions",
-        "description": "Demonstrates optional permissions using the permissions API."
+        "name": "permissions"
     },
     {
+        "description": "Example dynamic theme: sets a dark theme for private windows.",
         "javascript_apis": [
             "theme.reset",
             "theme.update",
             "windows.getAll",
             "windows.onCreated"
         ],
-        "name": "private-browsing-theme",
-        "description": "Example dynamic theme: sets a dark theme for private windows."
+        "name": "private-browsing-theme"
     },
     {
+        "description": "Uses the proxy API to block requests to specific hosts.",
         "javascript_apis": [
             "extension.getURL",
             "proxy.onProxyError",
@@ -395,24 +408,24 @@
             "storage.local",
             "storage.onChanged"
         ],
-        "name": "proxy-blocker",
-        "description": "Uses the proxy API to block requests to specific hosts."
+        "name": "proxy-blocker"
     },
     {
+        "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage.",
         "javascript_apis": [
             "storage.local"
         ],
-        "name": "quicknote",
-        "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage."
+        "name": "quicknote"
     },
     {
+        "description": "This is an example of creating a browser action popup UI in React and ES6 JavaScript.",
         "javascript_apis": [
             "tabs.query"
         ],
-        "name": "react-es6-popup",
-        "description": "This is an example of creating a browser action popup UI in React and ES6 JavaScript."
+        "name": "react-es6-popup"
     },
     {
+        "description": "Demo of various runtime APIs.",
         "javascript_apis": [
             "browserAction.onClicked",
             "notifications.create",
@@ -420,15 +433,15 @@
             "runtime.onInstalled",
             "runtime.reload"
         ],
-        "name": "runtime-examples",
-        "description": "Demo of various runtime APIs."
+        "name": "runtime-examples"
     },
     {
+        "description": "Demonstrates how to write to the clipboard from a content script",
         "javascript_apis": [],
-        "name": "selection-to-clipboard",
-        "description": "Demonstrates how to write to the clipboard from a content script"
+        "name": "selection-to-clipboard"
     },
     {
+        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs.",
         "javascript_apis": [
             "menus.create",
             "menus.onClicked",
@@ -439,10 +452,10 @@
             "tabs.onUpdated",
             "tabs.query"
         ],
-        "name": "session-state",
-        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs."
+        "name": "session-state"
     },
     {
+        "description": "Demonstrates how to use the idb-file-storage library to store and manipulate files in an extension.",
         "javascript_apis": [
             "browserAction.onClicked",
             "contextMenus.create",
@@ -452,20 +465,20 @@
             "tabs.create",
             "windows.create"
         ],
-        "name": "store-collected-images",
-        "description": "Demonstrates how to use the idb-file-storage library to store and manipulate files in an extension."
+        "name": "store-collected-images"
     },
     {
+        "description": "Performs basic authentication by supplying stored credentials.",
         "javascript_apis": [
             "storage.local",
             "webRequest.onAuthRequired",
             "webRequest.onCompleted",
             "webRequest.onErrorOccurred"
         ],
-        "name": "stored-credentials",
-        "description": "Performs basic authentication by supplying stored credentials."
+        "name": "stored-credentials"
     },
     {
+        "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs.",
         "javascript_apis": [
             "browserAction.setBadgeBackgroundColor",
             "browserAction.setBadgeText",
@@ -482,55 +495,64 @@
             "tabs.setZoom",
             "tabs.update"
         ],
-        "name": "tabs-tabs-tabs",
-        "description": "Demonstrates tab manipulation: opening, closing, moving, zooming tabs."
+        "name": "tabs-tabs-tabs"
     },
     {
+        "description": "A sidebar that integrates with the current theme.",
         "javascript_apis": [
             "theme.getCurrent",
             "theme.onUpdated",
             "windows.getCurrent"
         ],
-        "name": "theme-integrated-sidebar",
-        "description": "A sidebar that integrates with the current theme."
+        "name": "theme-integrated-sidebar"
     },
     {
+        "description": "An example of how to use the management API for themes.",
         "javascript_apis": [
             "management.getAll",
             "management.setEnabled"
         ],
-        "name": "theme-switcher",
-        "description": "An example of how to use the management API for themes."
+        "name": "theme-switcher"
     },
     {
+        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>",
         "javascript_apis": [],
-        "name": "themes",
-        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>"
+        "name": "themes"
     },
     {
+        "description": "Demonstration of the topSites API.",
         "javascript_apis": [
             "topSites.get"
         ],
-        "name": "top-sites",
-        "description": "Demonstration of the topSites API."
+        "name": "top-sites"
     },
     {
+        "description": "Demonstrates using the webRequest API to rewrite the User-Agent HTTP header.",
         "javascript_apis": [
             "extension.getBackgroundPage",
             "webRequest.onBeforeSendHeaders"
         ],
-        "name": "user-agent-rewriter",
-        "description": "Demonstrates using the webRequest API to rewrite the User-Agent HTTP header."
+        "name": "user-agent-rewriter"
     },
     {
+        "description": "",
+        "javascript_apis": [
+            "contentScripts.register",
+            "runtime.onMessage",
+            "runtime.sendMessage"
+        ],
+        "name": "user-script"
+    },
+    {
+        "description": "Demonstrates how to use webpack to package npm modules in an extension.",
         "javascript_apis": [
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "webpack-modules",
-        "description": "Demonstrates how to use webpack to package npm modules in an extension."
+        "name": "webpack-modules"
     },
     {
+        "description": "Demonstrates how to manipulate windows: opening, closing, resizing windows.",
         "javascript_apis": [
             "windows.create",
             "windows.getAll",
@@ -538,7 +560,6 @@
             "windows.remove",
             "windows.update"
         ],
-        "name": "window-manipulator",
-        "description": "Demonstrates how to manipulate windows: opening, closing, resizing windows."
+        "name": "window-manipulator"
     }
 ]
