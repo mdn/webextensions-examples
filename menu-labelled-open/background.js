@@ -16,11 +16,11 @@ browser.menus.onClicked.addListener((info, tab) => {
   }
 });
 
-async function updateMenuItem(linkHostname) {
-  await browser.menus.update(openLabelledId, {
+function updateMenuItem(linkHostname) {
+  browser.menus.update(openLabelledId, {
     title: `Open (${linkHostname})`
   });
-  await browser.menus.refresh();
+  browser.menus.refresh();
 }
 
 browser.menus.onShown.addListener(info => {
