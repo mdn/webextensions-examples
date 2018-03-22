@@ -10,7 +10,7 @@
  *       shortcut: "Ctrl+Shift+U"
  *    }]
  */
-var gettingAllCommands = browser.commands.getAll();
+let gettingAllCommands = browser.commands.getAll();
 gettingAllCommands.then((commands) => {
   for (let command of commands) {
     // Note that this logs to the Add-on Debugger's console: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging

@@ -4,6 +4,14 @@
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/commands",
   "manifest_version": 2,
   "version": "1.0",
+
+  "applications": {
+    "gecko": {
+      "id": "commands-demo@mozilla.org",
+      "strict_min_version": "60.0b5"
+    }
+  },
+
   "background": {
     "scripts": ["background.js"]
   },
@@ -13,5 +21,10 @@
       "suggested_key": { "default": "Ctrl+Shift+U" },
       "description": "Send a 'toggle-feature' event to the extension"
     }
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
   }
 }
