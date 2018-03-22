@@ -13,5 +13,10 @@
       "suggested_key": { "default": "Ctrl+Shift+U" },
       "description": "Send a 'toggle-feature' event to the extension"
     }
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
   }
 }
