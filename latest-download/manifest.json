@@ -1,0 +1,24 @@
+{
+
+  "description": "Shows the last downloaded item, and lets you open or delete it",
+  "manifest_version": 2,
+  "name": "latest-download",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/latest-download",
+  "icons": {
+    "48": "icons/page-48.png"
+  },
+
+  "permissions": [
+    "downloads",
+    "downloads.open"
+  ],
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "icons/page-32.png",
+    "default_title": "Latest download",
+    "default_popup": "popup/latest_download.html"
+  }
+
+}

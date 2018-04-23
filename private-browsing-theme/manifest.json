@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Private browsing theme",
+  "version": "2.0",
+  "description": "Extension that sets a dark theme for private windows",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["theme"],
+  "applications": {
+    "gecko": {
+      "id": "private-window-theme@mozilla.org",
+      "strict_min_version": "58.0"
+    }
+  }
+}

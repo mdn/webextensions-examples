@@ -1,0 +1,19 @@
+{
+  "description": "An example dynamic theme",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/dynamic-theme",
+  "manifest_version": 2,
+  "name": "Dynamic theme example",
+  "permissions": [
+    "alarms",
+    "theme"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "55.0a2"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "original-sdk-addon-id@mozilla.com",
+  "version": "0.2.0",
+  "main": "./main.js",
+  "name": "sdk-addon-name",
+  "fullName": "SDK Addon Name",
+  "description": "A simple SDK addon which wants to transition to a WebExtension",
+  "preferences": [
+    {
+      "name": "superImportantUserPref",
+      "title": "Super important user preference",
+      "type": "string",
+      "value": "saved superImportantUserPref value"
+    }
+  ],
+  "engines": {
+    "firefox": ">= 51.0a1",
+    "fennec": ">= 51.0a1"
+  },
+  "hasEmbeddedWebExtension": true
+}

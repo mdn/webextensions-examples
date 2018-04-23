@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "Labelled open",
+  "description": "Adds a context menu item that labels links with the hostname. Demo of onShown and refresh().",
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "strict_min_version": "60.0a1"
+    }
+  },
+  "icons": {
+    "16": "icon/label.svg",
+    "32": "icon/label.svg",
+    "48": "icon/label.svg"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "permissions": [
+    "menus",
+    "<all_urls>"
+  ]
+
+}

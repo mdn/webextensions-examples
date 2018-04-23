@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Permissions Example</title>
+    <link rel="stylesheet" href="page.css"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Permissions Example</h3>
+      <p style="display: none" id="result"></p>
+      <p>
+        <b>Current permissions returned by the API:</b>
+        <span id="permissions"></span>
+      </p>
+      <hr>
+      <ul>
+        <li>The <code>tabs</code> permission has been <b>granted</b> on install.</li>
+        <li>The <code>history</code> permission is an optional permission that can be
+            <a href="#" class="permission" data-permission="history" data-action="grant">granted</a> or
+            <a href="#" class="permission" data-permission="history" data-action="revoke">revoked</a>.
+        </li>
+        <li>The <code>cookies</code> permission cannot be <a href="#" class="permission" data-permission="cookies" data-action="grant">granted</a>, because it was not included in the <code>optional_permissions</code> manifest key.</li>
+        <li>The <code>foo</code> permission cannot be <a href="#" class="permission" data-permission="foo" data-action="grant">granted</a>, because it is not a valid permission name.</li>
+      </ul>
+    </div>
+    <script src="page.js"></script>
+  </body>
+</html>

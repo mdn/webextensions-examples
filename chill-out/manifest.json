@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "chillout-page-action",
+  "version": "1.0",
+  "description": "Show a page action after a period of inactivity. Show cat gifs when the page action is clicked.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/chill-out",
+  "icons": {
+    "48": "icons/chillout-48.png"
+  },
+
+  "permissions": [
+    "alarms",
+    "tabs"
+  ],
+
+  "page_action": {
+    "default_icon": "icons/chillout-32.png",
+    "default_title": "Chill out"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}

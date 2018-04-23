@@ -1,0 +1,21 @@
+{
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Contextual Identities",
+    "default_popup": "context.html",
+    "default_icon": {
+      "128": "identity.svg"
+    }
+  },
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/contextual-identities",
+  "manifest_version": 2,
+  "name": "Contextual Identities",
+  "version": "1.0",
+  "permissions": [
+      "contextualIdentities",
+      "cookies"
+  ],
+  "icons": {
+    "128": "identity.svg"
+  }
+}

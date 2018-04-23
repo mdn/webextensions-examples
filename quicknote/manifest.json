@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Quicknote",
+  "version": "1.1",
+
+  "description": "Allows the user to make quick notes by clicking a button and entering text into the resulting popup. The notes are saved in storage. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#quicknote",
+  "icons": {
+    "48": "icons/quicknote-48.png"
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+     "32" : "icons/quicknote-32.png"
+    },
+    "default_title": "Quicknote",
+    "default_popup": "popup/quicknote.html"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "quicknote-example@mozilla.org"
+    }
+  }
+
+}

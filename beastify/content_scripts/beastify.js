@@ -1,33 +1,48 @@
-// Assign beastify() as a listener for messages from the extension.
-chrome.runtime.onMessage.addListener(beastify);
-
-function beastify(request, sender, sendResponse) {
-  removeEverything();
-  insertBeast(beastNameToURL(request.beast));
-  chrome.runtime.onMessage.removeListener(beastify);
-}
-
-function removeEverything() {
-  while (document.body.firstChild) {
-    document.body.firstChild.remove();
+(function() {
+  /**
+   * Check and set a global guard variable.
+   * If this content script is injected into the same page again,
+   * it will do nothing next time.
+   */
+  if (window.hasRun) {
+    return;
   }
-}
+  window.hasRun = true;
 
-function insertBeast(beastURL) {
-  var beastImage = document.createElement("img");
-  beastImage.setAttribute("src", beastURL);
-  beastImage.setAttribute("style", "width: 100vw");
-  beastImage.setAttribute("style", "height: 100vh");
-  document.body.appendChild(beastImage);
-}
-
-function beastNameToURL(beastName) {
-  switch (beastName) {
-    case "Frog":
-      return chrome.extension.getURL("beasts/frog.jpg");
-    case "Snake":
-      return chrome.extension.getURL("beasts/snake.jpg");
-    case "Turtle":
-      return chrome.extension.getURL("beasts/turtle.jpg");
+  /**
+   * Given a URL to a beast image, remove all existing beasts, then
+   * create and style an IMG node pointing to
+   * that image, then insert the node into the document.
+   */
+  function insertBeast(beastURL) {
+    removeExistingBeasts();
+    let beastImage = document.createElement("img");
+    beastImage.setAttribute("src", beastURL);
+    beastImage.style.height = "100vh";
+    beastImage.className = "beastify-image";
+    document.body.appendChild(beastImage);
   }
-}
+
+  /**
+   * Remove every beast from the page.
+   */
+  function removeExistingBeasts() {
+    let existingBeasts = document.querySelectorAll(".beastify-image");
+    for (let beast of existingBeasts) {
+      beast.remove();
+    }
+  }
+
+  /**
+   * Listen for messages from the background script.
+   * Call "beastify()" or "reset()".
+  */
+  browser.runtime.onMessage.addListener((message) => {
+    if (message.command === "beastify") {
+      insertBeast(message.beastURL);
+    } else if (message.command === "reset") {
+      removeExistingBeasts();
+    }
+  });
+
+})();

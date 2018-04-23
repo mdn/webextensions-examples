@@ -1,0 +1,35 @@
+{
+
+  "description": "Demonstrates how to use export helpers in Firefox to share objects with page scripts.",
+  "manifest_version": 2,
+  "name": "export-helpers",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/export-helpers",
+  "icons": {
+    "48": "icons/arrow.svg"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "export-helpers@mozilla.org",
+      "strict_min_version": "49.0"
+    }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://mdn.github.io/webextensions-examples/export-helpers.html"],
+      "js": ["content_scripts/export.js"]
+    }
+  ],
+  
+  "permissions": [
+    "activeTab",
+    "notifications"
+  ]
+
+}

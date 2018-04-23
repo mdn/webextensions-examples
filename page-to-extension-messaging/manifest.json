@@ -5,11 +5,8 @@
   "description": "Visit https://mdn.github.io/webextensions-examples/content-script-page-script-messaging.html for the demo. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#page-to-extension-messaging",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/page-to-extension-messaging",
-
-  "applications": {
-    "gecko": {
-      "id": "page-to-extension-messaging@mozilla.org"
-    }
+  "icons": {
+    "48": "icons/message-48.png"
   },
 
   "content_scripts": [

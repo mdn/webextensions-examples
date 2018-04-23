@@ -1,0 +1,12 @@
+@import "shared.css";
+
+html, body {
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  margin-left: 1em;
+}
+
+input {
+  width: 90%;
+}

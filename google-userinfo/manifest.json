@@ -1,0 +1,41 @@
+{
+
+  "name": "Google User Info",
+  "version": "1",
+  "manifest_version": 2,
+  "applications": {
+    "gecko": {
+      "id": "google-user-info@mozilla.org",
+      "strict_min_version": "53a1"
+    }
+  },
+
+  "icons": {
+    "48": "icons/person-48.png"
+  },
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": "icons/person-32.png"
+  },
+
+  "permissions": [
+    "identity",
+    "notifications",
+    "*://www.googleapis.com/*",
+    "*://accounts.google.com/*"
+  ],
+
+  "background": {
+    "scripts": [
+      "background/authorize.js",
+      "background/userinfo.js",
+      "background/main.js"
+    ]
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  }
+
+}

@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "webextensions": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "no-console": 0,
+    "no-unused-vars": ["warn", { "vars": "all", "args": "all" } ],
+    "no-undef": ["warn"],
+    "no-proto": ["error"],
+    "prefer-arrow-callback": ["warn"],
+    "prefer-spread": ["warn"]
+  }
+}

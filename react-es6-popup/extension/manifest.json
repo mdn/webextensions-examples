@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "react-es6-popup-example",
+  "version": "1.0",
+
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "48": "images/Watermelon-48.png",
+      "96": "images/Watermelon-96.png"
+    },
+    "default_title": "React Example",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": ["activeTab"]
+}

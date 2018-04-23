@@ -5,11 +5,8 @@
   "name": "open-my-page",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/open-my-page-button",
-
-  "applications": {
-    "gecko": {
-      "id": "open-my-page-button@mozilla.org"
-    }
+  "icons": {
+    "48": "icons/page-48.png"
   },
 
   "background": {
@@ -17,7 +14,7 @@
   },
 
   "browser_action": {
-    "default_icon": "button/beasts.png"
+    "default_icon": "icons/page-32.png"
   }
 
 }

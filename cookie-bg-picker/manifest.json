@@ -1,0 +1,47 @@
+{
+
+  "manifest_version": 2,
+  "name": "Cookie BG Picker",
+  "version": "1.0",
+
+  "description": "Allows the user to customize the background color and pattern of their sites. Also saves their preferences via cookies where possible.",
+  "icons": {
+    "48": "icons/bgpicker-48.png"
+  },
+
+  "permissions": [
+      "tabs",
+      "cookies",
+      "<all_urls>"
+  ],
+
+  "web_accessible_resources": [
+      "popup/images/bullseyes.png",
+      "popup/images/starring.png",
+      "popup/images/subtle.png",
+      "popup/images/tactilenoise.png",
+      "popup/images/triangles.png",
+      "popup/images/triangles2.png",
+      "popup/images/washi.png",
+      "popup/images/whitey.png"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+     "32" : "icons/bgpicker-32.png"
+    },
+    "default_title": "BG Picker",
+    "default_popup": "popup/bgpicker.html"
+  },
+
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_scripts/updatebg.js"]
+    }
+  ]
+}

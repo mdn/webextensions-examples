@@ -1,0 +1,16 @@
+
+#outer-wrapper {
+  padding: 0.5em;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  border: 1px solid #e4e4e4;
+  margin-bottom: 1em;
+}

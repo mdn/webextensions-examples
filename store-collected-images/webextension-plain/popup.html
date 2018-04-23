@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css"/>
+  </head>
+  <body>
+    <div id="app">
+      <h3>Collected images</h3>
+      <p id="error-message"></p>
+      <input placeholder="collection name" class="collection-name">
+      <button class="save-collection">save</button>
+      <ul class="thumbnails">
+      <ul>
+    </div>
+    <script src="/deps/idb-file-storage.js"></script>
+    <script src="/deps/uuidv4.js"></script>
+    <script src="/utils/handle-window-drag-and-drop.js"></script>
+    <script src="/utils/image-store.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

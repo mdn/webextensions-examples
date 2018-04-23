@@ -1,0 +1,17 @@
+{
+  "browser_action": {
+    "default_icon": "run.png"
+  },
+  "description": "Demonstration of some runtime APIs",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/runtime-examples",
+  "manifest_version": 2,
+  "name": "Runtime examples",
+  "version": "1.0",
+  "permissions": ["notifications"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "icons": {
+    "128": "run.png"
+  }
+}

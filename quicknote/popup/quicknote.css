@@ -1,0 +1,120 @@
+/* General styling */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 10px;
+  background: rgb(240,240,240);
+  height: 300px;
+  margin: 0;
+}
+
+body {
+  width: 300px;
+  background: rgb(240,240,240);
+  margin: 0 auto;
+  padding: 2px;
+  height: inherit;
+}
+
+.outer-wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 290px;
+  background: rgb(240,240,240);
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* form control styling */
+
+input, textarea, button {
+  border: 1px solid rgb(218,218,218);
+  padding: 4px;
+  background: white;
+  border-radius: 3px;
+}
+
+button {
+  background: #ccc;
+  box-shadow: inset -2px -2px 1px rgba(0,0,0,0.2);
+  transition: 0.1s all;
+}
+
+button:hover, button:focus {
+  background: #ddd;
+}
+
+button:active {
+  box-shadow: inset -2px -2px 1px rgba(0,0,0,0.05);
+}
+
+input, textarea {
+  font-family: sans-serif;
+  box-shadow: inset 2px 2px 1px rgba(0,0,0,0.10);
+}
+
+/* Typography */
+
+h2 {
+  font-size: 1.3rem;
+}
+
+p, input, textarea {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* New notes entry box */
+
+.new-note {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 2px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 4px;
+  resize: none;
+}
+
+.clear {
+  float: left;
+}
+
+.add {
+  float: right;
+}
+
+/* Notes display box(es) */
+
+.note {
+  padding: 2px;
+}
+
+.delete {
+  float: right;
+}
+
+p {
+  margin: 0;
+}
+
+.cancel {
+  float: left;
+}
+
+.update {
+  float: right;
+}

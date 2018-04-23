@@ -1,0 +1,32 @@
+html, body {
+	margin: 0.3em;
+	width: auto;
+	min-width: 250px;
+	max-width: 500px;
+	background-color: #f8f8f8;
+}
+
+div {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	border-bottom: 1px solid grey;
+}
+
+#history-title {
+	font-weight: bold;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+#history {
+	display: block;
+	word-wrap: break-word;
+	margin: 0.5em;
+	text-decoration: none;
+}
+
+#clear {
+	text-decoration: none;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}

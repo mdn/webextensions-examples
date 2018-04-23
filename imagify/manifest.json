@@ -1,0 +1,22 @@
+{
+
+  "description": "Adds a sidebar offerin a file picker and drap and drop zone. When an image file is chosen the active tab's body content is replaced with file selected. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#imagify",
+  "manifest_version": 2,
+  "name": "Imagify",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/imagify",
+
+  "permissions": [
+    "tabs",
+    "<all_urls>" 
+  ],
+
+  "sidebar_action": {
+    "default_title": "Imagify",
+    "default_panel": "sidebar/sidebar.html"
+  },
+
+  "web_accessible_resources": [
+    "/viewer.html"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "store-collected-images",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --display-error-details --progress --colors",
+    "build:watch": "npm run build -- -w",
+    "start": "npm run build && web-ext run -s extension/"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
+    "babel-preset-es2017": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "idb-file-storage": "^0.1.0",
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "uuid": "^3.0.1",
+    "web-ext": "1.9.1",
+    "webpack": "2.6.1"
+  },
+  "babel": {
+    "presets": [
+      "es2017",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}

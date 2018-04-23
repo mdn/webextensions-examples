@@ -1,0 +1,46 @@
+/*
+ * These styles extend the styles from browser_styles, see https://firefoxux.github.io/StyleGuide.
+ */
+
+/* For some reason the footer creates a horizontal overflow */
+body {
+    overflow-x: hidden;
+}
+
+.panel-formElements-item label {
+    width: 80px;
+}
+
+.panel-formElements-item output,
+.panel-formElements-item input[type="number"] {
+    flex-grow: 1;
+}
+
+input[type="number"] {
+    background-color: #fff;
+    border: 1px solid #b1b1b1;
+    box-shadow: 0 0 0 0 rgba(97, 181, 255, 0);
+    font: caption;
+    padding: 0 6px 0;
+    transition-duration: 250ms;
+    transition-property: box-shadow;
+    height: 24px;
+}
+
+input[type="number"]:hover {
+    border-color: #858585;
+}
+
+input[type="number"]:focus {
+    border-color: #0996f8;
+    box-shadow: 0 0 0 2px rgba(97, 181, 255, 0.75);
+}
+
+/* Reset the default styles for buttons if it's a footer button */
+button.panel-section-footer-button {
+    padding: 12px;
+    border: none;
+    margin: 0;
+    box-shadow: none;
+    background-color: none;
+}

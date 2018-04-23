@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "description": "Example using eslint",
+    "name": "eslint-example",
+    "version": "1.0",
+    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/eslint-example",
+
+    "browser_action": {
+        "default_icon": "icons/page-32.png",
+        "default_popup": "popup.html"
+    }
+}
