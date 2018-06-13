@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "Proxy Server",
+  "description": "Uses the proxy API to send all requests through a proxy server, optionally with authentication. Stores settings using the storage API.",
+  "version": "1.0",
+
+  "icons": {
+    "48": "icons/ic_compare_arrows_black_48.png",
+    "96": "icons/ic_compare_arrows_black_96.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "strict_min_version": "56.0a1"
+    }
+  },
+
+  "background": {
+    "scripts": [
+      "background/proxy-handler.js"
+    ]
+  },
+
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
+
+  "permissions": ["proxy", "storage", "webRequest", "webRequestBlocking", "<all_urls>"]
+
+}
