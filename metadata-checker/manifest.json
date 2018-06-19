@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Metadata checker",
+  "description": "Displays a popup that summarizes opengraph & twitter metadata from web pages.",
+  "version": "1.0",
+  "icons": {
+    "36": "icons/icon.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_title" : "Metadata",
+    "default_popup": "popup/metadata.html",
+    "browser_style": true
+  },
+
+  "permissions": ["activeTab"]
+
+}
