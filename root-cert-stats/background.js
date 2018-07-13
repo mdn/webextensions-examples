@@ -14,7 +14,8 @@ async function logRootCert(details) {
       details.requestId,
       {"certificateChain": true}
     );
-    if (securityInfo.state == "secure" || securityInfo.state == "weak") {
+    if ((securityInfo.state == "secure" || securityInfo.state == "weak") &&
+        !securityInfo.isUntrusted) {
       let rootName = securityInfo.certificates[securityInfo.certificates.length - 1].subject;
       if (rootCertStats[rootName] === undefined) {
         rootCertStats[rootName] = 1;
