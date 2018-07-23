@@ -41,6 +41,26 @@ complexity
 
 If you're editing an existing file, code style should be consistent with the rest of the code in the file. Otherwise, code style should follow the style for WebExtensions code itself: [https://wiki.mozilla.org/WebExtensions/Hacking#Code_Style](https://wiki.mozilla.org/WebExtensions/Hacking#Code_Style).
 
+## Updating examples.json
+
+**Note: people contributing examples don't have to update examples.json: this can be left up to the project maintainers. The documentation in this section is primarily aimed at maintainers, not contributors.**
+
+This repository contains a JSON file at the root called "examples.json". It contains a machine-readable description of the examples the repository contains. For each example, the JSON file contains:
+
+* the name of the example
+* the description of the example
+* a list of all the WebExtension APIs called by the example
+
+This file is used to generate links from MDN pages to examples. Specifically, it's read by 2 different [KumaScript](https://github.com/mdn/kumascript) macros:
+
+* [WebExtExamples](https://github.com/mdn/kumascript/blob/master/macros/WebExtExamples.ejs): this macro adds links to all examples that call a particular API, and is used to provide contextual links to example extensions. For example: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/query#Example_extensions.
+
+* [WebExtAllExamples](https://github.com/mdn/kumascript/blob/master/macros/WebExtAllExamples.ejs): this macro generates a complete list of all example extensions, and is used here: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples
+
+If you add a new example extension, or update an existing one to change the WebExtension APIs that it calls, you should update examples.json.
+
+Also, it would be helpful to force https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples and any other relevant pages to re-evaluate their KumaScript, so they can pick up the changes. To do this, shift-refresh the page while logged into MDN.
+
 ## Licensing
 
 Please note that the examples are all made available under the
