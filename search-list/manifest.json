@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "searchList",
+  "description": "List search engines for WebExtensions Examples of MDN",
+  "version": "1.0",
+
+  
+  "icons": {
+        "48":  "icons/icon-48.png"
+  },
+    
+  "chrome_url_overrides": {
+      "newtab": "new-tab.html"
+  },
+   
+  "permissions": [
+    "search"
+  ]
+}
+
