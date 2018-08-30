@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Root Certificate Stats",
+  "description": "Track and display which CA root certificates are used and how often.",
+  "version": "0.1.0",
+  "browser_action": {
+    "default_icon": {
+      "32": "icons/icon-32.png"
+    },
+    "default_title": "Root Certificate Stats",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "icons": {
+    "32": "icons/icon-32.png"
+  },
+  "applications": {
+    "gecko": {
+      "strict_min_version": "62.0b5"
+    }
+  }
+}
