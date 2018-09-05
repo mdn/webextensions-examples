@@ -1,0 +1,16 @@
+{
+    "name": "Remove element on click",
+    "description": "Adds a context menu item that shows a panel upon click, from where you can choose to remove the clicked element.",
+    "version": "1",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "menus",
+        "activeTab"
+    ]
+}
