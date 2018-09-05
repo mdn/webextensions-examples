@@ -10,42 +10,42 @@
   },
 
   "menuItemSelectionLogger": {
-    "message": "Log '%s' to the browser console",
+    "message": "&Log '%s' to the browser console",
     "description": "Title of context menu item that logs the selected text when clicked."
   },
 
   "menuItemRemoveMe": {
-    "message": "Remove me!",
+    "message": "&Remove me!",
     "description": "Title of context menu item that removes itself when clicked."
   },
 
   "menuItemGreenify": {
-    "message": "Greenify",
+    "message": "&Greenify",
     "description": "Title of context menu item that adds a green border when clicked."
   },
 
   "menuItemBluify": {
-    "message": "Bluify",
+    "message": "&Bluify",
     "description": "Title of context menu item that adds a green border when clicked."
   },
 
   "menuItemCheckMe": {
-    "message": "Check me",
+    "message": "&Check me",
     "description": "Title of context menu item when the item is checked."
   },
 
   "menuItemUncheckMe": {
-    "message": "Uncheck me",
+    "message": "&Uncheck me",
     "description": "Title of context menu item when the item is unchecked."
   },
 
   "menuItemOpenSidebar": {
-    "message": "Open sidebar",
+    "message": "&Open sidebar",
     "description": "Title of context menu item that opens a sidebar."
   },
 
   "menuItemToolsMenu": {
-    "message": "Click me!",
+    "message": "&Click me!",
     "description": "Title of tools menu item."
   }
 
