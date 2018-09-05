@@ -7,7 +7,7 @@
   "default_locale": "en",
   "applications": {
     "gecko": {
-      "strict_min_version": "56.0a1"
+      "strict_min_version": "63.0a1"
     }
   },
 
