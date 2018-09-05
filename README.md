@@ -59,6 +59,10 @@ There are a couple ways to try out the example extensions in this repository.
    additional development features such as
    [automatic reloading](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext#Automatic_extension_reloading).
 
+## Support for other browsers
+
+These examples are only tested in Firefox. They may work in other browsers, if the [browser supports the APIs used](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs). Note though that these examples all use the name `browser` for the namespace and use promises to work with asynchronous functions. This means the examples won't work in Chrome unless you use the [polyfill provided by Mozilla](https://github.com/mozilla/webextension-polyfill). See [the overview of WebExtension APIs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API) for more information on this.
+
 ## Learn more
 
 To learn more about developing WebExtensions, see the
