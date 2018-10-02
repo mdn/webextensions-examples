@@ -1,0 +1,18 @@
+{
+
+  "description": "Test the new WE Telemetry API by sending some sample pings",
+  "manifest_version": 2,
+  "name": "Telemetry Test WE for new browser.telemetry API",
+  "version": "1.0",
+  "homepage_url": "https://github.com/biancadanforth/webextensions-examples/tree/master/telemetry-test-we",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+  "background": {
+    "scripts": ["telemetry.js"]
+  },
+  "permissions": [
+    "notifications",
+    "telemetry"
+  ]
+}
