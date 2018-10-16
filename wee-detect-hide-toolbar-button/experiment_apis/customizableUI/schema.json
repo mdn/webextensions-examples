@@ -1,0 +1,26 @@
+[
+  {
+    "namespace": "customizableUI",
+    "description": "Add a CustomizableUI listener",
+    "functions": [
+      {
+        "name": "addListener",
+        "type": "function",
+        "description": "Add a CustomizableUI listener",
+        "async": false,
+        "parameters": [
+          {
+            "name": "listener",
+            "type": "object",
+            "properties": {
+              "onWidgetRemoved": {
+                "type": "function"
+              }
+            },
+            "description": "The object with the onWidgetRemoved callback"
+          }
+        ]
+      }
+    ]
+  }
+]
