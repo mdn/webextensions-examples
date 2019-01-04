@@ -1,0 +1,16 @@
+{
+  "extensionName": {
+    "message": "Menu item with access key",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Demonstrates access keys in context menu items (if supported).",
+    "description": "Description of the add-on."
+  },
+
+  "menuItemWithAccessKey": {
+    "message": "Click &here && look at the extension's console",
+    "description": "Title of context menu item that logs a message on click. The letter after the first '&' is used as an access key. To show a single '&' in the menu, use '&&'."
+  }
+}
