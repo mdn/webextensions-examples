@@ -420,13 +420,6 @@
         "name": "quicknote"
     },
     {
-        "description": "This is an example of creating a browser action popup UI in React and ES6 JavaScript.",
-        "javascript_apis": [
-            "tabs.query"
-        ],
-        "name": "react-es6-popup"
-    },
-    {
         "description": "Demo of various runtime APIs.",
         "javascript_apis": [
             "browserAction.onClicked",
