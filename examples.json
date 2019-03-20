@@ -151,35 +151,6 @@
         "name": "dynamic-theme"
     },
     {
-        "description": "Demonstrates how to use an embedded WebExtension to port from a bootstrapped extension.",
-        "javascript_apis": [
-            "runtime.onMessage",
-            "runtime.sendMessage",
-            "storage.local"
-        ],
-        "name": "embedded-webextension-bootstrapped"
-    },
-    {
-        "description": "Demonstrates how to use an embedded WebExtension to port from an overlay extension.",
-        "javascript_apis": [
-            "runtime.onMessage",
-            "runtime.sendMessage"
-        ],
-        "name": "embedded-webextension-overlay"
-    },
-    {
-        "description": "Demonstrates how to use an embedded WebExtension to port from an SDK-based add-on.",
-        "javascript_apis": [
-            "notifications.create",
-            "runtime.connect",
-            "runtime.onConnect",
-            "runtime.onMessage",
-            "runtime.sendMessage",
-            "storage.local"
-        ],
-        "name": "embedded-webextension-sdk"
-    },
-    {
         "description": "Replaces words with emojis.",
         "javascript_apis": [],
         "name": "emoji-substitution"
