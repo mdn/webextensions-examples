@@ -6,7 +6,9 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
-            "windows.getCurrent"
+            "tabs.Tab",
+            "windows.getCurrent",
+            "windows​.Window"
         ],
         "name": "annotate-page"
     },
@@ -21,7 +23,8 @@
             "tabs.insertCSS",
             "tabs.onUpdated",
             "tabs.query",
-            "tabs.removeCSS"
+            "tabs.removeCSS",
+            "tabs.Tab"
         ],
         "name": "apply-css"
     },
@@ -34,7 +37,8 @@
             "tabs.insertCSS",
             "tabs.query",
             "tabs.removeCSS",
-            "tabs.sendMessage"
+            "tabs.sendMessage",
+            "tabs.Tab"
         ],
         "name": "beastify"
     },
@@ -592,7 +596,8 @@
             "windows.getAll",
             "windows.getCurrent",
             "windows.remove",
-            "windows.update"
+            "windows.update",
+            "windows​.Window"
         ],
         "name": "window-manipulator"
     }
