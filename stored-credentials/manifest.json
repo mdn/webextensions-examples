@@ -8,7 +8,7 @@
     "48": "icons/lock.svg"
   },
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "54.0a1"
     }

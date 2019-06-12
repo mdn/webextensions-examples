@@ -21,7 +21,7 @@
     "default_popup": "popup/quicknote.html"
   },
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "quicknote-example@mozilla.org"
     }

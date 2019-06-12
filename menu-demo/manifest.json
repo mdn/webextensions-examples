@@ -5,7 +5,7 @@
   "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "default_locale": "en",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "56.0a1"
     }

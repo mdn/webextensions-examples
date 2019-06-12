@@ -18,7 +18,7 @@
       "128": "star-half.svg"
   },
   "version": "1.0",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
         "strict_min_version": "55.0a1"
     }

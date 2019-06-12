@@ -10,7 +10,7 @@
     "96": "icons/block.svg"
   },
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "56.0a1"
     }
