@@ -6,7 +6,9 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
-            "windows.getCurrent"
+            "tabs.Tab",
+            "windows.getCurrent",
+            "windows​.Window"
         ],
         "name": "annotate-page"
     },
@@ -21,7 +23,8 @@
             "tabs.insertCSS",
             "tabs.onUpdated",
             "tabs.query",
-            "tabs.removeCSS"
+            "tabs.removeCSS",
+            "tabs.Tab"
         ],
         "name": "apply-css"
     },
@@ -34,7 +37,8 @@
             "tabs.insertCSS",
             "tabs.query",
             "tabs.removeCSS",
-            "tabs.sendMessage"
+            "tabs.sendMessage",
+            "tabs.Tab"
         ],
         "name": "beastify"
     },
@@ -275,6 +279,16 @@
         "name": "list-cookies"
     },
     {
+        "description": "Shows how to set up a single letter access key for a menu item.",
+        "javascript_apis": [
+            "i18n.getMessage",
+            "menus.update",
+            "menus.create",
+            "menus.onClicked"
+        ],
+        "name": "menu-accesskey-visible"
+    },
+    {
         "description": "Demonstrates adding and manipulating menu items using the menus API.",
         "javascript_apis": [
             "i18n.getMessage",
@@ -288,7 +302,7 @@
         "name": "menu-demo"
     },
     {
-        "description": "",
+        "description": "Shows how an extension can listen for the display of a menu and then add, remove, or update its menu items.",
         "javascript_apis": [
             "menus.create",
             "menus.onClicked",
@@ -300,7 +314,29 @@
         "name": "menu-labelled-open"
     },
     {
-        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma",
+        "description": "Shows how to detect the page element at the cursor position and remove that element, or a parent element, from the page. This example includes use of the polyfill, illustrating cross-browser extension development.",
+        "javascript_apis": [
+            "menus.create",
+            "menus.onClicked",
+            "menus.getTargetElement",
+            "pageAction.openPopup",
+            "pageAction.show",
+            "tabs.executeScript"
+        ],
+        "name": "menu-remove-element"
+    },
+    {
+        "description": "Illustrates how to retrieve a list of search engines and issue a search request, using search engine details added to the context menu for selected text.",
+        "javascript_apis": [
+            "search.search",
+            "search.get",
+            "menus.create",
+            "menus.onClicked"
+        ],
+        "name": "menu-search"
+    },
+    {
+        "description": "This example shows two methods of testing an extension: running tests from within the extension, and running tests from the command line using Karma.",
         "javascript_apis": [
             "runtime.onMessage",
             "runtime.sendMessage"
@@ -389,6 +425,13 @@
             "storage.local"
         ],
         "name": "quicknote"
+    },
+    {
+        "description": "Shows how to get details about a request's TLS connection.",
+        "javascript_apis": [
+            "webRequest.getSecurityInfo"
+        ],
+        "name": "root-cert-stats"
     },
     {
         "description": "Demo of various runtime APIs.",
@@ -501,7 +544,7 @@
         "name": "user-agent-rewriter"
     },
     {
-        "description": "",
+        "description": "Illustrates how an extension can register URL-matching content scripts at runtime.",
         "javascript_apis": [
             "contentScripts.register",
             "runtime.onMessage",
@@ -524,7 +567,8 @@
             "windows.getAll",
             "windows.getCurrent",
             "windows.remove",
-            "windows.update"
+            "windows.update",
+            "windows​.Window"
         ],
         "name": "window-manipulator"
     }
