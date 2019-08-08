@@ -1,55 +1,51 @@
-// Location of the proxy script, relative to manifest.json
-const proxyScriptURL = "proxy/proxy-script.js";
+// Set the default list of domains to proxy on installation.
 
-// Default settings. If there is nothing in storage, use these values.
-const defaultSettings = {
-   blockedHosts: ["example.com", "example.org"]
- }
+// Listen for the extension's installation
+browser.runtime.onInstalled.addListener(handleInstalled);
 
-// Register the proxy script
-browser.proxy.register(proxyScriptURL);
+// On the extension's installation
+function handleInstalled(details) {
+// Write a blocked hosts list to local storage
+   browser.storage.local.set({
+     blockedHosts: ["example.com", "example.org"]
+   });
+}
+
+// Managed the proxy
+
+// Listen for a request to open a webpage
+browser.proxy.onRequest.addListener(handleProxyRequest, {urls: ["<all_urls>"]});
+
+// On the request to open a webpage
+function handleProxyRequest(requestInfo) {
+// Read the list of domains to be proxied
+  browser.storage.local.get().then(getList, onError);
+// Read the web address of the page to be visited 
+  const url = new URL(requestInfo.url);
+// Determine whether the domain in the web address is on the blocked hosts list
+  if (blockedHosts.indexOf(url.hostname) != -1) {
+// Write details of the proxied host to the console and return the proxy address
+    console.log(`Proxying: ${url.hostname}`);
+    return {type: "http", host: "127.0.0.1", port: 65535};
+  }
+// Return instructions to open the requested webpage
+  return {type: "direct"};
+}
+
+// Collect the list of proxied domains
+function getList(localData) {
+  blockedHosts = localData.blockedHosts;
+}
+
+// Log any errors if the list of proxied domains cannot be read
+function onError(e) {
+  console.error(e);
+}
 
 // Log any errors from the proxy script
-browser.proxy.onProxyError.addListener(error => {
+browser.proxy.onError.addListener(error => {
   console.error(`Proxy error: ${error.message}`);
 });
 
-// Initialize the proxy
-function handleInit() {
-  // update the proxy whenever stored settings change
-  browser.storage.onChanged.addListener((newSettings) => {
-    browser.runtime.sendMessage(newSettings.blockedHosts.newValue, {toProxyScript: true});
-  });
 
-  // get the current settings, then...
-  browser.storage.local.get()
-    .then((storedSettings) => {
-      // if there are stored settings, update the proxy with them...
-      if (storedSettings.blockedHosts) {
-        browser.runtime.sendMessage(storedSettings.blockedHosts, {toProxyScript: true});
-      // ...otherwise, initialize storage with the default values
-      } else {
-        browser.storage.local.set(defaultSettings);
-      }
 
-    })
-    .catch(()=> {
-      console.log("Error retrieving stored settings");
-    });
-}
-
-function handleMessage(message, sender) {
-  // only handle messages from the proxy script
-  if (sender.url !=  browser.extension.getURL(proxyScriptURL)) {
-    return;
-  }
-
-  if (message === "init") {
-    handleInit(message);
-  } else {
-    // after the init message the only other messages are status messages
-    console.log(message);
-  }
-}
-
-browser.runtime.onMessage.addListener(handleMessage);
