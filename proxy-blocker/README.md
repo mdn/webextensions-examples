@@ -1,7 +1,7 @@
 
 ## What it does
 
-This extensionxtension uses the proxy API listener `onRequest` to listen for requests to visit a web page, compare the webpage's domain with a blocked host list, and proxy domains on the blocked list to 127.0.0.1.
+This extension uses the proxy API listener `onRequest` to listen for requests to visit a web page, compare the webpage's domain with a blocked host list, and proxy domains on the blocked list to 127.0.0.1.
 
 The list of blocked domains is held in local storage and given the initial value `["example.com", "example.org"]` when the extension installs. The list can be modified through the extension"s options page.
 
