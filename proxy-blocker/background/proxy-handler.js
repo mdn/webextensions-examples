@@ -1,23 +1,28 @@
-// Set the default list of domains to proxy on installation.
+// Initialize the list of blocked hosts
+let blockedHosts = [];
+const defaultBlockedHosts = ["example.com", "example.org"];
 
-// Listen for the extension's installation
-browser.runtime.onInstalled.addListener(handleInstalled);
+// set the defaults on install
+browser.runtime.onInstalled.addListener(details => {
+  browser.storage.local.set({
+    blockedHosts: defaultBlockedHosts
+  });
+});
 
-// On the extension's installation
-function handleInstalled(details) {
-// Write a blocked hosts list to local storage
-   browser.storage.local.set({
-     blockedHosts: ["example.com", "example.org"]
-   });
-}
+// Get the stored list, if there is one, or use defaults
+browser.storage.local.get(data => {
+  if (data.blockedHosts) {
+    blockedHosts = data.blockedHosts;
+  } else {
+    blockedHosts = defaultBlockedHosts;
+  }
+});
 
-// Listen for changes in the blocked list
-browser.storage.onChanged.addListener(getBlockedHosts)
+// listen for changes in the blocked list
+browser.storage.onChanged.addListener(changeData => {
+  blockedHosts = changeData.blockedHosts.newValue;
+});
 
-// Get the list of proxied domains
-function getBlockedHosts(changecData) {
-  blockedHosts = changecData.blockedHosts.newValue;
-}
 
 // Managed the proxy
 
