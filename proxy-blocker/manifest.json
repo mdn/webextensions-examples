@@ -3,7 +3,7 @@
   "manifest_version": 2,
   "name": "Proxy-blocker",
   "description": "Uses the proxy API to block requests to specific hosts.",
-  "version": "1.0",
+  "version": "2.0",
 
   "icons": {
     "48": "icons/block.svg",
@@ -27,6 +27,6 @@
     "browser_style": true
   },
 
-  "permissions": ["proxy", "storage"]
+  "permissions": ["proxy", "storage", "<all_urls>"]
 
 }

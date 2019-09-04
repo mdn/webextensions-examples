@@ -1,0 +1,25 @@
+{
+
+  "description": "Theme with a single image placed centrally and then tiled. Also, illustrates the use of frame_inactive to change the header background color when the browser window isn't in focus. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "manifest_version": 2,
+  "name": "temp",
+  "version": "1.1",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themes/weta_tiled",
+
+  "theme": {
+     "colors": {
+          "frame": "blue", 
+          "frame_inactive": "#c6c6c6",
+          "toolbar_text": "black",
+          "tab_background_text":"black",
+          "tab_text":"black",
+          "sidebar_border":"black",
+          "toolbar_field_border":"black",
+          "tab_background_separator":"black",
+          "toolbar_top_separator":"black",
+          "toolbar_vertical_separator":"black",
+          "toolbar_bottom_separator":"black",
+          "toolbar_field_separator":"black"
+        }
+    }
+}

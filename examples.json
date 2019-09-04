@@ -410,13 +410,11 @@
         "name": "private-browsing-theme"
     },
     {
-        "description": "Uses the proxy API to block requests to specific hosts.",
+        "description": "Uses the proxy API to block requests to hosts specified on a list.",
         "javascript_apis": [
             "extension.getURL",
-            "proxy.onProxyError",
-            "proxy.register",
-            "runtime.onMessage",
-            "runtime.sendMessage",
+            "proxy.onRequest",
+            "proxy.onError",
             "storage.local",
             "storage.onChanged"
         ],
