@@ -1,28 +1,24 @@
 // Initialize the list of blocked hosts
-let blockedHosts = [];
-const defaultBlockedHosts = ["example.com", "example.org"];
+let blockedHosts = ["example.com", "example.org"];
 
-// set the defaults on install
+// Set the default list on installation.
 browser.runtime.onInstalled.addListener(details => {
   browser.storage.local.set({
-    blockedHosts: defaultBlockedHosts
+    blockedHosts: blockedHosts
   });
 });
 
-// Get the stored list, if there is one, or use defaults
+// Get the stored list
 browser.storage.local.get(data => {
   if (data.blockedHosts) {
     blockedHosts = data.blockedHosts;
-  } else {
-    blockedHosts = defaultBlockedHosts;
   }
 });
 
-// listen for changes in the blocked list
+// Listen for changes in the blocked list
 browser.storage.onChanged.addListener(changeData => {
   blockedHosts = changeData.blockedHosts.newValue;
 });
-
 
 // Managed the proxy
 
