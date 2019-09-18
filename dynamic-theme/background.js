@@ -1,3 +1,10 @@
+/**********************************************************************
+* Author(s): Andy McKay, Brian S. Wilson
+* Purpose: A dynamic theme coding example to display a day and a night
+*          theme based on the hour of the day.
+**********************************************************************/
+
+// Global Variables and Constants
 var currentTheme = '';
 
 const themes = {
@@ -21,29 +28,46 @@ const themes = {
   }
 };
 
+
+// Functions
+
 function setTheme(theme) {
-  if (currentTheme === theme) {
-    // No point in changing the theme if it has already been set.
-    return;
+  // Update the background theme...
+
+  // ...if we need to.
+  if (currentTheme !== theme) {
+    currentTheme = theme;
+    browser.theme.update(themes[theme]);
   }
-  currentTheme = theme;
-  browser.theme.update(themes[theme]);
+
+  return;
 }
 
 function checkTime() {
-  let date = new Date();
-  let hours = date.getHours();
-  // Will set the sun theme between 8am and 8pm.
-  if ((hours > 8) && (hours < 20)) {
-    setTheme('day');
-  } else {
-    setTheme('night');
-  }
+  // Decide which theme to display based on the time (hour).
+
+  let theme = 'night'; // Set default to night theme.
+  let hour = new Date().getHours();
+
+  // Use the day theme between 8 A.M. and 8 P.M.
+  if ((hour => 8) && (hour < 20)) { theme = 'day'); }
+
+  setTheme(theme);
+
+  return;
 }
 
-// On start up, check the time to see what theme to show.
-checkTime();
+// Main Logic
 
-// Set up an alarm to check this regularly.
+// Initialize: On start up, call checkTime() and set the initial theme
+// then on the hour, run checkTime() to reset the theme (if necessary).
+checkTime();
+let minutes = new Date().getMinutes();
+let milliseconds = (60-minutes)*60000;
+setTimeout(checkTime, milliseconds);
+
+// Set up an hourly recurring browser alarm to check if we need a new theme.
+// Since we did the setTimeout() to wait until the top of the hour, all future
+// checks should also occur near the top of the hour.
 browser.alarms.onAlarm.addListener(checkTime);
-browser.alarms.create('checkTime', {periodInMinutes: 5});
+browser.alarms.create('checkTime', {periodInMinutes: 60});
