@@ -50,7 +50,7 @@ function checkTime() {
   let hour = new Date().getHours();
 
   // Use the day theme between 8 A.M. and 8 P.M.
-  if ((hour => 8) && (hour < 20)) { theme = 'day'); }
+  if ((hour => 8) && (hour < 20)) { theme = 'day'; }
 
   setTheme(theme);
 
