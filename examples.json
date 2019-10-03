@@ -56,6 +56,7 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
+            "tabs.Tab",
             "windows.onFocusChanged"
         ],
         "name": "bookmark-it"
@@ -124,6 +125,7 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
+            "tabs.Tab",
             "tabs.sendMessage"
         ],
         "name": "cookie-bg-picker"
@@ -194,7 +196,8 @@
             "runtime.onMessage",
             "runtime.sendMessage",
             "tabs.create",
-            "tabs.query"
+            "tabs.query",
+            "tabs.Tab"
         ],
         "name": "find-across-tabs"
     },
@@ -407,13 +410,11 @@
         "name": "private-browsing-theme"
     },
     {
-        "description": "Uses the proxy API to block requests to specific hosts.",
+        "description": "Uses the proxy API to block requests to hosts specified on a list.",
         "javascript_apis": [
             "extension.getURL",
-            "proxy.onProxyError",
-            "proxy.register",
-            "runtime.onMessage",
-            "runtime.sendMessage",
+            "proxy.onRequest",
+            "proxy.onError",
             "storage.local",
             "storage.onChanged"
         ],
@@ -502,6 +503,7 @@
             "tabs.reload",
             "tabs.remove",
             "tabs.setZoom",
+            "tabs.Tab",
             "tabs.update"
         ],
         "name": "tabs-tabs-tabs"
