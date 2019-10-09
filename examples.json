@@ -555,6 +555,14 @@
         "name": "user-script"
     },
     {
+      "description": "Illustrates how an extension can register URL-matching user scripts at runtime.",
+      "javascript_apis": [
+        "userScripts.register",
+        "userScripts.onBeforeScript"
+      ],
+      "name": "user-script-register-v2"
+    },
+    {
         "description": "Demonstrates how to use webpack to package npm modules in an extension.",
         "javascript_apis": [
             "runtime.onMessage",
