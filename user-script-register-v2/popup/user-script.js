@@ -22,7 +22,7 @@ const defaultCode = `(async function () {
   const newStoredValue = await GM_getValue("testkey");
 
   const overwriteBody = () => {
-    document.body.innerHTML = \`<h1>This page has been eaten: $\{JSON.stringify({oldStoredValue, newStoredValue})\}<h1>\`
+    document.body.innerHTML = \`<h1>This page has been eaten: $\{JSON.stringify({oldStoredValue, newStoredValue})}<h1>\`
   }
 
   if (document.body) {
