@@ -99,12 +99,12 @@ async function registerScript() {
   });
 
   try {
-    // Clear the last contentScripts.register result.
+    // Clear the last userScripts.register result.
     lastResultEl.textContent = "";
 
     await browser.runtime.sendMessage(params);
     lastResultEl.textContent = "UserScript successfully registered";
-    // Clear the last contentScripts.register error.
+    // Clear the last userScripts.register error.
     lastErrorEl.textContent = "";
 
     // Clear the last error stored.
@@ -115,7 +115,7 @@ async function registerScript() {
     // the last error into the extension storage.
 
     const lastError = `${e}`;
-    // Show the last contentScripts.register error.
+    // Show the last userScripts.register error.
     lastErrorEl.textContent = lastError;
 
     // Store the last error.
