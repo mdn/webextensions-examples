@@ -9,7 +9,7 @@ in the console, but the alarm will still go off after 6 seconds
 a minute.
 */
 var DELAY = 0.1;
-var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
+var CATGIFS = "https://api.thecatapi.com/v1/images/search?&mime_types=gif";
 
 /*
 Restart alarm for the currently active tab, whenever background.js is run.
