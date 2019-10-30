@@ -10,6 +10,6 @@ How to use the browser.theme.getCurrent(), browser.theme.onUpdated and the sideb
 
 ## Instructions to try this
 
-- Install a WebExtension theme that sets `accentcolor`, `toolbar` or `toolbar_text`
+- Install a WebExtension theme that sets `frame`, `toolbar` or `toolbar_text`
 - Install this extension
 - The sidebar should then use colors from the WebExtension theme
