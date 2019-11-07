@@ -2,7 +2,7 @@
 
 ## What it does
 
-Employs a PNG image as the headerURL image in a theme.
+Employs a PNG image as the theme_frame image in a theme.
 
 ## What it shows
 
