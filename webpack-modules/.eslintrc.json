@@ -1,8 +1,0 @@
-{
-  "env": {
-    "browser": true,
-    "es6": true,
-    "amd": true,
-    "webextensions": true
-  }
-}
