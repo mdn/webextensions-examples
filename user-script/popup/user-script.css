@@ -1,4 +1,3 @@
-
 #outer-wrapper {
   padding: 0.5em;
 }
@@ -13,4 +12,5 @@ textarea {
   resize: none;
   border: 1px solid #e4e4e4;
   margin-bottom: 1em;
+  min-height: 380px;
 }

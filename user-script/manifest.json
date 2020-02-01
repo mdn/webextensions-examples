@@ -2,35 +2,39 @@
 
   "manifest_version": 2,
   "name": "User script",
-  "version": "1.1",
+  "version": "2.0",
 
   "applications": {
     "gecko": {
       "id": "user-script-example@mozilla.org",
-      "strict_min_version": "59.0a1"
+      "strict_min_version": "65.0"
     }
   },
 
-  "description": "Demonstration of contentScripts.register.",
+  "description": "Demonstration of userScripts.register.",
   "icons": {
     "48": "icons/if_source_code_103710.svg"
   },
 
   "permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "storage"
   ],
 
-  "browser_action": {
+  "sidebar_action": {
     "default_icon": {
      "32" : "icons/if_source_code_103710.svg"
     },
     "default_title": "User script",
-    "default_popup": "popup/user-script.html",
+    "default_panel": "popup/user-script.html",
     "browser_style": true
   },
 
   "background": {
     "scripts": ["background.js"]
-  }
+  },
 
+  "user_scripts": {
+    "api_script": "customUserScriptAPIs.js"
+  }
 }

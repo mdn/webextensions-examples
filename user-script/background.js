@@ -3,20 +3,34 @@
 var registered = null;
 
 async function registerScript(message) {
-
-  let hosts = message.hosts;
-  let code = message.code;
+  let {
+    scriptMetadata,
+    hosts,
+    code,
+    runAt,
+    excludeMatches,
+    includeGlobs,
+    excludeGlobs,
+    matchAboutBlank,
+    allFrames,
+  } = message;
 
   if (registered) {
-    registered.unregister();
+    await registered.unregister();
+    registered = null;
   }
 
-  registered = await browser.contentScripts.register({
+  registered = await browser.userScripts.register({
     matches: hosts,
     js: [{code}],
-    runAt: "document_idle"
+    runAt,
+    excludeMatches,
+    includeGlobs,
+    excludeGlobs,
+    matchAboutBlank,
+    allFrames,
+    scriptMetadata,
   });
-
 }
 
 browser.runtime.onMessage.addListener(registerScript);
