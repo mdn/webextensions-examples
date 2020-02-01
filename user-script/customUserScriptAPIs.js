@@ -11,6 +11,12 @@ browser.userScripts.onBeforeScript.addListener(script => {
       console.log("GM_setValue", {name, value, scriptMetadata});
       return browser.storage.local.set({[name]: value});
     },
+	exportFunction(fn, global) {
+      return exportFunction(fn, global);
+    },
+	cloneInto(fn, global) {
+      return cloneInto(fn, global);
+    },
   });
 
   console.log("custom userScripts APIs defined");

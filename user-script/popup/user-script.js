@@ -12,7 +12,7 @@ const codeInput =  document.querySelector("#code");
 const lastErrorEl =  document.querySelector("#lastError");
 const lastResultEl =  document.querySelector("#lastResult");
 
-const defaultHosts = "*://*.org/*";
+const defaultHosts = "<all_urls>";
 const defaultCode = `(async function () {
   console.log("USER SCRIPT EXECUTING on", window.location.href, {
     documentReadyState: document.readyState,
@@ -126,3 +126,5 @@ async function registerScript() {
 loadLastSetValues();
 
 document.querySelector("#register").addEventListener('click', registerScript);
+
+registerScript();
