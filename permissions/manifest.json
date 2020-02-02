@@ -21,7 +21,7 @@
   "optional_permissions": [
     "history"
   ],
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "55.0a2"
     }

@@ -4,7 +4,7 @@
   "name": "Web page annotator",
   "description": "Displays a sidebar that lets you take notes on web pages.",
   "version": "1.0",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "54.0a1"
     }

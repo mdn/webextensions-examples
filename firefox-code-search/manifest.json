@@ -2,7 +2,7 @@
   "name": "Firefox Code Search",
   "description" : "To use, type 'cs' plus a search term into the url bar.",
   "version": "1.0",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "52.0a1"
     }

@@ -16,7 +16,7 @@
   "icons": {
     "32": "icons/icon-32.png"
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "50.0"
     }
