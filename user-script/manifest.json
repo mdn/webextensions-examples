@@ -9,8 +9,8 @@
 
   "applications": {
     "gecko": {
-      "id": "user-script-example@mozilla.org",
-      "strict_min_version": "65.0"
+      "id": "kekkc@spambog.de",
+      "strict_min_version": "68.0"
     }
   },
 
