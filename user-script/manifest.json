@@ -2,7 +2,10 @@
 
   "manifest_version": 2,
   "name": "User script",
-  "version": "2.0",
+  "version": "2.1",
+  "author": "sdaniele3, Luca Greco, kekkc",
+  "homepage_url": "https://github.com/kekkc/webextensions-examples/tree/master/user-script"
+  "description": "User script POC with exportFunction / cloneInto support (runs at start, correct error messages, basic GM, limited on one userscript)",
 
   "applications": {
     "gecko": {
