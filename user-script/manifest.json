@@ -5,7 +5,7 @@
   "version": "2.1",
   "author": "sdaniele3, Luca Greco, kekkc",
   "homepage_url": "https://github.com/kekkc/webextensions-examples/tree/master/user-script",
-  "description": "User script POC with exportFunction / cloneInto support (runs at start, correct error messages, basic GM, limited on one userscript)",
+  "description": "Demonstration of userScripts.register. User script POC with exportFunction / cloneInto support (runs at start, correct error messages, basic GM, limited on one userscript)",
 
   "applications": {
     "gecko": {
@@ -14,7 +14,6 @@
     }
   },
 
-  "description": "Demonstration of userScripts.register.",
   "icons": {
     "48": "icons/if_source_code_103710.svg"
   },
