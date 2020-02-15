@@ -1,18 +1,11 @@
 'use strict';
 
-var registered = null;
+let registered = null;
 
 async function registerScript(message) {
-  let {
-    scriptMetadata,
+  const {
     hosts,
     code,
-    runAt,
-    excludeMatches,
-    includeGlobs,
-    excludeGlobs,
-    matchAboutBlank,
-    allFrames,
   } = message;
 
   if (registered) {
@@ -23,13 +16,6 @@ async function registerScript(message) {
   registered = await browser.userScripts.register({
     matches: hosts,
     js: [{code}],
-    runAt,
-    excludeMatches,
-    includeGlobs,
-    excludeGlobs,
-    matchAboutBlank,
-    allFrames,
-    scriptMetadata,
   });
 }
 

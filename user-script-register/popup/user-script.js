@@ -1,13 +1,6 @@
 'use strict';
 
 const hostsInput =  document.querySelector("#hosts");
-const runAtInput =  document.querySelector("#runAt");
-const excludeMatchesInput =  document.querySelector("#excludeMatches");
-const includeGlobsInput =  document.querySelector("#includeGlobs");
-const excludeGlobsInput =  document.querySelector("#excludeGlobs");
-const matchAboutBlankInput =  document.querySelector("#matchAboutBlank");
-const allFramesInput =  document.querySelector("#allFrames");
-const scriptNameInput =  document.querySelector("#scriptName");
 const codeInput =  document.querySelector("#code");
 const lastErrorEl =  document.querySelector("#lastError");
 const lastResultEl =  document.querySelector("#lastResult");
@@ -32,10 +25,6 @@ const defaultCode = `(async function () {
   }
 })();`;
 
-const defaultScriptMetadata = {
-  name: "my-registered-userscript",
-};
-
 hostsInput.value = defaultHosts;
 codeInput.value = defaultCode;
 
@@ -45,25 +34,10 @@ async function loadLastSetValues() {
   const {
     hosts,
     code,
-    runAt,
-    excludeMatches,
-    includeGlobs,
-    excludeGlobs,
-    matchAboutBlank,
-    allFrames,
-    scriptMetadata,
   } = params.lastSetValues || {};
 
   hostsInput.value = hosts ? hosts.join(",") : defaultHosts;
   codeInput.value = code ? code : defaultCode;
-  runAtInput.value = runAt ? runAt : "document_idle";
-  excludeMatchesInput.value = excludeMatches ? excludeMatches.join(",") : "";
-  includeGlobsInput.value = includeGlobs ? includeGlobs.join(",") : "";
-  excludeGlobsInput.value = excludeGlobs ? excludeGlobs.join(",") : "";
-  scriptNameInput.value = scriptMetadata ? scriptMetadata.name : defaultScriptMetadata.name;
-
-  matchAboutBlankInput.value = matchAboutBlank || false;
-  allFramesInput.value = allFrames || false;
 
   lastErrorEl.textContent = params.lastError || "";
 }
@@ -82,13 +56,6 @@ async function registerScript() {
   const params = {
     hosts: stringToArray(hostsInput.value),
     code: codeInput.value,
-    excludeMatches: stringToArray(excludeMatchesInput.value),
-    includeGlobs: stringToArray(includeGlobsInput.value),
-    excludeGlobs: stringToArray(excludeGlobsInput.value),
-    runAt: runAtInput.value,
-    matchAboutBlank: stringToBool(matchAboutBlankInput.value),
-    allFrames: stringToBool(allFramesInput.value),
-    scriptMetadata: {name: scriptNameInput.value || null},
   };
 
   // Store the last submitted values to the extension storage

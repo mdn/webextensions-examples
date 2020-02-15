@@ -95,6 +95,15 @@
         "name": "commands"
     },
     {
+        "description": "Illustrates how an extension can register URL-matching content scripts at runtime.",
+        "javascript_apis": [
+            "contentScripts.register",
+            "runtime.onMessage",
+            "runtime.sendMessage"
+        ],
+        "name": "content-script-register"
+    },
+    {
         "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML.",
         "javascript_apis": [
             "contextMenus.create",
@@ -546,13 +555,13 @@
         "name": "user-agent-rewriter"
     },
     {
-        "description": "Illustrates how an extension can register URL-matching content scripts at runtime.",
+        "description": "Illustrates how an extension can register URL-matching user scripts at runtime.",
         "javascript_apis": [
-            "contentScripts.register",
+            "userScripts.register",
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "user-script"
+        "name": "user-script-register"
     },
     {
         "description": "Demonstrates how to use webpack to package npm modules in an extension.",
