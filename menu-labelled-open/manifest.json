@@ -4,7 +4,7 @@
   "name": "Labelled open",
   "description": "Adds a context menu item that labels links with the hostname. Demo of onShown and refresh().",
   "version": "1.0",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "60.0a1"
     }

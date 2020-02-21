@@ -19,7 +19,7 @@
     "default_title": "Mocha Test",
     "default_popup": "popup.html"
   },
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "45.0"
     }

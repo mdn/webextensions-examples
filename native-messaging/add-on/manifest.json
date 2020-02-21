@@ -8,7 +8,7 @@
     "48": "icons/message.svg"
   },
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "ping_pong@example.org",
       "strict_min_version": "50.0"

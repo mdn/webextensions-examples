@@ -11,7 +11,7 @@
     "default_panel": "sidebar.html"
   },
   "version": "1.0",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "theme-integrated-sidebar@mozilla.org",
       "strict_min_version": "58.0a1"

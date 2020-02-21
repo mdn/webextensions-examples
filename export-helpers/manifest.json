@@ -9,7 +9,7 @@
     "48": "icons/arrow.svg"
   },
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "export-helpers@mozilla.org",
       "strict_min_version": "49.0"
