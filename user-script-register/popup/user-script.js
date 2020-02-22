@@ -48,10 +48,6 @@ function stringToArray(value) {
   return res.length > 0 ? res : null;
 }
 
-function stringToBool(value) {
-  return value === "true";
-}
-
 async function registerScript() {
   const params = {
     hosts: stringToArray(hostsInput.value),

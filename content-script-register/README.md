@@ -2,7 +2,7 @@
 
 This extension demonstrates the `browser.contentScripts.register()` API, which enables an extension to register URL-matching content scripts at runtime.
 
-If you want functionality to load user scripts, scripts that can be provided access to extension APIs not available to content scripts, please refer to the [user script registration](https://github.com/mdn/webextensions-examples/tree/master/user-script-register) example.
+The contentScripts.register() API is intended to enable an extension to register scripts that are packaged in the extension. If you want to register third-party user scripts, use the [userScripts API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts). Please refer to [user script registration](https://github.com/mdn/webextensions-examples/tree/master/user-script-register) for an example of that API.
 
 This extension adds a browser action that shows a popup. The popup lets you specify:
 
