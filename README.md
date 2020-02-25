@@ -6,14 +6,14 @@ Maintained by the [MDN team at Mozilla](https://wiki.mozilla.org/MDN).
 
 WebExtensions are a way to write browser extensions: that is, programs
 installed inside a web browser that modify the behavior of the browser or
-of web pages loaded by the browser. WebExtensions are built on a set of
+web pages loaded by the browser. WebExtensions are built on a set of
 cross-browser APIs, so WebExtensions written for Google Chrome, Opera, or 
 Edge will, in most cases, run in Firefox too.
 
 The "webextensions-examples" repository is a collection of simple, 
 complete, and installable WebExtensions. The examples show how to use the
 WebExtensions APIs, and you can use them as a starting point for your 
-own WebExtensions.
+WebExtensions.
 
 For an index of all the examples, see the ["Example extensions" page on MDN](https://developer.mozilla.org/Add-ons/WebExtensions/Examples).
 
@@ -60,7 +60,7 @@ To run an example extension:
    [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext)
    tool. At the command line, open the example extension's folder and type
    `web-ext run`. This launches Firefox and installs the extension automatically.
-   This tool provides some additional development features such as
+   This tool provides some additional development features, such as
    [automatic reloading](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext#Automatic_extension_reloading).
 
 ## Support for other browsers
