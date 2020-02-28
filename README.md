@@ -85,7 +85,7 @@ for getting started guides, tutorials, and full API reference docs.
 If you encounter an issue:
 - post a query on the [add-ons discourse forum](https://discourse.mozilla.org/c/add-ons)
 - email the [dev-addons mailing list](https://mail.mozilla.org/listinfo/dev-addons)
-- contact the WebExtensions team in the #webextensions IRC channel on irc.mozilla.org
+- contact the add-ons team in the [Add-ons room](https://chat.mozilla.org/#/room/#addons:mozilla.org) on [Matrix](https://wiki.mozilla.org/Matrix)
 
 If you cannot resolve the issue, [file a bug](https://github.com/mdn/webextensions-examples/issues/new).
 
