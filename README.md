@@ -26,7 +26,7 @@ To use the repository, first clone it.
 
 Each example is in a top-level folder and includes a short README explaining
 what it does. To see how an example works, install it in Firefox by following 
-the ([installation instructions](#installing-an-example). 
+the [installation instructions](#installing-an-example). 
 
 To find your way around a WebExtension's internal structure, have a look at the
 [Anatomy of a WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
