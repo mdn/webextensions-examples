@@ -1,7 +1,7 @@
 {
   "name": "ping_pong",
   "description": "Example host for native messaging",
-  "path": "/path/to/native-messaging/app/ping_pong.py",
+  "path": "D:\\work_github\\webextensions-examples\\native-messaging\\app\\ping_pong_win.bat",
   "type": "stdio",
   "allowed_extensions": [ "ping_pong@example.org" ]
 }
