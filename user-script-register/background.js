@@ -6,6 +6,7 @@ async function registerScript(message) {
   const {
     hosts,
     code,
+    userScriptID,
   } = message;
 
   if (registered) {
@@ -16,6 +17,7 @@ async function registerScript(message) {
   registered = await browser.userScripts.register({
     matches: hosts,
     js: [{code}],
+    scriptMetadata: {userScriptID},
   });
 }
 

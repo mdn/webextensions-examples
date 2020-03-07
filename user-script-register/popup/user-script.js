@@ -2,6 +2,7 @@
 
 const hostsInput =  document.querySelector("#hosts");
 const codeInput =  document.querySelector("#code");
+const userScriptIDInput =  document.querySelector("#userScriptID");
 const lastErrorEl =  document.querySelector("#lastError");
 const lastResultEl =  document.querySelector("#lastResult");
 
@@ -24,9 +25,11 @@ const defaultCode = `(async function () {
     window.addEventListener("load", overwriteBody, {once: true});
   }
 })();`;
+const defaultUserScriptID = "user_script_01";
 
 hostsInput.value = defaultHosts;
 codeInput.value = defaultCode;
+userScriptIDInput.value = defaultUserScriptID;
 
 async function loadLastSetValues() {
   const params = await browser.storage.local.get();
@@ -34,10 +37,12 @@ async function loadLastSetValues() {
   const {
     hosts,
     code,
+    userScriptID,
   } = params.lastSetValues || {};
 
   hostsInput.value = hosts ? hosts.join(",") : defaultHosts;
   codeInput.value = code ? code : defaultCode;
+  userScriptIDInput.value = userScriptID ? userScriptID : defaultUserScriptID;
 
   lastErrorEl.textContent = params.lastError || "";
 }
@@ -52,6 +57,7 @@ async function registerScript() {
   const params = {
     hosts: stringToArray(hostsInput.value),
     code: codeInput.value,
+    userScriptID: userScriptID.value,
   };
 
   // Store the last submitted values to the extension storage
