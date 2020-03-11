@@ -34,7 +34,7 @@
   */
   function insertImage(imageURL) {
     const insertImage = document.createElement("iframe");
-    insertImage.setAttribute("src", browser.extension.getURL(`/viewer.html?blobURL=${imageURL}`));
+    insertImage.setAttribute("src", browser.runtime.getURL(`/viewer.html?blobURL=${imageURL}`));
     insertImage.setAttribute("style", "width: 100vw; height: 100vh;");
     document.body.appendChild(insertImage);
   }  
