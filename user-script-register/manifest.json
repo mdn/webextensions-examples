@@ -1,0 +1,40 @@
+{
+
+  "manifest_version": 2,
+  "name": "User script registration",
+  "version": "1.0",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "user-script-example@mozilla.org",
+      "strict_min_version": "65.0"
+    }
+  },
+
+  "description": "Demonstration of userScripts.register.",
+  "icons": {
+    "48": "icons/if_source_code_103710.svg"
+  },
+
+  "permissions": [
+    "<all_urls>",
+    "storage"
+  ],
+
+  "sidebar_action": {
+    "default_icon": {
+     "32" : "icons/if_source_code_103710.svg"
+    },
+    "default_title": "User script",
+    "default_panel": "popup/user-script.html",
+    "browser_style": true
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "user_scripts": {
+    "api_script": "customUserScriptAPIs.js"
+  }
+}
