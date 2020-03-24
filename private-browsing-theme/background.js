@@ -8,11 +8,11 @@ function themeWindow(window) {
   if (window.incognito) {
     browser.theme.update(window.id, {
       images: {
-        headerURL: "",
+        theme_frame: "",
       },
       colors: {
-        accentcolor: "black",
-        textcolor: "white",
+        frame: "black",
+        tab_background_text: "white",
         toolbar: "#333",
         toolbar_text: "white"
       }
