@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "IRC Protocol Handler",
-  "description": "Demo the usage of protocol_handlers",
+  "description": "Demos the usage of protocol_handlers",
   "version": "1.0.0",
   "icons": {
     "64": "icons/icon.png"
