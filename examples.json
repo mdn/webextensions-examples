@@ -584,7 +584,7 @@
         "name": "window-manipulator"
     },
     {
-        "description": "Demonstrates usage of the protocol handlers.",
+        "description": "Demonstrates the use of protocol handlers.",
         "javascript_apis": [],
         "name": "open-irc-links"
     }
