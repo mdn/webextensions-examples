@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "IRC Protocol Handler",
+  "description": "Demos the usage of protocol_handlers",
+  "version": "1.0.0",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "irc",
+      "name": "IRC Mibbit Extension",
+      "uriTemplate": "https://mibbit.com/?url=%s"
+    }
+  ]
+}

@@ -582,5 +582,10 @@
             "windows​.Window"
         ],
         "name": "window-manipulator"
+    },
+    {
+        "description": "Demonstrates the use of protocol handlers.",
+        "javascript_apis": [],
+        "name": "open-irc-links"
     }
 ]
