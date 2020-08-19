@@ -1,20 +1,17 @@
-function saveOptions(e) {
-  browser.storage.sync.set({
+async function saveOptions(e) {
+  e.preventDefault();
+  await browser.storage.sync.set({
     colour: document.querySelector("#colour").value
   });
-  e.preventDefault();
 }
 
-function restoreOptions() {
-  var storageItem = browser.storage.managed.get('colour');
-  storageItem.then((res) => {
-    document.querySelector("#managed-colour").innerText = res.colour;
-  });
+async function restoreOptions() {
+  let res = await browser.storage.managed.get('colour');
+  document.querySelector("#managed-colour").innerText = res.colour;
 
-  var gettingItem = browser.storage.sync.get('colour');
-  gettingItem.then((res) => {
-    document.querySelector("#colour").value = res.colour || 'Firefox red';
-  });
+  res = await browser.storage.sync.get('colour');
+  document.querySelector("#colour").value = res.colour || 'Firefox red';
+  
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
