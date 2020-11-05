@@ -10,7 +10,7 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "https://example.com/*"
+    "webRequest", "webRequestBlocking", "https://example.com/*", "https://www.w3.org/*"
   ],
 
   "background": {
