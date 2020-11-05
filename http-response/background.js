@@ -149,6 +149,6 @@ function detectCharset(contentType) {
       return undefined;
   }
   let charsetMaybeQuoted = contentType.substr(foundIndex+charsetMarker.length).trim();
-  let charset = charsetMaybeQuoted.replace(/\"/g, '');
+  let charset = charsetMaybeQuoted.replace(/"/g, '');
   return charset;
 }
