@@ -20,6 +20,7 @@ function listener(details) {
   }
   
   filter.onstop = async e => {
+    fullStr += decoder.decode(); //Flush the buffer
     // Just change any instance of Example or Test in the HTTP response
     // to WebExtension Example or WebExtension Test.
     let mutatedStr = fullStr.replace(/Example/g, 'WebExtension Example');
