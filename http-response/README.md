@@ -3,12 +3,12 @@
 ## What it does
 
 Listens to HTTP Responses from example.com and w3.org and changes "Example" to "WebExtension Example" and
-"Test" to "WebExtension Test" in the web pages contents. 
+"Test" to "WebExtension Test" in the web pages' contents. 
 
 ## What it shows
 
 A real-world example of WebRequest that shows three important details not always found in beginning examples:
- - The accumulation of data through multiple calls to .ondata
+ - The accumulation of data through multiple calls to `.ondata`
  - The decoding of binary data to text in a streaming fashion.
  - Text decoding that tries to respect the page's reported encoding via Content-Type.
 
