@@ -2,8 +2,7 @@
 
 ## What it does
 
-Listens to HTTP Responses from example.com and w3.org and changes "Example" to "WebExtension Example" and
-"Test" to "WebExtension Test" in the web pages' contents. 
+Listens to HTTP Responses from example.com and w3.org and changes "Test" to "WebExtension Test" in the web pages' contents. 
 
 ## What it shows
 

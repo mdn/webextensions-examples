@@ -21,10 +21,8 @@ function listener(details) {
   
   filter.onstop = async e => {
     fullStr += decoder.decode(); //Flush the buffer
-    // Just change any instance of Example or Test in the HTTP response
-    // to WebExtension Example or WebExtension Test.
-    let mutatedStr = fullStr.replace(/Example/g, 'WebExtension Example');
-    mutatedStr = mutatedStr.replace(/Test/g, 'WebExtension Test');
+    // Just change any instance of Test in the HTTP response to WebExtension Test.
+    let mutatedStr = mutatedStr.replace(/Test/g, 'WebExtension Test');
     filter.write(encoder.encode(mutatedStr));
     filter.close();
   }
@@ -45,7 +43,7 @@ function listener(details) {
 browser.webRequest.onHeadersReceived.addListener(
   listener,
   {
-    urls: ["https://example.com/*", "https://www.w3.org/*"], // Include W3 for testing charset detection.
+    urls: ["https://www.w3.org/*"], // Include W3 for testing charset detection.
     types: ["main_frame"]
   },
   ["blocking","responseHeaders"]
