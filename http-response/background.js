@@ -27,15 +27,6 @@ function listener(details) {
     filter.close();
   }
 
-  filter.onerror = e => {
-    try {
-        filter.close();
-        console.log('Filter error: '+e+', '+ex);
-    } catch(ex) {
-        console.log('Filter error while closing: '+e+', '+ex);
-    }
-  }
-
   // Because details response headers have been mutated, return it
   return details;
 }
