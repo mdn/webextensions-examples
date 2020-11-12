@@ -1,4 +1,8 @@
 function listener(details) {
+  // If the HTTP response code is not OK, just let it flow through normally.
+  if (details.statusCode < 200 || 300 <= details.statusCode) {
+    return details;
+  }
   // The received data is a stream of bytes. In order to do text-based
   // modifications, it is necessary to decode the bytes into a string
   // using the proper character encoding, do any modifications, then
@@ -22,7 +26,7 @@ function listener(details) {
   filter.onstop = async e => {
     fullStr += decoder.decode(); //Flush the buffer
     // Just change any instance of Test in the HTTP response to WebExtension Test.
-    let mutatedStr = mutatedStr.replace(/Test/g, 'WebExtension Test');
+    let mutatedStr = fullStr.replace(/Test/g, 'WebExtension Test');
     filter.write(encoder.encode(mutatedStr));
     filter.close();
   }
