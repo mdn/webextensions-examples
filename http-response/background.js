@@ -1,17 +1,64 @@
 function listener(details) {
   // If the HTTP response code is not OK, just let it flow through normally.
   if (details.statusCode < 200 || 300 <= details.statusCode) {
-    return details;
+    console.log('HTTP Status Code was '+details.statusCode+' not 2XX for '+details.url+', skipping filtering.');
+    return;
   }
+
   // The received data is a stream of bytes. In order to do text-based
   // modifications, it is necessary to decode the bytes into a string
   // using the proper character encoding, do any modifications, then
   // encode back into a stream of bytes.
-  // Historically, detecting character encoding has been a tricky task
-  // taken on by the browser. Here, a simplified approach is taken
-  // and the complexity is hidden in a helper method.
-  let decoder, encoder;
-  [decoder, encoder] = detectCharsetAndSetupDecoderEncoder(details);
+  //
+  // In order to use the correct decoding, one needs to detect the charset.
+  // Please note that there are many complex rules to detect the charset,
+  // and no approach with scanning only the response headers will be
+  // fully accurate. The simplified approach here is to find the
+  // Content-Type and extract the charset if found.
+
+  let {responseHeaders} = details;
+
+  // Find the last Content-Type header.
+  let contentTypeHeader = responseHeaders
+        .slice().reverse()
+        .find(h => h.name.toLowerCase() == "content-type");
+
+  // If Content-Type header is not set, the browser is going to do content-sniffing,
+  // and we should also return to avoid trouble (e.g. breaking downloads, PDFs, videos, ...).
+  if (contentTypeHeader === undefined) {
+    console.log('Content-Type header not found for '+details.url+', skipping filtering');
+    return;
+  }
+
+  // If it not a supported content type, we will return rather than guess.
+  let baseType;
+  let contentType = contentTypeHeader.value.trim();
+  if(contentType.startsWith('text/html')) {
+    baseType = 'text/html';
+  } else if (contentType.startsWith('application/xhtml+xml')) {
+    baseType = 'application/xhtml+xml';
+  } else {
+    console.log('Content type '+contentType+' not supported for '+details.url+', skipping filtering.');
+    return;
+  }
+
+  // Set up TextDecoder
+  console.log('Initial checks passed, beginning charset detection for '+details.url);
+  let charset = detectCharset(contentType) || 'utf-8';
+  let decoder = new TextDecoder(charset);
+  console.log('The detected charset was '+charset+' for '+details.url);
+
+  // While TextDecoder supports most charset encodings, TextEncoder does NOT support
+  // other than 'utf-8', so it is necessary to change the Content-Type on the header
+  // to UTF-8. If modifying this block of code, ensure that the tests at
+  // https://www.w3.org/2006/11/mwbp-tests/index.xhtml
+  // pass - current implementation only fails on #9 but this detection ensures
+  // tests #3,4,5, and 8 pass.
+  let encoder = new TextEncoder(); 
+  contentTypeHeader.value = baseType+';charset=utf-8';
+
+  
+  // Now the actual filtering can begin!
   let filter = browser.webRequest.filterResponseData(details.requestId);
   let fullStr = '';
   
@@ -31,8 +78,21 @@ function listener(details) {
     filter.close();
   }
 
-  // Because details response headers have been mutated, return it
+  // Because details response headers have been mutated, return them
   return details;
+}
+
+// This code tries to snag the last charset indicated
+// but is still not robust to poorly formed inputs.
+function detectCharset(contentType) {
+  let charsetMarker = "charset=";
+  let foundIndex = contentType.lastIndexOf(charsetMarker);
+  if (foundIndex == -1) {
+      return undefined;
+  }
+  let charsetMaybeQuoted = contentType.substr(foundIndex+charsetMarker.length).trim().toLowerCase();
+  let charset = charsetMaybeQuoted.replace(/"/g, '');
+  return charset;
 }
 
 browser.webRequest.onHeadersReceived.addListener(
@@ -43,105 +103,3 @@ browser.webRequest.onHeadersReceived.addListener(
   },
   ["blocking","responseHeaders"]
 );
-
-// This helper method does a few things regarding character encoding:
-// 1) Detects the charset for the TextDecoder so that bytes are properly turned into strings
-// 2) Ensures the output Content-Type is UTF-8 because that is what TextEncoder supports
-// 3) Returns the decoder/encoder pair
-function detectCharsetAndSetupDecoderEncoder(details) {
-  let contentType = '';
-  let headerIndex = -1;
-  for(let i=0; i<details.responseHeaders.length; i++) {
-      let header = details.responseHeaders[i];
-      if(header.name.toLowerCase() == "content-type") {
-          contentType = header.value.toLowerCase();
-          headerIndex = i;
-          break;
-      }
-  }
-  if (headerIndex == -1) {
-    console.log('No Content-Type header detected for '+details.url+', adding one.');
-    headerIndex = details.responseHeaders.length;
-    contentType = 'text/html';
-    details.responseHeaders.push(
-      {
-        "name": "Content-Type",
-        "value":"text/html"
-      }
-    );
-  }
-
-  let baseType;
-  if(contentType.trim().startsWith('text/html')) {
-    baseType = 'text/html';
-    console.log('Detected base type was '+baseType);
-  } else if(contentType.trim().startsWith('application/xhtml+xml')) {
-    baseType = 'application/xhtml+xml';
-    console.log('Detected base type was '+baseType);
-  } else {
-    baseType = 'text/html';
-    console.log('The Content-Type was '+contentType+', not text/html or application/xhtml+xml - results might be strange.');
-  }
-
-  // It is important to detect the charset to correctly initialize TextDecoder or
-  // else we run into garbage output sometimes.
-  // However, TextEncoder does NOT support other than 'utf-8', so it is necessary
-  // to change the Content-Type on the header to UTF-8
-  // If modifying this block of code, ensure that the tests at
-  // https://www.w3.org/2006/11/mwbp-tests/index.xhtml
-  // all pass - current implementation only fails on #9 but this detection ensures
-  // tests #3,4,5, and 8 pass.
-  let decodingCharset = 'utf-8';
-  let detectedCharset = detectCharset(contentType);
-
-  if(detectedCharset !== undefined) {
-      decodingCharset = detectedCharset;
-      console.log('Detected charset was ' + decodingCharset + ' for ' + details.url);
-  }
-  details.responseHeaders[headerIndex].value = baseType+';charset=utf-8';
-
-  let decoder = new TextDecoder(decodingCharset);
-  let encoder = new TextEncoder(); //Encoder does not support non-UTF-8 charsets so this is always utf-8.
-
-  return [decoder,encoder];
-}
-
-// Detect the charset from Content-Type
-function detectCharset(contentType) {
-  /*
-  From https://tools.ietf.org/html/rfc7231#section-3.1.1.5:
-
-  A parameter value that matches the token production can be
-  transmitted either as a token or within a quoted-string.  The quoted
-  and unquoted values are equivalent.  For example, the following
-  examples are all equivalent, but the first is preferred for
-  consistency:
-
-  text/html;charset=utf-8
-  text/html;charset=UTF-8
-  Text/HTML;Charset="utf-8"
-  text/html; charset="utf-8"
-
-  Internet media types ought to be registered with IANA according to
-  the procedures defined in [BCP13].
-
-  Note: Unlike some similar constructs in other header fields, media
-  type parameters do not allow whitespace (even "bad" whitespace)
-  around the "=" character.
-
-  ...
-
-  And regarding application/xhtml+xml, from https://tools.ietf.org/html/rfc3236#section-2
-  and the referenced links, it can be seen that charset is handled the same way with
-  respect to Content-Type.
-  */
-
-  let charsetMarker = "charset="; // Spaces *shouldn't* matter
-  let foundIndex = contentType.indexOf(charsetMarker);
-  if (foundIndex == -1) {
-      return undefined;
-  }
-  let charsetMaybeQuoted = contentType.substr(foundIndex+charsetMarker.length).trim();
-  let charset = charsetMaybeQuoted.replace(/"/g, '');
-  return charset;
-}
