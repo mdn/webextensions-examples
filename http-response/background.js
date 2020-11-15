@@ -53,28 +53,40 @@ function listener(details) {
   // to UTF-8. If modifying this block of code, ensure that the tests at
   // https://www.w3.org/2006/11/mwbp-tests/index.xhtml
   // pass - current implementation only fails on #9 but this detection ensures
-  // tests #3,4,5, and 8 pass.
+  // tests #3, 4, 5, and 8 pass.
   let encoder = new TextEncoder(); 
   contentTypeHeader.value = baseType+';charset=utf-8';
 
   
   // Now the actual filtering can begin!
   let filter = browser.webRequest.filterResponseData(details.requestId);
-  let fullStr = '';
+  let unprocessedStr = '';
+  let searchString = 'Test';
+  let leaveUnprocessedLength = searchString.length - 1;
   
   filter.ondata = e => {
     // Note that the event's data may break in the middle of an encoded
     // character - the stream parameter is critical for success as this
     // method gets called multiple times.
-    let str = decoder.decode(e.data, {stream: true});
-    fullStr += str;
+    unprocessedStr += decoder.decode(e.data, {stream: true});
+    // Process the received data as far as possible.
+    // Note this replacement is rather naive but demonstrates the idea
+    // If the search string was contained in the replacement string, 
+    // for instance, the repeated replacement like this could be bad.
+    unprocessedStr = unprocessedStr.replace(/Test/g, 'WebExtension Check');
+    if(unprocessedStr.length > leaveUnprocessedLength) {
+      let processedStr = unprocessedStr.substr(0, leaveUnprocessedLength);
+      unprocessedStr = unprocessedStr.substr(leaveUnprocessedLength);
+      filter.write(encoder.encode(processedStr));
+    }
   }
   
-  filter.onstop = async e => {
-    fullStr += decoder.decode(); //Flush the buffer
-    // Just change any instance of Test in the HTTP response to WebExtension Test.
-    let mutatedStr = fullStr.replace(/Test/g, 'WebExtension Test');
-    filter.write(encoder.encode(mutatedStr));
+  filter.onstop = async _ => {
+    // Flush the decoding buffer
+    unprocessedStr += decoder.decode();
+    // Flush our replacement buffer
+    let processedStr = unprocessedStr.replace(/Test/g, 'WebExtension Check');
+    filter.write(encoder.encode(processedStr));
     filter.close();
   }
 
@@ -95,6 +107,7 @@ function detectCharset(contentType) {
   return charset;
 }
 
+// Set up the actual webRequest hook
 browser.webRequest.onHeadersReceived.addListener(
   listener,
   {
