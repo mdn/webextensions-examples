@@ -19,6 +19,9 @@ A real-world example of WebRequest that shows four important details not always 
 The domain w3.org is included in the list of domains to allow testing against [this suite of standardized tests](https://www.w3.org/2006/11/mwbp-tests/index.xhtml)
 regarding text encoding. Tests #1-8 pass, test #9 currently fails.
 
+For inspiration about how to make the charset detection more robust, see:
+https://github.com/Rob--W/open-in-browser/commit/a6b926ea9522b35298632e5e6a2c89ddb456c5d9
+
 ## Credits
 
 Icon is from: https://www.iconfinder.com/icons/763339/draw_edit_editor_pen_pencil_tool_write_icon#size=128
