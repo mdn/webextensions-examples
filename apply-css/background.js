@@ -29,9 +29,8 @@ function toggleCSS(tab) {
 Returns true only if the URL's protocol is in APPLICABLE_PROTOCOLS.
 */
 function protocolIsApplicable(url) {
-  var anchor =  document.createElement('a');
-  anchor.href = url;
-  return APPLICABLE_PROTOCOLS.includes(anchor.protocol);
+  const protocol = (new URL(url)).protocol;
+  return APPLICABLE_PROTOCOLS.includes(protocol);
 }
 
 /*
