@@ -27,9 +27,13 @@ To assist in troubleshooting on Windows, there is a script called `check_config_
 
 Then just install the add-on as usual, by visiting about:debugging, clicking "Load Temporary Add-on", and selecting the add-on's "manifest.json".
 
-You should see a new browser action icon in the toolbar. Open the console ("Tools/Web Developer/Browser Console" in Firefox), and click the browser action icon. You should see output like this in the console:
+Now, open the extension's console using the "Inspect" button - this is where you'll see communication between the browser and native app. 
+
+You should see a new browser action icon in the toolbar. Click it. You should see output like this in the console:
 
     Sending: ping
-    Received: pong
+    Received: pong3
+
+If you're running Python 2.x, you'll see "pong2" as the response instead. 
 
 If you don't see this output, see the [Troubleshooting guide](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#Troubleshooting) for ideas.
