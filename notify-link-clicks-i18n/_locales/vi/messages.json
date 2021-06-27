@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Thông báo liên kết bị bấm phải - i18n",
+    "description": "Tên của phần mở rộng."
+  },
+
+  "extensionDescription": {
+    "message": "Hiện thông báo khi người dùng bấm vào liên kết.",
+    "description": "Mô tả cho phần mở rộng."
+  },
+
+  "notificationTitle": {
+    "message": "Thông báo bấm chuột",
+    "description": "Tiêu đề của thông báo bấm chuột."
+  },
+
+  "notificationContent": {
+    "message": "Bạn đã bấm vào $URL$.",
+    "description": "Cho người dùng biết liên kết đã bấm phải.",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
+  }
+}
