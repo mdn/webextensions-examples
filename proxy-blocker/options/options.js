@@ -14,12 +14,10 @@ function updateUI(restoredSettings) {
   blockedHostsTextArea.value = restoredSettings.blockedHosts.join("\n");
 }
 
-function onError(e) {
-  console.error(e);
-}
-
 // On opening the options page, fetch stored settings and update the UI with them.
-browser.storage.local.get().then(updateUI, onError);
+browser.storage.local.get(['blockedHosts'], function(result) {
+  updateUI(result);
+});
 
 // Whenever the contents of the textarea changes, save the new values
 blockedHostsTextArea.addEventListener("change", storeSettings);
