@@ -123,7 +123,7 @@
         "name": "contextual-identities"
     },
     {
-        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
+        "description": "Allows the user to customize the background color and tiled pattern on sites they visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
         "javascript_apis": [
             "cookies.get",
             "cookies.onChanged",
