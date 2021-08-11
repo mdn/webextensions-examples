@@ -1,6 +1,6 @@
 // Zoom constants. Define Max, Min, increment and default values
 const ZOOM_INCREMENT = 0.2;
-const MAX_ZOOM = 3;
+const MAX_ZOOM = 5;
 const MIN_ZOOM = 0.3;
 const DEFAULT_ZOOM = 1;
 
@@ -120,7 +120,7 @@ document.addEventListener("click", (e) => {
     callOnActiveTab((tab) => {
       var gettingZoom = browser.tabs.getZoom(tab.id);
       gettingZoom.then((zoomFactor) => {
-        //the maximum zoomFactor is 3, it can't go higher
+        //the maximum zoomFactor is 5, it can't go higher
         if (zoomFactor >= MAX_ZOOM) {
           alert("Tab zoom factor is already at max!");
         } else {
