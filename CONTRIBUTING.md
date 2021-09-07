@@ -71,5 +71,4 @@ If you're not sure about that, just ask.
 
 ## Getting help
 
-If you need help with writing a WebExtension, email the [dev-addons mailing list](https://mail.mozilla.org/listinfo/dev-addons) or contact the
-WebExtensions team in the #webextensions IRC channel on irc.mozilla.org.
+If you need help with writing a WebExtension, please post on our [add-ons community forum](https://discourse.mozilla.org/c/add-ons/development/) or ask in the [Add-ons channel](https://chat.mozilla.org/#/room/#addons:mozilla.org) on [Mozilla's Matrix instance](https://wiki.mozilla.org/Matrix). 
