@@ -16,6 +16,8 @@ function setSidebarStyle(theme) {
   
   if (theme.colors && theme.colors.bookmark_text) {
     myElement.style.color = theme.colors.bookmark_text;
+  } else if (theme.colors && theme.colors.toolbar_text) {
+    myElement.style.color = theme.colors.toolbar_text;
   } else {
     myElement.style.color = "black";
   }
