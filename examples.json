@@ -460,7 +460,7 @@
         "name": "selection-to-clipboard"
     },
     {
-        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs.",
+        "description": "Demonstrates how to retrieve extension-defined state from restored tabs.",
         "javascript_apis": [
             "menus.create",
             "menus.onClicked",
