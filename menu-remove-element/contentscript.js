@@ -52,7 +52,7 @@
   });
   
   
-  var highlightedBox;
+  let highlightedBox;
   function highlightElement(element) {
     removeHighlights();
     let boundingRect = element.getBoundingClientRect();

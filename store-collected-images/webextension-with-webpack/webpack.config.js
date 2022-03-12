@@ -41,7 +41,7 @@ module.exports = {
   },
   plugins: [
     // Since some NodeJS modules expect to be running in Node, it is helpful
-    // to set this environment var to avoid reference errors.
+    // to set this environment let to avoid reference errors.
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),

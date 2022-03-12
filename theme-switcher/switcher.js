@@ -1,4 +1,4 @@
-var themeList = document.getElementById('theme-list');
+let themeList = document.getElementById('theme-list');
 
 function enableTheme(e) {
   browser.management.setEnabled(e.target.value, true);

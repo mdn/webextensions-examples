@@ -1,5 +1,5 @@
-var currentTab;
-var currentBookmark;
+let currentTab;
+let currentBookmark;
 
 /*
  * Updates the browserAction icon to reflect whether the current page
@@ -42,8 +42,8 @@ browser.browserAction.onClicked.addListener(toggleBookmark);
 function updateActiveTab(tabs) {
 
   function isSupportedProtocol(urlString) {
-    var supportedProtocols = ["https:", "http:", "ftp:", "file:"];
-    var url = document.createElement('a');
+    let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
+    let url = document.createElement('a');
     url.href = urlString;
     return supportedProtocols.indexOf(url.protocol) != -1;
   }
@@ -52,7 +52,7 @@ function updateActiveTab(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
       if (isSupportedProtocol(currentTab.url)) {
-        var searching = browser.bookmarks.search({url: currentTab.url});
+        let searching = browser.bookmarks.search({url: currentTab.url});
         searching.then((bookmarks) => {
           currentBookmark = bookmarks[0];
           updateIcon();
@@ -63,7 +63,7 @@ function updateActiveTab(tabs) {
     }
   }
 
-  var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+  let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
   gettingActiveTab.then(updateTab);
 }
 
