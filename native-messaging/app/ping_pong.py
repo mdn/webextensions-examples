@@ -1,4 +1,4 @@
-#!/usr/bin/env -S python -u
+#!/usr/bin/env -S python3 -u
 
 import sys
 import json
