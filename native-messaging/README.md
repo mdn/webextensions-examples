@@ -25,7 +25,7 @@ To assist in troubleshooting on Windows, there is a script called `check_config_
 
 ## Testing the example ##
 
-Then just install the add-on as usual, by visiting about:debugging, clicking "Load Temporary Add-on", and selecting the add-on's "manifest.json".
+Then just install the add-on as usual, by visiting about:debugging#/runtime/this-firefox, clicking "Load Temporary Add-on", and selecting the add-on's "manifest.json".
 
 Now, open the extension's console using the "Inspect" button - this is where you'll see communication between the browser and native app. 
 
