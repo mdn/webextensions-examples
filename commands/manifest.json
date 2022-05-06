@@ -17,9 +17,13 @@
   },
 
   "commands": {
-    "toggle-feature": {
+    "Command 1": {
       "suggested_key": { "default": "Ctrl+Shift+U" },
-      "description": "Send a 'toggle-feature' event to the extension"
+      "description": "Send a 'Command 1' event to the extension"
+    },
+    "Command 2": {
+      "suggested_key": { "default": null },
+      "description": "Send a 'Command 2' event to the extension"
     }
   },
 

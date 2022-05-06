@@ -2,19 +2,29 @@
  * Returns all of the registered extension commands for this extension
  * and their shortcut (if active).
  *
- * Since there is only one registered command in this sample extension,
- * the returned `commandsArray` will look like the following:
- *    [{
- *       name: "toggle-feature",
- *       description: "Send a 'toggle-feature' event to the extension"
- *       shortcut: "Ctrl+Shift+U"
- *    }]
+ * Since there are 2 registered commands in this extension, the returned
+ * `commandsArray` will look like the following:
+ *    [
+ *      {
+ *        name: "Command 1",
+ *        description: "Send a 'Command 1' event to the extension"
+ *        shortcut: "Ctrl+Shift+U"
+ *      },
+ *      {
+ *        name: "Command 2",
+ *        description: "Send a 'Command 2' event to the extension"
+ *        shortcut: ""
+ *      }
+ *    ]
  */
 let gettingAllCommands = browser.commands.getAll();
 gettingAllCommands.then((commands) => {
   for (let command of commands) {
-    // Note that this logs to the Add-on Debugger's console: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging
-    // not the regular Web console.
+  /*
+   * Note that this sends message to the Add-on Debugger's console, and not the
+   * regular Web console.
+   * See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging
+   */
     console.log(command);
   }
 });
@@ -26,5 +36,17 @@ gettingAllCommands.then((commands) => {
  * On Mac, this command will automatically be converted to "Command+Shift+U".
  */
 browser.commands.onCommand.addListener((command) => {
-  browser.tabs.create({url: "https://developer.mozilla.org"});
+
+  if (command === 'Command 1'){
+    browser.tabs.create({url: "https://developer.mozilla.org"});
+  } else if (command === 'Command 2'){
+    browser.tabs.create({url: "https://addons.mozilla.org"});
+  } else {
+    /*
+     * Note that this sends message to the Add-on Debugger's console, and not
+     * the regular Web console.
+     * See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Debugging
+     */
+    console.log("Unexpected command: ", command);
+  }
 });
