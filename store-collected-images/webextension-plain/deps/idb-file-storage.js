@@ -4,7 +4,7 @@
   } else if (typeof exports !== "undefined") {
     factory(exports);
   } else {
-    let mod = {
+    var mod = {
       exports: {}
     };
     factory(mod.exports);
