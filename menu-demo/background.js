@@ -77,7 +77,7 @@ browser.menus.create({
   contexts: ["all"]
 }, onCreated);
 
-var checkedState = true;
+let checkedState = true;
 
 browser.menus.create({
   id: "check-uncheck",
@@ -106,8 +106,8 @@ Set a colored border on the document in the given tab.
 Note that this only work on normal web pages, not special pages
 like about:debugging.
 */
-var blue = 'document.body.style.border = "5px solid blue"';
-var green = 'document.body.style.border = "5px solid green"';
+let blue = 'document.body.style.border = "5px solid blue"';
+let green = 'document.body.style.border = "5px solid green"';
 
 function borderify(tabId, color) {
   browser.tabs.executeScript(tabId, {
@@ -146,7 +146,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       console.log(info.selectionText);
       break;
     case "remove-me":
-      var removing = browser.menus.remove(info.menuItemId);
+      let removing = browser.menus.remove(info.menuItemId);
       removing.then(onRemoved, onError);
       break;
     case "bluify":

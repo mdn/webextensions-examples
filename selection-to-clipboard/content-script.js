@@ -2,7 +2,7 @@
 copy the selected text to clipboard
 */
 function copySelection() {
-    var selectedText = window.getSelection().toString().trim();
+    let selectedText = window.getSelection().toString().trim();
 
     if (selectedText) {
         document.execCommand("Copy");

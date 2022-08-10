@@ -24,5 +24,5 @@ function messagePageScript() {
 Add messagePageScript() as a listener to click events on
 the "from-content-script" element.
 */
-var fromContentScript = document.getElementById("from-content-script");
+let fromContentScript = document.getElementById("from-content-script");
 fromContentScript.addEventListener("click", messagePageScript);

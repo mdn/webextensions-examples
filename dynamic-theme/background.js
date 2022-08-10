@@ -1,4 +1,4 @@
-var currentTheme = '';
+let currentTheme = '';
 
 const themes = {
   'day': {
