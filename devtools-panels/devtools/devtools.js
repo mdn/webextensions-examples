@@ -19,6 +19,6 @@ browser.devtools.panels.create(
   "/icons/star.png",
   "/devtools/panel/panel.html"
 ).then((newPanel) => {
-  newPanel.onShown.addListener(handleShown);
-  newPanel.onHidden.addListener(handleHidden);
+    newPanel.addEventListener("shown", handleShown);
+    newPanel.addEventListener("hidden", handleHidden);
 }); 
