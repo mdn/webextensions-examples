@@ -1,8 +1,12 @@
+// Callback clears runtime.lastError to prevent logspam errors from the menu
+// item being registered twice in case the background script is reloaded.
 browser.contextMenus.create({
-    id: "copy-link-to-clipboard",
-    title: "Copy link to clipboard",
-    contexts: ["link"],
-});
+        id: "copy-link-to-clipboard",
+        title: "Copy link to clipboard",
+        contexts: ["link"],
+    },
+    () => void browser.runtime.lastError),
+);
 browser.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "copy-link-to-clipboard") {
         // Examples: text and HTML to be copied.
