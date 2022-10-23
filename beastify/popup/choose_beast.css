@@ -7,6 +7,8 @@ html, body {
 }
 
 .button {
+  border: none;
+  display: block;
   margin: 3% auto;
   padding: 4px;
   text-align: center;
