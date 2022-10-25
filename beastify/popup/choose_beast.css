@@ -6,7 +6,7 @@ html, body {
   display: none;
 }
 
-.button {
+button {
   border: none;
   display: block;
   margin: 3% auto;
