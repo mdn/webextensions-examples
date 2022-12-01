@@ -6,7 +6,7 @@ html, body {
   display: none;
 }
 
-button {
+.button {
   border: none;
   width: 100%;
   margin: 3% auto;
@@ -14,17 +14,20 @@ button {
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
-  background-color: #E5F2F2;
 }
 
-button:hover {
+.button:hover {
   background-color: #CFF2F2;
 }
 
-button[type="reset"] {
+.beast {
+  background-color: #E5F2F2;
+}
+
+.reset {
   background-color: #FBFBC9;
 }
 
-button[type="reset"]:hover {
+.reset:hover {
   background-color: #EAEA9D;
 }
