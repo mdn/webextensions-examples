@@ -68,7 +68,8 @@ function listenForClicks() {
     if (e.target.tagName !== "BUTTON" || !e.target.closest("#popup-content")) {
       // Ignore when click is not on a button within <div id="popup-content">.
       return;
-    } else if (e.target.type === "reset") {
+    } 
+    if (e.target.type === "reset") {
       browser.tabs.query({active: true, currentWindow: true})
         .then(reset)
         .catch(reportError);
