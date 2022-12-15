@@ -33,9 +33,9 @@ complexity
     * [`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description)
     * [`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons)
     * `homepage_url`
-* omit the [`applications` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications), unless either of the following apply:
-    * the example uses an API or other feature that's not yet available in the current released version of Firefox. In this case, include the `applications` key and set `strict_min_version` to the minimum required version of Firefox.
-    * the example needs an explicitly specified ID (for example, [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) requires an explicitly specified ID). In this case, include the `applications` key and set `id` appropriately.
+* omit the [`browser_specific_settings` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/browser_specific_settings), unless either of the following apply:
+    * the example uses an API or other feature that's not yet available in the current released version of Firefox. In this case, include the `browser_specific_settings` key and set `strict_min_version` to the minimum required version of Firefox.
+    * the example needs an explicitly specified ID (for example, [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) requires an explicitly specified ID). In this case, include the `browser_specific_settings` key and set `id` appropriately.
 
 ## Code style
 
