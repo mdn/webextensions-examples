@@ -17,7 +17,7 @@ jobs:
   allo-allo:
     uses: mdn/workflows/.github/workflows/allo-allo.yml@main
     with:
-      target-repo: "mdn/todo-vue"
+      target-repo: "mdn/webextensions-examples"
       issue-welcome: |
         It looks like this is your first issue. Welcome! 👋
         One of the project maintainers will be with you as soon as possible. We
