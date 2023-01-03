@@ -1,4 +1,4 @@
-name: "Bug report"
+name: "Issue report"
 description: Report an unexpected problem or unintended behavior.
 labels: ["needs triage"]
 body:
@@ -33,4 +33,4 @@ body:
     id: more-info
     attributes:
       label: Do you have anything more you want to share?
-      description: For example, steps to reproduce a bug, screenshots, screen recordings, or sample code
+      description: For example, steps to reproduce, screenshots, screen recordings, or sample code.
