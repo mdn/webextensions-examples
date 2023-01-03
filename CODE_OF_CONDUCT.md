@@ -1,8 +1,8 @@
-# Community Participation Guidelines
+# Code of conduct
 
-This repository is governed by Mozilla's code of conduct and etiquette guidelines. 
-For more details, please read the
-[Mozilla Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/). 
+This repository is governed by Mozilla's code of conduct and etiquette guidelines.
+For more details, read [Mozilla's Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/).
 
-## How to Report
-For more information on how to report violations of the Community Participation Guidelines, please read our [How to Report](https://www.mozilla.org/about/governance/policies/participation/reporting/) page.
+## Reporting violations
+
+For more information on how to report violations of the Community Participation Guidelines, read the [How to report](https://www.mozilla.org/about/governance/policies/participation/reporting/) page.
