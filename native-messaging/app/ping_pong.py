@@ -18,6 +18,7 @@ try:
     # Encode a message for transmission,
     # given its content.
     def encodeMessage(messageContent):
+        # https://github.com/mdn/webextensions-examples/issues/509
         # https://discuss.python.org/t/how-to-read-1mb-of-input-from-stdin/22534/19
         # https://stackoverflow.com/a/56563264
         # https://docs.python.org/3/library/json.html#basic-usage
@@ -51,6 +52,7 @@ except AttributeError:
     # Encode a message for transmission,
     # given its content.
     def encodeMessage(messageContent):
+        # https://github.com/mdn/webextensions-examples/issues/509
         # https://discuss.python.org/t/how-to-read-1mb-of-input-from-stdin/22534/19
         # https://stackoverflow.com/a/56563264
         # https://docs.python.org/3/library/json.html#basic-usage
