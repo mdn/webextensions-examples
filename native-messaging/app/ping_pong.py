@@ -18,6 +18,11 @@ try:
     # Encode a message for transmission,
     # given its content.
     def encodeMessage(messageContent):
+        # https://discuss.python.org/t/how-to-read-1mb-of-input-from-stdin/22534/19
+        # https://stackoverflow.com/a/56563264
+        # https://docs.python.org/3/library/json.html#basic-usage
+        # To get the most compact JSON representation, you should specify 
+        # (',', ':') to eliminate whitespace.
         encodedContent = json.dumps(messageContent, separators=(',', ':')).encode('utf-8')
         encodedLength = struct.pack('@I', len(encodedContent))
         return {'length': encodedLength, 'content': encodedContent}
@@ -46,6 +51,11 @@ except AttributeError:
     # Encode a message for transmission,
     # given its content.
     def encodeMessage(messageContent):
+        # https://discuss.python.org/t/how-to-read-1mb-of-input-from-stdin/22534/19
+        # https://stackoverflow.com/a/56563264
+        # https://docs.python.org/3/library/json.html#basic-usage
+        # To get the most compact JSON representation, you should specify 
+        # (',', ':') to eliminate whitespace.
         encodedContent = json.dumps(messageContent, separators=(',', ':'))
         encodedLength = struct.pack('@I', len(encodedContent))
         return {'length': encodedLength, 'content': encodedContent}
