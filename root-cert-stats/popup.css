@@ -1,5 +1,8 @@
 body {
   font: 1rem/2 sans-serif;
+  width: 270px;
+  text-align: center;
+  margin: 5% auto;
 }
 
 table,
@@ -10,4 +13,19 @@ td {
 
 .hidden {
   display: none;
+}
+
+button {
+  font-size: 1.5em;
+  text-align: center;
+  border: 1px solid #333;
+  width: 100%;
+  margin: 5% auto;
+  padding: 4px;
+  cursor: pointer;
+  background-color: mediumseagreen;
+}
+
+button:hover {
+  background-color: greenyellow;
 }
