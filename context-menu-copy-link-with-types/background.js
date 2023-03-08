@@ -1,5 +1,6 @@
-// Callback clears runtime.lastError to prevent logspam errors from the menu
-// item being registered twice in case the background script is reloaded.
+// Callback reads runtime.lastError to prevent an unchecked error from being 
+// logged when the extension attempt to register the already-registered menu 
+//again. Menu registrations in event pages persist across extension restarts.
 browser.contextMenus.create({
         id: "copy-link-to-clipboard",
         title: "Copy link to clipboard",
