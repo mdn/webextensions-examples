@@ -65,14 +65,17 @@ function listenForClicks() {
      * Get the active tab,
      * then call "beastify()" or "reset()" as appropriate.
      */
-    if (e.target.classList.contains("beast")) {
-      browser.tabs.query({active: true, currentWindow: true})
-        .then(beastify)
-        .catch(reportError);
-    }
-    else if (e.target.classList.contains("reset")) {
+    if (e.target.tagName !== "BUTTON" || !e.target.closest("#popup-content")) {
+      // Ignore when click is not on a button within <div id="popup-content">.
+      return;
+    } 
+    if (e.target.type === "reset") {
       browser.tabs.query({active: true, currentWindow: true})
         .then(reset)
+        .catch(reportError);
+    } else {
+      browser.tabs.query({active: true, currentWindow: true})
+        .then(beastify)
         .catch(reportError);
     }
   });
