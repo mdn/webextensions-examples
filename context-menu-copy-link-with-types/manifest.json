@@ -9,7 +9,7 @@
         "scripts": [
             "background.js"
         ],
-	"persistent": false
+        "persistent": false
     },
 
     "permissions": [

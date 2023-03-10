@@ -6,8 +6,9 @@ browser.contextMenus.create({
         title: "Copy link to clipboard",
         contexts: ["link"],
     },
-    () => void browser.runtime.lastError),
+    () => void browser.runtime.lastError,
 );
+
 browser.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "copy-link-to-clipboard") {
         // Examples: text and HTML to be copied.
