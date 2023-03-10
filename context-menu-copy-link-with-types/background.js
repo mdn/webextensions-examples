@@ -6,6 +6,8 @@ browser.contextMenus.create({
         title: "Copy link to clipboard",
         contexts: ["link"],
     },
+    // See https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/#event-pages-and-backward-compatibility
+    // for information on the purpose of this error capture.
     () => void browser.runtime.lastError,
 );
 
