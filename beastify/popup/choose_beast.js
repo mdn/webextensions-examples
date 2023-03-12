@@ -34,7 +34,7 @@ function listenForClicks() {
      */
     function beastify(tabs) {
       browser.tabs.insertCSS({code: hidePage}).then(() => {
-        let url = beastNameToURL(e.target.textContent);
+        const url = beastNameToURL(e.target.textContent);
         browser.tabs.sendMessage(tabs[0].id, {
           command: "beastify",
           beastURL: url
