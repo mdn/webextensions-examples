@@ -1,6 +1,6 @@
 // Callback reads runtime.lastError to prevent an unchecked error from being 
 // logged when the extension attempt to register the already-registered menu 
-//again. Menu registrations in event pages persist across extension restarts.
+// again. Menu registrations in event pages persist across extension restarts.
 browser.contextMenus.create({
         id: "copy-link-to-clipboard",
         title: "Copy link to clipboard",
