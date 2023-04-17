@@ -77,14 +77,12 @@ browser.menus.create({
   contexts: ["all"]
 }, onCreated);
 
-let checkedState = true;
-
 browser.menus.create({
   id: "check-uncheck",
   type: "checkbox",
   title: browser.i18n.getMessage("menuItemUncheckMe"),
   contexts: ["all"],
-  checked: checkedState
+  checked: true,
 }, onCreated);
 
 browser.menus.create({
@@ -118,13 +116,8 @@ function borderify(tabId, color) {
 /*
 Toggle checkedState, and update the menu item's title
 appropriately.
-
-Note that we should not have to maintain checkedState independently like
-this, but have to because Firefox does not currently pass the "checked"
-property into the event listener.
 */
-function updateCheckUncheck() {
-  checkedState = !checkedState;
+function updateCheckUncheck(checkedState) {
   if (checkedState) {
     browser.menus.update("check-uncheck", {
       title: browser.i18n.getMessage("menuItemUncheckMe"),
@@ -156,7 +149,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       borderify(tab.id, green);
       break;
     case "check-uncheck":
-      updateCheckUncheck();
+      updateCheckUncheck(info.checked);
       break;
     case "open-sidebar":
       console.log("Opening my sidebar");
