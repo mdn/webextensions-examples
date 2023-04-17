@@ -114,8 +114,7 @@ function borderify(tabId, color) {
 }
 
 /*
-Toggle checkedState, and update the menu item's title
-appropriately.
+Update the menu item's title according to current "checked" value.
 */
 function updateCheckUncheck(checkedState) {
   if (checkedState) {
