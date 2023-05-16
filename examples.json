@@ -157,6 +157,43 @@
         "name": "discogs-search"
     },
     {
+        "description": "Demonstrates how to block network requests without host permissions through the declarativeNetRequest API with the `declarative_net_request` manifest key.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition"
+        ],
+        "name": "dnr-block-only"
+    },
+    {
+        "description": "Demonstrates a generic way to request host permissions and register declarativeNetRequest rules to modify network requests, without any install-time permission warnings. The options_ui page offers a way to request permissions and register DNR rules.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.getDynamicRules",
+          "declarativeNetRequest.getSessionRules",
+          "declarativeNetRequest.updateDynamicRules",
+          "declarativeNetRequest.updateSessionRules",
+          "permissions.getAll",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-dynamic-with-options"
+    },
+    {
+        "description": "Demonstrates multiple ways to redirect requests using the declarativeNetRequest API through the `declarative_net_request` manifest key. Demonstrates aspects of Manifest Version 3 (MV3): action, host_permissions, web_accessible_resources, and includes a comparison with Manifest Version 2 (MV2).",
+        "javascript_apis": [
+          "declarativeNetRequest.Redirect",
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition",
+          "declarativeNetRequest.URLTransform",
+          "permissions.contains",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-redirect-url"
+    },
+    {
         "description": "Dynamic theme example",
         "javascript_apis": [
             "alarms.create",
