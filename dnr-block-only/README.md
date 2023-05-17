@@ -7,7 +7,8 @@ declarativeNetRequest API with the `declarative_net_request` manifest key.
 
 This extension blocks:
 
-- network requests to URLs containing "blocksub" (except for top-level navigations).
+- network requests to URLs containing "blocksub" (except for top-level
+  navigations).
 - top-level navigation to URLs containing "blocktop".
 - all requests containing "blockall".
 
@@ -18,9 +19,13 @@ This demo page does not need to be packaged with the extension.
 
 This example shows how to:
 
-- use the declarativeNetRequest API through the `declarative_net_request` manifest key.
-- use the "resourceTypes" and "excludedResourceTypes" conditions of a declarativeNetRequest rule.
-- block network requests without host permissions using the "declarativeNetRequest" permission, which triggers the "Block content on any page" permission warning at install time.
+- use the declarativeNetRequest API through the `declarative_net_request`
+  manifest key.
+- use the "resourceTypes" and "excludedResourceTypes" conditions of a
+  declarativeNetRequest rule.
+- block network requests without host permissions using the
+  "declarativeNetRequest" permission, which triggers the "Block content on any
+  page" permission warning at install time.
 
 This example is the only cross-browser way to block network requests (at least
 in Firefox, Chrome, and Safari). The webRequest API is an alternative way to

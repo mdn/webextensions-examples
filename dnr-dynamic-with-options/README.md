@@ -70,7 +70,8 @@ How to retrieve and dynamically register declarativeNetRequest rules, using:
   unless the extension is loaded temporarily or unloaded.
 - `declarativeNetRequest.getSessionRules` and
   `declarativeNetRequest.updateSessionRules` to manage DNR rules that are
-  session-scoped, that is, cleared when an extension unloads or the browser quits.
+  session-scoped, that is, cleared when an extension unloads or the browser
+  quits.
 
 How these registered DNR rules can modify network requests without requiring an
 active extension script in the background, in a cross-browser way (at least in
