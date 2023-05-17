@@ -2,7 +2,7 @@
 
 Demonstrates a generic way to request host permissions and register
 declarativeNetRequest rules to modify network requests, without any
-install-time permission warnings. The options_ui page offers a way to request
+install-time permission warnings. The `options_ui` page offers a way to request
 permissions and register declarative net request (DNR) rules.
 
 ## What it does
@@ -71,6 +71,10 @@ How to retrieve and dynamically register declarativeNetRequest rules, using:
 - `declarativeNetRequest.getSessionRules` and
   `declarativeNetRequest.updateSessionRules` to manage DNR rules that are
   session-scoped, that is, cleared when an extension unloads or the browser quits.
+
+How these registered DNR rules can modify network requests without requiring an
+active extension script in the background, in a cross-browser way (at least in
+Firefox, Chrome, and Safari).
 
 ## Note on `optional_host_permissions` and `optional_permissions`
 
