@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "DNR dynamic with options",
-  "description": "Modify requests according to user-specifies rules in the options page.",
+  "description": "Modify requests according to the rules specified by the user in the options page.",
   "version": "0.1",
   "permissions": ["declarativeNetRequestWithHostAccess"],
   "optional_host_permissions": ["*://*/"],
