@@ -10,10 +10,13 @@ This extension redirects requests from the example.com domain to other destinati
 
 - example.com/ to `redirectTarget.html` packaged with the extension.
 - example.com/ew to extensionworkshop.com
-- https://www.example.com/[anything] to the same URL but the domain changed to example.com and `?redirected_from_www=1` appended to the URL.
-- URLs matching regular expression `^https?://([^?]+)$` to the same URL but with scheme changed to https and `?redirected_by_regex` appended.
+- https://www.example.com/[anything] to the same URL but the domain changed to
+  example.com and `?redirected_from_www=1` appended to the URL.
+- example.com URLs matching regular expression `^https?://([^?]+)$` to the same URL but with the
+  scheme set to `https:` (if it was `http:` before), and with `?redirected_by_regex` appended.
 
-Redirecting requires host permissions for the pre-redirect URLs. Manifest V3 extensions do not have access to these by default.
+Redirecting requires host permissions for the pre-redirect URLs. In Firefox
+(and Safari), Manifest V3 extensions do not have access to these by default.
 The permission to these can be granted from the extension action popup.
 
 # What it shows
@@ -27,9 +30,12 @@ This extension shows how to:
 - redirect requests to another website.
 - redirect requests to a page packaged in the extension and listed in `web_accessible_resources`.
 - redirect requests and transform the URL with the `transform` and `queryTransform` options.
-- redirect a URL matching a regular expression in `regexFilter` and generate a redirect target in `regexSubstitution`.
+- redirect a URL matching a regular expression in `regexFilter` to `regexSubstitution`.
 - use "priority" to specify the rule to action when multiple rule conditions are matched to a request.
-- specify the "declarativeNetRequestWithHostAccess" permission in the manifest.json, which does not trigger a permission warning. (Compared to the"declarativeNetRequest" permission, which has the same effect but displays the "Block content on any page" permission warning.)
+- specify the "declarativeNetRequestWithHostAccess" permission in the
+  manifest.json, which does not trigger a permission warning. (Compared to
+  the "declarativeNetRequest" permission, which has the same effect but displays
+  the "Block content on any page" permission warning.)
 
 ## Comparison with Manifest Version 2
 

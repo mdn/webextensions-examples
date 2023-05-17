@@ -66,8 +66,8 @@ How to retrieve and dynamically register declarativeNetRequest rules, using:
 
 - `declarativeNetRequest.getDynamicRules` and
   `declarativeNetRequest.updateDynamicRules` to manage DNR rules that persist
-  across extension restarts. When loaded non-temporarily, these rules also
-  persist across browser restarts.
+  across extension restarts. These rules also persist across browser restarts,
+  unless the extension is loaded temporarily or unloaded.
 - `declarativeNetRequest.getSessionRules` and
   `declarativeNetRequest.updateSessionRules` to manage DNR rules that are
   session-scoped, that is, cleared when an extension unloads or the browser quits.

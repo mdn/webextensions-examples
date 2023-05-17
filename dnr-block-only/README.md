@@ -22,6 +22,16 @@ This example shows how to:
 - use the "resourceTypes" and "excludedResourceTypes" conditions of a declarativeNetRequest rule.
 - block network requests without host permissions using the "declarativeNetRequest" permission, which triggers the "Block content on any page" permission warning at install time.
 
-This is the only cross-browser way to block network requests (at least in
-Firefox, Chrome, and Safari). While the extension uses `"manifest_version": 3`,
-it also works identically with `"manifest_version": 2`.
+This example is the only cross-browser way to block network requests (at least
+in Firefox, Chrome, and Safari). The webRequest API is an alternative way to
+implement this functionality, but is only available in Firefox (MV2 and MV3)
+and in Chrome (MV2 only). Safari does not support the webRequest API.
+
+## Comparison with Manifest Version 2
+
+While this example uses `"manifest_version": 3`, the functionality is not
+specific to Manifest Version 3.
+
+To create a MV2 version of the extension, modify `manifest.json` as follows:
+
+- Set `manifest_version` to 2.
