@@ -62,3 +62,9 @@ As an alternative to renaming `host_permissions` to `optional_permissions`,
 add the match patterns in the `host_permissions` array to the
 `permissions` key of the MV2 manifest. Then the user does not need to opt in to
 the host permission, and the extension works immediately after installation.
+
+# Index of DNR examples
+
+- [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only)
+- [dnr-dynamic-with-options](https://github.com/mdn/webextensions-examples/tree/main/dnr-dynamic-with-options)
+- [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url) (this example)
