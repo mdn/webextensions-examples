@@ -3,7 +3,7 @@
 Demonstrates a generic way to request host permissions and register
 declarativeNetRequest rules to modify network requests, without any
 install-time permission warnings. The options_ui page offers a way to request
-permissions and register DNR rules.
+permissions and register declarative net request (DNR) rules.
 
 ## What it does
 
@@ -13,7 +13,7 @@ After loading the extension, visit the extension options page:
 2. Go to the extension at "DNR Dynamic with options".
 3. Click on Preferences to view its options page (options.html).
 
-At this options page:
+On the options page:
 
 1. Input the list of host permissions and click on "Grant host permissions".
 2. Input the list of declarativeNetRequest rules and click "Save".
@@ -47,12 +47,12 @@ DNR rules:
 ]
 ```
 
-Manual test case: Visit https://example.com/ and verify that it was blocked.
+Manual test case: Visit https://example.com/ and verify that it is blocked.
 
 # What it shows
 
-How to have an extension with zero install-time permission warnings, and only
-request (host) permissions dynamically as needed:
+How to create an extension with no install-time permission warnings and 
+request (host) permissions as needed:
 
 - declares the "declarativeNetRequestWithHostAccess" permission, which
   unlocks the declarativeNetRequest API without install-time warning.
@@ -62,7 +62,7 @@ request (host) permissions dynamically as needed:
 - calls `permissions.request` to request host permissions.
 - uses `permissions.getAll` and `permissions.remove` to reset permissions.
 
-How to retrieve and dynamically register declarativeNetRequest rules:
+How to retrieve and dynamically register declarativeNetRequest rules, using:
 
 - `declarativeNetRequest.getDynamicRules` and
   `declarativeNetRequest.updateDynamicRules` to manage DNR rules that persist
@@ -70,19 +70,19 @@ How to retrieve and dynamically register declarativeNetRequest rules:
   persist across browser restarts.
 - `declarativeNetRequest.getSessionRules` and
   `declarativeNetRequest.updateSessionRules` to manage DNR rules that are
-  session-scoped, i.e. cleared upon extension unload or browser quits.
+  session-scoped, that is, cleared when an extension unloads or the browser quits.
 
 ## Note on `optional_host_permissions` and `optional_permissions`
 
-Firefox does not support `optional_host_permissions` permissions yet, but still
+Firefox does not support `optional_host_permissions` permissions, it
 supports host permissions in `optional_permissions`
 (https://bugzilla.mozilla.org/show_bug.cgi?id=1766026).
 
 Chrome recognizes `optional_host_permissions` but does not support host
 permissions in `optional_permissions`.
 
-To support both, manifest.json contains both `optional_host_permissions` and
-`optional_permissions`.
+To support both, include `optional_host_permissions` and `optional_permissions`
+in your manifest.json.
 
 ## Comparison with Manifest Version 2
 
@@ -94,7 +94,7 @@ To create a MV2 version of the extension, modify `manifest.json` as follows:
 - Set `manifest_version` to 2.
 - Use `optional_permissions` instead of `optional_host_permissions` to list
   optional host permissions.
-  -  In this specific example, `optional_permissions` is already present with
+  -  In this example, `optional_permissions` is present with
      the same value as `optional_host_permissions` for the reasons explained in
      the previous section. The latter is MV3-only and can be removed from a MV2
      manifest.
