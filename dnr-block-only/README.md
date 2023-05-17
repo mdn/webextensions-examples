@@ -40,3 +40,9 @@ specific to Manifest Version 3.
 To create a MV2 version of the extension, modify `manifest.json` as follows:
 
 - Set `manifest_version` to 2.
+
+# Index of DNR examples
+
+- [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only) (this example)
+- [dnr-dynamic-with-options](https://github.com/mdn/webextensions-examples/tree/main/dnr-dynamic-with-options)
+- [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url)

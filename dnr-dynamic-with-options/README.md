@@ -103,3 +103,9 @@ To create a MV2 version of the extension, modify `manifest.json` as follows:
      the same value as `optional_host_permissions` for the reasons explained in
      the previous section. The latter is MV3-only and can be removed from a MV2
      manifest.
+
+# Index of DNR examples
+
+- [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only)
+- [dnr-dynamic-with-options](https://github.com/mdn/webextensions-examples/tree/main/dnr-dynamic-with-options) (this example)
+- [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url)
