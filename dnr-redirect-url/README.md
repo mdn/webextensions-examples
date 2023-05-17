@@ -2,7 +2,7 @@
 
 Demonstrates multiple ways to redirect requests using the declarativeNetRequest
 API through the `declarative_net_request` manifest key. Demonstrates aspects of
-Manifest Version 3 (MV3): action, host_permissions, web_accessible_resources.
+Manifest Version 3 (MV3): action, host_permissions, and web_accessible_resources.
 
 ## What it does
 
@@ -18,18 +18,18 @@ The permission to these can be granted from the extension action popup.
 
 # What it shows
 
-- how to use the declarativeNetRequest API through the `declarative_net_request` manifest key.
-- using the `permissions.contains` API to check whether an extension is granted host permissions.
-- using the `permissions.request` API to request host permissions, from the `action` popup panel.
-- how to redirect requests to a another website.
-- how to redirect requests to a page packaged with the extension, and also listed in `web_accessible_resources`.
-- how to redirect requests and transform the URL with the `transform` and `queryTransform` options.
-- how to redirect a URL matched by a regular expression in `regexFilter` and a generated redirect target in `regexSubstitution`.
-- how to use "priority" to specify the highest-priority rule that should match when multiple rule conditions are matched for a given request.
-- manifest.json specifies the "declarativeNetRequestWithHostAccess" permission,
-  which does not have a separate permission warning. In contrast, the
-  "declarativeNetRequest" permission has the same effect, but has the "Block
-  content on any page" permission warning.
+
+This extension shows how to:
+
+- use the declarativeNetRequest API through the `declarative_net_request` manifest key.
+- use the `permissions.contains` API to check whether an extension is granted host permissions.
+- use the `permissions.request` API to request host permissions from the `action` popup panel.
+- redirect requests to another website.
+- redirect requests to a page packaged in the extension and listed in `web_accessible_resources`.
+- redirect requests and transform the URL with the `transform` and `queryTransform` options.
+- redirect a URL matching a regular expression in `regexFilter` and generate a redirect target in `regexSubstitution`.
+- use "priority" to specify the rule to action when multiple rule conditions are matched to a request.
+- specify the "declarativeNetRequestWithHostAccess" permission in the manifest.json, which does not trigger a permission warning. (Compared to the"declarativeNetRequest" permission, which has the same effect but displays the "Block content on any page" permission warning.)
 
 ## Comparison with Manifest Version 2
 
@@ -44,6 +44,6 @@ To create a MV2 version of the extension, modify `manifest.json` as follows:
 - Set `web_accessible_resources` to `["redirectTarget.html"]`
 
 As an alternative to renaming `host_permissions` to `optional_permissions`,
-add the match patterns in the `host_permissions` array to the existing
+add the match patterns in the `host_permissions` array to the
 `permissions` key of the MV2 manifest. Then the user does not need to opt in to
-the host permission, and the extension immediately works after installation.
+the host permission, and the extension works immediately after installation.
