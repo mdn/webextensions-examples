@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+div {
+  margin: 2px 0;
+  border: 1px solid black;
+}
+img {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<h2 id="blocksub">Block requests containing 'blocksub' (except main_frame)</h2>
+Given the following rule:
+<pre>
+  {
+    "id": 1,
+    "condition": {
+      "urlFilter": "blocksub"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+</pre>
+<div>
+  rule 1 will block this image (containing 'blocksub'):
+  <img src="https://developer.mozilla.org/favicon.ico?blocksub">
+</div>
+<div>
+  rule 1 will not block this image (does not contain 'blocksub'):
+  <img src="https://developer.mozilla.org/favicon.ico">
+</div>
+<div>
+  rule 1 will not block top-level navigations to
+  <a href="https://developer.mozilla.org/favicon.ico?blocksub">https://developer.mozilla.org/favicon.ico?blocksub</a>
+  because top-level navigation ("main_frame") requests are not matched
+  when "resourceTypes" and "excludedResourceTypes" are not specified.
+</div>
+
+<h2 id="blocktop">Block main_frame requests containing 'blocktop'</h2>
+Given the following rule:
+<pre>
+  {
+    "id": 2,
+    "condition": {
+      "urlFilter": "blocktop",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+</pre>
+<div>
+  rule 2 will block top-level navigation to
+  <a href="https://developer.mozilla.org/favicon.ico?blocktop">https://developer.mozilla.org/favicon.ico?blocktop</a>
+  because the "resourceTypes" array contains "main_frame".
+</div>
+<div>
+  rule 2 will not block this image (containing 'blocktop')
+  <img src="https://developer.mozilla.org/favicon.ico?blocktop">
+  because "image" is not in the "resourceTypes" array.
+</div>
+
+<h2 id="blockall">Block all requests containing 'blockall'</h2>
+Given the following rule:
+<pre>
+  {
+    "id": 3,
+    "condition": {
+      "urlFilter": "blockall",
+      "excludedResourceTypes": []
+    },
+    "action": {
+      "type": "block"
+    }
+  }
+</pre>
+<div>
+  rule 3 will block this image (containing 'blockall'):
+  <img src="https://developer.mozilla.org/favicon.ico?blockall">
+</div>
+<div>
+  rule 3 will block top-level navigation to
+  <a href="https://developer.mozilla.org/favicon.ico?blockall">https://developer.mozilla.org/favicon.ico?blockall</a>
+  because "excludedResourceTypes" is set to an empty array.
+  <br>
+  Note: not blocked in Chrome due to <a href="https://crbug.com/1432871">https://crbug.com/1432871</a>.
+</div>
+
+</body>
+</html>

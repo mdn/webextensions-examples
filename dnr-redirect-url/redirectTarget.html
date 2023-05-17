@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"> <!-- mobile-friendly -->
+<title>redirectTarget.html</title>
+</head>
+<body>
+  This page is the redirect target of requests matching rule 1 from <a href="redirect-rules.json">redirect-rules.json</a>.<br>
+  The pattern <code>||example.com/|</code> means: (sub)domain of <code>example.com</code>, with path "/" and nothing else before the end of the URL.
+<pre>
+  {
+    "id": 1,
+    "priority": 4,
+    "condition": {
+      "urlFilter": "||example.com/|",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/redirectTarget.html"
+      }
+    }
+  },
+</pre>
+
+For the redirect to have succeeded, three conditions must be met:
+
+<ul>
+  <li> The declarativeNetRequest (DNR) rule should match the request.</li>
+  <li> The extension must declare the pre-redirect URL in <code>host_permissions</code> (in manifest.json) and the user should grant the permission.</li>
+  <li> The extension path in <code>extensionPath</code> must be declared in <code>web_accessible_resources</code> (in manifest.json), and the pre-redirect URL should match the pattern in <code>matches</code>.</li>
+</ul>
+
+See <a href="popup.html">popup.html</a> for the permissions UI and examples.
+</body>
+</html>
