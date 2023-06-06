@@ -25,7 +25,7 @@ To assist in troubleshooting on Windows, there is a script called `check_config_
 
 ## Testing the example ##
 
-Then just install the add-on as usual, by visiting `about:debugging#/runtime/this-firefox` or click on the button to debug "This Firefox" , clicking "Load Temporary Add-on", and selecting the add-on's "manifest.json".
+First, install the add-on. Visit `about:debugging#/runtime/this-firefox` or, from `about:debugging` click "This Firefox" (or "This Nightly" in the Nightly version of Firefox), click "Load Temporary Add-on", and open the add-on's "manifest.json".
 
 Now, open the extension's console using the "Inspect" button - this is where you'll see communication between the browser and native app. 
 
