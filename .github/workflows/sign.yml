@@ -5,7 +5,11 @@ name: SIGN
 
 on:
   push:
-    branches: ["main",'sign']
+    branches: ["main"]
+    paths:
+      - '*/manifest.json'
+      - '*/**/manifest.json'
+      - '**/manifest.json'
 
 env:
   OUTPUT_DIR: .web-ext
@@ -29,11 +33,9 @@ jobs:
           dir_names: "true"
           json: "true"
           files: |
-            *manifest.json
-            **manifest.json
+            */manifest.json
+            */**/manifest.json
             **/manifest.json
-            /**manifest.json
-            /**/manifest.json
 
       - name: echo Changed Dirs
         id: res
