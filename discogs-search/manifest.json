@@ -6,7 +6,7 @@
   "version": "1.0",
   "browser_specific_settings": {
     "gecko": {
-      "strict_min_version": "55"
+      "strict_min_version": "55.0"
     }
   },
   "chrome_settings_overrides": {
