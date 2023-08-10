@@ -18,7 +18,7 @@
 //   if the given first parameter matches the info.targetElementId integer from
 //   the menus.onClicked or menus.onShown events.
 if (!browser.menus || !browser.menus.getTargetElement) {
-  var menuTarget = null;
+  let menuTarget = null;
   let cleanupIfNeeded = () => {
     if (menuTarget && !document.contains(menuTarget)) menuTarget = null;
   };

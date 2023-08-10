@@ -56,6 +56,7 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
+            "tabs.Tab",
             "windows.onFocusChanged"
         ],
         "name": "bookmark-it"
@@ -94,6 +95,15 @@
         "name": "commands"
     },
     {
+        "description": "Illustrates how an extension can register URL-matching content scripts at runtime.",
+        "javascript_apis": [
+            "contentScripts.register",
+            "runtime.onMessage",
+            "runtime.sendMessage"
+        ],
+        "name": "content-script-register"
+    },
+    {
         "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML.",
         "javascript_apis": [
             "contextMenus.create",
@@ -113,7 +123,7 @@
         "name": "contextual-identities"
     },
     {
-        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
+        "description": "Allows the user to customize the background color and tiled pattern on sites they visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
         "javascript_apis": [
             "cookies.get",
             "cookies.onChanged",
@@ -124,6 +134,7 @@
             "tabs.onActivated",
             "tabs.onUpdated",
             "tabs.query",
+            "tabs.Tab",
             "tabs.sendMessage"
         ],
         "name": "cookie-bg-picker"
@@ -144,6 +155,43 @@
         "description": "Demonstrates adding a custom search engine with the chrome_settings_overrides key.",
         "javascript_apis": [],
         "name": "discogs-search"
+    },
+    {
+        "description": "Demonstrates how to block network requests without host permissions using the declarativeNetRequest API with the `declarative_net_request` manifest key.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition"
+        ],
+        "name": "dnr-block-only"
+    },
+    {
+        "description": "Demonstrates a generic way to request host permissions and register declarativeNetRequest rules to modify network requests, without any install-time permission warnings. The options_ui page offers a way to request permissions and register DNR rules.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.getDynamicRules",
+          "declarativeNetRequest.getSessionRules",
+          "declarativeNetRequest.updateDynamicRules",
+          "declarativeNetRequest.updateSessionRules",
+          "permissions.getAll",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-dynamic-with-options"
+    },
+    {
+        "description": "Demonstrates multiple ways to redirect requests using the declarativeNetRequest API through the `declarative_net_request` manifest key. Demonstrates aspects of Manifest Version 3 (MV3): action, host_permissions, and web_accessible_resources, and includes a comparison with Manifest Version 2 (MV2).",
+        "javascript_apis": [
+          "declarativeNetRequest.Redirect",
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition",
+          "declarativeNetRequest.URLTransform",
+          "permissions.contains",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-redirect-url"
     },
     {
         "description": "Dynamic theme example",
@@ -194,7 +242,8 @@
             "runtime.onMessage",
             "runtime.sendMessage",
             "tabs.create",
-            "tabs.query"
+            "tabs.query",
+            "tabs.Tab"
         ],
         "name": "find-across-tabs"
     },
@@ -407,13 +456,11 @@
         "name": "private-browsing-theme"
     },
     {
-        "description": "Uses the proxy API to block requests to specific hosts.",
+        "description": "Uses the proxy API to block requests to hosts specified on a list.",
         "javascript_apis": [
             "extension.getURL",
-            "proxy.onProxyError",
-            "proxy.register",
-            "runtime.onMessage",
-            "runtime.sendMessage",
+            "proxy.onRequest",
+            "proxy.onError",
             "storage.local",
             "storage.onChanged"
         ],
@@ -450,7 +497,7 @@
         "name": "selection-to-clipboard"
     },
     {
-        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs.",
+        "description": "Demonstrates how to retrieve extension-defined state from restored tabs.",
         "javascript_apis": [
             "menus.create",
             "menus.onClicked",
@@ -502,6 +549,7 @@
             "tabs.reload",
             "tabs.remove",
             "tabs.setZoom",
+            "tabs.Tab",
             "tabs.update"
         ],
         "name": "tabs-tabs-tabs"
@@ -524,7 +572,7 @@
         "name": "theme-switcher"
     },
     {
-        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>headerURL:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>",
+        "description": "A collection of themes illustrating:<ul><li>weta_fade: a basic theme employing a single image specified in <code>theme_frame:</code>.</li><li>weta_fade_chrome: the weta_fade theme implemented with Chrome compatible manifest keys.</li><li>weta_tiled: a theme using a tiled image.</li><li>weta_mirror: a theme using multiple images and aligning those images in the header.</li><li>animated: use of an animated PNG.</li></ul>",
         "javascript_apis": [],
         "name": "themes"
     },
@@ -544,13 +592,13 @@
         "name": "user-agent-rewriter"
     },
     {
-        "description": "Illustrates how an extension can register URL-matching content scripts at runtime.",
+        "description": "Illustrates how an extension can register URL-matching user scripts at runtime.",
         "javascript_apis": [
-            "contentScripts.register",
+            "userScripts.register",
             "runtime.onMessage",
             "runtime.sendMessage"
         ],
-        "name": "user-script"
+        "name": "user-script-register"
     },
     {
         "description": "Demonstrates how to use webpack to package npm modules in an extension.",
@@ -571,5 +619,10 @@
             "windows​.Window"
         ],
         "name": "window-manipulator"
+    },
+    {
+        "description": "Demonstrates the use of protocol handlers.",
+        "javascript_apis": [],
+        "name": "open-irc-links"
     }
 ]

@@ -1,7 +1,7 @@
 /*
 Default settings. If there is nothing in storage, use these values.
 */
-var defaultSettings = {
+let defaultSettings = {
   since: "hour",
   dataTypes: ["history", "downloads"]
 };

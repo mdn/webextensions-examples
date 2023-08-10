@@ -23,7 +23,7 @@ function addElements(element, array, callback) {
   }
 }
 
-var gettingStoredStats = browser.storage.local.get();
+let gettingStoredStats = browser.storage.local.get();
 gettingStoredStats.then(results => {
   if (results.type.length === 0 || results.host.length === 0) {
     return;

@@ -21,17 +21,17 @@ function toggleCSS(tab) {
     }
   }
 
-  var gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
+  let gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
   gettingTitle.then(gotTitle);
 }
 
 /*
 Returns true only if the URL's protocol is in APPLICABLE_PROTOCOLS.
+Argument url must be a valid URL string.
 */
 function protocolIsApplicable(url) {
-  var anchor =  document.createElement('a');
-  anchor.href = url;
-  return APPLICABLE_PROTOCOLS.includes(anchor.protocol);
+  const protocol = (new URL(url)).protocol;
+  return APPLICABLE_PROTOCOLS.includes(protocol);
 }
 
 /*
@@ -49,7 +49,7 @@ function initializePageAction(tab) {
 /*
 When first loaded, initialize the page action for all tabs.
 */
-var gettingAllTabs = browser.tabs.query({});
+let gettingAllTabs = browser.tabs.query({});
 gettingAllTabs.then((tabs) => {
   for (let tab of tabs) {
     initializePageAction(tab);

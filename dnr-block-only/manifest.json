@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Block only, without host_permissions",
+  "description": "Blocks requests to 'blocksub', 'blocktop', and 'blockall'. Uses the 'declarativeNetRequest' permission, meaning that host_permissions in manifest.json are not needed.",
+  "version": "0.1",
+  "permissions": [
+      "declarativeNetRequest"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}

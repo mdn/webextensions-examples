@@ -1,4 +1,4 @@
-var Background = {
+let Background = {
     receiveMessage: function(msg, sender, sendResponse) {
         if (msg && msg.action && Background.hasOwnProperty(msg.action)) {
             return Background[msg.action](msg, sender, sendResponse);

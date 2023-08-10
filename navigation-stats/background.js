@@ -1,5 +1,5 @@
 // Load existent stats with the storage API.
-var gettingStoredStats = browser.storage.local.get();
+let gettingStoredStats = browser.storage.local.get();
 
 gettingStoredStats.then(results => {
   // Initialize the saved stats if not yet initialized.

@@ -1,0 +1,31 @@
+[
+  {
+    "id": 1,
+    "condition": {
+      "urlFilter": "blocksub"
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "id": 2,
+    "condition": {
+      "urlFilter": "blocktop",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "id": 3,
+    "condition": {
+      "urlFilter": "blockall",
+      "excludedResourceTypes": []
+    },
+    "action": {
+      "type": "block"
+    }
+  }
+]

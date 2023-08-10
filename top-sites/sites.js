@@ -1,6 +1,6 @@
 browser.topSites.get()
   .then((sites) => {
-    var div = document.getElementById('site-list');
+    let div = document.getElementById('site-list');
 
     if (!sites.length) {
       div.innerText = 'No sites returned from the topSites API.';

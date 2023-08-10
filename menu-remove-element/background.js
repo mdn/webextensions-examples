@@ -1,6 +1,6 @@
 "use strict";
 
-var popupParameters;
+let popupParameters;
 
 browser.menus.create({
   id: "remove_element",

@@ -1,22 +1,22 @@
-var currentTheme = '';
+let currentTheme = '';
 
 const themes = {
   'day': {
     images: {
-      headerURL: 'sun.jpg',
+      theme_frame: 'sun.jpg',
     },
     colors: {
-      accentcolor: '#CF723F',
-      textcolor: '#111',
+      frame: '#CF723F',
+      tab_background_text: '#111',
     }
   },
   'night': {
     images: {
-      headerURL: 'moon.jpg',
+      theme_frame: 'moon.jpg',
     },
     colors: {
-      accentcolor: '#000',
-      textcolor: '#fff',
+      frame: '#000',
+      tab_background_text: '#fff',
     }
   }
 };

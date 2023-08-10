@@ -1,4 +1,4 @@
-var myWindowId;
+let myWindowId;
 const contentBox = document.querySelector("#content");
 
 /*
