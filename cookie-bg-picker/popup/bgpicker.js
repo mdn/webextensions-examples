@@ -1,9 +1,9 @@
 /* initialise variables */
 
-var bgBtns = document.querySelectorAll('.bg-container button');
-var colorPick = document.querySelector('input');
-var reset = document.querySelector('.color-reset button');
-var cookieVal = { image : '',
+let bgBtns = document.querySelectorAll('.bg-container button');
+let colorPick = document.querySelector('input');
+let reset = document.querySelector('.color-reset button');
+let cookieVal = { image : '',
                   color : '' };
 
 function getActiveTab() {
@@ -13,15 +13,15 @@ function getActiveTab() {
 /* apply backgrounds to buttons */
 /* add listener so that when clicked, button applies background to page HTML */
 
-for(var i = 0; i < bgBtns.length; i++) {
-  var imgName = bgBtns[i].getAttribute('class');
-  var bgImg = 'url(\'images/' + imgName + '.png\')';
+for(let i = 0; i < bgBtns.length; i++) {
+  let imgName = bgBtns[i].getAttribute('class');
+  let bgImg = 'url(\'images/' + imgName + '.png\')';
   bgBtns[i].style.backgroundImage = bgImg;
 
   bgBtns[i].onclick = function(e) {
     getActiveTab().then((tabs) => {
-      var imgName = e.target.getAttribute('class');
-      var fullURL = browser.extension.getURL('popup/images/'+ imgName + '.png');
+      let imgName = e.target.getAttribute('class');
+      let fullURL = browser.extension.getURL('popup/images/'+ imgName + '.png');
       browser.tabs.sendMessage(tabs[0].id, {image: fullURL});
 
       cookieVal.image = fullURL;
@@ -38,7 +38,7 @@ for(var i = 0; i < bgBtns.length; i++) {
 
 colorPick.onchange = function(e) {
   getActiveTab().then((tabs) => {
-    var currColor = e.target.value;
+    let currColor = e.target.value;
     browser.tabs.sendMessage(tabs[0].id, {color: currColor});
 
     cookieVal.color = currColor;

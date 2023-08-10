@@ -1,11 +1,11 @@
 // Zoom constants. Define Max, Min, increment and default values
 const ZOOM_INCREMENT = 0.2;
-const MAX_ZOOM = 3;
+const MAX_ZOOM = 5;
 const MIN_ZOOM = 0.3;
 const DEFAULT_ZOOM = 1;
 
 function firstUnpinnedTab(tabs) {
-  for (var tab of tabs) {
+  for (let tab of tabs) {
     if (!tab.pinned) {
       return tab.index;
     }
@@ -50,7 +50,7 @@ function getCurrentWindowTabs() {
 document.addEventListener("click", (e) => {
   function callOnActiveTab(callback) {
     getCurrentWindowTabs().then((tabs) => {
-      for (var tab of tabs) {
+      for (let tab of tabs) {
         if (tab.active) {
           callback(tab, tabs);
         }
@@ -60,7 +60,7 @@ document.addEventListener("click", (e) => {
 
   if (e.target.id === "tabs-move-beginning") {
     callOnActiveTab((tab, tabs) => {
-      var index = 0;
+      let index = 0;
       if (!tab.pinned) {
         index = firstUnpinnedTab(tabs);
       }
@@ -71,9 +71,9 @@ document.addEventListener("click", (e) => {
 
   if (e.target.id === "tabs-move-end") {
     callOnActiveTab((tab, tabs) => {
-      var index = -1;
+      let index = -1;
       if (tab.pinned) {
-        var lastPinnedTab = Math.max(0, firstUnpinnedTab(tabs) - 1);
+        let lastPinnedTab = Math.max(0, firstUnpinnedTab(tabs) - 1);
         index = lastPinnedTab;
       }
       browser.tabs.move([tab.id], {index});
@@ -118,13 +118,13 @@ document.addEventListener("click", (e) => {
 
   else if (e.target.id === "tabs-add-zoom") {
     callOnActiveTab((tab) => {
-      var gettingZoom = browser.tabs.getZoom(tab.id);
+      let gettingZoom = browser.tabs.getZoom(tab.id);
       gettingZoom.then((zoomFactor) => {
-        //the maximum zoomFactor is 3, it can't go higher
+        //the maximum zoomFactor is 5, it can't go higher
         if (zoomFactor >= MAX_ZOOM) {
           alert("Tab zoom factor is already at max!");
         } else {
-          var newZoomFactor = zoomFactor + ZOOM_INCREMENT;
+          let newZoomFactor = zoomFactor + ZOOM_INCREMENT;
           //if the newZoomFactor is set to higher than the max accepted
           //it won't change, and will never alert that it's at maximum
           newZoomFactor = newZoomFactor > MAX_ZOOM ? MAX_ZOOM : newZoomFactor;
@@ -136,13 +136,13 @@ document.addEventListener("click", (e) => {
 
   else if (e.target.id === "tabs-decrease-zoom") {
     callOnActiveTab((tab) => {
-      var gettingZoom = browser.tabs.getZoom(tab.id);
+      let gettingZoom = browser.tabs.getZoom(tab.id);
       gettingZoom.then((zoomFactor) => {
         //the minimum zoomFactor is 0.3, it can't go lower
         if (zoomFactor <= MIN_ZOOM) {
           alert("Tab zoom factor is already at minimum!");
         } else {
-          var newZoomFactor = zoomFactor - ZOOM_INCREMENT;
+          let newZoomFactor = zoomFactor - ZOOM_INCREMENT;
           //if the newZoomFactor is set to lower than the min accepted
           //it won't change, and will never alert that it's at minimum
           newZoomFactor = newZoomFactor < MIN_ZOOM ? MIN_ZOOM : newZoomFactor;
@@ -154,7 +154,7 @@ document.addEventListener("click", (e) => {
 
   else if (e.target.id === "tabs-default-zoom") {
     callOnActiveTab((tab) => {
-      var gettingZoom = browser.tabs.getZoom(tab.id);
+      let gettingZoom = browser.tabs.getZoom(tab.id);
       gettingZoom.then((zoomFactor) => {
         if (zoomFactor == DEFAULT_ZOOM) {
           alert("Tab zoom is already at the default zoom factor");
@@ -166,12 +166,12 @@ document.addEventListener("click", (e) => {
   }
 
   else if (e.target.classList.contains('switch-tabs')) {
-    var tabId = +e.target.getAttribute('href');
+    let tabId = +e.target.getAttribute('href');
 
     browser.tabs.query({
       currentWindow: true
     }).then((tabs) => {
-      for (var tab of tabs) {
+      for (let tab of tabs) {
         if (tab.id === tabId) {
           browser.tabs.update(tabId, {
               active: true
@@ -197,7 +197,7 @@ browser.tabs.onRemoved.addListener((tabId, removeInfo) => {
 
 //onMoved listener. fired when tab is moved into the same window
 browser.tabs.onMoved.addListener((tabId, moveInfo) => {
-  var startIndex = moveInfo.fromIndex;
-  var endIndex = moveInfo.toIndex;
+  let startIndex = moveInfo.fromIndex;
+  let endIndex = moveInfo.toIndex;
   console.log(`Tab with id: ${tabId} moved from index: ${startIndex} to index: ${endIndex}`);
 });

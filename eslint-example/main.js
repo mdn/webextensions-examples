@@ -4,7 +4,7 @@
 /* global getUsefulContents */
 function start() {
    getUsefulContents(data => {
-       var display = document.getElementById('display');
+       let display = document.getElementById('display');
 
        display.innerHTML = data;
    });

@@ -6,7 +6,7 @@ document.addEventListener("click", (e) => {
 
   if (e.target.id === "window-update-size_768") {
     getCurrentWindow().then((currentWindow) => {
-      var updateInfo = {
+      let updateInfo = {
         width: 768,
         height: 1024
       };
@@ -17,7 +17,7 @@ document.addEventListener("click", (e) => {
 
   if (e.target.id === "window-update-minimize") {
     getCurrentWindow().then((currentWindow) => {
-      var updateInfo = {
+      let updateInfo = {
         state: "minimized"
       };
 
@@ -80,13 +80,13 @@ document.addEventListener("click", (e) => {
   }
 
   else if (e.target.id === "window-resize-all") {
-    var gettingAll = browser.windows.getAll();
+    let gettingAll = browser.windows.getAll();
     gettingAll.then((windows) => {
-      var updateInfo = {
+      let updateInfo = {
         width: 1024,
         height: 768
       };
-      for (var item of windows) {
+      for (let item of windows) {
         browser.windows.update(item.id, updateInfo);
       }
     });

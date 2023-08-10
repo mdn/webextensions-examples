@@ -8,7 +8,7 @@
 
 <body>
 
-  <div id="outer-wrapper">
+  <div>
 
     <label for="hosts">Hosts</label>
     <input id="hosts" type="text">
@@ -16,8 +16,15 @@
     <label for="code">Code</label>
     <textarea id="code" rows="10"></textarea>
 
+    <label for="userScriptID">User Script ID</label>
+    <input id="userScriptID" type="text">
+
     <button id="register">Register script</button>
 
+    <div id="lastError" style="color: red;">
+    </div>
+    <div id="lastResult" style="color: blue;">
+    </div>
   </div>
 
   <script src="user-script.js"></script>

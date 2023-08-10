@@ -77,14 +77,12 @@ browser.menus.create({
   contexts: ["all"]
 }, onCreated);
 
-var checkedState = true;
-
 browser.menus.create({
   id: "check-uncheck",
   type: "checkbox",
   title: browser.i18n.getMessage("menuItemUncheckMe"),
   contexts: ["all"],
-  checked: checkedState
+  checked: true,
 }, onCreated);
 
 browser.menus.create({
@@ -106,8 +104,8 @@ Set a colored border on the document in the given tab.
 Note that this only work on normal web pages, not special pages
 like about:debugging.
 */
-var blue = 'document.body.style.border = "5px solid blue"';
-var green = 'document.body.style.border = "5px solid green"';
+let blue = 'document.body.style.border = "5px solid blue"';
+let green = 'document.body.style.border = "5px solid green"';
 
 function borderify(tabId, color) {
   browser.tabs.executeScript(tabId, {
@@ -116,15 +114,9 @@ function borderify(tabId, color) {
 }
 
 /*
-Toggle checkedState, and update the menu item's title
-appropriately.
-
-Note that we should not have to maintain checkedState independently like
-this, but have to because Firefox does not currently pass the "checked"
-property into the event listener.
+Update the menu item's title according to current "checked" value.
 */
-function updateCheckUncheck() {
-  checkedState = !checkedState;
+function updateCheckUncheck(checkedState) {
   if (checkedState) {
     browser.menus.update("check-uncheck", {
       title: browser.i18n.getMessage("menuItemUncheckMe"),
@@ -146,7 +138,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       console.log(info.selectionText);
       break;
     case "remove-me":
-      var removing = browser.menus.remove(info.menuItemId);
+      let removing = browser.menus.remove(info.menuItemId);
       removing.then(onRemoved, onError);
       break;
     case "bluify":
@@ -156,7 +148,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       borderify(tab.id, green);
       break;
     case "check-uncheck":
-      updateCheckUncheck();
+      updateCheckUncheck(info.checked);
       break;
     case "open-sidebar":
       console.log("Opening my sidebar");

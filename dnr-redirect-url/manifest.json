@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Redirect example.com requests",
+  "description": "Redirects example.com requests. Redirects always require host_permissions.",
+  "version": "0.1",
+  "permissions": ["declarativeNetRequestWithHostAccess"],
+  "host_permissions": ["*://*.example.com/"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset",
+        "enabled": true,
+        "path": "redirect-rules.json"
+      }
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [{
+    "resources": ["redirectTarget.html"],
+    "matches": ["*://example.com/*"]
+  }]
+}

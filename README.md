@@ -2,7 +2,7 @@
 
 [https://github.com/mdn/webextensions-examples](https://github.com/mdn/webextensions-examples)
 
-Maintained by the [MDN team at Mozilla](https://wiki.mozilla.org/MDN).
+Maintained by Mozilla's [Add-ons team](https://wiki.mozilla.org/Add-ons).
 
 WebExtensions are a way to write browser extensions: that is, programs
 installed inside a web browser that modify the behavior of the browser or

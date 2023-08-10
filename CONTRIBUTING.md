@@ -33,9 +33,9 @@ complexity
     * [`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description)
     * [`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons)
     * `homepage_url`
-* omit the [`applications` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/applications), unless either of the following apply:
-    * the example uses an API or other feature that's not yet available in the current released version of Firefox. In this case, include the `applications` key and set `strict_min_version` to the minimum required version of Firefox.
-    * the example needs an explicitly specified ID (for example, [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) requires an explicitly specified ID). In this case, include the `applications` key and set `id` appropriately.
+* omit the [`browser_specific_settings` key](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/browser_specific_settings), unless either of the following apply:
+    * the example uses an API or other feature that's not yet available in the current released version of Firefox. In this case, include the `browser_specific_settings` key and set `strict_min_version` to the minimum required version of Firefox.
+    * the example needs an explicitly specified ID (for example, [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) requires an explicitly specified ID). In this case, include the `browser_specific_settings` key and set `id` appropriately.
 
 ## Code style
 
@@ -71,5 +71,4 @@ If you're not sure about that, just ask.
 
 ## Getting help
 
-If you need help with writing a WebExtension, email the [dev-addons mailing list](https://mail.mozilla.org/listinfo/dev-addons) or contact the
-WebExtensions team in the #webextensions IRC channel on irc.mozilla.org.
+If you need help with writing a WebExtension, please post on our [add-ons community forum](https://discourse.mozilla.org/c/add-ons/development/) or ask in the [Add-ons channel](https://chat.mozilla.org/#/room/#addons:mozilla.org) on [Mozilla's Matrix instance](https://wiki.mozilla.org/Matrix). 

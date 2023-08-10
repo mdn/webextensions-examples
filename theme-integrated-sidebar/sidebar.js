@@ -1,10 +1,9 @@
 function setSidebarStyle(theme) {
   const myElement = document.getElementById("myElement");
 
-  // colors.frame and colors.accentcolor are aliases
-  if (theme.colors && (theme.colors.accentcolor || theme.colors.frame)) {
+  if (theme.colors && theme.colors.frame) {
     document.body.style.backgroundColor =
-      theme.colors.accentcolor || theme.colors.frame;
+      theme.colors.frame;
   } else {
     document.body.style.backgroundColor = "white";
   }

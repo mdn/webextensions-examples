@@ -7,13 +7,13 @@ function getActiveTab() {
 function cookieUpdate() {
   getActiveTab().then((tabs) => {
     // get any previously set cookie for the current tab 
-    var gettingCookies = browser.cookies.get({
+    let gettingCookies = browser.cookies.get({
       url: tabs[0].url,
       name: "bgpicker"
     });
     gettingCookies.then((cookie) => {
       if (cookie) {
-        var cookieVal = JSON.parse(cookie.value);
+        let cookieVal = JSON.parse(cookie.value);
         browser.tabs.sendMessage(tabs[0].id, {image: cookieVal.image});
         browser.tabs.sendMessage(tabs[0].id, {color: cookieVal.color});
       }

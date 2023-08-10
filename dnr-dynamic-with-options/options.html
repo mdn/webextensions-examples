@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"> <!-- mobile-friendly -->
+<link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+  <fieldset class="input-and-buttons">
+    <legend>Allowed host permissions</legend>
+    Specify the JSON-formatted list of allowed host permissions (documentation: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/permissions/Permissions#origins">origins</a>).
+    <textarea id="input-host-permissions"></textarea>
+    <button id="grant-host-permissions">Grant host permissions</button>
+    <button id="reset-host-permissions">Reset host permissions</button>
+    <output id="status-host-permissions"></output>
+  </fieldset>
+
+  <fieldset class="input-and-buttons">
+    <legend>Dynamic declarativeNetRequest rules (persists across restarts)</legend>
+    Specify the JSON-formatted list of dynamic DNR rules (documentation: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">declarativeNetRequest rules</a>).
+    <textarea id="input-dynamic-rules"></textarea>
+    <button id="save-dynamic-rules">Save</button>
+    <output id="status-dynamic-rules"></output>
+  </fieldset>
+
+  <fieldset class="input-and-buttons">
+    <legend>Session-scoped declarativeNetRequest rules (cleared on extension unload/reload)</legend>
+    Specify the JSON-formatted list of session DNR rules (documentation: <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">declarativeNetRequest rules</a>).
+    <textarea id="input-session-rules"></textarea>
+    <button id="save-session-rules">Save</button>
+    <output id="status-session-rules"></output>
+  </fieldset>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -38,7 +38,7 @@ function detectAccessKeyMenuFeature() {
   // on parameter properties.
 }
 
-var IS_ACCESS_KEY_SUPPORTED = detectAccessKeyMenuFeature();
+let IS_ACCESS_KEY_SUPPORTED = detectAccessKeyMenuFeature();
 
 function formatMenuLabel(menuLabel) {
   if (!IS_ACCESS_KEY_SUPPORTED) {
