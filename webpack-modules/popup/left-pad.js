@@ -13,7 +13,7 @@ document.getElementById("leftpad-form").addEventListener("submit", (e) => {
 }, false);
 
 document.getElementById("pad-bg").addEventListener("click", (e) => {
-    var sendingMessage = browser.runtime.sendMessage({
+    let sendingMessage = browser.runtime.sendMessage({
         text: textNode.value,
         amount: amountNode.valueAsNumber,
         with: withNode.value

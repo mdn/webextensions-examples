@@ -9,7 +9,7 @@ document.addEventListener("click", (e) => {
     return;
   }
 
-  var chosenUa = e.target.textContent;
-  var backgroundPage = browser.extension.getBackgroundPage();
+  let chosenUa = e.target.textContent;
+  let backgroundPage = browser.extension.getBackgroundPage();
   backgroundPage.setUaString(chosenUa);
 });

@@ -21,7 +21,7 @@ function toggleCSS(tab) {
     }
   }
 
-  var gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
+  let gettingTitle = browser.pageAction.getTitle({tabId: tab.id});
   gettingTitle.then(gotTitle);
 }
 
@@ -49,7 +49,7 @@ function initializePageAction(tab) {
 /*
 When first loaded, initialize the page action for all tabs.
 */
-var gettingAllTabs = browser.tabs.query({});
+let gettingAllTabs = browser.tabs.query({});
 gettingAllTabs.then((tabs) => {
   for (let tab of tabs) {
     initializePageAction(tab);
