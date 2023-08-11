@@ -8,5 +8,6 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "addon"),
         filename: "[name]/index.js"
-    }
+    },
+    mode: 'none',
 };

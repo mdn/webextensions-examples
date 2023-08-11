@@ -1,0 +1,12 @@
+{
+  "description": "Adds a new sidebar to the developer tools inspector panel. The sidebar displays the page document as an inspectable object.",
+  "manifest_version": 2,
+  "name": "devtools-inspector-sidebar",
+  "version": "1.0",
+  "author": "Nicolas Chevobbe",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/devtools-inspector-sidebar",
+
+  "permissions": ["<all_urls>"],
+
+  "devtools_page": "devtools/devtools-page.html"
+}

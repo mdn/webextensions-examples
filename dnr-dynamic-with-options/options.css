@@ -1,0 +1,8 @@
+.input-and-buttons legend {
+  font-weight: bold;
+}
+.input-and-buttons textarea {
+  display: block;
+  width: 100%;
+  min-height: 7em;
+}

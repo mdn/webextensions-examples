@@ -16,7 +16,7 @@ exportFunction(notify, window, {defineAs:'notify'});
  * Because the object contains functions, the cloneInto call must include
  * the `cloneFunctions` option.
  */
-var messenger = {
+let messenger = {
   notify: function(message) {
     browser.runtime.sendMessage({content: "Object method call: " + message});
   }

@@ -3,13 +3,13 @@ function showCookiesForTab(tabs) {
   let tab = tabs.pop();
 
   //get all cookies in the domain
-  var gettingAllCookies = browser.cookies.getAll({url: tab.url});
+  let gettingAllCookies = browser.cookies.getAll({url: tab.url});
   gettingAllCookies.then((cookies) => {
 
     //set the header of the panel
-    var activeTabUrl = document.getElementById('header-title');
-    var text = document.createTextNode("Cookies at: "+tab.title);
-    var cookieList = document.getElementById('cookie-list');
+    let activeTabUrl = document.getElementById('header-title');
+    let text = document.createTextNode("Cookies at: "+tab.title);
+    let cookieList = document.getElementById('cookie-list');
     activeTabUrl.appendChild(text);
 
     if (cookies.length > 0) {

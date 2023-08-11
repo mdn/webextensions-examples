@@ -11,7 +11,6 @@ async function restoreOptions() {
 
   res = await browser.storage.sync.get('colour');
   document.querySelector("#colour").value = res.colour || 'Firefox red';
-  
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);

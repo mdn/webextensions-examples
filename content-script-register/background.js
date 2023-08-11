@@ -1,6 +1,6 @@
 'use strict';
 
-var registered = null;
+let registered = null;
 
 async function registerScript(message) {
 

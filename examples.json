@@ -123,7 +123,7 @@
         "name": "contextual-identities"
     },
     {
-        "description": "Allows the user to customize the background color and tiled pattern on sites the visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
+        "description": "Allows the user to customize the background color and tiled pattern on sites they visit, and also saves their preferences via a cookie, reapplying them whenever they revisit a site they previously customized.",
         "javascript_apis": [
             "cookies.get",
             "cookies.onChanged",
@@ -155,6 +155,43 @@
         "description": "Demonstrates adding a custom search engine with the chrome_settings_overrides key.",
         "javascript_apis": [],
         "name": "discogs-search"
+    },
+    {
+        "description": "Demonstrates how to block network requests without host permissions using the declarativeNetRequest API with the `declarative_net_request` manifest key.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition"
+        ],
+        "name": "dnr-block-only"
+    },
+    {
+        "description": "Demonstrates a generic way to request host permissions and register declarativeNetRequest rules to modify network requests, without any install-time permission warnings. The options_ui page offers a way to request permissions and register DNR rules.",
+        "javascript_apis": [
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.getDynamicRules",
+          "declarativeNetRequest.getSessionRules",
+          "declarativeNetRequest.updateDynamicRules",
+          "declarativeNetRequest.updateSessionRules",
+          "permissions.getAll",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-dynamic-with-options"
+    },
+    {
+        "description": "Demonstrates multiple ways to redirect requests using the declarativeNetRequest API through the `declarative_net_request` manifest key. Demonstrates aspects of Manifest Version 3 (MV3): action, host_permissions, and web_accessible_resources, and includes a comparison with Manifest Version 2 (MV2).",
+        "javascript_apis": [
+          "declarativeNetRequest.Redirect",
+          "declarativeNetRequest.Rule",
+          "declarativeNetRequest.RuleAction",
+          "declarativeNetRequest.RuleCondition",
+          "declarativeNetRequest.URLTransform",
+          "permissions.contains",
+          "permissions.remove",
+          "permissions.request"
+        ],
+        "name": "dnr-redirect-url"
     },
     {
         "description": "Dynamic theme example",
@@ -460,7 +497,7 @@
         "name": "selection-to-clipboard"
     },
     {
-        "description": "Demonstrates how to retrieve extension-defined state state from restored tabs.",
+        "description": "Demonstrates how to retrieve extension-defined state from restored tabs.",
         "javascript_apis": [
             "menus.create",
             "menus.onClicked",

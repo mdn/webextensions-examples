@@ -1,13 +1,13 @@
 /* initialise variables */
 
-var inputTitle = document.querySelector('.new-note input');
-var inputBody = document.querySelector('.new-note textarea');
+let inputTitle = document.querySelector('.new-note input');
+let inputBody = document.querySelector('.new-note textarea');
 
-var noteContainer = document.querySelector('.note-container');
+let noteContainer = document.querySelector('.note-container');
 
 
-var clearBtn = document.querySelector('.clear');
-var addBtn = document.querySelector('.add');
+let clearBtn = document.querySelector('.clear');
+let addBtn = document.querySelector('.add');
 
 /*  add event listeners to buttons */
 
@@ -24,11 +24,11 @@ function onError(error) {
 initialize();
 
 function initialize() {
-  var gettingAllStorageItems = browser.storage.local.get(null);
+  let gettingAllStorageItems = browser.storage.local.get(null);
   gettingAllStorageItems.then((results) => {
-    var noteKeys = Object.keys(results);
+    let noteKeys = Object.keys(results);
     for (let noteKey of noteKeys) {
-      var curValue = results[noteKey];
+      let curValue = results[noteKey];
       displayNote(noteKey,curValue);
     }
   }, onError);
@@ -37,11 +37,11 @@ function initialize() {
 /* Add a note to the display, and storage */
 
 function addNote() {
-  var noteTitle = inputTitle.value;
-  var noteBody = inputBody.value;
-  var gettingItem = browser.storage.local.get(noteTitle);
+  let noteTitle = inputTitle.value;
+  let noteBody = inputBody.value;
+  let gettingItem = browser.storage.local.get(noteTitle);
   gettingItem.then((result) => {
-    var objTest = Object.keys(result);
+    let objTest = Object.keys(result);
     if(objTest.length < 1 && noteTitle !== '' && noteBody !== '') {
       inputTitle.value = '';
       inputBody.value = '';
@@ -53,7 +53,7 @@ function addNote() {
 /* function to store a new note in storage */
 
 function storeNote(title, body) {
-  var storingNote = browser.storage.local.set({ [title] : body });
+  let storingNote = browser.storage.local.set({ [title] : body });
   storingNote.then(() => {
     displayNote(title,body);
   }, onError);
@@ -64,12 +64,12 @@ function storeNote(title, body) {
 function displayNote(title, body) {
 
   /* create note display box */
-  var note = document.createElement('div');
-  var noteDisplay = document.createElement('div');
-  var noteH = document.createElement('h2');
-  var notePara = document.createElement('p');
-  var deleteBtn = document.createElement('button');
-  var clearFix = document.createElement('div');
+  let note = document.createElement('div');
+  let noteDisplay = document.createElement('div');
+  let noteH = document.createElement('h2');
+  let notePara = document.createElement('p');
+  let deleteBtn = document.createElement('button');
+  let clearFix = document.createElement('div');
 
   note.setAttribute('class','note');
 
@@ -95,13 +95,13 @@ function displayNote(title, body) {
   })
 
   /* create note edit box */
-  var noteEdit = document.createElement('div');
-  var noteTitleEdit = document.createElement('input');
-  var noteBodyEdit = document.createElement('textarea');
-  var clearFix2 = document.createElement('div');
+  let noteEdit = document.createElement('div');
+  let noteTitleEdit = document.createElement('input');
+  let noteBodyEdit = document.createElement('textarea');
+  let clearFix2 = document.createElement('div');
 
-  var updateBtn = document.createElement('button');
-  var cancelBtn = document.createElement('button');
+  let updateBtn = document.createElement('button');
+  let cancelBtn = document.createElement('button');
 
   updateBtn.setAttribute('class','update');
   updateBtn.textContent = 'Update note';
@@ -154,10 +154,10 @@ function displayNote(title, body) {
 /* function to update notes */
 
 function updateNote(delNote,newTitle,newBody) {
-  var storingNote = browser.storage.local.set({ [newTitle] : newBody });
+  let storingNote = browser.storage.local.set({ [newTitle] : newBody });
   storingNote.then(() => {
     if(delNote !== newTitle) {
-      var removingNote = browser.storage.local.remove(delNote);
+      let removingNote = browser.storage.local.remove(delNote);
       removingNote.then(() => {
         displayNote(newTitle, newBody);
       }, onError);

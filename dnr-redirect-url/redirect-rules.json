@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "priority": 4,
+    "condition": {
+      "urlFilter": "||example.com/|",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/redirectTarget.html"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "priority": 3,
+    "condition": {
+      "urlFilter": "||example.com/ew",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://extensionworkshop.com/"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "priority": 2,
+    "condition": {
+      "urlFilter": "|https://www.example.com/",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "host": "example.com",
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "redirected_from_www", "value": "1" }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": 4,
+    "condition": {
+      "regexFilter": "^https?://([^?]+)$",
+      "requestDomains": ["example.com"],
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://\\1?redirected_by_regex"
+      }
+    }
+  }
+]

@@ -1,8 +1,8 @@
 browser.runtime.onMessage.addListener(updateBg);
 
 function updateBg(request, sender, sendResponse) {
-  var html = document.querySelector('html');
-  var body = document.querySelector('body');
+  let html = document.querySelector('html');
+  let body = document.querySelector('body');
   if (request.image) {
     html.style.backgroundImage = 'url(' + request.image + ')';
     body.style.backgroundImage = 'url(' + request.image + ')';

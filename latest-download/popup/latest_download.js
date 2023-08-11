@@ -1,12 +1,12 @@
 
-var latestDownloadId;
+let latestDownloadId;
 
 /*
 Callback from getFileIcon.
 Initialize the displayed icon.
 */
 function updateIconUrl(iconUrl) {
-  var downloadIcon = document.querySelector("#icon");
+  let downloadIcon = document.querySelector("#icon");
   downloadIcon.setAttribute("src", iconUrl);
 }
 
@@ -22,10 +22,10 @@ If there was a download item,
 If there wasn't a download item, disable the "open" and "remove" buttons.
 */
 function initializeLatestDownload(downloadItems) {
-  var downloadUrl = document.querySelector("#url");
+  let downloadUrl = document.querySelector("#url");
   if (downloadItems.length > 0) {
     latestDownloadId = downloadItems[0].id;
-    var gettingIconUrl = browser.downloads.getFileIcon(latestDownloadId);
+    let gettingIconUrl = browser.downloads.getFileIcon(latestDownloadId);
     gettingIconUrl.then(updateIconUrl, onError);
     downloadUrl.textContent = downloadItems[0].url;
     document.querySelector("#open").classList.remove("disabled");
@@ -40,7 +40,7 @@ function initializeLatestDownload(downloadItems) {
 /*
 Search for the most recent download, and pass it to initializeLatestDownload()
 */
-var searching = browser.downloads.search({
+let searching = browser.downloads.search({
   limit: 1,
   orderBy: ["-startTime"]
 });

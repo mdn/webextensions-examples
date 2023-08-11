@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"> <!-- mobile-friendly -->
+<base target="_blank"> <!-- Open links in new tab by default -->
+</head>
+<body>
+  <h2>Host permission requirement</h2>
+  To redirect requests, the extension needs host permissions.<br>
+  While "Manage Extensions" (<code>about:addons</code>) offers a built-in UI to grant or revoke permissions, this extension uses the <code>permissions</code> API to build the request into the UI:
+  <p>
+  <label>
+    <input type="checkbox" id="checkbox_host_permission">
+    Allow access to example.com
+  </label>
+
+  <h2>Test cases</h2>
+  There are four rules in <a href="redirect-rules.json">redirect-rules.json</a>; each rule has a test case here.
+  <ul>
+    <li>1: <a href="https://example.com/">example.com/</a> should redirect to <a href="redirectTarget.html">redirectTarget.html</a> packaged in the extension.</li>
+    <li>2: <a href="https://example.com/ew">example.com/ew</a> should redirect to <code>extensionworkshop.com</code></li>
+    <li>3: <a href="https://www.example.com/anything">https://www.example.com/anything</a> should redirect to <code>https://example.com/anything?redirected_from_www=1</code>.</li>
+    <li>4: <a href="http://example.com/no_question">http://example.com/no_question</a> should redirect to <code>https://example.com/no_question?redirected_by_regex</code>.</li>
+  </ul>
+
+  <script src="popup.js"></script>
+</body>
+</html>
