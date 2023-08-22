@@ -1,8 +1,8 @@
 {
-  "browser_action": {
+  "sidebar_action": {
     "browser_style": true,
     "default_title": "Window manipulator",
-    "default_popup": "window.html",
+    "default_panel": "window.html",
     "default_icon": {
       "19": "icons/window19.png",
       "38": "icons/window38.png"
