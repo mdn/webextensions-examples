@@ -1,6 +1,6 @@
 "use strict";
 
-let rootCertStats = {};
+var rootCertStats = {};
 
 /*
 On an onHeadersReceived event, if there was a successful TLS connection
