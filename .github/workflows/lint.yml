@@ -2,7 +2,7 @@ name: lint
 on:
   pull_request:
     paths:
-      - '**.js?'
+      - "**.js"
 
 jobs:
   eslint:
@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: reviewdog/action-eslint@v1
         with:
