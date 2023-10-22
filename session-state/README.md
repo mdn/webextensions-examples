@@ -4,7 +4,7 @@
 
 This extension adds a context menu item. When the user clicks the context menu item, the extension adds a border to the page.
 
-But the extension also uses `sessions.setTabValue` to store the fact that it has added a border to this page. If the user closes the page, then restores it, the extension will retrieve this fact using `sessions.getTabValue`, and use that to reapply the border.
+But the extension also uses `sessions.setTabValue` to store the fact that it has added a border to this page. If the user closes the page, then it is restored , the extension retrieves this fact using `sessions.getTabValue`, and use that to reapply the border.
 
 Note: to restore a tab, press Control+Shift+T (or Command+Shift+T on a Mac). In Firefox you can also restore the tab from your "History->Recently Closed Tabs" menu.
 
