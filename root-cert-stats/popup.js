@@ -1,7 +1,7 @@
 "use strict";
 
 /*
-Get the background page to access the rootCertStats object
+Send message to the background page to get the rootCertStats object
 */
 browser.runtime.sendMessage({ action: "getRootCertStats" }, response => {
   displayTable(response.rootCertStats);
