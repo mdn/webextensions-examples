@@ -13,6 +13,9 @@ Each row contains the name of the CA and the number of times it has been
 used as a trust root.
 */
 if (entries.length > 0) {
+browser.runtime.sendMessage({ action: "getRootCertStats" }, response => {
+  displayTable(response.rootCertStats);
+});
 
   let noData = document.querySelector(".no-data");
   noData.classList.add("hidden");

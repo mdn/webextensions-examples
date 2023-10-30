@@ -39,3 +39,12 @@ browser.webRequest.onHeadersReceived.addListener(logRootCert,
   {urls: ["<all_urls>"]},
   ["blocking"]
 );
+
+/*
+Send the rootCertStats object to popup.js when requested.
+*/
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "getRootCertStats") {
+    sendResponse({ rootCertStats: rootCertStats });
+  }
+});
