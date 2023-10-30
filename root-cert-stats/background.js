@@ -3,7 +3,7 @@
 // Note: declared with "var" because popup.js references this global variable.
 // If this were to be declared with "const" or "let", then the variable would
 // still be available to this file, but not to popup.js.
-var rootCertStats = {};
+let rootCertStats = {};
 
 /*
 On an onHeadersReceived event, if there was a successful TLS connection
