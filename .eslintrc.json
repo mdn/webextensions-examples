@@ -1,22 +1,23 @@
 {
   "root": true,
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": "latest"
   },
   "env": {
     "browser": true,
-    "es6": true,
+    "es2021": true,
+    "node": true,
     "webextensions": true
   },
   "globals": {
     "globalThis": false
   },
-  "extends": [
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended"],
+  "overrides": [],
+
   "rules": {
     "no-console": 0,
-    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used" } ],
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used" }],
     "no-undef": ["warn"],
     "no-proto": ["error"],
     "prefer-arrow-callback": ["warn"],
