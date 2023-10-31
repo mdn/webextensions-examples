@@ -1,0 +1,23 @@
+name: lint
+on:
+  pull_request:
+    paths:
+      - "**.js"
+
+jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: reviewdog/action-eslint@v1
+        with:
+          reporter: github-pr-review
+          eslint_flags: "."
+          filter_mode: "file"
+          fail_on_error: true
