@@ -20,7 +20,7 @@ jobs:
           node-version: "latest"
           cache: "npm"
 
-      - run: npm ci
+      - run: npm install
 
       - uses: reviewdog/action-eslint@v1
         with:
