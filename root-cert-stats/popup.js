@@ -7,7 +7,6 @@ browser.runtime.sendMessage({ action: "getRootCertStats" }, response => {
   displayTable(response.rootCertStats);
 });
 
-const backgroundPage = browser.extension.getBackgroundPage();
 
 function displayTable(rootCertStats) {
   /*
