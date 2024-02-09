@@ -6,8 +6,12 @@ async function saveOptions(e) {
 }
 
 async function restoreOptions() {
-  let res = await browser.storage.managed.get('colour');
-  document.querySelector("#managed-colour").innerText = res.colour;
+	try {
+		let res = await browser.storage.managed.get('colour');
+		document.querySelector("#managed-colour").innerText = res.colour;
+	} catch(error) {
+		console.log(JSON.stringify(error));
+	}
 
   res = await browser.storage.sync.get('colour');
   document.querySelector("#colour").value = res.colour || 'Firefox red';
