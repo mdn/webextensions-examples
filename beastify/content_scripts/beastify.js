@@ -1,3 +1,10 @@
+// Making compatible with Chrome
+if (typeof browser == "undefined") {
+  // `browser` is not defined in Chrome, but Manifest V3 extensions in Chrome
+  // also support promises in the `chrome` namespace, like Firefox. To easily
+  // test the example without modifications, polyfill "browser" to "chrome".
+  globalThis.browser = chrome;
+}
 (function() {
   /**
    * Check and set a global guard variable.
@@ -20,6 +27,7 @@
     beastImage.setAttribute("src", beastURL);
     beastImage.style.height = "100vh";
     beastImage.className = "beastify-image";
+    beastImage.setAttribute("id","beastify-image")
     document.body.appendChild(beastImage);
   }
 
@@ -35,7 +43,7 @@
 
   /**
    * Listen for messages from the background script.
-   * Call "beastify()" or "reset()".
+   * Call "beastify()", or "removeExistingBeasts()" for resting.
    */
   browser.runtime.onMessage.addListener((message) => {
     if (message.command === "beastify") {
