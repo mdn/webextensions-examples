@@ -1,10 +1,20 @@
+// Making compatible with Chrome
+if (typeof browser == "undefined") {
+  // `browser` is not defined in Chrome, but Manifest V3 extensions in Chrome
+  // also support promises in the `chrome` namespace, like Firefox. To easily
+  // test the example without modifications, polyfill "browser" to "chrome".
+  globalThis.browser = chrome;
+}
 /**
  * CSS to hide everything on the page,
  * except for elements that have the "beastify-image" class.
  */
-const hidePage = `body > :not(.beastify-image) {
-                    display: none;
-                  }`;
+const hidePage = `
+  body > :not(img.beastify-image#beastify-image) {
+    display: none;
+
+  };
+`;
 
 /**
  * Listen for clicks on the buttons, and send the appropriate message to
@@ -33,7 +43,22 @@ function listenForClicks() {
      * send a "beastify" message to the content script in the active tab.
      */
     function beastify(tabs) {
-      browser.tabs.insertCSS({code: hidePage}).then(() => {
+      /* below browser.scripting.removeCSS is added for Chrome compability.
+       * browser.scripting.insertCSS in Chrome adds additional copies of CSS 
+       * een though that CSS alredy exists.   removeCSS is added to remove 
+       * any old copy of CSS
+       */
+      browser.scripting.removeCSS({
+        css: hidePage, 
+        target: {tabId:tabs[0].id}
+      }).then(()=>{
+          browser.scripting.insertCSS({
+            css: hidePage, 
+            target: {tabId:tabs[0].id}
+          });
+      })
+      .then( (p)=> {
+        console.log(p);
         const url = beastNameToURL(e.target.textContent);
         browser.tabs.sendMessage(tabs[0].id, {
           command: "beastify",
@@ -47,7 +72,10 @@ function listenForClicks() {
      * send a "reset" message to the content script in the active tab.
      */
     function reset(tabs) {
-      browser.tabs.removeCSS({code: hidePage}).then(() => {
+      browser.scripting.removeCSS({
+        css: hidePage, 
+        target: {tabId:tabs[0].id}
+      }).then( e => {
         browser.tabs.sendMessage(tabs[0].id, {
           command: "reset",
         });
@@ -96,6 +124,13 @@ function reportExecuteScriptError(error) {
  * and add a click handler.
  * If we couldn't inject the script, handle the error.
  */
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
+browser.tabs.query({ currentWindow: true, active: true })
+.then( (tabs) => {
+    return browser.scripting
+    .executeScript({
+        files : [ "./content_scripts/beastify.js"],
+        target : { allFrames : true, tabId: tabs[0].id}
+    })
+})
 .then(listenForClicks)
 .catch(reportExecuteScriptError);
