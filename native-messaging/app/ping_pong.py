@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import json
@@ -19,7 +19,7 @@ try:
     # given its content.
     def encodeMessage(messageContent):
         # https://docs.python.org/3/library/json.html#basic-usage
-        # To get the most compact JSON representation, you should specify 
+        # To get the most compact JSON representation, you should specify
         # (',', ':') to eliminate whitespace.
         # We want the most compact representation because the browser rejects
         # messages that exceed 1 MB.
@@ -37,6 +37,7 @@ try:
         receivedMessage = getMessage()
         if receivedMessage == "ping":
             sendMessage(encodeMessage("pong3"))
+
 except AttributeError:
     # Python 2.x version (if sys.stdin.buffer is not defined)
     # Read a message from stdin and decode it.
@@ -52,7 +53,7 @@ except AttributeError:
     # given its content.
     def encodeMessage(messageContent):
         # https://docs.python.org/3/library/json.html#basic-usage
-        # To get the most compact JSON representation, you should specify 
+        # To get the most compact JSON representation, you should specify
         # (',', ':') to eliminate whitespace.
         # We want the most compact representation because the browser rejects
         # messages that exceed 1 MB.
