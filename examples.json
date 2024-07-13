@@ -34,9 +34,9 @@
             "extension.getURL",
             "runtime.onMessage",
             "tabs.executeScript",
-            "tabs.insertCSS",
+            "scripting.insertCSS",
             "tabs.query",
-            "tabs.removeCSS",
+            "scripting.removeCSS",
             "tabs.sendMessage",
             "tabs.Tab"
         ],
