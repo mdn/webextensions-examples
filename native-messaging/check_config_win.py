@@ -16,21 +16,15 @@ key_path = 'Software\\Mozilla\\NativeMessagingHosts\\ping_pong'
 # Assuming current user overrides local machine.
 key_roots = ['HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE']
 
-found_key = False
-
-for root in key_roots:
-    key = winreg.OpenKey(getattr(winreg, root), key_path)
+for key_root in key_roots:
     try:
-        print('Checking:', root, key_path)
+        print('Checking:', key_root, key_path)
+        key = winreg.OpenKey(getattr(winreg, key_root), key_path)
         res = winreg.QueryValueEx(key, '')
+        break
     except FileNotFoundError:
-        print('...error finding key')
-        continue
-
-    found_key = True
-    break
-
-if not found_key:
+        print('... error finding key')
+else:
     raise ValueError('Could not find a registry entry, aborting.')
 
 json_path = res[0]
