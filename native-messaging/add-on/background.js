@@ -20,6 +20,7 @@ port.onDisconnect.addListener((port) => {
     // The port closed for an unspecified reason. If this occurred right after
     // calling `browser.runtime.connectNative()` there may have been a problem
     // starting the the native messaging client in the first place.
+    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#troubleshooting
     console.log(`Disconnected`, port);
   }
 });
