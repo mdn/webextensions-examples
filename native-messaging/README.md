@@ -10,6 +10,8 @@ To get this working, there's a little setup to do.
 
 ### Linux/macOS setup
 
+0. (macOS) Make sure that you did not copy this extension into the Desktop, Documents, or Downloads folders in your home directory. macOS has access restrictions on these directories that will prevent the Python script from executing as expected.
+
 1. Make sure that you have Python 3 installed, and that your system's PATH environment variable includes the path to Python by executing the following command:
 
     ```bash
