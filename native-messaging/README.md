@@ -10,16 +10,16 @@ To get this working, there's a little setup to do.
 
 ### Linux/macOS setup
 
-0. (macOS) Make sure that you did not copy this extension into the Desktop, Documents, or Downloads folders in your home directory. macOS has access restrictions on these directories that will prevent the Python script from executing as expected.
+0. (macOS) Store this extension in a location other than the Desktop, Documents, or Downloads folders in your home directory. macOS has access restrictions on these directories that prevent the Python script from executing as expected.
 
-1. Make sure that you have Python 3 installed, and that your system's PATH environment variable includes the path to Python by executing the following command:
+1. Make sure you have Python 3 installed, and your system's PATH environment variable includes the path to Python. You can check by executing this command:
 
     ```bash
     > which python3
     /usr/local/bin/python3
     ```
 
-    If you don't see the path of the application as above, you most likely need to install Python 3 on your computer. See [Using Python on Unix platforms](https://docs.python.org/3/using/unix.html) or [Using Python on a Mac](https://docs.python.org/3/using/windows.html). Restart the web browser after making this change in order for Firefox to pick up the new PATH environment variable.
+    If you don't see the path for Python, install Python 3. See [Using Python on Unix platforms](https://docs.python.org/3/using/unix.html) (for Linux) or [Using Python on a Mac](https://docs.python.org/3/using/mac.html). After making this change, restart Firefox so it picks up the new PATH environment variable.
 
 2. Make sure that the [file permissions](https://en.wikipedia.org/wiki/File_system_permissions) for `app/ping_pong.py` include the `execute` permission. See [this article by RedHat](https://www.redhat.com/sysadmin/linux-file-permissions-explained) for more information.
 
@@ -35,11 +35,11 @@ To get this working, there's a little setup to do.
 
 ### Windows setup
 
-1. Make sure that you have Python 3 installed and that your system's PATH environment variable includes the path to Python.  See [Using Python on Windows](https://docs.python.org/3/using/windows.html). You'll need to restart the web browser after making this change, or the browser won't pick up the new environment variable.
+1. Make sure that you have Python 3 installed and that your system's PATH environment variable includes the path to Python. See [Using Python on Windows](https://docs.python.org/3/using/windows.html). After making this change, restart Firefox so it picks up the new PATH environment variable.
 
-2. Update the `"path"` field in `app\ping_pong.json` to use the full path of `app\ping_pong_win.bat` on your computer. Be aware that you'll need to escape the Windows directory separator (`\`).
+2. Update the `"path"` field in `app\ping_pong.json` to use the full path of `app\ping_pong_win.bat` on your computer. Be aware that you must escape the Windows directory separator (`\`).
 
-    For example, if you cloned this repository into `C:\Users\MDN\webextensions-examples\`, you would update the JSON file like this:
+    For example, if you cloned this repository into `C:\Users\MDN\webextensions-examples\`, you update the JSON file like this:
 
     ```json
     "path": "C:\\Users\\MDN\\webextensions-examples\\native-messaging\\app\\ping_pong_win.bat"
@@ -55,7 +55,7 @@ To assist in troubleshooting on Windows, there is a script next to this README f
 
 First, install the add-on. Visit `about:debugging#/runtime/this-firefox` or, from `about:debugging` click "This Firefox" (or "This Nightly" in the Nightly version of Firefox), click "Load Temporary Add-on", and open the add-on's `manifest.json`.
 
-Now, open the extension's console using the "Inspect" button - this is where you'll see communication between the browser and native app.
+Now, open the extension's console using the "Inspect" button. This is where you see communication between the browser and native app.
 
 You should see a new browser action icon in the toolbar. Click it. You should see output like this in the console:
 
