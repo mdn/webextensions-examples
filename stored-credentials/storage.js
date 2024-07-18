@@ -1,3 +1,6 @@
+// Polyfill the "browser" global in Chrome.
+globalThis.browser ??= chrome;
+
 /*
 Default settings. Initialize storage to these values.
 */
