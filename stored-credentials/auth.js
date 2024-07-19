@@ -1,3 +1,5 @@
+// Polyfill the "browser" global in Chrome.
+globalThis.browser ??= chrome;
 
 let target = "https://httpbin.org/basic-auth/*";
 
@@ -14,27 +16,27 @@ function completed(requestDetails) {
   }
 }
 
-function provideCredentialsAsync(requestDetails) {
-  // If we have seen this request before,
-  // then assume our credentials were bad,
+async function provideCredentialsAsync(requestDetails, asyncCallback) {
+  // If we have seen this request before, then assume our credentials were bad,
   // and give up.
   if (pendingRequests.indexOf(requestDetails.requestId) != -1) {
     console.log("bad credentials for: " + requestDetails.requestId);
     return {cancel: true};
-    
+
   } else {
     pendingRequests.push(requestDetails.requestId);
     console.log("providing credentials for: " + requestDetails.requestId);
-    // we can return a promise that will be resolved
-    // with the stored credentials
-    return browser.storage.local.get(null);
+    // We can respond asynchronously by calling asyncCallback and providing the
+    // authentication credentials.
+    const {authCredentials} = await browser.storage.local.get("authCredentials");
+    asyncCallback({authCredentials});
   }
 }
 
 browser.webRequest.onAuthRequired.addListener(
     provideCredentialsAsync,
     {urls: [target]},
-    ["blocking"]
+    ["asyncBlocking"]
   );
 
 browser.webRequest.onCompleted.addListener(
