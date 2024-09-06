@@ -1,15 +1,15 @@
 # Favourite Colour
 
-Shows and stores your favourite colour, in storage.sync in the about:addons page for the add-on.
+Shows and stores your favourite colour, in storage.sync in the extension's about:addons page.
 
 Demonstrates:
 
 * storing data with storage.sync
+* reading data from storage.managed
+* creating an options page and opening it with `runtime.openOptionsPage()`
+* best practice for supporting automatic theme switching in the options page
 
-* reading data from storage.managed, 
-* creating an options page and opening it with `runtime.openOptionsPage()`.
-
-To have Firefox read data from storage.managed, create a file with the following contents:
+To have Firefox read data from storage.managed, create a file with this content:
 
     {
       "name":  "favourite-colour-examples@mozilla.org",
