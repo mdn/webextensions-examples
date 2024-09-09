@@ -7,7 +7,7 @@ Demonstrates:
 * storing data with storage.sync
 * reading data from storage.managed
 * creating an options page and opening it with `runtime.openOptionsPage()`
-* best practice for supporting automatic theme switching in the options page
+* best practice for supporting automatic theme switching (dark theme) in the options page
 
 To have Firefox read data from storage.managed, create a file with this content:
 
