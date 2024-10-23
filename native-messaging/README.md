@@ -60,6 +60,6 @@ Now, open the extension's console using the "Inspect" button. This is where you 
 You should see a new browser action icon in the toolbar. Click it. You should see output like this in the console:
 
     Sending: ping
-    Received: pong3
+    Received: pong
 
 If you don't see this output, see the [Troubleshooting guide](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging#Troubleshooting) for ideas.
