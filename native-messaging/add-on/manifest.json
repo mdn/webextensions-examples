@@ -22,7 +22,7 @@
   "browser_action": {
     "default_icon": "icons/message.svg"
   },
-  
+
   "permissions": ["nativeMessaging"]
 
 }
