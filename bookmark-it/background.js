@@ -39,7 +39,7 @@ browser.browserAction.onClicked.addListener(toggleBookmark);
 /*
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
-function updateActiveTab(tabs) {
+function updateAddonStateForActiveTab(tabs) {
 
   function isSupportedProtocol(urlString) {
     let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
@@ -68,19 +68,19 @@ function updateActiveTab(tabs) {
 }
 
 // listen for bookmarks being created
-browser.bookmarks.onCreated.addListener(updateActiveTab);
+browser.bookmarks.onCreated.addListener(updateAddonStateForActiveTab);
 
 // listen for bookmarks being removed
-browser.bookmarks.onRemoved.addListener(updateActiveTab);
+browser.bookmarks.onRemoved.addListener(updateAddonStateForActiveTab);
 
 // listen to tab URL changes
-browser.tabs.onUpdated.addListener(updateActiveTab);
+browser.tabs.onUpdated.addListener(updateAddonStateForActiveTab);
 
 // listen to tab switching
-browser.tabs.onActivated.addListener(updateActiveTab);
+browser.tabs.onActivated.addListener(updateAddonStateForActiveTab);
 
 // listen for window switching
-browser.windows.onFocusChanged.addListener(updateActiveTab);
+browser.windows.onFocusChanged.addListener(updateAddonStateForActiveTab);
 
 // update when the extension loads initially
-updateActiveTab();
+updateAddonStateForActiveTab();
