@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Collection Consent</title>
+  <script defer src="/third-party/dompurify/purify.js"></script>
+  <script defer src="consent-lib.js"></script>
+  <script defer src="index.js"></script>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <dialog class="consent-dialog" open>
+    <form class="consent-form" method="dialog" class="consent-form">
+      <h1 data-locale-message="consentUITitle"></h1>
+      <div class="consent-block">
+        <label for="personal" class="consent-block__label">
+          <p  data-locale-message="consentPersonalIntroHTML"></p>
+          <ul data-locale-message="consentPersonalListHTML"></ul>
+          <p  data-locale-message="consentPersonalConsequence"></p>
+        </label>
+        <div class="consent-block__checkbox-wrapper">
+          <input type="checkbox" id="personal" checked disabled class="consent-block__checkbox">
+        </div>
+      </div>
+      <div class="consent-block">
+        <label for="anonymous" class="consent-block__label">
+          <p  data-locale-message="consentAnonymousIntroHTML"></p>
+          <ul data-locale-message="consentAnonymousListHTML"></ul>
+          <p  data-locale-message="consentAnonymousConsequence"></p>
+        </label>
+        <div class="consent-block__checkbox-wrapper">
+          <input type="checkbox" id="anonymous" class="consent-block__checkbox" autofocus>
+        </div>
+      </div>
+      <div class="consent-block">
+        <p data-locale-message="consentPrivacyPolicyHTML"></p>
+      </div>
+      <div class="consent__button-row">
+        <button type="submit" id="reject" value="reject" class="consent__button">Decline and uninstall</button>
+        <button type="submit" id="accept" value="accept" class="consent__button consent__button--main">Agree to data collection</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

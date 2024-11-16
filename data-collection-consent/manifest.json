@@ -1,0 +1,22 @@
+{
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "consent/consent-lib.js",
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {},
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "data-collection-consent@example"
+    }
+  }
+}
