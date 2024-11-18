@@ -1,4 +1,6 @@
-const consent = (function() {
+/* exported consent */
+// eslint-disable-next-line no-unused-vars
+var consent = (function() {
   // This library is wrapped in an immediately invoked function expression
   // (IIFE) in order to prevent it's utility functions from polluting the global
   // namespace.

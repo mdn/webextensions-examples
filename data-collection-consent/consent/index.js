@@ -3,9 +3,6 @@
 // data collection consent request.
 
 const dialog = document.querySelector(".consent-dialog");
-const form = document.querySelector(".consent-form");
-const anonymousCheckbox =  document.getElementById("anonymous");;
-const personalCheckbox = document.getElementById("personal");
 
 /**
  * A collection of the consent checkboxes on the current page. Each checkbox's
@@ -17,12 +14,13 @@ const checkboxes = dialog.querySelectorAll(".consent-block__checkbox");
 // Populate checkboxes with their current values. If a checkbox is disabled,
 // it's because the assigned value is required and should not be changed.
 consent.ready.then(() => {
-  for (const checkbox of checkboxes) {
-    if (!checkbox.disabled) {
-      checkbox.checked = consent[checkbox.id];
-    }
-  }
+  setCheckboxState();
 });
+
+// React to async consent updates
+consent.onUserConsentChange = () => {
+  setCheckboxState();
+};
 
 dialog.addEventListener("close", async () => {
   switch(dialog.returnValue) {
@@ -67,5 +65,10 @@ function insertLocaleStrings() {
 
 insertLocaleStrings();
 
-// React to async consent update
-consent.onUserConsentChange = (grants) => {};
+function setCheckboxState() {
+  for (const checkbox of checkboxes) {
+    if (!checkbox.disabled) {
+      checkbox.checked = consent[checkbox.id];
+    }
+  }
+}
