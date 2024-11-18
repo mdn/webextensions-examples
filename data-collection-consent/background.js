@@ -1,7 +1,7 @@
 globalThis.browser ??= chrome;
 
 // React to async consent update
-consent.onUserConsentChange = (val) => {
+consent.onUserConsentChange = () => {
   if (consent.hasUserSetConsent()) {
     // User consent is configured
     browser.action.setPopup({popup: "action.html"});
