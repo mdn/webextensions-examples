@@ -1,3 +1,3 @@
 ## For Firefox reviewers
 
-A list of third party dependencies can be found in `/SOURCES.md`.
+A list of third-party dependencies is in `/SOURCES.md`.

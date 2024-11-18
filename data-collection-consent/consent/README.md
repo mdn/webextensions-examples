@@ -3,7 +3,7 @@ This directory contains a semi-static version of a consent experience. It tracks
 - `personal` -
   This is personally identifying information.
   As configured, the extension requires that the user provide consent for this data.
-  If the user rejects the consent rejects, the extension will uninstall itself.
+  If the user rejects the consents, the extension uninstalls itself.
 - `anonymous` -
   This is anonymized data about the user.
   Consent for this type of data cannot be required.

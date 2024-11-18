@@ -5,7 +5,7 @@
   },
   "extensionDescription": {
     "description": "Description of the extension.",
-    "message": "A demonstration extension that implements a data collection consent experience that is compliant with Mozilla's Add-ons Policies."
+    "message": "A demonstration extension implementing a data collection consent experience that is compliant with Mozilla's Add-ons Policies."
   },
   "consentUITitle": {
     "description": "The title of the consent page that appears after installation.",
@@ -16,24 +16,24 @@
     "message": "Can we collect the following <strong>data that personally identifies you:</strong>"
   },
   "consentPersonalListHTML": {
-    "description": "A more detailed description of the data that could personally identify the user.",
+    "description": "A more detailed description of the data that could identify the user.",
     "message": "<li>(item or type of data collected), which we collect to (summary of purpose):</li>\n<li>(more details of data collected)</li>"
   },
   "consentPersonalConsequence": {
     "description": "A description of what happens if the user does not provide their consent to access this data.",
-    "message": "If you choose not to allow us to collect your personal data (description of impact)."
+    "message": "If you don't allow us to collect your personal data (description of impact)."
   },
   "consentAnonymousIntroHTML": {
-    "description": "A statement notify the user that the extension wants to access anonymized data that will not uniquely identify them.",
+    "description": "A statement notifying the user that the extension wants to access anonymized data that doesn't identify them.",
     "message": "Can we collect the following <strong>anonymous data about your use of (extension name):</strong>"
   },
   "consentAnonymousListHTML": {
-    "description": "A more detailed description of what type of anonymous data the extension would access.",
+    "description": "A more detailed description of the anonymous data the extension accesses.",
     "message": "<li>(item or type of data collected), which we collect to (summary of purpose):</li>\n<li>(more details of data collected)</li>"
   },
   "consentAnonymousConsequence": {
-    "description": "A description of what happens if the user does not provide their consent to access anonymous data.",
-    "message": "If you choose not to allow us to collect anonymous data (description of impact)."
+    "description": "A description of what happens if the user doesn't provide their consent to access anonymous data.",
+    "message": "If you don't allow us to collect anonymous data (description of impact)."
   },
   "consentPrivacyPolicyHTML": {
     "description": "Notify the user that they can find more information about how data is used in the privacy policy.",

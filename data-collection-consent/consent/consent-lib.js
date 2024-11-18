@@ -2,8 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 var consent = (function() {
   // This library is wrapped in an immediately invoked function expression
-  // (IIFE) in order to prevent it's utility functions from polluting the global
-  // namespace.
+  // (IIFE) to prevent its utility functions from polluting the global namespace.
 
   /**
    * Minimal shim to make the `browser` global work as expected in Chrome.
@@ -20,12 +19,12 @@ var consent = (function() {
    *
    * @param {*} duration - The timeout period in milliseconds.
    * @param {object} [options] - An optional options object
-   * @param {Function} [options.cb] An optional callback function that will be
-   * invoked when the timeout expires. This callback will not be invoked if the
+   * @param {Function} [options.cb] An optional callback function that is
+   * invoked when the timeout expires. This callback is not invoked if the
    * `signal` is aborted.
    * @param {AbortSignal} [options.signal] An optional AbortSignal object that
    * can be used to abort the timeout early. If aborted before the successful
-   * completion of the timeout, the returned promise will reject with the abort
+   * completion of the timeout, the returned promise rejects with the abort
    * reason.
    * @returns Promise<void>
    */
@@ -55,13 +54,12 @@ var consent = (function() {
    * defaults.
    */
   const CONSENT_DEFAULTS = Object.seal({
-    /** The amount of time in milliseconds to wait for data to populate in
-     * `storage.sync` before we assume that sync storage does not contain
-     * consent data. */
+    /** The time in milliseconds to wait for data to populate in `storage.sync`
+     *  before assuming that sync storage does not contain consent data. */
     syncStorageInitializationTimeout: 2000,
 
     /**
-     * The default consent values exposed outside of the `consent` object.
+     * The default consent values exposed outside the `consent` object.
      */
     "consent.grants": Object.seal({
       "personal": false,
@@ -191,9 +189,9 @@ var consent = (function() {
     },
 
     /**
-     * Initialize the `consent` object. We expect that this function will only be
-     * called once per JS execution context, but have some basic guards in place
-     * just in case.
+     * Initialize the `consent` object. This function should only be called once per 
+     * JavaScript execution context, but basic guards are in place to prevent multiple 
+     * executions
      */
     _init() {
       consent.ready = (async function () {
@@ -223,10 +221,10 @@ var consent = (function() {
      */
     async _syncStorageInitialization(duration = CONSENT_DEFAULTS.syncStorageInitializationTimeout) {
       // Check if `_grants` is defined. If it's an object, data from
-      // `storage.sync` has been loaded & initialization is complete. If not, we
-      // don't know if `storage.sync` needs more time to load or consent data has
-      // not yet been written to this storage area. Wait a short period before
-      // proceeding just in case it gets populated asynchronously.
+      // `storage.sync` has been loaded & initialization is complete. If not, 
+      // `storage.sync` needs more time to load or consent data has
+      // not yet been written to this storage area. Wait a short time before
+      // proceeding in case it's populated asynchronously.
       if (consent._grants === undefined) {
         const ac = new AbortController();
         consent._initSyncStorageTimeoutAC = ac;
@@ -273,7 +271,7 @@ var consent = (function() {
         try {
           cb(grants);
         } catch (e) {
-          // Catch and log errors so we can continue dispatching to other listeners.
+          // Catch and log errors so the extension can continue dispatching to other listeners.
           console.error(e);
         }
       }

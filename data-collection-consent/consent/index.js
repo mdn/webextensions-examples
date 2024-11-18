@@ -12,7 +12,7 @@ const dialog = document.querySelector(".consent-dialog");
 const checkboxes = dialog.querySelectorAll(".consent-block__checkbox");
 
 // Populate checkboxes with their current values. If a checkbox is disabled,
-// it's because the assigned value is required and should not be changed.
+// it's because the assigned value is the one required and must not be changed.
 consent.ready.then(() => {
   setCheckboxState();
 });
@@ -36,8 +36,8 @@ dialog.addEventListener("close", async () => {
       // Write the values to sync storage
       await consent.flush();
       // Use WebExtensions APIs to close the window. `window.close()` can fail
-      // if the window was opened by the user (e.g. Cmd+Shift+T to reopen a
-      // window, navigating directly to the URL) rather than script
+      // if the window was opened by the user (e.g., Cmd+Shift+T to reopen a
+      // window or navigating to the URL) rather than with a script
       // (browser.tabs.create()).
       const [ tab ] = await browser.tabs.query({active: true, lastFocusedWindow: true});
       browser.tabs.remove(tab.id);
