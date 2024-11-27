@@ -1,0 +1,9 @@
+{
+  "globals": {
+    "consent": true,
+    "DOMPurify": true
+  },
+  "ignorePatterns": [
+    "third-party/**/*"
+  ]
+}
