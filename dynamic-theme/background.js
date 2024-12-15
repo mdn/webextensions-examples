@@ -21,7 +21,7 @@ const themes = {
   }
 };
 
-function setTheme(theme) {
+const setTheme = (theme) => {
   if (currentTheme === theme) {
     // No point in changing the theme if it has already been set.
     return;
@@ -30,7 +30,7 @@ function setTheme(theme) {
   browser.theme.update(themes[theme]);
 }
 
-function checkTime() {
+const checkTime = () => {
   let date = new Date();
   let hours = date.getHours();
   // Will set the sun theme between 8am and 8pm.
