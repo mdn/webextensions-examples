@@ -567,13 +567,35 @@
     "name": "user-agent-rewriter"
   },
   {
-    "description": "Illustrates how an extension can register URL-matching user scripts at runtime.",
+    "description": "Illustrates how an extension can register URL-matching user scripts at runtime (Manifest Version 2 only).",
     "javascript_apis": [
       "userScripts.register",
       "runtime.onMessage",
       "runtime.sendMessage"
     ],
     "name": "user-script-register"
+  },
+  {
+    "description": "A user script manager demonstrating the userScripts API, permissions API, optional_permissions, and Manifest Version 3 (MV3).",
+    "javascript_apis": [
+      "userScripts.configureWorld",
+      "userScripts.getScripts",
+      "userScripts.register",
+      "userScripts.resetWorldConfiguration",
+      "userScripts.unregister",
+      "userScripts.update",
+      "permissions.onAdded",
+      "permissions.onRemoved",
+      "permissions.request",
+      "runtime.onInstalled",
+      "runtime.onUserScriptMessage",
+      "runtime.openOptionsPage",
+      "runtime.sendMessage",
+      "storage.local",
+      "storage.onChanged",
+      "storage.session"
+    ],
+    "name": "userScripts-mv3"
   },
   {
     "description": "Demonstrates how to use webpack to package npm modules in an extension.",
