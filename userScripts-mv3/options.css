@@ -1,0 +1,5 @@
+#edit_script_dialog .source_text {
+  display: block;
+  width: 80vw;
+  min-height: 10em;
+}
