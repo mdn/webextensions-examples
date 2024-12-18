@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"> <!-- mobile-friendly -->
+<meta name="color-scheme" content="dark light"><!-- Dark theme support -->
+<link rel="stylesheet" type="text/css" href="options.css">
+</head>
+<body>
+  This page enables you to create, edit and remove user scripts.
+  To run them, please allow the extension to run user scripts by clicking this button:
+  <button id="grant_userScripts_permission"></button>
+
+  <dialog id="edit_script_dialog">
+    <div>
+      Please input a user script and save it.<br>
+      <button id="sample_unprivileged">Example: Unprivileged user script</button>
+      <button id="sample_privileged">Example: Privileged user script</button>
+    </div>
+    <textarea class="source_text"></textarea>
+    <button class="save_button">Save</button>
+    <button class="remove_button">Remove</button>
+    <output class="validation_status"></output>
+  </dialog>
+
+  <ul id="list_of_scripts">
+    <li><button id="add_new">Add new user script</button></li>
+  </ul>
+
+  <script src="options.mjs" type="module"></script>
+</body>
+</html>
