@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "User Scripts Manager extension",
+  "description": "Demonstrates the userScripts API and optional permission, in MV3.",
+  "version": "0.1",
+  "host_permissions": ["*://*/"],
+  "permissions": ["storage", "unlimitedStorage"],
+  "optional_permissions": ["userScripts"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "user-script-manager-example@mozilla.org",
+      "strict_min_version": "134.0"
+    }
+  }
+}

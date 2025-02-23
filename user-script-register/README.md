@@ -1,6 +1,8 @@
 # User script registration
 
-This extension demonstrates the [`browser.userScripts.register()`](https://wiki.developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts/Register) API.  
+This extension demonstrates the [legacy `browser.userScripts.register()`](https://wiki.developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/register) API, available to Manifest Version 2 extensions only.
+
+> NOTE: See [userScripts-mv3](../userScripts-mv3/) for an example of the cross-browser userScripts API for Manifest Version 3.
 
 The extension includes an [API script](https://wiki.developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/user_scripts) (`customUserScriptAPIs.js`) that enables user scripts to make use of `browser.storage.local`. 
 
