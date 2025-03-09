@@ -569,7 +569,7 @@
   {
     "description": "Illustrates how an extension can register URL-matching user scripts at runtime (Manifest Version 2 only).",
     "javascript_apis": [
-      "userScripts.register",
+      "userScripts_legacy.register",
       "runtime.onMessage",
       "runtime.sendMessage"
     ],
@@ -588,6 +588,7 @@
       "permissions.onRemoved",
       "permissions.request",
       "runtime.onInstalled",
+      "runtime.onMessage",
       "runtime.onUserScriptMessage",
       "runtime.openOptionsPage",
       "runtime.sendMessage",
