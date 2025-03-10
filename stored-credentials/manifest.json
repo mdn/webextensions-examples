@@ -15,8 +15,7 @@
   },
 
   "background": {
-    "scripts": ["storage.js", "auth.js"],
-    "service_worker": "sw.js"
+    "scripts": ["storage.js", "auth.js"]
   },
 
   "options_ui": {
