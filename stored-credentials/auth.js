@@ -18,7 +18,6 @@ async function provideCredentialsAsync(requestDetails, asyncCallback) {
   if (pendingRequests.indexOf(requestDetails.requestId) != -1) {
     console.log("bad credentials for: " + requestDetails.requestId);
     return {cancel: true};
-
   } else {
     pendingRequests.push(requestDetails.requestId);
     console.log("providing credentials for: " + requestDetails.requestId);
