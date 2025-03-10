@@ -1,6 +1,6 @@
 {
   "description": "Performs basic authentication by supplying stored credentials.",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "stored-credentials",
   "version": "2.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/stored-credentials",
@@ -26,10 +26,7 @@
     "webRequest",
     "webRequestBlocking",
     "webRequestAuthProvider",
-    "storage"
-  ],
-
-  "host_permissions": [
+    "storage",
     "https://httpbin.org/basic-auth/*"
   ]
 }

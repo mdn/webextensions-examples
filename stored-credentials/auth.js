@@ -1,8 +1,4 @@
-// Polyfill the "browser" global in Chrome.
-globalThis.browser ??= chrome;
-
 let target = "https://httpbin.org/basic-auth/*";
-
 let pendingRequests = [];
 
 /*

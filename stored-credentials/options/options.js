@@ -1,6 +1,3 @@
-// Polyfill the "browser" global in Chrome.
-globalThis.browser ??= chrome;
-
 const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 
