@@ -157,7 +157,7 @@
     "name": "discogs-search"
   },
   {
-    "description": "Demonstrates how to block network requests without host permissions using the declarativeNetRequest API with the `declarative_net_request` manifest key.",
+    "description": "Demonstrates how to block network requests without host permissions using the declarativeNetRequest API with the <code>declarative_net_request</code> manifest key.",
     "javascript_apis": [
       "declarativeNetRequest.Rule",
       "declarativeNetRequest.RuleAction",
@@ -180,7 +180,7 @@
     "name": "dnr-dynamic-with-options"
   },
   {
-    "description": "Demonstrates multiple ways to redirect requests using the declarativeNetRequest API through the `declarative_net_request` manifest key. Demonstrates aspects of Manifest Version 3 (MV3): action, host_permissions, and web_accessible_resources, and includes a comparison with Manifest Version 2 (MV2).",
+    "description": "Demonstrates multiple ways to redirect requests using the declarativeNetRequest API through the <code>declarative_net_request</code> manifest key. Demonstrates aspects of Manifest Version 3 (MV3): action, host_permissions, and web_accessible_resources, and includes a comparison with Manifest Version 2 (MV2).",
     "javascript_apis": [
       "declarativeNetRequest.Redirect",
       "declarativeNetRequest.Rule",
