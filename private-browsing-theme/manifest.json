@@ -4,9 +4,11 @@
   "version": "2.0",
   "description": "Extension that sets a dark theme for private windows",
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "matches": ["*://*.mozilla.org/*"]
   },
   "permissions": ["theme"],
+
   "browser_specific_settings": {
     "gecko": {
       "id": "private-window-theme@mozilla.org",

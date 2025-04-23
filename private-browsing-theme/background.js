@@ -5,8 +5,8 @@ browser.windows.getAll().then(wins => wins.forEach(themeWindow));
 
 function themeWindow(window) {
   // Check if the window is in private browsing
-  if (window.incognito) {
-    browser.theme.update(window.id, {
+  // if (window.incognito) {
+  browser.theme.update(window.id, {
       images: {
         theme_frame: "",
       },
@@ -19,7 +19,7 @@ function themeWindow(window) {
     });
   }
   // Reset to the default theme otherwise
-  else {
-    browser.theme.reset(window.id);
-  }
-}
+  // else {
+  //   browser.theme.reset(window.id);
+  // }
+// }
