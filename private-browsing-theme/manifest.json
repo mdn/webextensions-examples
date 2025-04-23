@@ -5,8 +5,16 @@
   "description": "Extension that sets a dark theme for private windows",
   "background": {
     "scripts": ["background.js"],
-    "matches": ["*://*.mozilla.org/*"]
+    "matches": ["*://*.instructure.com*"]
   },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.instructure.com*"],
+      "js": ["darkmode.js"]
+    }
+  ],
+
   "permissions": ["theme"],
 
   "browser_specific_settings": {
