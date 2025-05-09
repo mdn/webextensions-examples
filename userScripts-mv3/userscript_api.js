@@ -18,6 +18,7 @@ globalThis.initCustomAPIForUserScripts = grants => {
   // Clear access to privileged API to prevent userscripts from communicating
   // to the privileged backend.
   globalThis.browser = undefined;
+  globalThis.chrome = undefined;
 
   if (grants.includes("GM_info")) {
     // Example of an API that retrieves information:
