@@ -15,7 +15,7 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "user-script-manager-example@mozilla.org",
-      "strict_min_version": "134.0"
+      "strict_min_version": "136.0"
     }
   }
 }
