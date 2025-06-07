@@ -3,14 +3,14 @@
   "description": "Altering HTTP responses",
   "manifest_version": 2,
   "name": "http-response-filter",
-  "version": "1.0",
+  "version": "2.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/http-response",
   "icons": {
     "48": "pen.svg"
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "https://example.com/*"
+    "webRequest", "webRequestBlocking", "https://example.com/*", "https://www.w3.org/2006/11/mwbp-tests/*"
   ],
 
   "background": {
