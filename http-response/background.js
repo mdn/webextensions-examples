@@ -37,7 +37,7 @@ function listener(details) {
         len += elements.length;
       }
 
-      // Check if the word "Example" is cropped at the end, e.g. "<h1>Exampl"
+      // Check if the word "Test" is cropped at the end, e.g. "<h1>Tes"
       const n = data.length;
       const m = bytes.length;
 
