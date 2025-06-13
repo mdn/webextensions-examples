@@ -8,13 +8,15 @@ function listener(details) {
   const url = new URL(details.url);
   if (url.hostname === "example.com") {
     const bytes = encoder.encode("</html>");
-    const m = bytes.length;
     filter.ondata = event => {
       const data = new Uint8Array(event.data);
-      const n = data.length;
       // Check if this is the last chunk of the response data
       let stream = false;
-      for (let i = n - 1, j = m - 1; i >= 0 && j >= 0; i--) {
+      for (
+        let i = data.length - 1, j = bytes.length - 1;
+        i >= 0 && j >= 0;
+        i--
+      ) {
         if (data[i] === 0xA || data[i] === 0xD) {
           // Ignore newline chars
           continue;
@@ -28,7 +30,7 @@ function listener(details) {
       let str = decoder.decode(event.data, {stream});
       // Just change any instance of Example in the HTTP response
       // to WebExtension Example.
-      str = str.replaceAll("Example", 'WebExtension Example');
+      str = str.replaceAll("Example", "WebExtension Example");
       filter.write(encoder.encode(str));
       filter.disconnect();
     };
