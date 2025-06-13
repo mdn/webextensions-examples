@@ -7,15 +7,20 @@ function listener(details) {
 
   const url = new URL(details.url);
   if (url.hostname === "example.com") {
-    const bytes = encoder.encode("</html>\n");
+    const bytes = encoder.encode("</html>");
     const m = bytes.length;
     filter.ondata = event => {
       const data = new Uint8Array(event.data);
       const n = data.length;
       // Check if this is the last chunk of the response data
       let stream = false;
-      for (let i = n - m, j = 0; i < n; i++, j++) {
-        if (bytes[j] !== data[i]) {
+      for (let i = n - 1, j = m - 1; i > n - m; i--) {
+        if (data[i] === 0x20 || data[i] === 0xA ||
+            data[i] === 0xD) {
+          // Ignore whitespace and newline chars
+          continue;
+        }
+        if (bytes[j--] !== data[i]) {
           // This is not the last chunk of the response data
           stream = true;
           break;
