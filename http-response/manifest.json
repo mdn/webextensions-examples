@@ -1,7 +1,7 @@
 {
 
   "description": "Altering HTTP responses",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "http-response-filter",
   "version": "2.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/http-response",
@@ -10,7 +10,11 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "https://example.com/*", "https://www.w3.org/2006/11/mwbp-tests/*"
+    "webRequest", "webRequestBlocking", "webRequestFilterResponse"
+  ],
+
+  "host_permissions": [
+    "https://example.com/*", "https://www.w3.org/*"
   ],
 
   "background": {

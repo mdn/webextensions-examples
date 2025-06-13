@@ -6,6 +6,6 @@ Listens to HTTP Responses from example.com and w3.org and changes the body of th
 
 ## What it shows
 
-How to use the response parser on bytes.
+How to use the response parser on bytes and how to change the response on a non-UTF-8 page without using an encoding library.
 
 Icon is from: https://www.iconfinder.com/icons/763339/draw_edit_editor_pen_pencil_tool_write_icon#size=128

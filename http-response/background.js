@@ -6,12 +6,25 @@ function listener(details) {
   const encoder = new TextEncoder();
 
   const url = new URL(details.url);
-  if (url.hostname != "www.w3.org") {
+  if (url.hostname === "example.com") {
+    const bytes = encoder.encode("</html>\n");
+    const m = bytes.length;
     filter.ondata = event => {
-      let str = decoder.decode(event.data, {stream: true});
+      const data = new Uint8Array(event.data);
+      const n = data.length;
+      // Check if this is the last chunk of the response data
+      let stream = false;
+      for (let i = n - m, j = 0; i < n; i++, j++) {
+        if (bytes[j] !== data[i]) {
+          // This is not the last chunk of the response data
+          stream = true;
+          break;
+        }
+      }
+      let str = decoder.decode(event.data, {stream});
       // Just change any instance of Example in the HTTP response
       // to WebExtension Example.
-      str = str.replace(/Example/g, 'WebExtension Example');
+      str = str.replaceAll("Example", 'WebExtension Example');
       filter.write(encoder.encode(str));
       filter.disconnect();
     };
@@ -53,7 +66,7 @@ function listener(details) {
         }
       }
 
-      if (foundIndex != -1) {
+      if (foundIndex !== -1) {
         let found = true;
         while (j < n - foundIndex) {
           if (data[++i] !== bytes[j++]) {
