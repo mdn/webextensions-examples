@@ -15,9 +15,8 @@ function listener(details) {
       // Check if this is the last chunk of the response data
       let stream = false;
       for (let i = n - 1, j = m - 1; i >= 0 && j >= 0; i--) {
-        if (data[i] === 0x20 || data[i] === 0xA ||
-            data[i] === 0xD) {
-          // Ignore whitespace and newline chars
+        if (data[i] === 0xA || data[i] === 0xD) {
+          // Ignore newline chars
           continue;
         }
         if (bytes[j--] !== data[i]) {
