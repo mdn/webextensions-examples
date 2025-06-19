@@ -1,5 +1,27 @@
 "use strict";
 
+function splice(arr, starting, deleteCount, elements = []) {
+  if (arguments.length === 1) {
+    return arr;
+  }
+  starting = Math.max(starting, 0);
+  deleteCount = Math.max(deleteCount, 0);
+
+  const newSize = arr.length - deleteCount + elements.length;
+  const splicedArray = new Uint8Array(newSize);
+  splicedArray.set(arr.subarray(0, starting));
+  splicedArray.set(elements, starting);
+  splicedArray.set(arr.subarray(starting + deleteCount), starting + elements.length);
+  return splicedArray;
+}
+
+function mergeTypedArrays(a, b) {
+  const c = new Uint8Array(a.length + b.length);
+  c.set(a);
+  c.set(b, a.length);
+  return c;
+}
+
 function listener(details) {
   const filter = browser.webRequest.filterResponseData(details.requestId);
   const decoder = new TextDecoder("utf-8");
@@ -35,25 +57,26 @@ function listener(details) {
       filter.disconnect();
     };
   } else {
-    const elements = encoder.encode("WebExtension ");
+    const elements = encoder.encode("WebExtension Test");
     const bytes = encoder.encode("Test");
-    const oldData = [];
+    const oldData = null;
+    
     filter.ondata = event => {
-      let data = event.data;
-      data = new Uint8Array(data);
-      data = Array.from(data);
+      let data = new Uint8Array(event.data);
 
-      if (oldData.length) {
-        data = oldData.concat(data);
-        oldData.length = 0;
+      if (oldData) {
+        data = mergeTypedArrays(oldData, data);
+        oldData = null;
       }
 
-      let len = 0;
       const res = search(bytes, data);
-      for (const i of res) {
-        // Insert "WebExtension " at the given index
-        data.splice(i + len, 0, ...elements);
-        len += elements.length;
+      if (res.length) {
+        let len = 0;
+        for (const i of res) {
+          // Replace "Test" with "WebExtension Test" at the given index
+          data = splice(data, i + len, bytes.length, elements);
+          len += elements.length - bytes.length;
+        }
       }
 
       // Check if the word "Test" is cropped at the end, e.g. "<h1>Tes"
@@ -82,11 +105,13 @@ function listener(details) {
         }
 
         if (found) {
-          oldData.push(...data.slice(foundIndex));
-          data = data.slice(0, foundIndex);
+          const part = data.subarray(foundIndex);
+          oldData = new Uint8Array(part.length);
+          oldData.set(part);
+          data = data.subarray(0, foundIndex);
         }
       }
-      filter.write(new Uint8Array(data));
+      filter.write(data);
     };
 
     filter.onstop = () => {
