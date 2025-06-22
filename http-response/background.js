@@ -10,7 +10,9 @@ function splice(arr, starting, deleteCount, elements = []) {
   const newSize = arr.length - deleteCount + elements.length;
   const splicedArray = new Uint8Array(newSize);
   splicedArray.set(arr.subarray(0, starting));
-  splicedArray.set(elements, starting);
+  if (elements.length) {
+    splicedArray.set(elements, starting);
+  }
   splicedArray.set(arr.subarray(starting + deleteCount), starting + elements.length);
   return splicedArray;
 }
@@ -105,10 +107,8 @@ function listener(details) {
         }
 
         if (found) {
-          const part = data.subarray(foundIndex);
-          oldData = new Uint8Array(part.length);
-          oldData.set(part);
-          data = data.subarray(0, foundIndex);
+          oldData = data.slice(foundIndex);
+          data = data.slice(0, foundIndex);
         }
       }
       filter.write(data);
