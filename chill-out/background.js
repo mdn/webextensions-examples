@@ -11,11 +11,14 @@ a minute.
 let DELAY = 0.1;
 let CATGIFS = "https://giphy.com/explore/cat";
 
+function getActiveTab() {
+  return browser.tabs.query({active: true, currentWindow: true});
+}
+
 /*
 Restart alarm for the currently active tab, whenever background.js is run.
 */
-let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
+getActiveTab().then((tabs) => {
   restartAlarm(tabs[0].id);
 });
 
@@ -26,8 +29,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (!changeInfo.url) {
     return;
   }
-  let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  gettingActiveTab.then((tabs) => {
+  getActiveTab().then((tabs) => {
     if (tabId == tabs[0].id) {
       restartAlarm(tabId);
     }
@@ -60,8 +62,7 @@ function restartAlarm(tabId) {
 On alarm, show the page action.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
-  let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  gettingActiveTab.then((tabs) => {
+  getActiveTab().then((tabs) => {
     browser.pageAction.show(tabs[0].id);
   });
 });
