@@ -1,19 +1,20 @@
 "use strict";
 
-function splice(arr, starting, deleteCount, elements = []) {
+function splice(arr, start, deleteCount, elements = []) {
   if (arguments.length === 1) {
     return arr;
   }
-  starting = Math.max(starting, 0);
+  start = Math.max(start, 0);
   deleteCount = Math.max(deleteCount, 0);
 
-  const newSize = arr.length - deleteCount + elements.length;
+  const len = elements.length;
+  const newSize = arr.length - deleteCount + len;
   const splicedArray = new Uint8Array(newSize);
-  splicedArray.set(arr.subarray(0, starting));
-  if (elements.length) {
-    splicedArray.set(elements, starting);
+  splicedArray.set(arr.subarray(0, start));
+  if (len) {
+    splicedArray.set(elements, start);
   }
-  splicedArray.set(arr.subarray(starting + deleteCount), starting + elements.length);
+  splicedArray.set(arr.subarray(start + deleteCount), start + len);
   return splicedArray;
 }
 
