@@ -1,34 +1,37 @@
 // A useful way to extract the domain from a url.
 function get_hostname(url) {
-  let a = document.createElement('a');
-  a.href = url;
-  set_domain(a.hostname);
-  return a.hostname;
+  let hostname = new URL(url).hostname;
+  set_domain(hostname);
+  return hostname;
 }
 
 function set_domain(domain) {
   const spans = document.getElementsByClassName('domain');
-  [].slice.call(spans).forEach((span) => {
+  Array.from(spans).forEach((span) => {
     span.textContent = domain;
   });
 }
 
 function no_history(hostname) {
-  let history_text = document.getElementById('history');
-  while(history_text.firstChild)
-    history_text.removeChild(history_text.firstChild);
-  history_text.textContent = `No history for ${hostname}.`;
+  let history = document.getElementById('history');
+  while (history.firstChild) {
+    history.removeChild(history.firstChild);
+  }
+  history.textContent = `No history for ${hostname}.`;
 }
 
 function getActiveTab() {
-  return browser.tabs.query({active: true, currentWindow: true});
+  return browser.tabs.query({
+    active: true,
+    currentWindow: true
+  }).then(tabs => tabs[0]);
 }
 
 // When the page is loaded find the current tab and then use that to query
 // the history.
-getActiveTab().then((tabs) => {
+getActiveTab().then((tab) => {
   let list = document.getElementById('history');
-  let hostname = get_hostname(tabs[0].url);
+  let hostname = get_hostname(tab.url);
 
   // Search for all history entries for the current windows domain.
   // Because this could be a lot of entries, lets limit it to 5.
@@ -38,8 +41,7 @@ getActiveTab().then((tabs) => {
     if (results.length < 1) {
       no_history(hostname);
     } else {
-      for (let k in results) {
-        let history = results[k];
+      for (const history of results) {
         let li = document.createElement('p');
         let a = document.createElement('a');
         let url = document.createTextNode(history.url);
@@ -54,8 +56,8 @@ getActiveTab().then((tabs) => {
 });
 
 function clearAll(e) {
-  getActiveTab().then((tabs) => {
-    let hostname = get_hostname(tabs[0].url);
+  getActiveTab().then((tab) => {
+    let hostname = get_hostname(tab.url);
     if (!hostname) {
       // Don't try and delete history when there's no hostname.
       return;
@@ -65,8 +67,8 @@ function clearAll(e) {
     // Loop through them and delete them one by one.
     let searchingHistory = browser.history.search({text: hostname})
     searchingHistory.then((results) => {
-        for (let k in results) {
-          browser.history.deleteUrl({url: results[k].url});
+        for (const history of results) {
+          browser.history.deleteUrl({url: history.url});
         }
         // Clear out the UI.
         no_history(hostname);
