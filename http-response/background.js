@@ -1,20 +1,22 @@
 "use strict";
 
-function splice(arr, start, deleteCount, elements = []) {
+function splice(arr, start, deleteCount, ...items) {
   if (arguments.length === 1) {
     return arr;
   }
   start = Math.max(start, 0);
   deleteCount = Math.max(deleteCount, 0);
 
-  const len = elements.length;
-  const newSize = arr.length - deleteCount + len;
+  const combinedLength = items.reduce((acc, item) => acc + item.length, 0);
+  const newSize = arr.length - deleteCount + combinedLength;
   const splicedArray = new Uint8Array(newSize);
   splicedArray.set(arr.subarray(0, start));
-  if (len) {
-    splicedArray.set(elements, start);
+  let writeOffset = 0;
+  for (const item of items) {
+    splicedArray.set(item, start + writeOffset);
+    writeOffset += item.length;
   }
-  splicedArray.set(arr.subarray(start + deleteCount), start + len);
+  splicedArray.set(arr.subarray(start + deleteCount), start + combinedLength);
   return splicedArray;
 }
 
@@ -60,7 +62,10 @@ function listener(details) {
       filter.disconnect();
     };
   } else {
-    const elements = encoder.encode("WebExtension Test");
+    const element1 = encoder.encode("WebExtension");
+    const element2 = encoder.encode(" ");
+    const element3 = encoder.encode("Test");
+    const total = element1.length + element2.length + element3.length;
     const bytes = encoder.encode("Test");
     const oldData = null;
     
@@ -77,8 +82,8 @@ function listener(details) {
         let len = 0;
         for (const i of res) {
           // Replace "Test" with "WebExtension Test" at the given index
-          data = splice(data, i + len, bytes.length, elements);
-          len += elements.length - bytes.length;
+          data = splice(data, i + len, bytes.length, element1, element2, element3);
+          len += total - bytes.length;
         }
       }
 
