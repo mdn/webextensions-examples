@@ -98,6 +98,12 @@ document.addEventListener("click", (e) => {
     });
   }
 
+  else if (e.target.id === "tabs-group") {
+    callOnActiveTab((tab) => {
+      browser.tabs.group({ tabIds: [tab.id] });
+    });
+  }
+
   else if (e.target.id === "tabs-create") {
     browser.tabs.create({url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"});
   }
