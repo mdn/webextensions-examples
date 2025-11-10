@@ -7,3 +7,4 @@
 
 /.github/workflows/ @mdn/engineering
 /.github/CODEOWNERS @mdn/engineering
+/SECURITY.md @mdn/engineering
