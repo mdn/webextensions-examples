@@ -25,7 +25,7 @@ Note that:
 
 * if the user reloads the tab, or switches tabs, while the popup is open, then the popup won't be able to beastify the page any more (because the content script was injected into the original tab).
 
-* by default [`tabs.executeScript()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/executeScript) injects the script only when the web page and its resources have finished loading. This means that clicks in the popup will have no effect until the page has finished loading.
+* by default [`scripting.executeScript()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/scripting/executeScript) injects the script only when the web page and its resources have finished loading. This means that clicks in the popup will have no effect until the page has finished loading.
 
 * it's not possible to inject content scripts into certain pages, including privileged browser pages like "about:debugging" and the [addons.mozilla.org](https://addons.mozilla.org/) website. If the user clicks the beastify icon when such a page is loaded into the active tab, the popup displays an error message.
 
@@ -34,7 +34,7 @@ Note that:
 * write a browser action with a popup
 * how to have different browser_action images based upon the theme
 * give the popup style and behavior using CSS and JS
-* inject a content script programmatically using `tabs.executeScript()`
+* inject a content script programmatically using `scripting.executeScript()`
 * send a message from the main extension to a content script
 * use web accessible resources to enable web pages to load packaged content
 * reload web pages
