@@ -11,7 +11,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "borderify@example.com",
+      "id": "borderify@mozilla.org",
       "data_collection_permissions": {
         "required": ["none"]
       }

@@ -1,8 +1,8 @@
 (function() {
   /**
-   * Check and set a global guard variable.
-   * If this content script is injected into the same page again,
-   * it will do nothing next time.
+   * Check and set a global guard variable to
+   * ensure that if this content script is injected into a page again,
+   * it returns (and does nothing).
    */
   if (window.hasRun) {
     return;
@@ -10,9 +10,9 @@
   window.hasRun = true;
 
   /**
-   * Given a URL to a beast image, remove all existing beasts, then
-   * create and style an IMG node pointing to
-   * that image, then insert the node into the document.
+   * Given a URL for a beast image, remove all beasts, 
+   * then create and style an IMG node pointing to the image and
+   * insert the node into the document.
    */
   function insertBeast(beastURL) {
     removeExistingBeasts();
@@ -24,7 +24,7 @@
   }
 
   /**
-   * Remove every beast from the page.
+   * Remove all beasts from the page.
    */
   function removeExistingBeasts() {
     let existingBeasts = document.querySelectorAll(".beastify-image");
@@ -35,7 +35,7 @@
 
   /**
    * Listen for messages from the background script.
-   * Call "beastify()" or "reset()".
+   * Depending on the message, call "beastify()" or "reset()".
    */
   browser.runtime.onMessage.addListener((message) => {
     if (message.command === "beastify") {

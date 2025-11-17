@@ -1,6 +1,6 @@
 /**
  * CSS to hide everything on the page,
- * except for elements that have the "beastify-image" class.
+ * except for elements that have the ".beastify-image" class.
  */
 const hidePage = `body > :not(.beastify-image) {
                     display: none;
@@ -13,7 +13,7 @@ const hidePage = `body > :not(.beastify-image) {
 function listenForClicks() {
   document.addEventListener("click", (e) => {
     /**
-     * Given the name of a beast, get the URL to the corresponding image.
+     * Given the name of a beast, get the URL for the corresponding image.
      */
     function beastNameToURL(beastName) {
       switch (beastName) {
@@ -28,7 +28,7 @@ function listenForClicks() {
 
     /**
      * Insert the page-hiding CSS into the active tab,
-     * then get the beast URL and
+     * get the beast URL, and 
      * send a "beastify" message to the content script in the active tab.
      */
     function beastify(tabs) {
@@ -48,7 +48,7 @@ function listenForClicks() {
     }
 
     /**
-     * Remove the page-hiding CSS from the active tab,
+     * Remove the page-hiding CSS from the active tab and
      * send a "reset" message to the content script in the active tab.
      */
     function reset(tabs) {
@@ -66,7 +66,7 @@ function listenForClicks() {
     }
 
     /**
-     * Just log the error to the console.
+     * Log the error to the console.
      */
     function reportError(error) {
       console.error(`Could not beastify: ${error}`);
@@ -105,9 +105,9 @@ function reportExecuteScriptError(error) {
 }
 
 /**
- * When the popup loads, inject a content script into the active tab,
+ * When the popup loads, inject a content script into the active tab
  * and add a click handler.
- * If we couldn't inject the script, handle the error.
+ * If the extension couldn't inject the script, handle the error.
  */
 browser.tabs
   .query({ active: true, currentWindow: true })
