@@ -1,6 +1,6 @@
 /**
  * CSS to hide everything on the page,
- * except for elements that have the "beastify-image" class.
+ * except for elements that have the ".beastify-image" class.
  */
 const hidePage = `body > :not(.beastify-image) {
                     display: none;
@@ -12,9 +12,8 @@ const hidePage = `body > :not(.beastify-image) {
  */
 function listenForClicks() {
   document.addEventListener("click", (e) => {
-
     /**
-     * Given the name of a beast, get the URL to the corresponding image.
+     * Given the name of a beast, get the URL for the corresponding image.
      */
     function beastNameToURL(beastName) {
       switch (beastName) {
@@ -29,33 +28,45 @@ function listenForClicks() {
 
     /**
      * Insert the page-hiding CSS into the active tab,
-     * then get the beast URL and
+     * get the beast URL, and 
      * send a "beastify" message to the content script in the active tab.
      */
     function beastify(tabs) {
-      browser.tabs.insertCSS({code: hidePage}).then(() => {
-        const url = beastNameToURL(e.target.textContent);
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "beastify",
-          beastURL: url
+      const tabId = tabs[0].id;
+      browser.scripting
+        .insertCSS({
+          target: { tabId },
+          css: hidePage,
+        })
+        .then(() => {
+          const url = beastNameToURL(e.target.textContent);
+          browser.tabs.sendMessage(tabId, {
+            command: "beastify",
+            beastURL: url,
+          });
         });
-      });
     }
 
     /**
-     * Remove the page-hiding CSS from the active tab,
+     * Remove the page-hiding CSS from the active tab and
      * send a "reset" message to the content script in the active tab.
      */
     function reset(tabs) {
-      browser.tabs.removeCSS({code: hidePage}).then(() => {
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "reset",
+      const tabId = tabs[0].id;
+      browser.scripting
+        .removeCSS({
+          target: { tabId },
+          css: hidePage,
+        })
+        .then(() => {
+          browser.tabs.sendMessage(tabId, {
+            command: "reset",
+          });
         });
-      });
     }
 
     /**
-     * Just log the error to the console.
+     * Log the error to the console.
      */
     function reportError(error) {
       console.error(`Could not beastify: ${error}`);
@@ -68,13 +79,15 @@ function listenForClicks() {
     if (e.target.tagName !== "BUTTON" || !e.target.closest("#popup-content")) {
       // Ignore when click is not on a button within <div id="popup-content">.
       return;
-    } 
+    }
     if (e.target.type === "reset") {
-      browser.tabs.query({active: true, currentWindow: true})
+      browser.tabs
+        .query({ active: true, currentWindow: true })
         .then(reset)
         .catch(reportError);
     } else {
-      browser.tabs.query({active: true, currentWindow: true})
+      browser.tabs
+        .query({ active: true, currentWindow: true })
         .then(beastify)
         .catch(reportError);
     }
@@ -92,10 +105,17 @@ function reportExecuteScriptError(error) {
 }
 
 /**
- * When the popup loads, inject a content script into the active tab,
+ * When the popup loads, inject a content script into the active tab
  * and add a click handler.
- * If we couldn't inject the script, handle the error.
+ * If the extension couldn't inject the script, handle the error.
  */
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
-.then(listenForClicks)
-.catch(reportExecuteScriptError);
+browser.tabs
+  .query({ active: true, currentWindow: true })
+  .then(([tab]) =>
+    browser.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/content_scripts/beastify.js"],
+    })
+  )
+  .then(listenForClicks)
+  .catch(reportExecuteScriptError);
