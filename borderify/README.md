@@ -1,6 +1,6 @@
 # borderify
 
-This add-on injects JavaScript into selected web pages.
+This add-on injects JavaScript into mozilla.org web pages.
 
 ## What it does
 

@@ -10,9 +10,9 @@ The extension includes:
 * A content script.
 * Three images, each of a beast, packaged as web accessible resources.
 
-When the user clicks the action (toolbar button), the popup displays, enabling the user to choose one of three beasts.
+When the user clicks the action (toolbar button), the extension's popup opens, enabling the user to choose one of three beasts.
 
-When it's displayed, the popup injects a content script into the active page.
+When opened, the popup injects a content script into the active page.
 
 When the user chooses a beast, the extension sends the content script a message containing the name of the chosen beast.
 
@@ -26,7 +26,7 @@ Note that:
 
 * By default, [`scripting.executeScript()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/scripting/executeScript) injects the script only when the web page and its resources have finished loading. This means that clicks in the popup have no effect until the page has finished loading.
 
-* It isn't possible to inject content scripts into certain pages, including privileged browser pages such as "about:debugging" and the [addons.mozilla.org](https://addons.mozilla.org/) website. If the user clicks the beastify icon on one of these pages, the popup displays an error message.
+* Browsers don't allow extensions to inject content scripts into specific pages. In Firefox, this includes privileged browser pages, such as "about:debugging", and the [addons.mozilla.org](https://addons.mozilla.org/) website. In Chrome, this includes internal pages, such as `chrome:extensions`, and the [chromewebstore.google.com](https://chromewebstore.google.com/) website. If the user clicks the beastify icon on one of these pages, the popup displays an error message.
 
 ## What it shows ##
 
