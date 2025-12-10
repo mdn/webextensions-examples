@@ -3,7 +3,7 @@
  * except for elements that have the ".beastify-image" class.
  */
 const hidePage = `body > :not(.beastify-image) {
-                    display: none;
+                    display: none !important;
                   }`;
 
 /**
