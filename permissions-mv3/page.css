@@ -1,0 +1,27 @@
+h4 {
+  margin-top: 2rem;
+}
+p.bg-danger, p.bg-success, p.bg-warning {
+    padding: 1em;
+}
+
+#grants tr > * {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+}
+#grants th {
+  background-color: #eee;
+}
+
+#permissions, #host-permissions, #data-permissions {
+  &:empty:before {
+    content: "none";
+    font-style: italic;
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+}

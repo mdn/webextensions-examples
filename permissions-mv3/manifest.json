@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Permissions Example (MV3)",
+  "description": "Permissions Example (MV3)",
+  "version": "1.1",
+
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon.svg"
+  },
+  "action": {
+    "default_title": "Permissions Example",
+    "default_icon": "icon.svg"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "optional_permissions": [
+    "history"
+  ],
+  "host_permissions": [
+    "*://*.example.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*.example.org/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "55.0a2",
+      "data_collection_permissions": {
+        "required": ["browsingActivity"],
+        "optional": ["technicalAndInteraction", "locationInfo"]
+      }
+    }
+  }
+}
