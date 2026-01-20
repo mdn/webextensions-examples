@@ -23,7 +23,9 @@ localized into German, Dutch, and Japanese, as well as the default en-US.
 
 # What it shows
 
-* How to inject content scripts declaratively using manifest.json.
-* How to send messages from a content script to a background script.
-* How to display system notifications using the notifications API.
-* How to use the internationalization (i18n) system.
+This example extension shows how to:
+
+* Inject content scripts declaratively using manifest.json.
+* Send messages from a content script to a background script.
+* Display system notifications using the notifications API.
+* Use the internationalization (i18n) system.
