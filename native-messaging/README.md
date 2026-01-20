@@ -1,8 +1,24 @@
-This is a very simple example of how to use [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) to exchange messages between a WebExtension and a native application.
+# native-messaging
 
-The WebExtension, which can be found under "add-on", connects to the native application and listens to messages from it. It then sends a message to the native application when the user clicks on the WebExtension's browser action. The message payload is just "ping".
+This example demonstrates how to use [native messaging](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) to exchange messages between an extension and a native application.
 
-The native application, which can be found under "app", listens for messages from the WebExtension. When it receives a message, the native application sends a response message whose payload is just "pong". The native application is written in Python.
+## What it does
+
+The extension, located in the "add-on" folder, connects to the native application and listens for messages from it. It then sends a message to the native application when the user clicks the extension's browser action. The message payload is just "ping".
+
+The native application, located in the "app" folder, listens for messages from the extension. When it receives a message, the native application sends a response message with a payload of just "pong". The native application is written in Python.
+
+## What it shows
+
+This extension example shows how to:
+
+* Add a background script to an extension.
+* Set up an action button.
+* Request permissions to use native messaging.
+* Create a manifest file to define the location of a native application.
+* Connect to a native application.
+* Send messages to a native application when the user clicks the extension's action button.
+* Receive messages from a native application.
 
 ## Setup
 
@@ -31,7 +47,7 @@ To get this working, there's a little setup to do.
     "path": "/Users/MDN/webextensions-examples/native-messaging/app/ping_pong.py"
     ```
 
-4. Copy `app/ping_pong.json` to the correct location on your computer. There are too many options to list here; see the [Linux](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#linux) and [macOS](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#macos) secitons of [App manifest location ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Manifest_location) to find the correct location for your OS and personal preference.
+4. Copy `app/ping_pong.json` to the correct location on your computer. There are too many options to list here; see the [Linux](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#linux) and [macOS](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#macos) sections of [App manifest location ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Manifest_location) to find the correct location for your OS and personal preference.
 
 ### Windows setup
 
@@ -39,7 +55,7 @@ To get this working, there's a little setup to do.
 
 2. Update the `"path"` field in `app\ping_pong.json` to use the full path of `app\ping_pong_win.bat` on your computer. Be aware that you must escape the Windows directory separator (`\`).
 
-    For example, if you cloned this repository into `C:\Users\MDN\webextensions-examples\`, you update the JSON file like this:
+    For example, if you cloned this repository into `C:\Users\MDN\webextensions-examples\`, you updaate the JSON file like this:
 
     ```json
     "path": "C:\\Users\\MDN\\webextensions-examples\\native-messaging\\app\\ping_pong_win.bat"
@@ -49,13 +65,13 @@ To get this working, there's a little setup to do.
 
 4. Add a registry key containing the full path of `app\ping_pong.json` on your computer. See [App manifest location](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Manifest_location) to find details of the registry key to add.
 
-To assist in troubleshooting on Windows, there is a script next to this README file named `check_config_win.py`. Running this in a command shell should help you discover of any problems.
+To assist with troubleshooting on Windows, the example includes the `check_config_win.py` script. Running this in a command shell should help you discover any problems.
 
 ## Testing the example
 
 First, install the add-on. Visit `about:debugging#/runtime/this-firefox` or, from `about:debugging` click "This Firefox" (or "This Nightly" in the Nightly version of Firefox), click "Load Temporary Add-on", and open the add-on's `manifest.json`.
 
-Now, open the extension's console using the "Inspect" button. This is where you see communication between the browser and native app.
+Now, open the extension's console using the "Inspect" button. This button opens Developer Tools, where you see communication between the browser and native app.
 
 You should see a new browser action icon in the toolbar. Click it. You should see output like this in the console:
 
