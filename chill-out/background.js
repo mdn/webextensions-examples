@@ -11,12 +11,18 @@ a minute.
 let DELAY = 0.1;
 let CATGIFS = "https://giphy.com/explore/cat";
 
+function getActiveTab() {
+  return browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  }).then(tabs => tabs[0]);
+}
+
 /*
 Restart alarm for the currently active tab, whenever background.js is run.
 */
-let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
-  restartAlarm(tabs[0].id);
+getActiveTab().then((tab) => {
+  restartAlarm(tab.id);
 });
 
 /*
@@ -26,9 +32,8 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (!changeInfo.url) {
     return;
   }
-  let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  gettingActiveTab.then((tabs) => {
-    if (tabId == tabs[0].id) {
+  getActiveTab().then((tab) => {
+    if (tabId === tab.id) {
       restartAlarm(tabId);
     }
   });
@@ -50,7 +55,7 @@ function restartAlarm(tabId) {
   browser.alarms.clearAll();
   let gettingTab = browser.tabs.get(tabId);
   gettingTab.then((tab) => {
-    if (tab.url != CATGIFS) {
+    if (tab.url !== CATGIFS) {
       browser.alarms.create("", {delayInMinutes: DELAY});
     }
   });
@@ -60,9 +65,8 @@ function restartAlarm(tabId) {
 On alarm, show the page action.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
-  let gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  gettingActiveTab.then((tabs) => {
-    browser.pageAction.show(tabs[0].id);
+  getActiveTab().then((tab) => {
+    browser.pageAction.show(tab.id);
   });
 });
 
