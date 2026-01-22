@@ -9,6 +9,15 @@
     "48": "icons/link-48.png"
   },
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notify-link-clicks-i18n@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
   "permissions": ["notifications"],
 
   "background": {
