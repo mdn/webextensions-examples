@@ -33,10 +33,10 @@
     "javascript_apis": [
       "extension.getURL",
       "runtime.onMessage",
+      "scripting.insertCSS",
+      "scripting.removeCSS",
       "tabs.executeScript",
-      "tabs.insertCSS",
       "tabs.query",
-      "tabs.removeCSS",
       "tabs.sendMessage",
       "tabs.Tab"
     ],
