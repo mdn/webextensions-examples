@@ -1,9 +1,9 @@
 /**
  * CSS to hide everything on the page,
- * except for elements that have the "beastify-image" class.
+ * except for elements that have the ".beastify-image" class.
  */
 const hidePage = `body > :not(.beastify-image) {
-                    display: none;
+                    display: none !important;
                   }`;
 
 /**
@@ -11,10 +11,9 @@ const hidePage = `body > :not(.beastify-image) {
  * the content script in the page.
  */
 function listenForClicks() {
-  document.addEventListener("click", (e) => {
-
+  document.addEventListener("click", async (e) => {
     /**
-     * Given the name of a beast, get the URL to the corresponding image.
+     * Given the name of a beast, get the URL for the corresponding image.
      */
     function beastNameToURL(beastName) {
       switch (beastName) {
@@ -29,33 +28,35 @@ function listenForClicks() {
 
     /**
      * Insert the page-hiding CSS into the active tab,
-     * then get the beast URL and
+     * get the beast URL, and 
      * send a "beastify" message to the content script in the active tab.
      */
-    function beastify(tabs) {
-      browser.tabs.insertCSS({code: hidePage}).then(() => {
-        const url = beastNameToURL(e.target.textContent);
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "beastify",
-          beastURL: url
-        });
+    async function beastify(tab) {
+      await browser.scripting.insertCSS({
+        target: { tabId: tab.id },
+        css: hidePage,
+      });
+      const url = beastNameToURL(e.target.textContent);
+      await browser.tabs.sendMessage(tab.id, {
+        command: "beastify",
+        beastURL: url,
       });
     }
 
     /**
-     * Remove the page-hiding CSS from the active tab,
+     * Remove the page-hiding CSS from the active tab and
      * send a "reset" message to the content script in the active tab.
      */
-    function reset(tabs) {
-      browser.tabs.removeCSS({code: hidePage}).then(() => {
-        browser.tabs.sendMessage(tabs[0].id, {
-          command: "reset",
-        });
+    async function reset(tab) {
+      await browser.scripting.removeCSS({
+        target: { tabId: tab.id },
+        css: hidePage,
       });
+      await browser.tabs.sendMessage(tab.id, { command: "reset" });
     }
 
     /**
-     * Just log the error to the console.
+     * Log the error to the console.
      */
     function reportError(error) {
       console.error(`Could not beastify: ${error}`);
@@ -68,15 +69,18 @@ function listenForClicks() {
     if (e.target.tagName !== "BUTTON" || !e.target.closest("#popup-content")) {
       // Ignore when click is not on a button within <div id="popup-content">.
       return;
-    } 
-    if (e.target.type === "reset") {
-      browser.tabs.query({active: true, currentWindow: true})
-        .then(reset)
-        .catch(reportError);
-    } else {
-      browser.tabs.query({active: true, currentWindow: true})
-        .then(beastify)
-        .catch(reportError);
+    }
+
+    try {
+      const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+      
+      if (e.target.type === "reset") {
+        await reset(tab);
+      } else {
+        await beastify(tab);
+      }
+    } catch (error) {
+      reportError(error);
     }
   });
 }
@@ -92,10 +96,20 @@ function reportExecuteScriptError(error) {
 }
 
 /**
- * When the popup loads, inject a content script into the active tab,
+ * When the popup loads, inject a content script into the active tab
  * and add a click handler.
- * If we couldn't inject the script, handle the error.
+ * If the extension couldn't inject the script, handle the error.
  */
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
-.then(listenForClicks)
-.catch(reportExecuteScriptError);
+(async function runOnPopupOpened() {
+  try {
+    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    
+    await browser.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/content_scripts/beastify.js"],
+    });
+    listenForClicks();
+  } catch (e) {
+    reportExecuteScriptError(e);
+  }
+})();
