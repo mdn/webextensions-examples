@@ -31,7 +31,7 @@
   {
     "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast.",
     "javascript_apis": [
-      "extension.getURL",
+       "runtime.getURL",
       "runtime.onMessage",
       "scripting.insertCSS",
       "scripting.removeCSS",

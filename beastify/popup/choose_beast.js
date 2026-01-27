@@ -37,7 +37,7 @@ function listenForClicks() {
         css: hidePage,
       });
       const url = beastNameToURL(e.target.textContent);
-      browser.tabs.sendMessage(tab.id, {
+      await browser.tabs.sendMessage(tab.id, {
         command: "beastify",
         beastURL: url,
       });
@@ -52,7 +52,7 @@ function listenForClicks() {
         target: { tabId: tab.id },
         css: hidePage,
       });
-      browser.tabs.sendMessage(tab.id, { command: "reset" });
+      await browser.tabs.sendMessage(tab.id, { command: "reset" });
     }
 
     /**

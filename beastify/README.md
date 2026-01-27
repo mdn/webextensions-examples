@@ -26,16 +26,16 @@ Note that:
 
 * By default, [`scripting.executeScript()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/scripting/executeScript) injects the script only when the web page and its resources have finished loading. This means that clicks in the popup have no effect until the page has finished loading.
 
-* Browsers don't allow extensions to inject content scripts into specific pages. In Firefox, this includes privileged browser pages, such as "about:debugging", and the [addons.mozilla.org](https://addons.mozilla.org/) website. In Chrome, this includes internal pages, such as `chrome:extensions`, and the [chromewebstore.google.com](https://chromewebstore.google.com/) website. If the user clicks the beastify icon on one of these pages, the popup displays an error message.
+* Browsers don't allow extensions to inject content scripts into specific pages. In Firefox, this includes privileged browser pages, such as "about:debugging", and the [addons.mozilla.org](https://addons.mozilla.org/) website. In Chrome, this includes internal pages, such as `chrome://extensions`, and the [chromewebstore.google.com](https://chromewebstore.google.com/) website. If the user clicks the beastify icon on one of these pages, the popup displays an error message.
 
 ## What it shows ##
 
-In this eample, you see how to:
+In this example, you see how to:
 
 * Write an action (toolbar button) with a popup.
 * Display action (toolbar button) icons based on the browser theme.
 * Give a popup style and behavior using CSS and JavaScript.
 * Inject a content script programmatically using `scripting.executeScript()`.
 * Send a message from the main extension to a content script.
-* Use web accessible resources to enable web pages to load packaged content.
+* Use `web_accessible_resources` to enable web pages to load packaged content.
 * Reload web pages.
