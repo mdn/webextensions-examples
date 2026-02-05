@@ -1,12 +1,21 @@
 {
 
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/notify-link-clicks-i18n",
   "icons": {
     "48": "icons/link-48.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notify-link-clicks-i18n@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
   },
 
   "permissions": ["notifications"],
