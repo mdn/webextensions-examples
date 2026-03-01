@@ -5,12 +5,16 @@
   "chrome_url_overrides": {
       "newtab": "sites.html"
   },
+  "chrome_settings_overrides": {
+      "homepage": "sites.html"
+  },
   "permissions": [
       "topSites"
   ],
   "browser_specific_settings": {
       "gecko": {
-          "strict_min_version": "54.0a1"
+          "strict_min_version": "55.0a1",
+          "id": "foo@bar.com"
       }
   }
 }
