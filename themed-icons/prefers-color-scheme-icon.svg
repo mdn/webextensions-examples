@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <style>
+    #outside { fill: black; }
+    #inside { fill: red; }
+
+    @media (prefers-color-scheme: dark) {
+      #outside { fill: white; }
+      #inside { fill: black; }
+    }
+  </style>
+  <rect id="outside" width="16" height="16" />
+  <rect id="inside" x="4" y="4" width="8" height="8" />
+</svg>

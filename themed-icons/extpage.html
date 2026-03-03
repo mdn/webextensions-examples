@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SVG themed icon using prefer-color-scheme media query</title>
+    <script defer="true" src="extpage.js"></script>
+    <style>
+      dt { font-weight: bold; }
+
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: black;
+          color: white;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SVG themed icon using prefer-color-scheme media query</h1>
+    <dl>
+      <dt>Active theme:</dt>
+      <dd id="active-theme">ACTIVE THEME INFO</dd>
+    </dl>
+    <h2>README.md</h2>
+    <pre id="read-me">README.md content</pre>
+  </body>
+</html>
+
