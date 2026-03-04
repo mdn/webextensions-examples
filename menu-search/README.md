@@ -1,6 +1,6 @@
 # menu-search
 
-A demo of the [search API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/search/).
+A demo of the [search API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/search/).
 
 ## What it does
 

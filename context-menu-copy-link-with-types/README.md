@@ -28,7 +28,7 @@ you can open an (extension) page in a new tab as a fallback.
 
 ## What it shows
 
-* how to put data on the [clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard)
+* how to put data on the [clipboard](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard)
   with custom types ("text/plain" and "text/html" in the example).
 * how to safely construct HTML from given text.
 * how to safely create JavaScript code to run as a dynamic content script.

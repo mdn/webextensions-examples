@@ -4,7 +4,7 @@
 
 After 6 seconds of inactivity (defined as the user not having navigated
 or switched away from the active tab) display a
-[page action](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/pageAction)
+[page action](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction)
 for that tab.
 
 When the user clicks the page action, navigate to https://giphy.com/explore/cat.

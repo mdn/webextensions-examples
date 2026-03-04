@@ -11,8 +11,8 @@ When one of the list items are clicked, the element is removed from the page.
 
 This extension demonstrates the following APIs:
 
-- [`menus.create`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/create)
-- [`menus.onClicked`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/onClicked) and in particular its [`info.targetElementId`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/OnClickData) property.
+- [`menus.create`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/create)
+- [`menus.onClicked`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/onClicked) and in particular its [`info.targetElementId`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/OnClickData) property.
 - [`menus.getTargetElement`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/getTargetElement)
 - [`pageAction.openPopup`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/openPopup)
 - [`pageAction.show`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) and [`pageAction.hide`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide)
