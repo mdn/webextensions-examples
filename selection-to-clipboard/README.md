@@ -13,11 +13,11 @@ The content script listens for text selections in the page it's attached to and 
 ## What it shows
 
 * how to inject content scripts declaratively using manifest.json
-* how to write to the [clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard)
+* how to write to the [clipboard](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard)
 
 ## Note
 * If the `copySelection` function was in a browser event `clipboardWrite` permissions would be required e.g.
 ```
 "permissions": ["clipboardWrite"]
 ```
-See [Interact with the clipboard](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard).
+See [Interact with the clipboard](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard).

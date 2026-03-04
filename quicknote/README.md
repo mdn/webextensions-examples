@@ -6,7 +6,7 @@ Works in Firefox 47+.
 
 ## Running with web-ext
 
-[web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) generates a new profile on each run, meaning your data is not persisted between Firefox runs. To use web-ext and preserve this information, you will need an existing or new Firefox profile. Then run:
+[web-ext](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions) generates a new profile on each run, meaning your data is not persisted between Firefox runs. To use web-ext and preserve this information, you will need an existing or new Firefox profile. Then run:
 
 web-ext run --firefox-profile [A PATH TO A FIREFOX PROFILE] --keep-profile-changes
 
@@ -20,7 +20,7 @@ This extension includes:
 		* An update button to submit an update.
 		* A cancel button to cancel the update.
 
-Quicknote uses the WebExtensions [Storage API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/storage) to persist the notes.
+Quicknote uses the WebExtensions [Storage API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage) to persist the notes.
 
 ## What it shows
 
