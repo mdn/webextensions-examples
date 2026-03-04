@@ -1,6 +1,6 @@
 {
 
-  "description": "Theme using a PNG as the theme_frame image, employing a faded edge. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "description": "Theme using a PNG as the theme_frame image, employing a faded edge. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Examples#themes",
   "manifest_version": 2,
   "name": "weta_fade",
   "version": "1.1",

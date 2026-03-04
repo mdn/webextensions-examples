@@ -2,7 +2,7 @@
 Handle errors from the injected script.
 Errors may come from evaluating the JavaScript itself
 or from the devtools framework.
-See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Return_value
+See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/devtools.inspectedWindow/eval#Return_value
 */
 function handleError(error) {
   if (error.isError) {

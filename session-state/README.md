@@ -10,4 +10,4 @@ Note: to restore a tab, press Control+Shift+T (or Command+Shift+T on a Mac). In 
 
 ## What it shows
 
-This example demonstrates how you can use the [sessions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/sessions) API to store and retrieve arbitrary state that you want to associate with a tab or window. Then if the tab/window is closed and subsequently restored, you can retrieve the state.
+This example demonstrates how you can use the [sessions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/sessions) API to store and retrieve arbitrary state that you want to associate with a tab or window. Then if the tab/window is closed and subsequently restored, you can retrieve the state.

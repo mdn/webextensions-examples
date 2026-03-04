@@ -1,6 +1,6 @@
 {
 
-  "description": "Theme using an animated PNG file as the theme_frame image. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "description": "Theme using an animated PNG file as the theme_frame image. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Examples#themes",
   "manifest_version": 2,
   "name": "animated",
   "version": "1.1",

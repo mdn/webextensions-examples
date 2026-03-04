@@ -1,6 +1,6 @@
 {
 
-  "description": "Theme using multiple additional_backgrounds images. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#themes",
+  "description": "Theme using multiple additional_backgrounds images. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Examples#themes",
   "manifest_version": 2,
   "name": "weta_mirror",
   "version": "1.1",

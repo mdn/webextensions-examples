@@ -22,7 +22,7 @@ If you don't want to use the mocha UI, you can install [WebConsole-reporter](htt
 
 ### Run with web-ext cli
 Just run `npm run web-ext` (will work with FF dev edition), if you have error with web-ext cli please add path for FF binary file with `--firefox-binary /path/to/firefox-bin`
-[(web-ext docs)](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/web-ext_command_reference).
+[(web-ext docs)](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/web-ext_command_reference).
 
 When the addon starts, click on the mocha icon in your browser bar to run the tests:
 
