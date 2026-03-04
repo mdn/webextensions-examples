@@ -2,7 +2,7 @@
 
 ## What it does
 
-This extension demonstrates how to use [export helpers](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Sharing_content_script_objects_with_page_scripts) in Firefox to share
+This extension demonstrates how to use [export helpers](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#Sharing_content_script_objects_with_page_scripts) in Firefox to share
 JavaScript objects defined in content scripts with scripts loaded by web pages.
 
 ## How it works
@@ -20,7 +20,7 @@ This example is in two parts:
  * defines an object `messenger`, that has a member function `notify()`, and
 uses `cloneInto()` to export that to the page as a property of the global `window` object.
  
- In the implementation of `notify()`, the content script sends a message to the extension's background script: when the background script gets the messages, it displays a [notification](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/notifications).
+ In the implementation of `notify()`, the content script sends a message to the extension's background script: when the background script gets the messages, it displays a [notification](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/notifications).
 
 ## The page
 

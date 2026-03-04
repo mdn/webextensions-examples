@@ -1,6 +1,6 @@
 # menu-demo
 
-A demo of the [menus API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/).
+A demo of the [menus API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/).
 
 **This add-on injects JavaScript into web pages. The `addons.mozilla.org` domain disallows this operation, so this add-on will not work properly when it's run on pages in the `addons.mozilla.org` domain.**
 
