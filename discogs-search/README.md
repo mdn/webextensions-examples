@@ -8,4 +8,4 @@ It also adds a keyword "disc", so you can type "disc Model 500" and get the disc
 
 ## What it shows
 
-How to use the [`chrome_settings_overrides`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides) manifest key to define a new search engine.
+How to use the [`chrome_settings_overrides`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides) manifest key to define a new search engine.

@@ -8,6 +8,6 @@ The extension also listens for the `onShown` event: when this event is fired, th
 
 ## What it shows
 
-This extension is a demo of the [`menus.onShown` ](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/onShown) and [`menus.refresh()`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/refresh) features of the `menus` API.
+This extension is a demo of the [`menus.onShown` ](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/onShown) and [`menus.refresh()`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/refresh) features of the `menus` API.
 
 The `onShown` event enables extensions to be notified when the menu is shown. At that point they are able to add, remove, or update their menu items, then refresh the menu using `refresh()`.

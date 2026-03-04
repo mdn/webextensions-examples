@@ -29,7 +29,7 @@ what it does. To see how an example works, install it in Firefox by following
 the [installation instructions](#installing-an-example). 
 
 To find your way around a WebExtension's internal structure, have a look at the
-[Anatomy of a WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
+[Anatomy of a WebExtension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension)
 page on MDN.
 
 To use these examples in Firefox, use the most recent release of Firefox.
@@ -38,7 +38,7 @@ However, most examples work with earlier releases.
 A few examples rely on APIs that are only available in pre-release versions 
 of Firefox. Where this is the case, the example declares the minimum version
 that it needs in the `strict_min_version` attribute of the
-[`browser_specific_settings key`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/browser_specific_settings)
+[`browser_specific_settings key`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings)
 in the extension's manifest.json file.
 
 ## Installing an example
@@ -52,14 +52,14 @@ for details.
 To run an example extension:
 
 1. Open Firefox and load the `about:debugging` page. Click 
-   [Load Temporary Add-on](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Temporary_Installation_in_Firefox)
+   [Load Temporary Add-on](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Temporary_Installation_in_Firefox)
    and select the `manifest.json` file within the folder of an example extension.
 2. Install the
-   [web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext)
+   [web-ext](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Getting_started_with_web-ext)
    tool. At the command line, open the example extension's folder and type
    `web-ext run`. This launches Firefox and installs the extension automatically.
    This tool provides some additional development features, such as
-   [automatic reloading](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext#Automatic_extension_reloading).
+   [automatic reloading](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Getting_started_with_web-ext#Automatic_extension_reloading).
 
 ## Support for other browsers
 
@@ -75,7 +75,7 @@ for more information.
 ## Learn more
 
 To learn more about developing WebExtensions, see the
-[WebExtensions documentation on MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions)
+[WebExtensions documentation on MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
 for getting started guides, tutorials, and full API reference docs.
 
 ## Problems?

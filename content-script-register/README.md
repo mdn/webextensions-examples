@@ -7,7 +7,7 @@ The contentScripts.register() API is intended to enable an extension to register
 This extension adds a browser action that shows a popup. The popup lets you specify:
 
 * some code that comprises your content script
-* one or more [match patterns](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns), comma-separated. The content script will only be loaded into pages whose URLs match these patterns.
+* one or more [match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), comma-separated. The content script will only be loaded into pages whose URLs match these patterns.
 
 Once these are set up you can register the content script by clicking "Register script". The extension will then register a content script with the given properties by calling `browser.contentScripts.register()`.
 

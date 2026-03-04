@@ -1,6 +1,6 @@
 # menu-accesskey-visible
 
-Demonstrates access keys in the [menus API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/).
+Demonstrates access keys in the [menus API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/).
 
 **This add-on uses the `menus` namespace to access the functions it needs to create menu items. Note that Chrome, Edge, and Opera all use the `contextMenus` namespace for this, so this extension will not work in these browsers. For compatibility with these browsers, Firefox also offers the `contextMenus` namespace, so to make this extension work with other browsers, use `contextMenus`.**
 
