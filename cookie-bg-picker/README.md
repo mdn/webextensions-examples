@@ -23,9 +23,9 @@ This extension includes:
 		
 Cookie BG Picker uses the WebExtension:
 
-* [cookies API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies) to save/retrieve/remove the cookies.
-* [tabs API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs) to retrieve information about the current tab (whenever a new URL is loaded and at each significant point thereafter), inject the content script into it, and to send messages between the browser action/background script and the content script.
-* [runtime API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime) to receive and handle messages sent to the content script.
+* [cookies API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/cookies) to save/retrieve/remove the cookies.
+* [tabs API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs) to retrieve information about the current tab (whenever a new URL is loaded and at each significant point thereafter), inject the content script into it, and to send messages between the browser action/background script and the content script.
+* [runtime API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime) to receive and handle messages sent to the content script.
 
 ## What it shows
 
