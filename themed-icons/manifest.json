@@ -5,14 +5,14 @@
   "name": "themed-icons",
   "version": "1.0",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themed-icons",
-  "browser_specific_settings": 
-    { "gecko": 
-      {
-        "id": "themed-icons@mozilla.org",
-        "data_collection_permissions": {
-          "required": ["none"]
-       },
-     },
+  "browser_specific_settings": { 
+    "gecko": {
+      "id": "themed-icons@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
 
   "icons": { "32": "prefers-color-scheme-icon.svg" },
 

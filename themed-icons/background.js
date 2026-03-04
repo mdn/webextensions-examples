@@ -28,5 +28,7 @@ async function switchToNextTheme() {
 browser.pageAction.onClicked.addListener(switchToNextTheme);
 browser.action.onClicked.addListener(switchToNextTheme);
 
-// Open or select the extension test page on addon startup.
-openOrSelectTab(true);
+// Open the the extension page in a new tab after the add-on is installed.
+browser.runtime.onInstalled.addListener(() => {
+  openOrSelectTab(true);
+});

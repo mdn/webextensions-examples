@@ -21,7 +21,7 @@ For example:
 
 ## NOTE: Implicit CSS filter applied to pageAction SVG icons in dark themes in Firefox Desktop 151 and earlier
 
-In builds where the `about:config` preference `extensions.webextensions.pageActionIconDarkModeFilter.enabled` is set to `true` or not defined, a greyscale and brightness CSS filter is applied to page action icons for dark themes. This filter can reduce the contrast of icons that use multiple colors. (See [Bug 2001318](https://bugzilla.mozilla.org/2001318).)
+In builds where the `about:config` preference `extensions.webextensions.pageActionIconDarkModeFilter.enabled` is set to `true` or not defined, a greyscale and brightness CSS filter is applied to page action icons for dark themes. This filter can reduce the contrast of icons that use multiple colors, see [Bug 2001318](https://bugzilla.mozilla.org/2001318).
 
 This implicit CSS filter is turned off in Firefox Desktop Nightly in release 149 and later, and on the release channel
-as part of [Bug 2016509](https://bugzilla.mozilla.org/20
+as part of [Bug 2016509](https://bugzilla.mozilla.org/2016509)
