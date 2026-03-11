@@ -1,0 +1,37 @@
+{
+
+  "description": "Adds page action and action SVG icons that adapt to dark and light themes using prefers-color-scheme media query.",
+  "manifest_version": 3,
+  "name": "themed-icons",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/themed-icons",
+  "browser_specific_settings": { 
+    "gecko": {
+      "id": "themed-icons@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "icons": { "32": "prefers-color-scheme-icon.svg" },
+
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+
+  "page_action": {
+    "default_icon": "prefers-color-scheme-icon.svg",
+    "show_matches": ["<all_urls>"]
+  },
+
+  "action": {
+    "default_icon": "prefers-color-scheme-icon.svg",
+    "default_area": "navbar"
+  },
+
+  "permissions": [
+    "management"
+  ]
+}
