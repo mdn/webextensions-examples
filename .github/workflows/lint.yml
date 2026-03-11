@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: "latest"
           cache: "npm"
+          check-latest: true
 
       - run: npm ci
 
