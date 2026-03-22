@@ -80,8 +80,7 @@ for getting started guides, tutorials, and full API reference docs.
 
 ## Problems?
 
-If you encounter an issue:
-- post a query on the [add-ons discourse forum](https://discourse.mozilla.org/c/add-ons)
+If you encounter an issue, post a query on the [add-ons discourse forum](https://discourse.mozilla.org/c/add-ons).
 
 If you cannot resolve the issue, [file a bug](https://github.com/mdn/webextensions-examples/issues/new).
 
