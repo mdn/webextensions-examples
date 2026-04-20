@@ -11,13 +11,9 @@
     }
   },
 
-  "permissions": [
-    "storage"
-  ],
-
   "browser_specific_settings": {
     "gecko": {
-      "id": "beastify@mozilla.org",
+      "id": "webauthn@mozilla.org",
       "data_collection_permissions": {
         "required": ["none"]
       }

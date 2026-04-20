@@ -3,36 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const authButton = document.getElementById('authButton');
   const optionsText = document.getElementById('optionsText');
 
-  // Helper function to convert a Base64 string to an ArrayBuffer
-  function base64ToArrayBuffer(base64) {
-    const binaryString = window.atob(base64);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
-    }
-    return bytes.buffer;
-  }
-
-  // Convert relevant options properties if they are Base64 strings
-  function convertOptions(options) {
-    // Convert challenge if it's a string
-    if (typeof options.challenge === 'string') {
-      options.challenge = base64ToArrayBuffer(options.challenge);
-    }
-    if (options.allowCredentials) {
-      options.allowCredentials = options.allowCredentials.map(cred => ({
-        ...cred,
-        id: base64ToArrayBuffer(cred.id)
-      }));
-    }
-    // Optionally convert user.id if it's a string (depending on your use-case)
-    if (options.user && typeof options.user.id === 'string') {
-      options.user.id = base64ToArrayBuffer(options.user.id);
-    }
-    return options;
-  }
-
   function arrayBufferToBase64(buffer) {
     return btoa(String.fromCharCode(...new Uint8Array(buffer)));
   }
@@ -48,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Convert challenge (and user id if necessary)
-    options = convertOptions(options);
+    options.challenge = Uint8Array.fromBase64(options.challenge);
+    options.user.id = Uint8Array.fromBase64(options.user.id);
 
     try {
       const credential = await navigator.credentials.create({ publicKey: options });
@@ -73,7 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Convert challenge if necessary for authentication options as well
-    options = convertOptions(options);
+    options.challenge = Uint8Array.fromBase64(options.challenge);
+    if (Array.isArray(options?.allowCredentials)) {
+      for (const ac of options.allowCredentials) {
+        ac.id = Uint8Array.fromBase64(ac.id);
+      }
+    }
 
     try {
       const assertion = await navigator.credentials.get({ publicKey: options });
