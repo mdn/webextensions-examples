@@ -1,0 +1,26 @@
+{
+  "description": "Registers and authenticates WebAuthn credentials using options from the popover.",
+  "manifest_version": 3,
+  "name": "WebAuthn extension",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/webauthn",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "webauthn@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "host_permissions": [
+    "https://*/*"
+  ]
+}
