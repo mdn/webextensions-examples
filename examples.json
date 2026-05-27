@@ -338,8 +338,8 @@
       "menus.onClicked",
       "menus.remove",
       "menus.update",
-      "runtime.lastError",
-      "tabs.executeScript"
+      "runtime.onInstalled",
+      "scripting.executeScript"
     ],
     "name": "menu-demo"
   },

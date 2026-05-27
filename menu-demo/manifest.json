@@ -1,25 +1,30 @@
 {
 
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   "version": "1.0",
   "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {
-      "strict_min_version": "56.0a1"
+      "id": "menu-demo@mozilla.org",
+      "strict_min_version": "109.0"
+    },
+    "data_collection_permissions": {
+      "required": ["none"]
     }
   },
 
   "background": {
     "scripts": ["background.js"]
   },
-  
+
   "permissions": [
     "menus",
-    "activeTab"
+    "activeTab",
+    "scripting"
   ],
-  
+
   "icons": {
     "16": "icons/page-16.png",
     "32": "icons/page-32.png",
@@ -28,8 +33,9 @@
 
   "sidebar_action": {
     "default_icon": "icons/page-32.png",
-    "default_title" : "My sidebar",
-    "default_panel": "sidebar/sidebar.html"
+    "default_title": "My sidebar",
+    "default_panel": "sidebar/sidebar.html",
+    "open_at_install": false
   }
 
 }
