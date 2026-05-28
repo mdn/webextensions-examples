@@ -338,6 +338,7 @@
       "menus.onClicked",
       "menus.remove",
       "menus.update",
+      "runtime.lastError",
       "runtime.onInstalled",
       "scripting.executeScript"
     ],
