@@ -142,7 +142,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       updateCheckUncheck(info.checked);
       break;
     case "open-sidebar":
-      console.log("Opening my sidebar");
+      console.warn("_execute_sidebar_action not supported");
       break;
     case "tools-menu":
       console.log("Clicked the tools menu item");
