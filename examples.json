@@ -472,6 +472,14 @@
     "name": "runtime-examples"
   },
   {
+    "description": "Adds a toolbar button. Click the button to execute a script in the active tab.",
+    "javascript_apis": [
+      "action.onClicked",
+      "scripting.executeScript"
+    ],
+    "name": "script-on-click"
+  },
+  {
     "description": "Demonstrates how to write to the clipboard from a content script",
     "javascript_apis": [],
     "name": "selection-to-clipboard"
