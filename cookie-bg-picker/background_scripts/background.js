@@ -1,21 +1,24 @@
 /* Retrieve any previously set cookie and send to content script */
 
 function getActiveTab() {
-  return browser.tabs.query({active: true, currentWindow: true});
+  return browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  }).then(tabs => tabs[0]);
 }
 
 function cookieUpdate() {
-  getActiveTab().then((tabs) => {
+  getActiveTab().then((tab) => {
     // get any previously set cookie for the current tab 
     let gettingCookies = browser.cookies.get({
-      url: tabs[0].url,
+      url: tab.url,
       name: "bgpicker"
     });
     gettingCookies.then((cookie) => {
       if (cookie) {
         let cookieVal = JSON.parse(cookie.value);
-        browser.tabs.sendMessage(tabs[0].id, {image: cookieVal.image});
-        browser.tabs.sendMessage(tabs[0].id, {color: cookieVal.color});
+        browser.tabs.sendMessage(tab.id, {image: cookieVal.image});
+        browser.tabs.sendMessage(tab.id, {color: cookieVal.color});
       }
     });
   }); 
