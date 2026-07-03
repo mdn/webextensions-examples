@@ -30,6 +30,7 @@
         "name": {
           "type": "string",
           "minLength": 1,
+          "pattern": "^[A-Za-z0-9-]+$",
           "description": "Directory name of the example within the repository; used to build its GitHub link."
         }
       }
