@@ -13,10 +13,11 @@
     "url": "git+https://github.com/mdn/webextensions-examples.git"
   },
   "scripts": {
-    "test": "eslint .",
+    "test": "eslint . && npm run validate",
     "lint": "eslint .",
     "lint:cwd": "eslint $INIT_CWD",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "validate": "ajv validate --spec=draft2020 -s examples.schema.json -d examples.json"
   },
   "license": "MIT",
   "bugs": {
