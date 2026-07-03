@@ -5,6 +5,7 @@
   "description": "Example Firefox add-ons created using the WebExtensions API",
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.11",
+    "ajv-cli": "^5.0.0",
     "eslint": "^8.48.0"
   },
   "repository": {
