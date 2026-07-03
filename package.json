@@ -5,7 +5,7 @@
   "description": "Example Firefox add-ons created using the WebExtensions API",
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.11",
-    "ajv-cli": "^5.0.0",
+    "ajv": "^8.20.0",
     "eslint": "^8.48.0"
   },
   "repository": {
@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "lint:cwd": "eslint $INIT_CWD",
     "lint:fix": "eslint . --fix",
-    "validate": "ajv validate --spec=draft2020 -s examples.schema.json -d examples.json"
+    "validate": "node validate.js"
   },
   "license": "MIT",
   "bugs": {
