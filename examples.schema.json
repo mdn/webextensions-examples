@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/mdn/webextensions-examples/main/examples.schema.json",
+  "title": "WebExtensions Examples",
+  "description": "Metadata for the example extensions in this repository. Consumed by MDN's build system (rari) to link example extensions from WebExtensions API reference pages.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/example"
+  },
+  "$defs": {
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "javascript_apis", "name"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable summary of what the example extension does."
+        },
+        "javascript_apis": {
+          "type": "array",
+          "description": "WebExtension JavaScript APIs used by the example, e.g. \"tabs.query\" or \"storage.local\". May be empty.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Directory name of the example within the repository; used to build its GitHub link."
+        }
+      }
+    }
+  }
+}
