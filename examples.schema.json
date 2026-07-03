@@ -23,7 +23,8 @@
           "description": "WebExtension JavaScript APIs used by the example, e.g. \"tabs.query\" or \"storage.local\". May be empty.",
           "items": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_]+(\\.[A-Za-z0-9_]+)+$"
           },
           "uniqueItems": true
         },
