@@ -5,6 +5,7 @@
   "description": "Example Firefox add-ons created using the WebExtensions API",
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.11",
+    "ajv": "^8.20.0",
     "eslint": "^8.48.0"
   },
   "repository": {
@@ -12,10 +13,11 @@
     "url": "git+https://github.com/mdn/webextensions-examples.git"
   },
   "scripts": {
-    "test": "eslint .",
+    "test": "eslint . && npm run validate",
     "lint": "eslint .",
     "lint:cwd": "eslint $INIT_CWD",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "validate": "node validate.js"
   },
   "license": "MIT",
   "bugs": {
