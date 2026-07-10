@@ -106,8 +106,8 @@
   {
     "description": "Add a context menu option to links to copy the link to the clipboard, as plain text and as a link in rich HTML.",
     "javascript_apis": [
-      "contextMenus.create",
-      "contextMenus.onClicked",
+      "menus.create",
+      "menus.onClicked",
       "tabs.executeScript"
     ],
     "name": "context-menu-copy-link-with-types"
@@ -494,8 +494,8 @@
     "description": "Demonstrates how to use the idb-file-storage library to store and manipulate files in an extension.",
     "javascript_apis": [
       "browserAction.onClicked",
-      "contextMenus.create",
-      "contextMenus.onClicked",
+      "menus.create",
+      "menus.onClicked",
       "runtime.onMessage",
       "runtime.sendMessage",
       "tabs.create",
