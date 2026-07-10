@@ -5,7 +5,7 @@
 # See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 # ----------------------------------------------------------------------------
 
+*                   @mdn/add-ons
 /.github/workflows/ @mdn/engineering
 /.github/CODEOWNERS @mdn/engineering
-/examples.json      @mdn/engineering
 /SECURITY.md        @mdn/engineering
