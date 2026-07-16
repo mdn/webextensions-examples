@@ -408,6 +408,11 @@
     "name": "notify-link-clicks-i18n"
   },
   {
+    "description": "Demonstrates the use of protocol handlers.",
+    "javascript_apis": [],
+    "name": "open-irc-links"
+  },
+  {
     "description": "Adds a browser action icon to the toolbar. When the browser action is clicked, the add-on opens a page that was packaged with it.",
     "javascript_apis": ["browserAction.onClicked", "tabs.create"],
     "name": "open-my-page-button"
@@ -621,8 +626,8 @@
     "name": "window-manipulator"
   },
   {
-    "description": "Demonstrates the use of protocol handlers.",
+    "description": "Demonstrates how to use the Web Authentication API.",
     "javascript_apis": [],
-    "name": "open-irc-links"
+    "name": "webauthn"
   }
 ]
