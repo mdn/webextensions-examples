@@ -1,7 +1,7 @@
 {
 
   "description": "Native messaging example add-on",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Native messaging example",
   "version": "1.0",
   "icons": {
@@ -10,7 +10,10 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "ping_pong@example.org",
+      "id": "native-messaging@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      },
       "strict_min_version": "50.0"
     }
   },
@@ -19,7 +22,7 @@
     "scripts": ["background.js"]
   },
 
-  "browser_action": {
+  "action": {
     "default_icon": "icons/message.svg"
   },
 
