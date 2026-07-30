@@ -39,17 +39,16 @@ browser.browserAction.onClicked.addListener(toggleBookmark);
 /*
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
-function updateAddonStateForActiveTab(tabs) {
+function updateAddonStateForActiveTab() {
 
   function isSupportedProtocol(urlString) {
     let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
-    let url = document.createElement('a');
-    url.href = urlString;
+    let url = new URL(urlString);
     return supportedProtocols.indexOf(url.protocol) != -1;
   }
 
   function updateTab(tabs) {
-    if (tabs[0]) {
+    if (tabs.length) {
       currentTab = tabs[0];
       if (isSupportedProtocol(currentTab.url)) {
         let searching = browser.bookmarks.search({url: currentTab.url});
