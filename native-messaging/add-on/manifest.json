@@ -14,16 +14,14 @@
       "data_collection_permissions": {
         "required": ["none"]
       },
-      "strict_min_version": "50.0"
+      "strict_min_version": "109.0"
     }
   },
 
-  "background": {
-    "scripts": ["background.js"]
-  },
-
   "action": {
-    "default_icon": "icons/message.svg"
+    "default_icon": "icons/message.svg",
+    "default_title": "Native messaging example",
+    "default_popup": "popup/ping_pong.html"
   },
 
   "permissions": ["nativeMessaging"]
