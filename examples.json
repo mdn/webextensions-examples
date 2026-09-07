@@ -385,7 +385,7 @@
   },
   {
     "description": "Example of native messaging, including a Python application and an extension which exchanges messages with it.",
-    "javascript_apis": ["browserAction.onClicked", "runtime.connectNative"],
+    "javascript_apis": ["runtime.connectNative"],
     "name": "native-messaging"
   },
   {
