@@ -8,7 +8,7 @@
 
   "theme": {
     "images": {
-      "additional_backgrounds": "weta_for_tiling.png"
+      "additional_backgrounds": [ "weta_for_tiling.png" ]
     },
 
     "properties": {
