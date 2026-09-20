@@ -25,6 +25,7 @@
   "permissions": [
     "webRequest",
     "webRequestBlocking",
+    "webRequestAuthProvider",
     "storage",
     "https://httpbin.org/basic-auth/*"
   ]
