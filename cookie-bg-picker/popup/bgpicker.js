@@ -3,30 +3,35 @@
 let bgBtns = document.querySelectorAll('.bg-container button');
 let colorPick = document.querySelector('input');
 let reset = document.querySelector('.color-reset button');
-let cookieVal = { image : '',
-                  color : '' };
+let cookieVal = {
+  image : '',
+  color : '',
+};
 
 function getActiveTab() {
-  return browser.tabs.query({active: true, currentWindow: true});
+  return browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  }).then(tabs => tabs[0]);
 }
 
 /* apply backgrounds to buttons */
 /* add listener so that when clicked, button applies background to page HTML */
 
-for(let i = 0; i < bgBtns.length; i++) {
+for (let i = 0; i < bgBtns.length; i++) {
   let imgName = bgBtns[i].getAttribute('class');
   let bgImg = 'url(\'images/' + imgName + '.png\')';
   bgBtns[i].style.backgroundImage = bgImg;
 
   bgBtns[i].onclick = function(e) {
-    getActiveTab().then((tabs) => {
+    getActiveTab().then((tab) => {
       let imgName = e.target.getAttribute('class');
       let fullURL = browser.extension.getURL('popup/images/'+ imgName + '.png');
-      browser.tabs.sendMessage(tabs[0].id, {image: fullURL});
+      browser.tabs.sendMessage(tab.id, {image: fullURL});
 
       cookieVal.image = fullURL;
       browser.cookies.set({
-        url: tabs[0].url,
+        url: tab.url,
         name: "bgpicker", 
         value: JSON.stringify(cookieVal)
       })
@@ -37,13 +42,13 @@ for(let i = 0; i < bgBtns.length; i++) {
 /* apply chosen color to HTML background */
 
 colorPick.onchange = function(e) {
-  getActiveTab().then((tabs) => {
+  getActiveTab().then((tab) => {
     let currColor = e.target.value;
-    browser.tabs.sendMessage(tabs[0].id, {color: currColor});
+    browser.tabs.sendMessage(tab.id, {color: currColor});
 
     cookieVal.color = currColor;
     browser.cookies.set({
-      url: tabs[0].url,
+      url: tab.url,
       name: "bgpicker", 
       value: JSON.stringify(cookieVal)
     })
@@ -53,13 +58,13 @@ colorPick.onchange = function(e) {
 /* reset background */
 
 reset.onclick = function() {
-  getActiveTab().then((tabs) => {
-    browser.tabs.sendMessage(tabs[0].id, {reset: true});
+  getActiveTab().then((tab) => {
+    browser.tabs.sendMessage(tab.id, {reset: true});
 
-    cookieVal = { image : '',
-                  color : '' };
+    cookieVal.image = '';
+    cookieVal.color = '';
     browser.cookies.remove({
-      url: tabs[0].url,
+      url: tab.url,
       name: "bgpicker" 
     })
   });
