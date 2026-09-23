@@ -1,0 +1,23 @@
+body {
+    width: 400px;  /* Set the desired width */
+    height: 300px; /* Set the desired height */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+}
