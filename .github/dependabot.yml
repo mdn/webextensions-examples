@@ -4,5 +4,141 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
     commit-message:
-      prefix: "ci(deps): "
+      prefix: ci
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /eslint-example
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /mocha-client-tests/addon
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /mocha-client-tests
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /store-collected-images/webextension-with-webpack
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: npm
+    directory: /webpack-modules
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
+    groups:
+      npm-prod:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      npm-dev:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
