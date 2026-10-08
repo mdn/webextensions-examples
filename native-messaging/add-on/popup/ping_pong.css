@@ -1,0 +1,40 @@
+html, body {
+  width: 200px;
+  font: caption;
+}
+
+button {
+  border: none;
+  width: 100%;
+  margin: 3% auto;
+  padding: 4px;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: #E5F2F2;
+}
+
+button:hover {
+  background-color: #CFF2F2;
+}
+
+button:disabled {
+  background-color: #EEEEEE;
+  color: #767676;
+  cursor: default;
+}
+
+#messages {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#messages li {
+  padding: 2px 0;
+  border-top: 1px solid #E0E0E0;
+}
+
+.error {
+  color: #A4000F;
+}
