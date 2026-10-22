@@ -45,7 +45,7 @@ if not os.path.exists(bat_path):
 py_lines = open(bat_path, 'r').readlines()
 py_path = None
 for line in py_lines:
-    if line.startswith('call python '):
+    if line.startswith('call python3 '):
         py_path = line[12:].replace('\\\\', '\\').strip()
 
 if not py_path:
