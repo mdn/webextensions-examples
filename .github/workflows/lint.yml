@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -28,12 +27,44 @@ jobs:
 
       - run: npm ci
 
-      - uses: reviewdog/action-eslint@3ee2a450da17e060b9dfa4bffd53976906c6b2b0 # v1
+      - name: Run eslint
+        run: |
+          set +e
+          npx eslint . --format unix --output-file eslint.txt
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+        id: eslint
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          reporter: github-pr-review
-          eslint_flags: "."
-          filter_mode: "file"
-          fail_on_error: true
+          name: eslint-report
+          path: eslint.txt
+          retention-days: 1
+
+      - name: Fail on eslint errors
+        if: steps.eslint.outputs.exit_code != '0'
+        run: exit 1
+
+  eslint-report:
+    name: eslint report
+    needs: eslint
+    if: ${{ !cancelled() && needs.eslint.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    # Holds the write token, so it must never install or run PR code.
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: eslint-report
+
+      - uses: reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f # v1.5.0
+
+      - name: Post review comments
+        run: reviewdog -efm="%f:%l:%c: %m" -name=eslint -reporter=github-pr-review -filter-mode=file < eslint.txt
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
 
   validate:
     name: validate
