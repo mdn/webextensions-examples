@@ -6,7 +6,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.11",
     "ajv": "^8.20.0",
-    "eslint": "^8.48.0"
+    "eslint": "^10.15.0"
   },
   "repository": {
     "type": "git",
