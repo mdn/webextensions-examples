@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Example Firefox add-ons created using the WebExtensions API",
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.11",
+    "@babel/eslint-parser": "^8.1.2",
     "ajv": "^8.20.0",
     "eslint": "^8.48.0"
   },
