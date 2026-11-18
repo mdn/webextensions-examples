@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WebAuthn extension</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      width: 300px;
+      padding: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 5px 0;
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+    }
+  </style>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>WebAuthn</h1>
+  <textarea id="optionsText" placeholder='Enter options JSON here'></textarea>
+  <button id="registerButton">Register (navigator.credentials.create)</button>
+  <button id="authButton">Authenticate (navigator.credentials.get)</button>
+  <script src="popup.js"></script>
+</body>
+</html>
